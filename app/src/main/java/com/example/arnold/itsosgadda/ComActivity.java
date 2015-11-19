@@ -40,7 +40,6 @@ public class ComActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(reload, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
