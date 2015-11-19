@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        iissgadda_release {
+            keyAlias 'iissgaddarelease'
+            keyPassword 'arn81096'
+            storeFile file('C:/Users/Arnol\'d/AndroidStudioProjects/ITSOSGADDA/iissgadda.jks')
+            storePassword 'arn81096'
+        }
+        debug {
+            storeFile file("debug.keystore")
+        }
+    }
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+    defaultConfig {
+        applicationId 'com.example.arnold.itsosgadda'
+        minSdkVersion 15
+        versionCode 1
+        versionName '2.2-release'
+        signingConfig signingConfigs.iissgadda_release
+    }
+    //noinspection GroovyAssignabilityCheck
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            jniDebuggable false
+            signingConfig signingConfigs.iissgadda_release
+            renderscriptDebuggable false
+            zipAlignEnabled true
+        }
+        debug {
+            debuggable true
+            jniDebuggable false
+            signingConfig signingConfigs.debug
+            renderscriptDebuggable false
+            minifyEnabled false
+            zipAlignEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.google.android.gms:play-services:7.5.0'
+    compile files('libs/universal-image-loader-1.9.4.jar')
+    compile files('libs/json-simple-1.1.1.jar')
+    compile files('libs/mysql-connector-java-3.0.17-ga-bin.jar')
+}

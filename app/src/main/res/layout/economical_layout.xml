@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EconomicalActivity">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/economical_LinearLayour"
+            android:background="#FF6347">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/economicTxtView"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/economical_descriptor"
+                android:textSize="30dp"
+                android:textColor="#000"
+                android:textAllCaps="true"
+                android:background="#FF6347"
+                android:text="@string/economic_sector" />
+
+
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/scrollView"
+                android:layout_gravity="center_horizontal"
+                android:fillViewport="false"
+                android:background="#ffffff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/economical_story"
+                    android:id="@+id/economical_story_id" />
+            </ScrollView>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <fragment
+        android:id="@+id/navigation_drawer"
+        android:layout_width="@dimen/navigation_drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:name="com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment"
+        tools:layout="@layout/drawer_main_navitagion_drawer" />
+
+
+</android.support.v4.widget.DrawerLayout>

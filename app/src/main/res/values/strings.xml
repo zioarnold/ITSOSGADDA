@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="app_name">I.I.S.S. \"C. E. Gadda\"</string>
+    <string name="EnglishLanguageSelected">English</string>
+    <string name="RussianLanguageSelected">Russian</string>
+    <string name="ItalianLanguageSelected">Italian</string>
+    <string name="La_nostra_storia">Our story</string>
+    <string name="action_settings">Settings</string>
+    <string name="StorySchool">The Institute was founded in 1973/1974 on two main purposes:\n
+    - to create in a dislocated area of our territory a
+        secondary school offering different education options\n
+    - to innovate by introducing some new courses and an experimental model of organization.\n
+    The Institute was included by the Ministry of Public Administration
+        among the school members of the National Plan of Information Technology.\n
+In 1998 the Institute was named "Carlo Emilio Gadda" to show its
+        double role in education both in human and scientific field.\n
+In 2000, the Bardi Project was introduced with the objective of decentralizing the
+        first two years of secondary school in the territory of Bardi.\n
+In 2011 a Scientific and Technical Committee was instituted with some local companies.
+        It is made up of some entrepreneurs and
+teachers and it has a consultative and proactive function.\n
+Since 2012 the school has been identified as Technical Professional Polo for
+        Mechanics with deliberation of the Regional Commission of 17/12/2012.\n
+Our school offers three study courses split in four branches:\n
+“Liceo Scientifico opzione Scienze Applicate” is a course mainly focused
+        on scientific subjects:\n
+o Chemistry;\n
+o Earth Science;\n
+o Biology\n
+o Latin studies are not expected and are substituted by IT studies.\n
+    “Technical” course:\n
+o Information technology :\n
+Is a course focused on the achievement of IT and TLC skills.
+The main subjects are:\n
+Science and applied technology\n
+Computer studies\n
+o Economical course of Administration, Finance and Marketing:\n
+This is a type of course focused on the study of business, economics,
+        public relations with a degree in economics.\n
+The main subjects are:\n
+Law;\n
+Political Economy;\n
+Business Economics;\n
+Two foreign languages\n
+The final competences to be achieved are in banking, accountancy, sale and marketing fields.\n
+    “Professional course”:\n
+“MAT” is a type of course concentrated on the professional subjects where most
+part of the lessons take place in laboratories.\n
+It proposes two branches: electrical and mechanical.\n
+    The Institute also offers the possibility to follow some
+        extra-curricular courses in view of the achievement of some
+        certifications recognized by the European Framework.\n;
+The certifications proposed are:\n
+- LANGUAGE CERTIFICATIONS: students can improve their knowledge
+        certifying their competences in foreign languages.\n
+For the English language:\n
+PET (Preliminary English Test) level B1\n
+FCE (First Certificate in English) level B2\n
+For the French language:\n
+DELF (Diplo\'me E\'tranger Langue Francaise) levels B1 and B2\n
+- ECDL (European Computer Driving Licence): it allows to improve computer and IT software knowledge.\n
+- CAD (Computer-Aided Drafting): it allows to improve IT drafting software knowledge.\n
+Every year the Institute also offers students the possibility to have a
+        school-work experience in local businesses, to encourage cooperative relationships
+between school and working context.\n
+Some classes are also engaged in drama modules completely developed in foreign languages.\n
+The Institute organizes some full-immersion weeks at school or abroad to improve
+        language skills in a real communicative
+context.</string>
+    <string name="main_menu_body">Back to menu</string>
+    <string name="storyButton">Our story</string>
+    <string name="specSectionButtonId">Study addresses</string>
+    <string name="lyceum_button"> Lyceum</string>
+    <string name="spec_IT_TLC_button">IT and TLC</string>
+    <string name="spec_Economy_button">Economic</string>
+    <string name="i_percorsi">The courses:</string>
+    <string name="op_mech_elet_button">Electrical Mechanical</string>
+    <string name="backSpecSectionID">Back</string>
+    <string name="lyceum_descriptor" translatable="false">lyceum_description_content</string>
+    <string name="lyceum_text_story">Starting from the school year 2014/2015, at the Institute
+    “C. E. Gadda” of Fornovo di Taro, the new first class of the high School Applied
+    Science option will be characterized by a Plan of Study that is particularly innovative.\n
+
+The disciplines related to the Technological and Scientific background will
+        be faced with new teaching methodologies in collaboration with
+        the major companies present on our territory.\n
+
+In fact, companies such as Dallara, Bercella, Turbocoating, share a great boost
+        to the research and technological innovation, have expressed interest
+        to engage in perspective with the School.\n
+
+A School is able to develop a solid scientific culture through an approach that
+        is technologically advanced, capable of giving maximum value to the students
+        and to allow for the enhancement of excellence. \n
+
+“What we are doing as a company, we are doing for our area. In a global competition,
+        the challenge is not between individual companies but between the local systems
+        that will compete for the future. The dissemination of the technical-scientific
+        culture and the integration between education, education, training and innovative
+        economic and productive fabric represent a strategic factor to maintain, or
+        increase, the competitiveness on the international markets. In this perspective,
+        we watch with interest the initiative, promoted by the Institute Gadda of Fornovo,
+        to enrich the high School Science Applied Science option, with the introduction of
+        innovative elements under the aspect of the methodology-instrumental and
+        experimental-laboratory” (Andrea Pontremoli - CEO Dallara Automobili S.p.A.)</string>
+    <string name="it_tlc_story">The IT course, in which the Gadda boasts
+        thirty years of experience, provides a preparation of the
+        scientific-technological that gives access to the University and allows you to use:\n
+        in the industrial sector: the industry for the control of automated systems,
+        the computer industry in general and software house\n
+        in data processing centers\n
+        in the free profession\n
+    The Diploma in “Computer science and Telecommunications”:\n
+        - he has specific expertise in the field of computer systems,
+        information processing, applications, and techno-Web technologies,
+        networks, and communications equipment;\n
+        - has skills and knowledge that, according to the different joints,
+        are turning to the analysis, design, installation and management of computer
+        systems, databases, networks, computer systems, multimedia systems and transmission
+        equipment, and rice-tion of signals;\n
+        - skills oriented to the management of the lifecycle of the applications that can apply to
+        the software: management - service-oriented - systems-dedicated “built-in”;\n
+        - collaborates in the management of projects, operating within the framework of national
+        and international regulations concerning the safety in all its meanings
+        and protection of the information (“privacy”).\n
+        Is able to:\n
+        - collaborate, under the regulations, for the purposes of the
+        occupational safety and environmental protection, and to intervene
+        in the improvement of the quality of the products and in the production
+        organization of enterprises;\n
+        - collaborate in the planning of the activities of production systems,
+        where to apply, ability to communicate and interact efficiently,
+        both in writing and orally;\n
+        - exercise, in contexts characterized mainly by a management
+        team, a rational approach, conceptual and analytical,
+        oriented to the achievement of the objective, in the
+        analysis and implementation of solutions;\n
+        - use a advanced level of the English language to
+        communicate in a professional environment characterized by strong internationalization;\n
+        - define technical specifications, use, and write user manuals.\n
+        STARTING FROM THE THIRD YEAR IS PROVIDED FOR THE JOINT "COMPUTER science": \n
+        “Computer science”, in which it is in-depth analysis, comparison and design of
+        devices and tools and the development of computer applications.</string>
+    <string name="it_tlc_descriptor_img">it_tlc_descriptor</string>
+    <string name="economical_descriptor">economical_descriptor</string>
+    <string name="economical_story">The Diploma in the “Administration, Finance and Marketing”
+        has general competence in the field of macro-phenomena of economic,
+        national and international, of the civil law, and fiscal, systems, and
+        processes of the enterprise (organization, planning, programming,
+        administration, finance and control), marketing tools, products,
+        insurance, financial and social economy. Integrates the skills of
+        the professional domain specific languages and computer science to
+        operate in the information system of the company and contribute both
+        to the innovation is to improve the organization and technology of the
+        company entered in an international context.\n
+        Through the general path, you can:\n
+        - Track operations management by using methods, tools, techniques,
+        accounting and off-balance-sheet in line with the principles of
+        national and international;\n
+        - write and interpret documents the administrative and financial business;\n
+        - manage compliance of a fiscal nature;\n
+        - assist with contract negotiations related to the different functional areas of the company;\n
+        - carry out marketing activities;\n
+        - assist in the organization, management and control of business processes;\n
+        - use technologies and software applications for the
+        integrated management of administration, finance and marketing.</string>
+    <string name="mech_elet_ImageView" translatable="false">mech_elet_assist_descriptor</string>
+    <string name="mat_elet_story">The Diploma of vocational education in the
+        address “Maintenance and technical assistance” has the skills to manage,
+        organize and carry out installation and routine maintenance, diagnostic,
+        repair, and testing of relatively small systems, equipment and technical
+        devices, and also maritime. Its technical and professional skills are related
+        to the sectors of the productive sectors in general (electronics, electrical
+        engineering, mechanical engineering, heat engineering and others) and
+        specifically developed in relation to the needs expressed by the community.\n
+        Is able to:\n
+        - check and repair during the life cycle of the equipment
+        and facility, the compliance of their operation to the technical
+        specifications and regulations on the safety of users and
+        the protection of the environment;\n
+        - observe the principles of ergonomics, safety and
+        hygiene regulations governing the implementation of the interventions;\n
+        - organize and participate in activities for the disposal of waste and residual
+        substances, related to the operation of the machines,
+        and for the disposal of the devices;\n
+        - use the multi-disciplinary skills in the context of technological,
+        economic and organisational present in the
+        working processes, and services that involve;\n
+        - functionally manage the inventory and the procedures for the procurement;\n
+        - assist users and provide useful information on the
+        proper use and operation of the devices;\n
+        - acting in its scope of intervention in accordance with the
+        specific regulations and take autonomous responsibility.\n
+
+        Starting from the school year 2014/2015, the College of Teachers,
+        in date 13/06/2014, has approved the curvature of the address on
+        the "composite Materials" to respond to the demands arising from
+        the productive fabric of the territory already accepted in the newborn Mechanic.</string>
+    <string name="aboutButton">About</string>
+    <string name="created_for">I.I.S.S. \"C. E. Gadda\" 2.1.3</string>
+    <string name="e_registry">E-Registry</string>
+    <string name="feedback">Feedback</string>
+    <string name="To">To</string>
+    <string name="email_subject">Subject</string>
+    <string name="Email_to_send">Message to send…</string>
+    <string name="send_email">Send e-mail</string>
+    <string name="choose_email_client">Choose an Email client:</string>
+    <string name="forgot_digit_message">You forgot to enter the message</string>
+    <string name="forgot_digit_subject">You forgot to enter the subject</string>
+    <string name="emailId_not_valid">Entered email ID is not Valid</string>
+    <string name="forgot_email_id_enter">You forgot to enter the email ID</string>
+    <string name="emailTo" translatable="false">vl80tk@gmail.com</string>
+    <string name="AboutApp">About app</string>
+    <string name="subject" translatable="false">Your app</string>
+    <string name="en_lang_button" translatable="false" />
+    <string name="ru_lang_button" translatable="false">ru_lang_button</string>
+    <string name="en_lang_button_descriptor" translatable="false">en_lang_button_descriptor</string>
+    <string name="ru_lang_button_descriptor" translatable="false">ru_lang_button_descriptor</string>
+    <string name="it_lang_button_descriptor" translatable="false">it_lang_button_descriptor</string>
+    <string name="title_activity_maps">Find us</string>
+    <string name="findus">Find us</string>
+    <string name="loading_progress">Loading…</string>
+    <string name="reaching_from_fornovo_FS">Nazionale n.6 street - 43045 Fornovo di Taro - PR - (IT)\n
+        press OK to show the route on GMaps\n\n
+    Note: to make it work you have to enable to find your
+        device via Wifi and Mobile networks without GPS, otherwise it will be crashed, soon
+    we will fix it ! </string>
+    <string name="click_ok_to_proceed">Click OK to Proceed</string>
+    <string name="locale_lang">App language is English (UK)</string>
+    <string name="dev_contact">Contact to Developer</string>
+    <string name="communications_news">Communications</string>
+    <string name="title_activity_main_navitagion_drawer" translatable="false">MainNavitagionDrawer</string>
+
+    <string name="en_lang">English</string>
+    <string name="ru_lang">Russian</string>
+    <string name="it_lang">Italian</string>
+
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+
+    <string name="action_example" translatable="false">Example action</string>
+    <string name="economic_sector">Economic</string>
+    <string name="lyceum_sector">Lyceum</string>
+    <string name="it_tlc_sector">ICT</string>
+    <string name="mec_elect_sector">Mechanical Electrical</string>
+    <string name="dev_team">Dev Team</string>
+    <string name="dev_team_list">
+        - ALBERT CHARYIEV: Main assistance of head\n
+    </string>
+
+    <string name="enable_position_yes_no">Are you want to enable your position?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="no_network_enabled">Connection error</string>
+    <string name="network_enabled">Please open Wi-Fi connection or Mobile connection</string>
+
+
+    <string name="iissgadda_213">IISS C. E. Gadda v2.1.3</string>
+    <string name="iissgadda_213_updateList">
+        - ProgressBar on webpages fixed\n
+        - Release version of app
+    </string>
+    <string name="iissgadda_212">IISS C. E. Gadda v2.1.2</string>
+    <string name="iissgadda_212_updateList">
+        - Theme app fixed\n
+        - NavigationDrawerMenu added with different languages
+    </string>
+    <string name="iissgadda_2">IISS C. E. Gadda v2</string>
+    <string name="iissgadda_2_updateList">
+        - New AlertDialog windows\n
+        - GoogleMap Integration
+    </string>
+    <string name="iissgadda_19">IISS C. E. Gadda v1.9</string>
+    <string name="iissgadda_1_9_updateList">
+        - Graphic aspect now close to logo colors\n
+        - Info app window changed\n
+        - Icon languages added
+    </string>
+    <string name="iissgadda_v18">IISS C. E. Gadda v1.8</string>
+    <string name="iissgadda_1_8_list">
+        - Opening E-Registry in app\n
+        - Menu inflater on top right
+    </string>
+    <string name="iissgadda_17">IISS C. E. Gadda v1.7</string>
+    <string name="iissgadda_1_7_list">
+        - ic_launcher replaced
+    </string>
+    <string name="iissgadda_14">IISS C. E. Gadda v1.4</string>
+    <string name="iissgadda_14_list">
+        - E-Registry opening released
+    </string>
+    <string name="iissgadda_v10">IISS C. E. Gadda v1.0</string>
+    <string name="iissgadda_v10_list">
+        - Russian localization released\n
+        - English localization released\n
+        - Italian localization released
+    </string>
+    <string name="photo_gallery">Photo gallery</string>
+    <string name="still_working">On working…</string>
+    <string name="head_of_project">ARNOL\'D CHARYYEV - Project leader</string>
+    <string name="italian_content">Italian Content</string>
+    <string name="italian_content_list">
+        IISS C. E. Gadda staff
+    </string>
+    <string name="id">ID</string>
+    <string name="news">news</string>
+    <string name="link">link</string>
+    <string name="iissgadda_22">IISS C. E. Gadda v2.2</string>
+    <string name="iissgadda_22_updateList">- Communication news are working now…\n
+    - Navigation drawer menu changed…</string>
+
+    <string-array name="nav_drawer_items">
+        <item>Our Story</item>
+        <item>Study addresses</item>
+        <item>E-Registry</item>
+        <item>Feedback</item>
+        <item>Find us</item>
+        <item>Communications</item>
+        <item>Photo gallery</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@mipmap/ic_arrow</item>
+        <item>@mipmap/ic_arrow</item>
+        <item>@mipmap/ic_arrow</item>
+        <item>@mipmap/ic_arrow</item>
+        <item>@mipmap/ic_arrow</item>
+        <item>@mipmap/ic_arrow</item>
+        <item>@mipmap/ic_arrow</item>
+    </array>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IT_TLCActivity">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:background="#4169E1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/itTlcTxtView"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/it_tlc_descriptor_img"
+                android:textColor="#000"
+                android:textSize="30dp"
+                android:textAllCaps="true"
+                android:text="@string/it_tlc_sector" />
+
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#FFF"
+                android:id="@+id/scrollView"
+                android:layout_gravity="center_horizontal"
+                android:fillViewport="false">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/it_tlc_story"
+                    android:id="@+id/it_tlc_text" />
+            </ScrollView>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <!-- The drawer is given a fixed width in dp and extends the full height of
+         the container. -->
+    <fragment
+        android:id="@+id/navigation_drawer"
+        android:layout_width="@dimen/navigation_drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:name="com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment"
+        tools:layout="@layout/drawer_main_navitagion_drawer" />
+
+
+</android.support.v4.widget.DrawerLayout>

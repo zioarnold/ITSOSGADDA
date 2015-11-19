@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="action_settings">Impostazioni</string>
+    <string name="app_name">I.I.S.S. \"C. E. Gadda\"</string>
+    <string name="main_menu_body">Principale</string>
+    <string name="specSectionButtonId">Indirizzi di studio</string>
+    <string name="lyceum_button">Percorso Liceale</string>
+    <string name="spec_IT_TLC_button">Percorso tecnico: informatica e telecom.</string>
+    <string name="spec_Economy_button">Percorso tecnico: Economico</string>
+    <string name="op_mech_elet_button">Percorso prof: Elettronico Meccanico</string>
+    <string name="backSpecSectionID">Indietro</string>
+    <string name="lyceum_text_story">A partire dall’anno scolastico 2014/2015,
+        presso l’Istituto “C.E. Gadda” di Fornovo di Taro,
+        la nuova classe prima del Liceo Scientifico opzione
+        Scienze Applicate sarà caratterizzata da un Piano di
+        Studi particolarmente innovativo.\n
+        Le discipline afferenti la cultura Scientifico-Tecnologica
+        saranno affrontate con nuove metodologie didattiche in
+        collaborazione con le principali aziende presenti sul nostro territorio.
+        Infatti, aziende come Dallara, Bercella, Turbocoating, accomunate da
+        una grande spinta verso la ricerca e l\’innovazione tecnologica, hanno
+        espresso l\’interesse a confrontarsi in maniera prospettica con la Scuola.
+        Un Scuola capace di sviluppare una solida cultura
+        scientifica tramite un approccio tecnologicamente avanzato,
+        idonea a valorizzare al massimo gli studenti ed a consentire il
+        potenziamento delle eccellenze.
+        “Quello che stiamo facendo come impresa,
+        lo stiamo facendo anche per il nostro territorio.
+        In una competizione globale la sfida non è tra singole aziende,
+        ma tra sistemi territoriali che si contenderanno il futuro.
+        La diffusione della cultura tecnico-scientifica e l\’integrazione tra istruzione,
+        educazione, formazione innovativa e tessuto economico-produttivo
+        rappresentano un fattore strategico per mantenere, o accrescere,
+        la competitività sui mercati internazionali.
+        In quest\’ottica non possiamo che guardare con interesse
+        l\’iniziativa, promossa dall\’Istituto Gadda di Fornovo, di
+        arricchire il Liceo Scientifico opzione Scienze Applicate, con
+        l\’introduzione di elementi innovativi sotto
+        l\’aspetto metodologico-strumentale e sperimentale-laboratoriale”
+        (Andrea Pontremoli – CEO Dallara Automobili S.p.A.)</string>
+    <string name="it_tlc_story">L’indirizzo informatico, in cui il Gadda vanta un’esperienza
+        trentennale, fornisce una preparazione scientifico-tecnologica
+        che da\' accesso all’Universita\' e consente di
+        impiegarsi:\n
+        nel settore industriale (industria per il controllo di sistemi automatici,
+        industria informatica in genere e software house)\n
+        in centri elaborazione dati\n
+        nella libera professione\n
+    Il Diplomato in “Informatica e Telecomunicazioni”:\n
+        - ha competenze specifiche nel campo dei sistemi informatici,
+        dell’elaborazione dell’informazione, delle applicazioni e
+        tecno-logie Web, delle reti e degli apparati di comunicazione;\n
+        - ha competenze e conoscenze che, a seconda delle diverse
+        articolazioni, si rivolgono all’analisi, progettazione, installazione
+        e gestione di sistemi informatici, basi di dati, reti di sistemi
+        di elaborazione, sistemi multimediali e apparati di trasmissione e
+        rice-zione dei segnali;\n
+        - ha competenze orientate alla gestione del ciclo di vita delle
+        applicazioni che possono rivolgersi al software:
+        gestionale – orientato ai servizi – per i sistemi dedicati “incorporati”;\n
+        - collabora nella gestione di progetti, operando nel quadro di
+        normative nazionali e internazionali, concernenti la sicurezza in tutte
+        le sue accezioni e la protezione delle informazioni (“privacy”).\n
+        E\' in grado di\n
+        - collaborare, nell’ambito delle normative vigenti, ai fini della
+        sicurezza sul lavoro e della tutela ambientale e di intervenire nel
+        miglioramento della qualita\' dei prodotti e nell’organizzazione produttiva delle imprese;\n
+        - collaborare alla pianificazione delle attività di produzione
+        dei sistemi, dove applica capacita\' di comunicare e interagire effica-cemente,
+        sia nella forma scritta che orale;\n
+        - esercitare, in contesti di lavoro caratterizzati prevalentemente da una
+        gestione in team, un approccio razionale, concettuale e analitico, orientato
+        al raggiungimento dell’obiettivo, nell’analisi e nella realizzazione delle soluzioni;\n
+        - utilizzare a livello avanzato la lingua inglese per
+        interloquire in un ambito professionale caratterizzato da forte internazionalizzazione;\n
+        - definire specifiche tecniche, utilizzare e redigere manuali d\’uso.\n
+        A PARTIRE DAL TERZO ANNO E\' PREVISTA L\'ARTICOLAZIONE "INFORMATICA": \n
+        “Informatica”, in cui viene approfondita l’analisi,
+        la comparazione e la progettazione di dispositivi e
+        strumenti informatici e lo sviluppo delle applicazioni informatiche.
+    </string>
+    <string name="it_tlc_descriptor_img">it_tlc_descriptor</string>
+    <string name="economical_descriptor">economical_descriptor</string>
+    <string name="economical_story">Il Diplomato in “Amministrazione, Finanza e Marketing” ha
+        competenze generali nel campo dei macrofenomeni economici
+        nazionali ed internazionali, della normativa civilistica e fiscale,
+        dei sistemi e processi aziendali (organizzazione, pianificazione,
+        programmazione, amministrazione, finanza e controllo), degli strumenti
+        di marketing, dei prodotti assicurativo-finanziari e dell’economia sociale.
+        Integra le competenze dell’ambito professionale specifico con quelle linguistiche e
+        informatiche per operare nel sistema informativo dell’azienda e contribuire sia
+        all’innovazione sia al miglioramento organizzativo e tecnologico dell’impresa
+        inserita nel contesto internazionale.\n
+        Attraverso il percorso generale, è in grado di:\n
+        rilevare le operazioni gestionali utilizzando metodi, strumenti, tecniche contabili
+        ed extracontabili in linea con i principi nazionali ed internazionali;\n
+        redigere e interpretare i documenti amministrativi e finanziari aziendali;\n
+        gestire adempimenti di natura fiscale;\n
+        collaborare alle trattative contrattuali riferite alle diverse aree
+        funzionali dell’azienda;\n
+        svolgere attività di marketing;\n
+        collaborare all’organizzazione, alla gestione e al controllo dei processi aziendali;\n
+        utilizzare tecnologie e software applicativi per la gestione integrata di
+        amministrazione, finanza e  marketing.</string>
+    <string name="mat_elet_story">Il Diplomato di istruzione professionale
+    nell’indirizzo “Manutenzione e assistenza tecnica” possiede le
+    competenze per gestire, organizzare ed effettuare interventi di
+    installazione e manutenzione ordinaria, di diagnostica, riparazione e
+    collaudo relativamente a piccoli sistemi, impianti e apparati tecnici,
+    anche marittimi. Le sue competenze tecnico-professionali sono riferite
+    alle filiere dei settori produttivi generali (elettronica, elettrotecnica,
+    meccanica, termotecnica ed altri) e specificamente sviluppate in relazione
+    alle esigenze espresse dal territorio. È in grado di: - controllare e ripristinare,
+    durante il ciclo di vita degli apparati e degli impianti, la conformità del loro
+    funzionamento alle specifiche tecniche, alle normative sulla sicurezza degli utenti
+    e sulla salvaguardia dell’ambiente; - osservare i principi di ergonomia, igiene e
+    sicurezza che presiedono alla realizzazione degli interventi;\n
+    - organizzare e intervenire nelle attività per lo smaltimento di scorie e sostanze residue,
+    relative al funzionamento delle macchine, e per la dismissione dei dispositivi;\n
+    - utilizzare le competenze multidisciplinari di ambito tecnologico, economico e
+    organizzativo presenti nei processi lavorativi e nei servizi che lo coinvolgono;\n
+    - gestire funzionalmente le scorte di magazzino e i procedimenti per l’approvvigionamento;\n
+    - reperire e interpretare documentazione tecnica;\n
+    - assistere gli utenti e fornire le informazioni utili al corretto uso e
+    funzionamento</string>
+    <string name="StorySchool">L\'Istituto è nato nel 1973/74 con un duplice obiettivo:\n
+    a) creare in zone decentrate del territorio provinciale (Fornovo, Langhirano, San Secondo)
+        poli di scuola media superiore che offrissero una pluralità di proposte formative - e
+        quindi una molteplicità di scelte - in bacini di utenza periferici,
+        di piccole dimensioni e dispersi sul territorio consentendo un consistente
+        abbattimento del pendolarismo;\n
+    b) favorire l\'introduzione di innovazione nella scuola secondaria superiore,
+        istituendo corsi nuovi e un modello organizzativo sperimentale.
+    \nL\'impianto originario, caratterizzato fin dal suo avvio
+        da una spiccata connotazione sperimentale, si è nel
+        tempo strutturato ed arricchito di nuove proposte
+        formative a seguito delle innovazioni e delle verifiche
+        periodiche operate dal Collegio dei docenti. \n
+        Entrata in ordinamento nel 1978 (D.P.R. n.1106), la sperimentazione ha
+        continuato la sua evoluzione, conoscendo nel contempo una significativa
+        revisione (che ha coinvolto curricoli, programmi, contenuti, quadri orario) nel 1980/81.
+    \nCol passare del tempo la sede di San Secondo si è sviluppata
+        fino al conseguimento dell\'autonomia nel 1987; le sedi di Fornovo e
+        Langhirano hanno invece continuato di anno in anno a definire i
+        propri curricoli e l\'impianto formativo, chiedendone l\'approvazione
+        all\'Amministrazione centrale che per tale via garantiva la
+        conformità del progetto alle linee generali del sistema
+        educativo valide su tutto il territorio nazionale.\n
+    E\' grazie a questa continua tensione all\'autoverifica e al
+        miglioramento del servizio offerto all\'utenza che all\'Istituto è stata
+        sempre più riconosciuta una sua identità ed una sua capacità
+        di risposta alle domande del territorio.\n
+    L\'Istituto è stato inserito dal Ministero della Pubblica
+        Istruzione tra le scuole base del Piano Nazionale
+        dell\'Informatica.\n
+    Nel 1998 l\'Istituto è stato intitolato allo scrittore
+        Carlo Emilio Gadda per rispecchiarne la doppia anima
+        che presenta indirizzi di formazione umanistica e scientifica.\n
+    Nel 2000 viene avviato il Progetto Bardi, un biennio decentrato di
+        scuola secondaria di secondo grado nel territorio di Bardi.\n
+    Il Progetto è nato con l\’intento di contrastare l\’abbandono scolastico,
+        di permettere la piena realizzazione dell’obbligo di istruzione e
+        il conseguimento delle competenze di base della cittadinanza
+        europea anche agli studenti geograficamente svantaggiati
+        residenti nei comuni di Bardi, Varsi e Bore offrendo un
+        servizio scolastico di qualità direttamente sul territorio.\n
+    Con lo scopo di sperimentare un modello organizzativo
+        innovativo: gli studenti iscritti al biennio delle scuole
+        superiori del territorio e residenti nei comuni dell\’alta Val Ceno
+        seguono le lezioni delle materie dell\’area di equivalenza:
+        italiano, storia, inglese, matematica, Educazione Fisica a
+        Bardi tre giorni la settimana evitando il pendolarismo
+        verso le scuole di appartenenza collocate a 30 Km di distanza; s
+        eguono, invece, con la classe di appartenenza a Borgotaro,
+        Bedonia o Fornovo le altre discipline del corso di studio.\n
+    Nel 2010 viene rinnovato l’accordo di rete relativo al Progetto Bardi tra le scuole della zona:
+    \n~Istituto ”Gadda” di Fornovo di Taro
+    \n~Istituto ”Zappa-Fermi” di Borgotaro
+    \n~Istituto Comprensivo della Val Ceno
+    Nel 2011 è stato istituito il Comitato Tecnico Scientifico (C.T.S.)
+        con aziende significative del contesto socio-economico delle
+        diverse sedi del Gadda. Tale organo, primo nella provincia di Parma,
+        composto in modo paritetico da docenti interni e da esponenti della
+        realtà imprenditoriale ed economica del territorio, è un organismo
+        con funzioni consultive e propositive in merito all\’organizzazione delle
+        aree di indirizzo ed all’utilizzo degli spazi di
+        autonomia e flessibilità dell\’offerta formativa della scuola.\n
+    Promuove l\’istruzione tecnico-scientifica nelle scuole medie dei
+        comuni della zone limitrofe; offre borse di studio per
+        il conseguimento di certificazioni informatiche e  linguistiche.\n
+    Nel 2012 l\’Istituto viene individuato come Polo Tecnico Professionale
+        per la Meccanica con delibera della Giunta Regionale del 17/12/2012.\n
+    Lo scopo del Polo Tecnico Professionale per la Meccanica è
+        soprattutto quello di aggregare le varie realtà produttive,
+        istituzionali, formative  e della ricerca che gravitano
+        intorno a settori ritenuti strategici per il tessuto economico
+        territoriale. Lo scopo ultimo è quello di erogare servizi
+        formativi frutto di relazioni, dialogo, e progettualità comune,
+        il più possibile vicini ai reali bisogni del  territorio.</string>
+    <string name="La_nostra_storia">La nostra storia</string>
+    <string name="storyButton">La nostra storia</string>
+    <string name="aboutButton">Info App</string>
+    <string name="created_for">I.I.S.S. \"C. E. Gadda\" 2.1.3</string>
+    <string name="e_registry">Registro elettronico</string>
+    <string name="feedback">Lasciare un feedback</string>
+    <string name="Email_to_send">Messaggio da inviare…</string>
+    <string name="To">A chi</string>
+    <string name="send_email">Invia</string>
+    <string name="email_subject">Oggetto</string>
+    <string name="choose_email_client">Scegliere programma di invio e-mail:</string>
+    <string name="emailId_not_valid">Identificativo E-mail non valido</string>
+    <string name="forgot_digit_message">Ha dimenticato di digitare il messaggio</string>
+    <string name="forgot_digit_subject">Ha dimenticato di digitare il soggetto</string>
+    <string name="forgot_email_id_enter">Ha dimenticato di digitare e-mail</string>
+    <string name="EnglishLanguageSelected">Inglese</string>
+    <string name="ItalianLanguageSelected">Italiano</string>
+    <string name="RussianLanguageSelected">Russo</string>
+    <string name="AboutApp">Info su app</string>
+    <string name="i_percorsi">I nostri percorsi</string>
+    <string name="loading_progress">Caricamento…</string>
+    <string name="reaching_from_fornovo_FS">via Nazionale n. 6 - 43045 Fornovo di Taro - PR - (IT)\n
+        Premere OK per visualizzare la mappa.\n\n
+    Attenzione: per poter catturare la propria posizione e trovare la scuola, Lei deve
+        abilitare la funzionalità di catturare il suo telefono
+        tramite reti wifi e le reti telefoniche
+        senza GPS, altrimenti l\'app verrà chiuso,
+        a breve questo piccolo problema sarà risolto! </string>
+    <string name="click_ok_to_proceed">Clicca OK per procedere</string>
+    <string name="locale_lang">Lingua di dell\'app è Italiano (IT/CH)</string>
+    <string name="dev_contact">Contatta con Sviluppatore</string>
+    <string name="communications_news">Comunicazioni</string>
+    <string name="en_lang">Inglese</string>
+    <string name="it_lang">Italiano</string>
+    <string name="ru_lang">Russo</string>
+    <string-array name="nav_drawer_items">
+        <item>La nostra storia</item>
+        <item>Indirizzi di studio</item>
+        <item>Registro elettronico</item>
+        <item>Feedback</item>
+        <item>Trovaci</item>
+        <item>Comunicazioni</item>
+        <item>Foto</item>
+    </string-array>
+    <string name="economic_sector">Economico</string>
+    <string name="it_tlc_sector">IT / TLC</string>
+    <string name="lyceum_sector">Liceo</string>
+    <string name="mec_elect_sector">Meccanico-Elettrico</string>
+    <string name="title_activity_maps">Trovaci</string>
+    <string name="findus">Trovaci</string>
+    <string name="dev_team">Team sviluppatori</string>
+    <string name="dev_team_list">
+        - ALBERT CHARYIEV: Assistente principale\n
+    </string>
+    <string name="enable_position_yes_no">Lei vuole visualizzare la Sua posizione?</string>
+    <string name="yes">Sì</string>
+    <string name="no">No</string>
+    <string name="no_network_enabled">Errore di connessione</string>
+    <string name="network_enabled">Si prega di attivare la connessione Wi-Fi
+        \noppure connessione telefonica</string>
+    <string name="iissgadda_v18">IISS C. E. Gadda v1.8</string>
+    <string name="iissgadda_v10">IISS C. E. Gadda v1.0</string>
+    <string name="iissgadda_213">IISS C. E. Gadda v2.1.3</string>
+    <string name="iissgadda_212">IISS C. E. Gadda v2.1.2</string>
+    <string name="iissgadda_2">IISS C. E. Gadda v2</string>
+    <string name="iissgadda_19">IISS C. E. Gadda v1.9</string>
+    <string name="iissgadda_17">IISS C. E. Gadda v1.7</string>
+    <string name="iissgadda_14">IISS C. E. Gadda v1.4</string>
+    <string name="iissgadda_14_list">- Apertura registro elettronico</string>
+    <string name="iissgadda_1_7_list">- ic_launcher sostituito</string>
+    <string name="iissgadda_1_8_list">- Apertura Registro elettronico in app\n
+        - Menu scalabile</string>
+    <string name="iissgadda_1_9_updateList">- Aspetto grafico corrisponde all\'icona dell\'app\n
+        - Graficamente è stata cambiata la finestra info su app\n
+        - Bandiere di lingue </string>
+    <string name="iissgadda_212_updateList">- Theme app fixato\n
+        - NavigationDrawerMenu con la localizzazione</string>
+    <string name="iissgadda_213_updateList">- ProgressBar sulle pagine web fixato\n
+        - Versione di app è release non più debug</string>
+    <string name="iissgadda_2_updateList">- Nuove finestre AlertDialog\n
+        - Integrazione di Google Maps (GMaps)</string>
+    <string name="iissgadda_v10_list">- Localizzazione russa rilasciata\n
+        - Localizzazione inglese rilasciata\n
+        - Localizzazione italiana rilasciata</string>
+    <string name="photo_gallery">Foto </string>
+    <string name="still_working">Nella fase di sviluppo…</string>
+    <string name="head_of_project">ARNOL\'D CHARYYEV - Capo progetto</string>
+    <string name="italian_content">Contenuti italiani</string>
+    <string name="italian_content_list">IISS C. E. Gadda staff</string>
+    <string name="id">ID</string>
+    <string name="news">news</string>
+    <string name="link">link</string>
+    <string name="iissgadda_22">IISS C. E. Gadda v2.2</string>
+    <string name="iissgadda_22_updateList">- Visualizzazione delle communicazioni on line…\n
+    - Nuovo menu laterale</string>
+</resources>
