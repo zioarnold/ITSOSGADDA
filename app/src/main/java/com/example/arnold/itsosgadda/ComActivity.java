@@ -21,9 +21,8 @@ import java.sql.Statement;
 import static com.example.arnold.itsosgadda.R.menu.reload;
 
 public class ComActivity extends Activity {
-    private static final String url = "jdbc:mysql://188.209.81.18:3306/app_db";
-    private static final String user = "app";
-    private static final String pass = "4826159g";
+    private static final String url = "jdbc:mysql://188.209.81.18:3306/app_db",
+            user = "app", pass = "4826159g";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
