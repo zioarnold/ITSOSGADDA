@@ -32,7 +32,7 @@ public class ComActivity extends Activity {
         assert actionBar != null;
         actionBar.setIcon(R.mipmap.ic_launcher);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
-        testDB();
+        dataBaseConnect();
     }
 
     @Override
@@ -46,13 +46,13 @@ public class ComActivity extends Activity {
         int v = item.getItemId();
         switch (v) {
             case R.id.reload:
-                testDB();
+                dataBaseConnect();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void testDB() {
+    private void dataBaseConnect() {
         TextView textView = (TextView) findViewById(R.id.comTextView);
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().
