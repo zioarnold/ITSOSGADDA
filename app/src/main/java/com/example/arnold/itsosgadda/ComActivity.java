@@ -43,8 +43,8 @@ public class ComActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int i = item.getItemId();
-        switch (i) {
+        int v = item.getItemId();
+        switch (v) {
             case R.id.reload:
                 testDB();
                 break;
