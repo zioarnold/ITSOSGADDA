@@ -10,7 +10,6 @@ import android.text.method.ScrollingMovementMethod;
 import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.sql.Connection;
@@ -56,7 +55,6 @@ public class ComActivity extends Activity {
 
     private void testDB() {
         TextView textView = (TextView) findViewById(R.id.comTextView);
-        ListView listView = (ListView) findViewById(R.id.listView);
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().
                     permitAll().build();
