@@ -8,6 +8,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import static com.example.arnold.itsosgadda.R.id.imageViewStd;
 import static com.example.arnold.itsosgadda.R.mipmap.loading;
 import static com.example.arnold.itsosgadda.R.mipmap.loading_failed;
 
@@ -31,7 +32,7 @@ public class PhotoGalleryActivity extends Activity {
                 .defaultDisplayImageOptions(displayImageOptions)
                 .build();
         ImageLoader.getInstance().init(configuration);
-        imageView = (ImageView) findViewById(R.id.imageViewStd);
+        imageView = (ImageView) findViewById(imageViewStd);
         imageLoader.displayImage(url, imageView, displayImageOptions);
     }
 }

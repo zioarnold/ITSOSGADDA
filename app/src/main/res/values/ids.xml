@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="txtView" type="id">txtView</item>
-    <item name="MainMenuButton" type="id">MainMenuButton</item>
-    <item name="imageViewStd" type="id">imageViewLoader</item>
+    <item name="imageViewStd" type="id" />
 </resources>
