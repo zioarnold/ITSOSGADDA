@@ -32,6 +32,7 @@ import static com.example.arnold.itsosgadda.R.id.about_app;
 import static java.lang.Boolean.TYPE;
 
 
+
 public class EconomicalActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
