@@ -36,6 +36,10 @@ public class EconomicalActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
+    private AlertDialog dialog;
+    private AlertDialog.Builder builder;
+    private TextView tvDisplay;
+    private String data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -179,7 +183,7 @@ public class EconomicalActivity extends Activity implements
         int id = item.getItemId();
         switch (id) {
             case R.id.dev_team:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder = new AlertDialog.Builder(this);
                 builder.setIcon(R.mipmap.icon_dev_team)
                         .setTitle(R.string.dev_team)
                         .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
@@ -202,12 +206,12 @@ public class EconomicalActivity extends Activity implements
                             }
                         })
                         .show().setCanceledOnTouchOutside(true);
-                AlertDialog dialog = builder.create();
+                dialog = builder.create();
                 dialog.dismiss();
                 break;
             case R.id.subscribe:
-                TextView tvDisplay = new TextView(this);
-                final String data = "- vkontakte: https://vk.com/arnold.charyyev\n" +
+                tvDisplay = new TextView(this);
+                data = "- vkontakte: https://vk.com/arnold.charyyev\n" +
                         "- facebook: https://www.facebook.com/schyzomaniac.mind\n" +
                         "- youtube: https://www.youtube.com/user/Perceus100\n";
                 tvDisplay.setText(data);
@@ -228,8 +232,8 @@ public class EconomicalActivity extends Activity implements
                             }
                         })
                         .show();
-                AlertDialog dialogAlert = builder.create();
-                dialogAlert.dismiss();
+                dialog = builder.create();
+                dialog.dismiss();
                 break;
         }
         return super.onOptionsItemSelected(item);
