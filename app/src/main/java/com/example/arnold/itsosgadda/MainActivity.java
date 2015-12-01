@@ -34,12 +34,14 @@ import static android.view.View.OnClickListener;
 import static android.view.Window.FEATURE_ACTION_BAR;
 import static com.example.arnold.itsosgadda.R.id.about_app;
 import static com.example.arnold.itsosgadda.R.id.button_show_comunications;
+import static com.example.arnold.itsosgadda.R.id.container;
 import static com.example.arnold.itsosgadda.R.id.e_registryId;
 import static com.example.arnold.itsosgadda.R.id.feedback;
 import static com.example.arnold.itsosgadda.R.id.findus;
 import static com.example.arnold.itsosgadda.R.id.specSectionButtonId;
 import static com.example.arnold.itsosgadda.R.id.storyButton;
 import static com.example.arnold.itsosgadda.R.layout.activity_main;
+import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
 import static com.example.arnold.itsosgadda.R.menu.main_menu;
 import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 import static java.lang.Boolean.TYPE;
@@ -98,7 +100,7 @@ public class MainActivity extends Activity implements OnClickListener,
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                .replace(container, PlaceholderFragment.newInstance(position + 1))
                 .commit();
     }
 
@@ -153,7 +155,7 @@ public class MainActivity extends Activity implements OnClickListener,
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_main_navitagion_drawer, container, false);
+            return inflater.inflate(fragment_main_navitagion_drawer, container, false);
         }
 
         @Override
