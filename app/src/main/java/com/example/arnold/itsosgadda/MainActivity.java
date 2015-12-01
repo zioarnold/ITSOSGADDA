@@ -289,6 +289,7 @@ public class MainActivity extends Activity implements OnClickListener,
 
     private void communicationButtonClicked() {
         startActivity(new Intent(getApplicationContext(), ComActivity.class));
+
     }
 
     @Override

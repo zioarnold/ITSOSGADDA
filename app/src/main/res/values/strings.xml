@@ -308,7 +308,12 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="link">link</string>
     <string name="iissgadda_22">IISS C. E. Gadda v2.2</string>
     <string name="iissgadda_22_updateList">- Communication news are working now…\n
-    - Navigation drawer menu changed…</string>
+    - Navigation drawer menu changed…\n
+    - Daily notification of news</string>
+    <string name="notification_something_arrived">Communication</string>
+    <string name="notification_communication_arrived">Communications</string>
+    <string name="notification_check_for_communication">Please check if you have some new
+    communications</string>
 
     <string-array name="nav_drawer_items">
         <item>Our Story</item>

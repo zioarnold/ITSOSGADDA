@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import static android.content.Intent.ACTION_SEND;
+import static android.content.Intent.EXTRA_BUG_REPORT;
 import static android.content.Intent.EXTRA_EMAIL;
 import static android.content.Intent.EXTRA_SUBJECT;
 import static android.content.Intent.EXTRA_TEXT;
@@ -63,6 +64,7 @@ public class EmailSendingActivity extends Activity {
                         Intent email = new Intent(ACTION_SEND);
                         email.putExtra(EXTRA_EMAIL, new String[]{to});
                         email.putExtra(EXTRA_SUBJECT, subject);
+                        email.putExtra(EXTRA_BUG_REPORT, "/data/anr/traces.txt");
                         email.putExtra(EXTRA_TEXT, message);
                         email.setType("message/rfc822");
                         startActivity(createChooser(email,

@@ -291,5 +291,10 @@
     <string name="link">link</string>
     <string name="iissgadda_22">IISS C. E. Gadda v2.2</string>
     <string name="iissgadda_22_updateList">- Visualizzazione delle communicazioni on line…\n
-    - Nuovo menu laterale</string>
+    - Nuovo menu laterale…\n
+    - Notifiche quotidiane delle communicazioni</string>
+    <string name="notification_something_arrived">Communicazione</string>
+    <string name="notification_communication_arrived">Communicazioni</string>
+    <string name="notification_check_for_communication">Per favore controlla se sono arrivate
+    delle nuove communicazioni</string>
 </resources>
