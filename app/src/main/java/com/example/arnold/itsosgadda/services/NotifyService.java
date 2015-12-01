@@ -16,9 +16,7 @@ import com.example.arnold.itsosgadda.R;
 
 import static android.media.RingtoneManager.TYPE_NOTIFICATION;
 
-/**
- * Created by Arnol'd on 27.11.2015.
- */
+
 public class NotifyService extends Service {
     @Nullable
     @Override
