@@ -52,6 +52,9 @@ public class MainActivity extends Activity implements OnClickListener,
             findUsButton, communicationButton, photoGallery;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
+    private AlertDialog.Builder builder;
+    private AlertDialog dialog;
+    private TextView tvDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -243,7 +246,7 @@ public class MainActivity extends Activity implements OnClickListener,
                 dialog.dismiss();
                 break;
             case R.id.subscribe:
-                TextView tvDisplay = new TextView(this);
+                tvDisplay = new TextView(this);
                 final String data = "- vkontakte: https://vk.com/arnold.charyyev\n" +
                         "- facebook: https://www.facebook.com/schyzomaniac.mind\n" +
                         "- youtube: https://www.youtube.com/user/Perceus100\n";
@@ -313,7 +316,7 @@ public class MainActivity extends Activity implements OnClickListener,
                 communicationButtonClicked();
                 break;
             case findus:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder = new AlertDialog.Builder(this);
                 builder.setIcon(R.mipmap.ic_launcher)
                         .setTitle(R.string.created_for)
                         .setMessage(R.string.reaching_from_fornovo_FS)
@@ -325,7 +328,7 @@ public class MainActivity extends Activity implements OnClickListener,
                             }
                         })
                         .show().setCanceledOnTouchOutside(true);
-                AlertDialog dialog = builder.create();
+                dialog = builder.create();
                 dialog.dismiss();
                 break;
             case R.id.photoGallery:
