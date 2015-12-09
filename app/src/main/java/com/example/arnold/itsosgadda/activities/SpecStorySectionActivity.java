@@ -1,4 +1,4 @@
-package com.example.arnold.itsosgadda;
+package com.example.arnold.itsosgadda.activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -22,28 +22,43 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import static android.view.View.OnClickListener;
 import static com.example.arnold.itsosgadda.R.id.about_app;
+import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 
 
-public class IT_TLCActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class SpecStorySectionActivity extends Activity implements OnClickListener,
+        NavigationDrawerCallbacks {
+    private Button lyceumButton, it_tlcButton, economicalButton, matButton;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.it_tlc_layout);
-        ActionBar actionBar = getActionBar();
-        assert actionBar != null;
-        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
+        setContentView(R.layout.spec_study_sections_layout);
+
+        lyceumButton = (Button) findViewById(R.id.lyceum_button);
+        lyceumButton.setOnClickListener(this);
+
+        it_tlcButton = (Button) findViewById(R.id.spec_IT_TLC_Button);
+        it_tlcButton.setOnClickListener(this);
+
+        economicalButton = (Button) findViewById(R.id.spec_economy_button);
+        economicalButton.setOnClickListener(this);
+
+        matButton = (Button) findViewById(R.id.elet_mech_id_button);
+        matButton.setOnClickListener(this);
+
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -52,8 +67,18 @@ public class IT_TLCActivity extends Activity implements NavigationDrawerFragment
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+        ActionBar actionBar = getActionBar();
+        assert actionBar != null;
+        actionBar.setIcon(R.mipmap.ic_launcher);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
         makeActionOverflowMenuShown();
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -123,7 +148,7 @@ public class IT_TLCActivity extends Activity implements NavigationDrawerFragment
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            ((IT_TLCActivity) activity).onSectionAttached(
+            ((SpecStorySectionActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
@@ -159,13 +184,6 @@ public class IT_TLCActivity extends Activity implements NavigationDrawerFragment
             }
         }
         return super.onMenuOpened(featureId, menu);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
     }
 
     @SuppressLint("InflateParams")
@@ -237,5 +255,39 @@ public class IT_TLCActivity extends Activity implements NavigationDrawerFragment
         Intent intent = getIntent();
         finish();
         startActivity(intent);
+    }
+
+    private void lyceumButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), LyceumActivity.class));
+    }
+
+    private void itTlcButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), IT_TLCActivity.class));
+    }
+
+    private void economicalButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), EconomicalActivity.class));
+    }
+
+    private void matButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), MaintenanceAssistanceTechActivity.class));
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.lyceum_button:
+                lyceumButtonClicked();
+                break;
+            case R.id.spec_IT_TLC_Button:
+                itTlcButtonClicked();
+                break;
+            case R.id.spec_economy_button:
+                economicalButtonClicked();
+                break;
+            case R.id.elet_mech_id_button:
+                matButtonClicked();
+                break;
+        }
     }
 }

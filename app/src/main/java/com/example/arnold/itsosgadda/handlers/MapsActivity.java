@@ -13,7 +13,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
-import com.example.arnold.itsosgadda.MainActivity;
+import com.example.arnold.itsosgadda.main.MainActivity;
 import com.example.arnold.itsosgadda.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

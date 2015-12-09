@@ -1,4 +1,4 @@
-package com.example.arnold.itsosgadda;
+package com.example.arnold.itsosgadda.activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -24,6 +24,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
 
+import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 
 import java.lang.reflect.Field;
@@ -32,14 +33,14 @@ import java.lang.reflect.Method;
 import static com.example.arnold.itsosgadda.R.id.about_app;
 
 
-public class LyceumActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class IT_TLCActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lyceum_layout);
+        setContentView(R.layout.it_tlc_layout);
         ActionBar actionBar = getActionBar();
         assert actionBar != null;
         actionBar.setIcon(R.mipmap.ic_launcher);
@@ -53,6 +54,7 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
         makeActionOverflowMenuShown();
+
     }
 
     @Override
@@ -122,7 +124,7 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            ((LyceumActivity) activity).onSectionAttached(
+            ((IT_TLCActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
@@ -142,13 +144,6 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
         if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
             if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
@@ -165,6 +160,13 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
             }
         }
         return super.onMenuOpened(featureId, menu);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @SuppressLint("InflateParams")

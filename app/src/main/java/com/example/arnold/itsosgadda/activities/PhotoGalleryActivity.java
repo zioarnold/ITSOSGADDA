@@ -1,4 +1,4 @@
-package com.example.arnold.itsosgadda;
+package com.example.arnold.itsosgadda.activities;
 
 import android.app.Activity;
 import android.os.Bundle;

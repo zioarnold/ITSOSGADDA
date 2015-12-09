@@ -1,4 +1,4 @@
-package com.example.arnold.itsosgadda;
+package com.example.arnold.itsosgadda.activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -20,33 +20,27 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.TextView;
 
+import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import static android.view.Window.FEATURE_ACTION_BAR;
 import static com.example.arnold.itsosgadda.R.id.about_app;
-import static java.lang.Boolean.TYPE;
+import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 
 
-
-public class EconomicalActivity extends Activity implements
-        NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class StoryActivity extends Activity implements NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
-    private AlertDialog dialog;
-    private AlertDialog.Builder builder;
-    private TextView tvDisplay;
-    private String data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.economical_layout);
-
+        setContentView(R.layout.story_layout);
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -55,7 +49,6 @@ public class EconomicalActivity extends Activity implements
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-
         ActionBar actionBar = getActionBar();
         assert actionBar != null;
         actionBar.setIcon(R.mipmap.ic_launcher);
@@ -130,7 +123,7 @@ public class EconomicalActivity extends Activity implements
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            ((EconomicalActivity) activity).onSectionAttached(
+            ((StoryActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
@@ -158,11 +151,11 @@ public class EconomicalActivity extends Activity implements
 
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
-        if (featureId == FEATURE_ACTION_BAR && menu != null) {
+        if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
             if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
                 try {
                     Method m = menu.getClass().getDeclaredMethod(
-                            "setOptionalIconsVisible", TYPE);
+                            "setOptionalIconsVisible", Boolean.TYPE);
                     m.setAccessible(true);
                     m.invoke(menu, true);
                 } catch (NoSuchMethodException e) {
@@ -184,7 +177,7 @@ public class EconomicalActivity extends Activity implements
         int id = item.getItemId();
         switch (id) {
             case R.id.dev_team:
-                builder = new AlertDialog.Builder(this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setIcon(R.mipmap.icon_dev_team)
                         .setTitle(R.string.dev_team)
                         .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
@@ -207,12 +200,12 @@ public class EconomicalActivity extends Activity implements
                             }
                         })
                         .show().setCanceledOnTouchOutside(true);
-                dialog = builder.create();
+                AlertDialog dialog = builder.create();
                 dialog.dismiss();
                 break;
             case R.id.subscribe:
-                tvDisplay = new TextView(this);
-                data = "- vkontakte: https://vk.com/arnold.charyyev\n" +
+                TextView tvDisplay = new TextView(this);
+                final String data = "- vkontakte: https://vk.com/arnold.charyyev\n" +
                         "- facebook: https://www.facebook.com/schyzomaniac.mind\n" +
                         "- youtube: https://www.youtube.com/user/Perceus100\n";
                 tvDisplay.setText(data);
@@ -233,11 +226,10 @@ public class EconomicalActivity extends Activity implements
                             }
                         })
                         .show();
-                dialog = builder.create();
-                dialog.dismiss();
+                AlertDialog dialogAlert = builder.create();
+                dialogAlert.dismiss();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 }
-

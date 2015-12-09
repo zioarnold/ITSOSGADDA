@@ -1,4 +1,4 @@
-package com.example.arnold.itsosgadda;
+package com.example.arnold.itsosgadda.activities;
 
 
 import android.annotation.SuppressLint;
@@ -12,6 +12,8 @@ import android.view.Window;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.example.arnold.itsosgadda.R;
 
 import static android.webkit.WebSettings.ZoomDensity.FAR;
 

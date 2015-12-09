@@ -1,4 +1,4 @@
-package com.example.arnold.itsosgadda;
+package com.example.arnold.itsosgadda.activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -20,26 +20,34 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.TextView;
 
+import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import static android.view.Window.FEATURE_ACTION_BAR;
 import static com.example.arnold.itsosgadda.R.id.about_app;
-import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
+import static java.lang.Boolean.TYPE;
 
 
-public class StoryActivity extends Activity implements NavigationDrawerCallbacks {
+
+public class EconomicalActivity extends Activity implements
+        NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
+    private AlertDialog dialog;
+    private AlertDialog.Builder builder;
+    private TextView tvDisplay;
+    private String data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.story_layout);
+        setContentView(R.layout.economical_layout);
+
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -48,6 +56,7 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
         ActionBar actionBar = getActionBar();
         assert actionBar != null;
         actionBar.setIcon(R.mipmap.ic_launcher);
@@ -122,7 +131,7 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            ((StoryActivity) activity).onSectionAttached(
+            ((EconomicalActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
@@ -150,11 +159,11 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
 
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
-        if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
+        if (featureId == FEATURE_ACTION_BAR && menu != null) {
             if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
                 try {
                     Method m = menu.getClass().getDeclaredMethod(
-                            "setOptionalIconsVisible", Boolean.TYPE);
+                            "setOptionalIconsVisible", TYPE);
                     m.setAccessible(true);
                     m.invoke(menu, true);
                 } catch (NoSuchMethodException e) {
@@ -176,7 +185,7 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
         int id = item.getItemId();
         switch (id) {
             case R.id.dev_team:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder = new AlertDialog.Builder(this);
                 builder.setIcon(R.mipmap.icon_dev_team)
                         .setTitle(R.string.dev_team)
                         .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
@@ -199,12 +208,12 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
                             }
                         })
                         .show().setCanceledOnTouchOutside(true);
-                AlertDialog dialog = builder.create();
+                dialog = builder.create();
                 dialog.dismiss();
                 break;
             case R.id.subscribe:
-                TextView tvDisplay = new TextView(this);
-                final String data = "- vkontakte: https://vk.com/arnold.charyyev\n" +
+                tvDisplay = new TextView(this);
+                data = "- vkontakte: https://vk.com/arnold.charyyev\n" +
                         "- facebook: https://www.facebook.com/schyzomaniac.mind\n" +
                         "- youtube: https://www.youtube.com/user/Perceus100\n";
                 tvDisplay.setText(data);
@@ -225,10 +234,11 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
                             }
                         })
                         .show();
-                AlertDialog dialogAlert = builder.create();
-                dialogAlert.dismiss();
+                dialog = builder.create();
+                dialog.dismiss();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 }
+

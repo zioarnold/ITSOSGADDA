@@ -1,4 +1,4 @@
-package com.example.arnold.itsosgadda;
+package com.example.arnold.itsosgadda.main;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -21,42 +21,72 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.arnold.itsosgadda.activities.ComActivity;
+import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
+import com.example.arnold.itsosgadda.R;
+import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
+import com.example.arnold.itsosgadda.activities.StoryActivity;
+import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
+import com.example.arnold.itsosgadda.handlers.MapsActivity;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import static android.view.View.OnClickListener;
+import static android.view.Window.FEATURE_ACTION_BAR;
 import static com.example.arnold.itsosgadda.R.id.about_app;
+import static com.example.arnold.itsosgadda.R.id.button_show_comunications;
+import static com.example.arnold.itsosgadda.R.id.container;
+import static com.example.arnold.itsosgadda.R.id.e_registryId;
+import static com.example.arnold.itsosgadda.R.id.feedback;
+import static com.example.arnold.itsosgadda.R.id.findus;
+import static com.example.arnold.itsosgadda.R.id.specSectionButtonId;
+import static com.example.arnold.itsosgadda.R.id.storyButton;
+import static com.example.arnold.itsosgadda.R.layout.activity_main;
+import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
+import static com.example.arnold.itsosgadda.R.menu.main_menu;
 import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
+import static java.lang.Boolean.TYPE;
 
-
-public class SpecStorySectionActivity extends Activity implements OnClickListener,
+public class MainActivity extends Activity implements OnClickListener,
         NavigationDrawerCallbacks {
-    private Button lyceumButton, it_tlcButton, economicalButton, matButton;
+    private Button storyButtonMainBody, specSectButton, webRegistryButton, feedBackButton,
+            findUsButton, communicationButton, photoGallery;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
+    private AlertDialog.Builder builder;
+    private AlertDialog dialog;
+    private TextView tvDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.spec_study_sections_layout);
+        setContentView(activity_main);
 
-        lyceumButton = (Button) findViewById(R.id.lyceum_button);
-        lyceumButton.setOnClickListener(this);
+        storyButtonMainBody = (Button) findViewById(storyButton);
+        storyButtonMainBody.setOnClickListener(this);
 
-        it_tlcButton = (Button) findViewById(R.id.spec_IT_TLC_Button);
-        it_tlcButton.setOnClickListener(this);
+        specSectButton = (Button) findViewById(specSectionButtonId);
+        specSectButton.setOnClickListener(this);
 
-        economicalButton = (Button) findViewById(R.id.spec_economy_button);
-        economicalButton.setOnClickListener(this);
+        webRegistryButton = (Button) findViewById(e_registryId);
+        webRegistryButton.setOnClickListener(this);
 
-        matButton = (Button) findViewById(R.id.elet_mech_id_button);
-        matButton.setOnClickListener(this);
+        feedBackButton = (Button) findViewById(feedback);
+        feedBackButton.setOnClickListener(this);
+
+        findUsButton = (Button) findViewById(findus);
+        findUsButton.setOnClickListener(this);
+
+        communicationButton = (Button) findViewById(R.id.button_show_comunications);
+        communicationButton.setOnClickListener(this);
+
+        photoGallery = (Button) findViewById(R.id.photoGallery);
+        photoGallery.setOnClickListener(this);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -66,6 +96,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
         ActionBar actionBar = getActionBar();
         assert actionBar != null;
         actionBar.setIcon(R.mipmap.ic_launcher);
@@ -74,18 +105,11 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                .replace(container, PlaceholderFragment.newInstance(position + 1))
                 .commit();
     }
 
@@ -140,14 +164,14 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_main_navitagion_drawer, container, false);
+            return inflater.inflate(fragment_main_navitagion_drawer, container, false);
         }
 
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            ((SpecStorySectionActivity) activity).onSectionAttached(
+            ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
@@ -167,12 +191,19 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
-        if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
+        if (featureId == FEATURE_ACTION_BAR && menu != null) {
             if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
                 try {
                     Method m = menu.getClass().getDeclaredMethod(
-                            "setOptionalIconsVisible", Boolean.TYPE);
+                            "setOptionalIconsVisible", TYPE);
                     m.setAccessible(true);
                     m.invoke(menu, true);
                 } catch (NoSuchMethodException e) {
@@ -185,7 +216,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
         return super.onMenuOpened(featureId, menu);
     }
 
-    @SuppressLint("InflateParams")
+    @SuppressLint({"SetTextI18n", "InflateParams"})
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -221,7 +252,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                 dialog.dismiss();
                 break;
             case R.id.subscribe:
-                TextView tvDisplay = new TextView(this);
+                tvDisplay = new TextView(this);
                 final String data = "- vkontakte: https://vk.com/arnold.charyyev\n" +
                         "- facebook: https://www.facebook.com/schyzomaniac.mind\n" +
                         "- youtube: https://www.youtube.com/user/Perceus100\n";
@@ -246,46 +277,79 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                 AlertDialog dialogAlert = builder.create();
                 dialogAlert.dismiss();
                 break;
+
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void restartActivity() {
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
+    private void storyButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), StoryActivity.class));
     }
 
-    private void lyceumButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), LyceumActivity.class));
+    private void specSectButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
     }
 
-    private void itTlcButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), IT_TLCActivity.class));
+    private void webRegistryButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
     }
 
-    private void economicalButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), EconomicalActivity.class));
+    private void feedbackMailToButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
     }
 
-    private void matButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), MaintenanceAssistanceTechActivity.class));
+    private void communicationButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), ComActivity.class));
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.lyceum_button:
-                lyceumButtonClicked();
+            case storyButton:
+                storyButtonClicked();
                 break;
-            case R.id.spec_IT_TLC_Button:
-                itTlcButtonClicked();
+            case specSectionButtonId:
+                specSectButtonClicked();
                 break;
-            case R.id.spec_economy_button:
-                economicalButtonClicked();
+            case e_registryId:
+                webRegistryButtonClicked();
                 break;
-            case R.id.elet_mech_id_button:
-                matButtonClicked();
+            case feedback:
+                feedbackMailToButtonClicked();
+                break;
+            case button_show_comunications:
+                communicationButtonClicked();
+                break;
+            case findus:
+                builder = new AlertDialog.Builder(this);
+                builder.setIcon(R.mipmap.ic_launcher)
+                        .setTitle(R.string.created_for)
+                        .setMessage(R.string.reaching_from_fornovo_FS)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(getApplicationContext(),
+                                        MapsActivity.class));
+                            }
+                        })
+                        .show().setCanceledOnTouchOutside(true);
+                dialog = builder.create();
+                dialog.dismiss();
+                break;
+            case R.id.photoGallery:
+                builder = new AlertDialog.Builder(this);
+                builder.setIcon(R.mipmap.ic_launcher)
+                        .setTitle(R.string.created_for)
+                        .setMessage(R.string.still_working)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show().setCanceledOnTouchOutside(true);
+                dialog = builder.create();
+                dialog.dismiss();
                 break;
         }
     }

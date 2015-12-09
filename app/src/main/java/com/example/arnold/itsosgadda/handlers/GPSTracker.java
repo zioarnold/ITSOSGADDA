@@ -14,7 +14,7 @@ import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.example.arnold.itsosgadda.MainActivity;
+import com.example.arnold.itsosgadda.main.MainActivity;
 
 
 public class GPSTracker extends Service implements LocationListener {

@@ -11,7 +11,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 
-import com.example.arnold.itsosgadda.ComActivity;
+import com.example.arnold.itsosgadda.activities.ComActivity;
 import com.example.arnold.itsosgadda.R;
 
 import static android.media.RingtoneManager.TYPE_NOTIFICATION;

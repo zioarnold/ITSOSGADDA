@@ -21,12 +21,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.arnold.itsosgadda.ComActivity;
-import com.example.arnold.itsosgadda.EmailSendingActivity;
+import com.example.arnold.itsosgadda.activities.ComActivity;
+import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
 import com.example.arnold.itsosgadda.R;
-import com.example.arnold.itsosgadda.SpecStorySectionActivity;
-import com.example.arnold.itsosgadda.StoryActivity;
-import com.example.arnold.itsosgadda.WebRegistryActivity;
+import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
+import com.example.arnold.itsosgadda.activities.StoryActivity;
+import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
 
 import java.util.ArrayList;
 

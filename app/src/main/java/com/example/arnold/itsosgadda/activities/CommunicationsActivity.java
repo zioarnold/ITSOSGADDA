@@ -1,4 +1,4 @@
-package com.example.arnold.itsosgadda;
+package com.example.arnold.itsosgadda.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
+
+import com.example.arnold.itsosgadda.R;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;

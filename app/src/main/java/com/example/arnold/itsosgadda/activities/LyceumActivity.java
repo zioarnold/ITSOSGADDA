@@ -1,4 +1,4 @@
-package com.example.arnold.itsosgadda;
+package com.example.arnold.itsosgadda.activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -24,6 +24,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
 
+import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 
 import java.lang.reflect.Field;
@@ -32,15 +33,14 @@ import java.lang.reflect.Method;
 import static com.example.arnold.itsosgadda.R.id.about_app;
 
 
-public class MaintenanceAssistanceTechActivity extends Activity implements
-        NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class LyceumActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mech_elet_assist_tech_layout);
+        setContentView(R.layout.lyceum_layout);
         ActionBar actionBar = getActionBar();
         assert actionBar != null;
         actionBar.setIcon(R.mipmap.ic_launcher);
@@ -123,7 +123,7 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            ((MaintenanceAssistanceTechActivity) activity).onSectionAttached(
+            ((LyceumActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }

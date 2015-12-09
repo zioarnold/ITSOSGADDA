@@ -1,4 +1,4 @@
-package com.example.arnold.itsosgadda;
+package com.example.arnold.itsosgadda.activities;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.arnold.itsosgadda.R;
 
 import static android.content.Intent.ACTION_SEND;
 import static android.content.Intent.EXTRA_BUG_REPORT;
