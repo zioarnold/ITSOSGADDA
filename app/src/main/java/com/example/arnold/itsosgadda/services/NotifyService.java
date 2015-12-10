@@ -14,6 +14,9 @@ import android.support.v4.app.NotificationCompat;
 import com.example.arnold.itsosgadda.activities.ComActivity;
 import com.example.arnold.itsosgadda.R;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import static android.media.RingtoneManager.TYPE_NOTIFICATION;
 
 
@@ -24,13 +27,29 @@ public class NotifyService extends Service {
         return null;
     }
 
+    private Timer timer;
+    private Uri sound;
+    private Intent intent;
+    private PendingIntent pendingIntent;
+    private NotificationManager notificationManager;
     @Override
     public void onCreate() {
         super.onCreate();
-        Uri sound = RingtoneManager.getDefaultUri(TYPE_NOTIFICATION);
-        Intent intent = new Intent(getApplicationContext(), ComActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        NotificationManager notificationManager = (NotificationManager)
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                notificationLaunch();
+            }
+        };
+        timer = new Timer();
+        timer.schedule(timerTask, 0, 1000 * 60 * 60 * 24);
+    }
+
+    private void notificationLaunch() {
+        sound = RingtoneManager.getDefaultUri(TYPE_NOTIFICATION);
+        intent = new Intent(getApplicationContext(), ComActivity.class);
+        pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        notificationManager = (NotificationManager)
                 getSystemService(NOTIFICATION_SERVICE);
 
         Notification notification =
@@ -43,6 +62,14 @@ public class NotifyService extends Service {
                         .setContentIntent(pendingIntent)
                         .build();
 
-        notificationManager.notify(1, notification);
+        int countNotification = 0;
+        notificationManager.notify(countNotification, notification);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        timer.cancel();
+        timer = null;
     }
 }

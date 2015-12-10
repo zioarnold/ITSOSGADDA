@@ -32,6 +32,7 @@ import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
 import com.example.arnold.itsosgadda.handlers.MapsActivity;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
+import com.example.arnold.itsosgadda.services.NotifyService;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -87,6 +88,8 @@ public class MainActivity extends Activity implements OnClickListener,
 
         photoGallery = (Button) findViewById(R.id.photoGallery);
         photoGallery.setOnClickListener(this);
+
+        startService(new Intent(getApplicationContext(), NotifyService.class));
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -300,6 +303,7 @@ public class MainActivity extends Activity implements OnClickListener,
 
     private void communicationButtonClicked() {
         startActivity(new Intent(getApplicationContext(), ComActivity.class));
+
 
     }
 

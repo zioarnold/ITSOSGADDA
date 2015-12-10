@@ -7,6 +7,7 @@ import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.RingtoneManager;
@@ -14,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.text.method.ScrollingMovementMethod;
@@ -54,35 +56,6 @@ public class ComActivity extends Activity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
 
         dataBaseConnect();
-        /*SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        int i = sharedPreferences.getInt("numberOfLaunches", 1);
-        if (i < 2) {
-            alarmMethod();
-            i++;
-            editor.putInt("numberOfLaunches", i);
-            editor.apply();
-        } else {
-            alarmMethod();
-        }*/
-    }
-
-    private void alarmMethod() {
-        Intent intent = new Intent(this, NotifyService.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(this, 0, intent, 0);
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.HOUR, 13);
-        calendar.set(Calendar.AM_PM, Calendar.PM);
-        calendar.add(Calendar.DAY_OF_MONTH, 1);
-
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
-                calendar.getTimeInMillis(),
-                1000 * 60 * 60 * 24,
-                pendingIntent);
     }
 
     @Override
@@ -100,45 +73,6 @@ public class ComActivity extends Activity {
                 break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void notification() {
-        Uri sound = RingtoneManager.getDefaultUri(TYPE_NOTIFICATION);
-        NotificationCompat.Builder notification =
-                new NotificationCompat.Builder(getApplicationContext())
-                        .setTicker("You have something to check")
-                        .setContentTitle("New communication arrived")
-                        .setContentText("Please check for some new communications.")
-                        .setSound(sound)
-                        .setSmallIcon(R.mipmap.ic_launcher);
-        Intent intent = new Intent(getApplicationContext(), ComActivity.class);
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
-        stackBuilder.addParentStack(ComActivity.class);
-        stackBuilder.addNextIntent(intent);
-        PendingIntent pendingIntent = stackBuilder.getPendingIntent(0,
-                FLAG_UPDATE_CURRENT);
-        notification.setContentIntent(pendingIntent);
-        NotificationManager notificationManager = (NotificationManager)
-                getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(0, notification.build());
-    }
-
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    public static int countRows(Connection conn, String tableName) throws SQLException {
-        // select the number of rows in the table
-        ResultSet rs = null;
-        int rowCount = -1;
-        try (Statement stmt = conn.createStatement()) {
-            rs = stmt.executeQuery("SELECT COUNT(*) FROM " + tableName);
-            // get the number of rows from the result set
-            rs.next();
-            rowCount = rs.getInt(1);
-        } finally {
-            assert rs != null;
-            rs.close();
-
-        }
-        return rowCount;
     }
 
     public void dataBaseConnect() {
