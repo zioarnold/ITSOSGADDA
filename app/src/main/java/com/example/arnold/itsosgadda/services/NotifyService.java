@@ -42,7 +42,7 @@ public class NotifyService extends Service {
             }
         };
         timer = new Timer();
-        timer.schedule(timerTask, 0, 1000 * 60 * 60 * 24);
+        timer.schedule(timerTask, 0, 86_400_000);
     }
 
     private void notificationLaunch() {

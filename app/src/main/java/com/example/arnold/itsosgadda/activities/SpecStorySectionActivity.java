@@ -90,7 +90,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                 .commit();
     }
 
-    public void onSectionAttached(int number) {
+    /*public void onSectionAttached(int number) {
         switch (number) {
             case 1:
                 mTitle = getString(R.string.en_lang);
@@ -102,7 +102,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                 mTitle = getString(R.string.it_lang);
                 break;
         }
-    }
+    }*/
 
     public void restoreActionBar() {
         ActionBar actionBar = getActionBar();
@@ -148,8 +148,8 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            ((SpecStorySectionActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
+            /*((SpecStorySectionActivity) activity).onSectionAttached(
+                    getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
 

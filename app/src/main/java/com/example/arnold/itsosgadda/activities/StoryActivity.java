@@ -65,7 +65,7 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
                 .commit();
     }
 
-    public void onSectionAttached(int number) {
+    /*public void onSectionAttached(int number) {
         switch (number) {
             case 1:
                 mTitle = getString(R.string.en_lang);
@@ -77,7 +77,7 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
                 mTitle = getString(R.string.it_lang);
                 break;
         }
-    }
+    }*/
 
     public void restoreActionBar() {
         ActionBar actionBar = getActionBar();
@@ -123,8 +123,8 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            ((StoryActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
+            /*((StoryActivity) activity).onSectionAttached(
+                    getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
 

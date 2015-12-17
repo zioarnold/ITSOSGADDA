@@ -116,7 +116,7 @@ public class MainActivity extends Activity implements OnClickListener,
                 .commit();
     }
 
-    public void onSectionAttached(int number) {
+    /*public void onSectionAttached(int number) {
         switch (number) {
             case 1:
                 mTitle = getString(R.string.en_lang);
@@ -128,7 +128,7 @@ public class MainActivity extends Activity implements OnClickListener,
                 mTitle = getString(R.string.it_lang);
                 break;
         }
-    }
+    }*/
 
     public void restoreActionBar() {
         ActionBar actionBar = getActionBar();
@@ -174,8 +174,8 @@ public class MainActivity extends Activity implements OnClickListener,
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            ((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
+            /*((MainActivity) activity).onSectionAttached(
+                    getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
 

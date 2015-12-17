@@ -66,7 +66,7 @@ public class IT_TLCActivity extends Activity implements NavigationDrawerFragment
                 .commit();
     }
 
-    public void onSectionAttached(int number) {
+    /*public void onSectionAttached(int number) {
         switch (number) {
             case 1:
                 mTitle = getString(R.string.en_lang);
@@ -78,7 +78,7 @@ public class IT_TLCActivity extends Activity implements NavigationDrawerFragment
                 mTitle = getString(R.string.it_lang);
                 break;
         }
-    }
+    }*/
 
     public void restoreActionBar() {
         ActionBar actionBar = getActionBar();
@@ -124,8 +124,8 @@ public class IT_TLCActivity extends Activity implements NavigationDrawerFragment
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            ((IT_TLCActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
+            /*((IT_TLCActivity) activity).onSectionAttached(
+                    getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
 
