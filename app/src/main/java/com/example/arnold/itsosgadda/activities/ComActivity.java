@@ -20,12 +20,16 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.text.method.ScrollingMovementMethod;
 import android.text.util.Linkify;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.services.NotifyService;
+import com.example.arnold.itsosgadda.utilities.Log4jHelper;
+
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -49,34 +53,48 @@ public class ComActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.com_handler);
-        ActionBar actionBar = getActionBar();
-        assert actionBar != null;
-        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
+        try {
+            setContentView(R.layout.com_handler);
+            ActionBar actionBar = getActionBar();
+            assert actionBar != null;
+            actionBar.setIcon(R.mipmap.ic_launcher);
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
 
-        dataBaseConnect();
+            dataBaseConnect();
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MainActivity");
+            log.error("Error", ex);
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(reload, menu);
+        try {
+            getMenuInflater().inflate(reload, menu);
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MainActivity");
+            log.error("Error", ex);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int v = item.getItemId();
-        switch (v) {
-            case R.id.reload:
-                dataBaseConnect();
-                break;
+        try {
+            int v = item.getItemId();
+            switch (v) {
+                case R.id.reload:
+                    dataBaseConnect();
+                    break;
+            }
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MainActivity");
+            log.error("Error", ex);
         }
         return super.onOptionsItemSelected(item);
     }
 
     public void dataBaseConnect() {
-
         final TextView textView = (TextView) findViewById(R.id.comTextView);
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().
@@ -88,17 +106,21 @@ public class ComActivity extends Activity {
             connection = DriverManager.getConnection(url, user, pass);
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
-            resultSet = statement.executeQuery("SELECT * FROM app_db.push ORDER BY ID DESC");
+            resultSet = statement.executeQuery("SELECT * FROM app_db.push " +
+                    "ORDER BY ID DESC");
             resultSetMetaData = resultSet.getMetaData();
             while (resultSet.next()) {
-                result += resultSetMetaData.getColumnName(2) + " : " + resultSet.getString(2) + "\n";
-                result += resultSetMetaData.getColumnName(3) + " : " + resultSet.getString(3) + "\n\n";
+                result += resultSetMetaData.getColumnName(2) + " : "
+                        + resultSet.getString(2) + "\n";
+                result += resultSetMetaData.getColumnName(3) + " : "
+                        + resultSet.getString(3) + "\n\n";
             }
             textView.setText(result);
             textView.setMovementMethod(new ScrollingMovementMethod());
             Linkify.addLinks(textView, Linkify.WEB_URLS);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            Logger log = Log4jHelper.getLogger("ComActivity");
+            log.error("Error", ex);
         }
     }
 }

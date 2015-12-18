@@ -79,6 +79,7 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
                             }
                         });
                 AlertDialog dialog = builder.create();
+
                 dialog.dismiss();
             }
         }

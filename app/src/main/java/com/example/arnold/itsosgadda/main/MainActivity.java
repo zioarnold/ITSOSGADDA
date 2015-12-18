@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ApplicationErrorReport;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
@@ -22,17 +23,22 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.arnold.itsosgadda.activities.ComActivity;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
 import com.example.arnold.itsosgadda.R;
+import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
 import com.example.arnold.itsosgadda.handlers.MapsActivity;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 import com.example.arnold.itsosgadda.services.NotifyService;
+import com.example.arnold.itsosgadda.utilities.Log4jHelper;
+
+import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -47,6 +53,7 @@ import static com.example.arnold.itsosgadda.R.id.feedback;
 import static com.example.arnold.itsosgadda.R.id.findus;
 import static com.example.arnold.itsosgadda.R.id.specSectionButtonId;
 import static com.example.arnold.itsosgadda.R.id.storyButton;
+import static com.example.arnold.itsosgadda.R.id.photoGallery;
 import static com.example.arnold.itsosgadda.R.layout.activity_main;
 import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
 import static com.example.arnold.itsosgadda.R.menu.main_menu;
@@ -56,64 +63,74 @@ import static java.lang.Boolean.TYPE;
 public class MainActivity extends Activity implements OnClickListener,
         NavigationDrawerCallbacks {
     private Button storyButtonMainBody, specSectButton, webRegistryButton, feedBackButton,
-            findUsButton, communicationButton, photoGallery;
+            findUsButton, communicationButton, bPhotoGallery;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
-    private TextView tvDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activity_main);
+        try {
+            setContentView(activity_main);
 
-        storyButtonMainBody = (Button) findViewById(storyButton);
-        storyButtonMainBody.setOnClickListener(this);
+            storyButtonMainBody = (Button) findViewById(storyButton);
+            storyButtonMainBody.setOnClickListener(this);
 
-        specSectButton = (Button) findViewById(specSectionButtonId);
-        specSectButton.setOnClickListener(this);
+            specSectButton = (Button) findViewById(specSectionButtonId);
+            specSectButton.setOnClickListener(this);
 
-        webRegistryButton = (Button) findViewById(e_registryId);
-        webRegistryButton.setOnClickListener(this);
+            webRegistryButton = (Button) findViewById(e_registryId);
+            webRegistryButton.setOnClickListener(this);
 
-        feedBackButton = (Button) findViewById(feedback);
-        feedBackButton.setOnClickListener(this);
+            feedBackButton = (Button) findViewById(feedback);
+            feedBackButton.setOnClickListener(this);
 
-        findUsButton = (Button) findViewById(findus);
-        findUsButton.setOnClickListener(this);
+            findUsButton = (Button) findViewById(findus);
+            findUsButton.setOnClickListener(this);
 
-        communicationButton = (Button) findViewById(R.id.button_show_comunications);
-        communicationButton.setOnClickListener(this);
+            communicationButton = (Button) findViewById(R.id.button_show_comunications);
+            communicationButton.setOnClickListener(this);
 
-        photoGallery = (Button) findViewById(R.id.photoGallery);
-        photoGallery.setOnClickListener(this);
+            bPhotoGallery = (Button) findViewById(R.id.photoGallery);
+            bPhotoGallery.setOnClickListener(this);
 
-        startService(new Intent(getApplicationContext(), NotifyService.class));
+            startService(new Intent(getApplicationContext(), NotifyService.class));
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+            mNavigationDrawerFragment = (NavigationDrawerFragment)
+                    getFragmentManager().findFragmentById(R.id.navigation_drawer);
+            mTitle = getTitle();
 
-        // Set up the drawer.
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
+            // Set up the drawer.
+            mNavigationDrawerFragment.setUp(
+                    R.id.navigation_drawer,
+                    (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        ActionBar actionBar = getActionBar();
-        assert actionBar != null;
-        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
-        makeActionOverflowMenuShown();
+            ActionBar actionBar = getActionBar();
+            assert actionBar != null;
+            actionBar.setIcon(R.mipmap.ic_launcher);
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
+
+            makeActionOverflowMenuShown();
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MainActivity");
+            log.error("Error", ex);
+        }
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        // update the main content by replacing fragments
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        try {
+            // update the main content by replacing fragments
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(container, PlaceholderFragment.newInstance(position + 1))
+                    .commit();
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MainActivity");
+            log.error("Error", ex);
+        }
     }
 
     /*public void onSectionAttached(int number) {
@@ -143,6 +160,7 @@ public class MainActivity extends Activity implements OnClickListener,
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
+
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -155,9 +173,14 @@ public class MainActivity extends Activity implements OnClickListener,
          */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
+            try {
+                Bundle args = new Bundle();
+                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+                fragment.setArguments(args);
+            } catch (Exception ex) {
+                Logger log = Log4jHelper.getLogger("MainActivity");
+                log.error("Error", ex);
+            }
             return fragment;
         }
 
@@ -196,25 +219,36 @@ public class MainActivity extends Activity implements OnClickListener,
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(main_menu, menu);
+        try {
+
+            getMenuInflater().inflate(main_menu, menu);
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MainActivity");
+            log.error("Error", ex);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
-        if (featureId == FEATURE_ACTION_BAR && menu != null) {
-            if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-                try {
-                    Method m = menu.getClass().getDeclaredMethod(
-                            "setOptionalIconsVisible", TYPE);
-                    m.setAccessible(true);
-                    m.invoke(menu, true);
-                } catch (NoSuchMethodException e) {
-                    Log.e("MyActivity", "onMenuOpened", e);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
+        try {
+            if (featureId == FEATURE_ACTION_BAR && menu != null) {
+                if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
+                    try {
+                        Method m = menu.getClass().getDeclaredMethod(
+                                "setOptionalIconsVisible", TYPE);
+                        m.setAccessible(true);
+                        m.invoke(menu, true);
+                    } catch (NoSuchMethodException e) {
+                        Log.e("MyActivity", "onMenuOpened", e);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MainActivity");
+            log.error("Error", ex);
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -225,64 +259,61 @@ public class MainActivity extends Activity implements OnClickListener,
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.dev_team:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setIcon(R.mipmap.icon_dev_team)
-                        .setTitle(R.string.dev_team)
-                        .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        }).show().setCanceledOnTouchOutside(true);
-                break;
-            case about_app:
-                builder = new AlertDialog.Builder(this);
-                builder.setIcon(R.mipmap.icon_about)
-                        .setTitle(R.string.created_for)
-                        .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .show().setCanceledOnTouchOutside(true);
-                AlertDialog dialog = builder.create();
-                dialog.dismiss();
-                break;
-            case R.id.subscribe:
-                tvDisplay = new TextView(this);
-                final String data = "- vkontakte: https://vk.com/arnold.charyyev\n" +
-                        "- facebook: https://www.facebook.com/schyzomaniac.mind\n" +
-                        "- youtube: https://www.youtube.com/user/Perceus100\n";
-                tvDisplay.setText(data);
-                tvDisplay.setLinksClickable(true);
-                tvDisplay.setAutoLinkMask(RESULT_OK);
-                tvDisplay.setMovementMethod(LinkMovementMethod.getInstance());
-                Linkify.addLinks(tvDisplay, Linkify.ALL);
-
-                builder = new AlertDialog.Builder(this);
-                builder.setIcon(R.mipmap.icon_subscribe_contact)
-                        .setTitle(R.string.dev_contact)
-                        .setView(tvDisplay)
-                        .setCancelable(false)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .show();
-                AlertDialog dialogAlert = builder.create();
-                dialogAlert.dismiss();
-                break;
-
+        try {
+            int id = item.getItemId();
+            switch (id) {
+                case R.id.dev_team:
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_dev_team)
+                            .setTitle(R.string.dev_team)
+                            .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show().setCanceledOnTouchOutside(true);
+                    break;
+                case about_app:
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_about)
+                            .setTitle(R.string.created_for)
+                            .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show().setCanceledOnTouchOutside(true);
+                    AlertDialog dialog = builder.create();
+                    dialog.dismiss();
+                    break;
+                case R.id.subscribe:
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_subscribe_contact)
+                            .setTitle(R.string.dev_contact)
+                            .setView(getLayoutInflater().inflate(R.layout.contact_to_developer, null))
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show();
+                    dialog = builder.create();
+                    dialog.dismiss();
+                    break;
+                case R.id.crash_report:
+                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
+                    break;
+            }
+            return super.onOptionsItemSelected(item);
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MainActivity");
+            log.error("Error", ex);
         }
-        return super.onOptionsItemSelected(item);
+        return false;
     }
 
     private void storyButtonClicked() {
@@ -297,64 +328,68 @@ public class MainActivity extends Activity implements OnClickListener,
         startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
     }
 
+
     private void feedbackMailToButtonClicked() {
         startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
     }
 
     private void communicationButtonClicked() {
         startActivity(new Intent(getApplicationContext(), ComActivity.class));
-
-
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case storyButton:
-                storyButtonClicked();
-                break;
-            case specSectionButtonId:
-                specSectButtonClicked();
-                break;
-            case e_registryId:
-                webRegistryButtonClicked();
-                break;
-            case feedback:
-                feedbackMailToButtonClicked();
-                break;
-            case button_show_comunications:
-                communicationButtonClicked();
-                break;
-            case findus:
-                builder = new AlertDialog.Builder(this);
-                builder.setIcon(R.mipmap.ic_launcher)
-                        .setTitle(R.string.created_for)
-                        .setMessage(R.string.reaching_from_fornovo_FS)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(getApplicationContext(),
-                                        MapsActivity.class));
-                            }
-                        })
-                        .show().setCanceledOnTouchOutside(true);
-                dialog = builder.create();
-                dialog.dismiss();
-                break;
-            case R.id.photoGallery:
-                builder = new AlertDialog.Builder(this);
-                builder.setIcon(R.mipmap.ic_launcher)
-                        .setTitle(R.string.created_for)
-                        .setMessage(R.string.still_working)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        }).show().setCanceledOnTouchOutside(true);
-                dialog = builder.create();
-                dialog.dismiss();
-                break;
+        try {
+            switch (v.getId()) {
+                case storyButton:
+                    storyButtonClicked();
+                    break;
+                case specSectionButtonId:
+                    specSectButtonClicked();
+                    break;
+                case e_registryId:
+                    webRegistryButtonClicked();
+                    break;
+                case feedback:
+                    feedbackMailToButtonClicked();
+                    break;
+                case button_show_comunications:
+                    communicationButtonClicked();
+                    break;
+                case findus:
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.ic_launcher)
+                            .setTitle(R.string.created_for)
+                            .setMessage(R.string.reaching_from_fornovo_FS)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    startActivity(new Intent(getApplicationContext(),
+                                            MapsActivity.class));
+                                }
+                            })
+                            .show().setCanceledOnTouchOutside(true);
+                    dialog = builder.create();
+                    dialog.dismiss();
+                    break;
+                case photoGallery:
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.ic_launcher)
+                            .setTitle(R.string.created_for)
+                            .setMessage(R.string.still_working)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show().setCanceledOnTouchOutside(true);
+                    dialog = builder.create();
+                    dialog.dismiss();
+                    break;
+            }
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MainActivity");
+            log.error("Error", ex);
         }
     }
 }

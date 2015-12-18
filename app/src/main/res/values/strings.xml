@@ -248,8 +248,8 @@ A School is able to develop a solid scientific culture through an approach that
         - ALBERT CHARYIEV: Main assistance of head\n
     </string>
 
-    <string name="enable_position_yes_no">Are you want to enable your position?</string>
-    <string name="yes">Yes</string>
+    <string name="enable_position_yes_no">Would you like to enable your position?</string>
+        <string name="yes">Yes</string>
     <string name="no">No</string>
 
     <string name="no_network_enabled">Connection error</string>
@@ -306,6 +306,10 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="id">ID</string>
     <string name="news">news</string>
     <string name="link">link</string>
+    <string name="iissgadda_221">IISS C. E. Gadda v2.2.1</string>
+    <string name="iissgadda_221_updateList">- Added Log library\n
+    -Changed Contact to Developer visualization\n
+    -Added send Bug/Crash log (it will ad an attachment to your email client with log file)</string>
     <string name="iissgadda_22">IISS C. E. Gadda v2.2</string>
     <string name="iissgadda_22_updateList">- Communication news are working now…\n
     - Navigation drawer menu changed…\n
@@ -314,6 +318,12 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="notification_communication_arrived">Communications</string>
     <string name="notification_check_for_communication">Please check if you have some new
     communications</string>
+    <string name="email_contact_developer" translatable="false">vl80tk@gmail.com</string>
+    <string name="mobilephone_contact_developer" translatable="false">+393462133945</string>
+    <string name="vk_contact_developer" translatable="false">https://vk.com/arnold.charyyev</string>
+    <string name="fb_contact_developer" translatable="false">https://www.facebook.com/schyzomaniac.mind</string>
+    <string name="tw_contact_developer" translatable="false">https://twitter.com/arnold_online</string>
+    <string name="bug_report_crash_report">Send bug/crash log</string>
 
     <string-array name="nav_drawer_items">
         <item>Our Story</item>

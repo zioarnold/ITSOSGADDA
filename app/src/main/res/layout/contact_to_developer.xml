@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/contact_to_developer"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/imgGmail"
+        android:background="@drawable/imggmail"
+        tools:ignore="ContentDescription"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/email_contact_developer"
+        android:id="@+id/txtGmail"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imgGmail"
+        android:autoLink="email" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/imgPhone"
+        android:background="@drawable/imgphone"
+        tools:ignore="ContentDescription"
+        android:layout_below="@+id/imgGmail"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/mobilephone_contact_developer"
+        android:id="@+id/txtPhone"
+        android:layout_alignTop="@+id/imgPhone"
+        android:layout_alignLeft="@+id/txtGmail"
+        android:autoLink="phone" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/imgVk"
+        android:layout_below="@+id/imgPhone"
+        android:background="@drawable/imgvk"
+        android:layout_alignParentLeft="true"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/vk_contact_developer"
+        android:id="@+id/txtVk"
+        android:layout_below="@+id/txtPhone"
+        android:layout_alignLeft="@+id/txtPhone"
+        android:autoLink="web" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/imgfb"
+        android:id="@+id/imgFb"
+        android:layout_below="@+id/imgVk"
+        android:layout_alignParentLeft="true"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/fb_contact_developer"
+        android:id="@+id/txtFb"
+        android:layout_alignTop="@+id/imgFb"
+        android:layout_alignLeft="@+id/txtVk"
+        android:autoLink="web" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/imgTwitter"
+        android:layout_below="@+id/imgFb"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/imgtwitter"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/tw_contact_developer"
+        android:id="@+id/txtTwitter"
+        android:layout_below="@+id/txtFb"
+        android:layout_toRightOf="@+id/imgGmail"
+        android:autoLink="web" />
+
+</RelativeLayout>

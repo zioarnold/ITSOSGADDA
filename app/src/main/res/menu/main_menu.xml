@@ -14,12 +14,21 @@
             android:orderInCategory="2"
             android:icon="@mipmap/icon_subscribe_contact"
             android:title="@string/dev_contact"
-            android:showAsAction="never" />
+            android:showAsAction="never"
+            tools:ignore="AppCompatResource" />
+        <item
+            android:id="@+id/crash_report"
+            android:orderInCategory="3"
+            android:showAsAction="never"
+            android:title="@string/bug_report_crash_report"
+            android:icon="@mipmap/crash_bug_report"
+            tools:ignore="AppCompatResource" />
         <item
             android:id="@+id/dev_team"
-            android:orderInCategory="3"
+            android:orderInCategory="4"
             android:icon="@mipmap/icon_dev_team"
             android:title="@string/dev_team"
-            android:showAsAction="never" />
+            android:showAsAction="never"
+            tools:ignore="AppCompatResource" />
     </group>
 </menu>

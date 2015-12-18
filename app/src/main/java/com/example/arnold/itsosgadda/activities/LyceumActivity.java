@@ -26,11 +26,15 @@ import android.widget.TextView;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
+import com.example.arnold.itsosgadda.utilities.Log4jHelper;
+
+import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import static com.example.arnold.itsosgadda.R.id.about_app;
+import static java.lang.Boolean.*;
 
 
 public class LyceumActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -40,29 +44,39 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lyceum_layout);
-        ActionBar actionBar = getActionBar();
-        assert actionBar != null;
-        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+        try {
+            setContentView(R.layout.lyceum_layout);
+            ActionBar actionBar = getActionBar();
+            assert actionBar != null;
+            actionBar.setIcon(R.mipmap.ic_launcher);
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
+            mNavigationDrawerFragment = (NavigationDrawerFragment)
+                    getFragmentManager().findFragmentById(R.id.navigation_drawer);
+            mTitle = getTitle();
 
-        // Set up the drawer.
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
-        makeActionOverflowMenuShown();
+            // Set up the drawer.
+            mNavigationDrawerFragment.setUp(
+                    R.id.navigation_drawer,
+                    (DrawerLayout) findViewById(R.id.drawer_layout));
+            makeActionOverflowMenuShown();
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            log.error("Error", ex);
+        }
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        try {
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                    .commit();
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            log.error("Error", ex);
+        }
     }
 
     /*public void onSectionAttached(int number) {
@@ -105,8 +119,13 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
+            try {
+                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+                fragment.setArguments(args);
+            } catch (Exception ex) {
+                Logger log = Log4jHelper.getLogger("LyceumActivity");
+                log.error("Error", ex);
+            }
             return fragment;
         }
 
@@ -138,32 +157,36 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception e) {
-            Log.d(null, e.getLocalizedMessage());
+            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            log.error("Error", e);
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        try {
+            getMenuInflater().inflate(R.menu.main_menu, menu);
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            log.error("Error", ex);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
-        if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
-            if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-                try {
-                    Method m = menu.getClass().getDeclaredMethod(
-                            "setOptionalIconsVisible", Boolean.TYPE);
+        try {
+            if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
+                if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
+                    Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", TYPE);
                     m.setAccessible(true);
                     m.invoke(menu, true);
-                } catch (NoSuchMethodException e) {
-                    Log.e("MyActivity", "onMenuOpened", e);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
                 }
             }
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            log.error("Error", ex);
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -174,68 +197,59 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.dev_team:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setIcon(R.mipmap.icon_dev_team)
-                        .setTitle(R.string.dev_team)
-                        .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        }).show().setCanceledOnTouchOutside(true);
-                break;
-            case about_app:
-                builder = new AlertDialog.Builder(this);
-                builder.setIcon(R.mipmap.icon_about)
-                        .setTitle(R.string.created_for)
-                        .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .show().setCanceledOnTouchOutside(true);
-                AlertDialog dialog = builder.create();
-                dialog.dismiss();
-                break;
-            case R.id.subscribe:
-                TextView tvDisplay = new TextView(this);
-                final String data = "- vkontakte: https://vk.com/arnold.charyyev\n" +
-                        "- facebook: https://www.facebook.com/schyzomaniac.mind\n" +
-                        "- youtube: https://www.youtube.com/user/Perceus100\n";
-                tvDisplay.setText(data);
-                tvDisplay.setLinksClickable(true);
-                tvDisplay.setAutoLinkMask(RESULT_OK);
-                tvDisplay.setMovementMethod(LinkMovementMethod.getInstance());
-                Linkify.addLinks(tvDisplay, Linkify.ALL);
-
-                builder = new AlertDialog.Builder(this);
-                builder.setIcon(R.mipmap.icon_subscribe_contact)
-                        .setTitle(R.string.dev_contact)
-                        .setView(tvDisplay)
-                        .setCancelable(false)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .show();
-                AlertDialog dialogAlert = builder.create();
-                dialogAlert.dismiss();
-                break;
+        try {
+            int id = item.getItemId();
+            switch (id) {
+                case R.id.dev_team:
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_dev_team)
+                            .setTitle(R.string.dev_team)
+                            .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show().setCanceledOnTouchOutside(true);
+                    break;
+                case about_app:
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_about)
+                            .setTitle(R.string.created_for)
+                            .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show().setCanceledOnTouchOutside(true);
+                    AlertDialog dialog = builder.create();
+                    dialog.dismiss();
+                    break;
+                case R.id.subscribe:
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_subscribe_contact)
+                            .setTitle(R.string.dev_contact)
+                            .setView(getLayoutInflater().inflate(R.layout.contact_to_developer, null))
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show();
+                    dialog = builder.create();
+                    dialog.dismiss();
+                    break;
+                case R.id.crash_report:
+                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
+                    break;
+            }
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            log.error("Error", ex);
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void restartActivity() {
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
     }
 }

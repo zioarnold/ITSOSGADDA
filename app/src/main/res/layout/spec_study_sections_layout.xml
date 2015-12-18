@@ -29,7 +29,7 @@
             android:layout_alignWithParentIfMissing="false"
             android:layout_below="@+id/courses_id"
             android:layout_centerHorizontal="true"
-            android:background="#ffff33"
+            android:background="#78ffff33"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp" />
@@ -42,7 +42,7 @@
             android:id="@+id/spec_IT_TLC_Button"
             android:layout_below="@+id/lyceum_button"
             android:layout_centerHorizontal="true"
-            android:background="#4169E1"
+            android:background="#784169e1"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp" />
@@ -55,7 +55,7 @@
             android:id="@+id/spec_economy_button"
             android:layout_below="@+id/spec_IT_TLC_Button"
             android:layout_centerHorizontal="true"
-            android:background="#FF6347"
+            android:background="#78ff6347"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp" />
@@ -68,7 +68,7 @@
             android:id="@+id/elet_mech_id_button"
             android:layout_below="@+id/spec_economy_button"
             android:layout_centerHorizontal="true"
-            android:background="#c0c0c0"
+            android:background="#78c0c0c0"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp" />
