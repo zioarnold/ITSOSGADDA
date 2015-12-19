@@ -286,7 +286,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
     private void matButtonClicked() {
         startActivity(new Intent(getApplicationContext(), MaintenanceAssistanceTechActivity.class));
     }
-
+    
     @Override
     public void onClick(View v) {
         try {

@@ -27,6 +27,7 @@ import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
+import com.example.arnold.itsosgadda.main.MainActivity;
 
 import java.util.ArrayList;
 
@@ -119,6 +120,7 @@ public class NavigationDrawerFragment extends Fragment {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuIcons.getResourceId(7, -1)));
 
         adapter = new NavDrawerListAdapter(getActivity().getApplicationContext(),
                 navDrawerItems);
@@ -129,29 +131,33 @@ public class NavigationDrawerFragment extends Fragment {
                 switch (position) {
                     case 0:
                         startActivity(new Intent(getActivity().getApplicationContext(),
-                                StoryActivity.class));
+                                MainActivity.class));
                         break;
                     case 1:
                         startActivity(new Intent(getActivity().getApplicationContext(),
-                                SpecStorySectionActivity.class));
+                                StoryActivity.class));
                         break;
                     case 2:
                         startActivity(new Intent(getActivity().getApplicationContext(),
-                                WebRegistryActivity.class));
+                                SpecStorySectionActivity.class));
                         break;
                     case 3:
                         startActivity(new Intent(getActivity().getApplicationContext(),
-                                EmailSendingActivity.class));
+                                WebRegistryActivity.class));
                         break;
                     case 4:
                         startActivity(new Intent(getActivity().getApplicationContext(),
-                                MapsActivity.class));
+                                EmailSendingActivity.class));
                         break;
                     case 5:
                         startActivity(new Intent(getActivity().getApplicationContext(),
-                                ComActivity.class));
+                                MapsActivity.class));
                         break;
                     case 6:
+                        startActivity(new Intent(getActivity().getApplicationContext(),
+                                ComActivity.class));
+                        break;
+                    case 7:
                         /*startActivity(new Intent(getActivity().getApplicationContext(),
                                 PhotoGalleryActivity.class));*/
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

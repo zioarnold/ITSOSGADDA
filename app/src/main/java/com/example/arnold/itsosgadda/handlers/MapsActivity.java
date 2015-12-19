@@ -1,7 +1,10 @@
 package com.example.arnold.itsosgadda.handlers;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,20 +15,33 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.widget.DrawerLayout;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.arnold.itsosgadda.main.MainActivity;
 import com.example.arnold.itsosgadda.R;
+import com.example.arnold.itsosgadda.utilities.Log4jHelper;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMyLocationChangeListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
-public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLocationChangeListener {
+import org.apache.log4j.Logger;
+
+import static com.example.arnold.itsosgadda.R.id.container;
+import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
+import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.*;
+
+public class MapsActivity extends FragmentActivity implements OnMyLocationChangeListener,
+        NavigationDrawerCallbacks {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-
+    private NavigationDrawerFragment mNavigationDrawerFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +50,11 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
         assert actionBar != null;
         actionBar.setIcon(R.mipmap.ic_launcher);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
+        mNavigationDrawerFragment = (NavigationDrawerFragment)
+                getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment.setUp(
+                R.id.navigation_drawer,
+                (DrawerLayout) findViewById(R.id.drawer_layout));
         setUpMapIfNeeded();
     }
 
@@ -165,5 +186,65 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
         String provider = locationManagerUpd.getBestProvider(criteria, true);
         Location myLocationUpd = locationManagerUpd.getLastKnownLocation(provider);
         myLocationUpd.getProvider();
+    }
+
+    @Override
+    public void onNavigationDrawerItemSelected(int position) {
+        try {
+            // update the main content by replacing fragments
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(container, PlaceholderFragment.newInstance(position + 1))
+                    .commit();
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MapsActivity");
+            log.error("Error", ex);
+        }
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            try {
+                Bundle args = new Bundle();
+                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+                fragment.setArguments(args);
+            } catch (Exception ex) {
+                Logger log = Log4jHelper.getLogger("MapsActivity");
+                log.error("Error", ex);
+            }
+            return fragment;
+        }
+
+        public PlaceholderFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            return inflater.inflate(fragment_main_navitagion_drawer, container, false);
+        }
+
+        @Override
+        public void onAttach(Activity activity) {
+            super.onAttach(activity);
+
+            /*((MainActivity) activity).onSectionAttached(
+                    getArguments().getInt(ARG_SECTION_NUMBER));*/
+        }
     }
 }

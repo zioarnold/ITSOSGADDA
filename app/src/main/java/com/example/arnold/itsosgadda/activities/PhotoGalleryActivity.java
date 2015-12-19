@@ -2,6 +2,7 @@ package com.example.arnold.itsosgadda.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.arnold.itsosgadda.utilities.Log4jHelper;
@@ -42,5 +43,36 @@ public class PhotoGalleryActivity extends Activity {
             Logger log = Log4jHelper.getLogger("PhotoGalleryActivity");
             log.error("Error", ex);
         }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.v("PGA", "++ ON START ++");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.v("PGA", "+ ON RESUME +");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.v("PGA", "- ON PAUSE -");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        finish();
+        Log.v("PGA", "-- ON STOP --");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.v("PGA", "- ON DESTROY -");
     }
 }

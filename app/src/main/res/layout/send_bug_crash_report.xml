@@ -44,16 +44,18 @@
         android:id="@+id/textViewMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Email_to_send"
+        android:text="@string/Email_to_send_developer"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/editTextMessage"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+
         android:gravity="top"
         android:inputType="textMultiLine"
-        android:lines="5" />
+        android:lines="5"
+        android:hint="@string/Email_body_text" />
 
     <Button
         android:id="@+id/emailSend"

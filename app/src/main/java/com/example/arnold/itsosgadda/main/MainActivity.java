@@ -392,4 +392,43 @@ public class MainActivity extends Activity implements OnClickListener,
             log.error("Error", ex);
         }
     }
+
+    /*@Override
+    public void onStart() {
+        super.onStart();
+        Logger log = Log4jHelper.getLogger("MainActivity");
+        log.warn("Activity started");
+        Log.v("Main", "++ ON START ++");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.v("Main", "+ ON RESUME +");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Logger log = Log4jHelper.getLogger("MainActivity");
+        log.warn("Activity paused");
+        Log.v("Main", "- ON PAUSE -");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        finish();
+        Logger log = Log4jHelper.getLogger("MainActivity");
+        log.warn("Activity finished");
+        Log.v("Main", "-- ON STOP --");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Logger log = Log4jHelper.getLogger("MainActivity");
+        log.warn("Activity destroyed");
+        Log.v("Main", "- ON DESTROY -");
+    }*/
 }

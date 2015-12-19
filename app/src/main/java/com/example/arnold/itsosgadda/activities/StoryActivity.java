@@ -253,4 +253,35 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.v("Story", "++ ON START ++");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.v("Story", "+ ON RESUME +");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.v("Story", "- ON PAUSE -");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        finish();
+        Log.v("Story", "-- ON STOP --");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.v("Story", "- ON DESTROY -");
+    }
 }

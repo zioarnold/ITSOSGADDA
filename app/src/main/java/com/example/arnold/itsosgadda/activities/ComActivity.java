@@ -4,6 +4,8 @@ import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -18,14 +20,20 @@ import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v4.widget.DrawerLayout;
 import android.text.method.ScrollingMovementMethod;
 import android.text.util.Linkify;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.arnold.itsosgadda.R;
+import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
+import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 import com.example.arnold.itsosgadda.services.NotifyService;
 import com.example.arnold.itsosgadda.utilities.Log4jHelper;
 
@@ -41,15 +49,19 @@ import java.util.Calendar;
 
 import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 import static android.media.RingtoneManager.TYPE_NOTIFICATION;
+import static com.example.arnold.itsosgadda.R.id.container;
+import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
 import static com.example.arnold.itsosgadda.R.menu.reload;
 
-public class ComActivity extends Activity {
+public class ComActivity extends Activity implements NavigationDrawerCallbacks {
     private static final String url = "jdbc:mysql://188.209.81.18:3306/app_db",
             user = "app", pass = "4826159g";
+    private NavigationDrawerFragment mNavigationDrawerFragment;
     private Connection connection = null;
     private Statement statement = null;
     private ResultSet resultSet = null;
     private ResultSetMetaData resultSetMetaData = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +71,12 @@ public class ComActivity extends Activity {
             assert actionBar != null;
             actionBar.setIcon(R.mipmap.ic_launcher);
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
-
+            mNavigationDrawerFragment = (NavigationDrawerFragment)
+                    getFragmentManager().findFragmentById(R.id.navigation_drawer);
+            // Set up the drawer.
+            mNavigationDrawerFragment.setUp(
+                    R.id.navigation_drawer,
+                    (DrawerLayout) findViewById(R.id.drawer_layout));
             dataBaseConnect();
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MainActivity");
@@ -122,5 +139,96 @@ public class ComActivity extends Activity {
             Logger log = Log4jHelper.getLogger("ComActivity");
             log.error("Error", ex);
         }
+    }
+
+    @Override
+    public void onNavigationDrawerItemSelected(int position) {
+        try {
+            // update the main content by replacing fragments
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(container, PlaceholderFragment.newInstance(position + 1))
+                    .commit();
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("ComActivity");
+            log.error("Error", ex);
+        }
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            try {
+                Bundle args = new Bundle();
+                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+                fragment.setArguments(args);
+            } catch (Exception ex) {
+                Logger log = Log4jHelper.getLogger("MainActivity");
+                log.error("Error", ex);
+            }
+            return fragment;
+        }
+
+        public PlaceholderFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            return inflater.inflate(fragment_main_navitagion_drawer, container, false);
+        }
+
+        @Override
+        public void onAttach(Activity activity) {
+            super.onAttach(activity);
+
+            /*((MainActivity) activity).onSectionAttached(
+                    getArguments().getInt(ARG_SECTION_NUMBER));*/
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.v("Com", "++ ON START ++");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.v("Com", "+ ON RESUME +");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.v("Com", "- ON PAUSE -");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        finish();
+        Log.v("Com", "-- ON STOP --");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.v("Com", "- ON DESTROY -");
     }
 }
