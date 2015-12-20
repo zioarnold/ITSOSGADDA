@@ -251,13 +251,6 @@
     <string name="no_network_enabled">Errore di connessione</string>
     <string name="network_enabled">Si prega di attivare la connessione Wi-Fi
         \noppure connessione telefonica</string>
-    <string name="iissgadda_v18">IISS C. E. Gadda v1.8</string>
-    <string name="iissgadda_v10">IISS C. E. Gadda v1.0</string>
-    <string name="iissgadda_213">IISS C. E. Gadda v2.1.3</string>
-    <string name="iissgadda_212">IISS C. E. Gadda v2.1.2</string>
-    <string name="iissgadda_2">IISS C. E. Gadda v2</string>
-    <string name="iissgadda_19">IISS C. E. Gadda v1.9</string>
-    <string name="iissgadda_17">IISS C. E. Gadda v1.7</string>
     <string name="iissgadda_14">IISS C. E. Gadda v1.4</string>
     <string name="iissgadda_14_list">- Apertura registro elettronico</string>
     <string name="iissgadda_1_7_list">- ic_launcher sostituito</string>
@@ -283,11 +276,11 @@
     <string name="id">ID</string>
     <string name="news">news</string>
     <string name="link">link</string>
-    <string name="iissgadda_22">IISS C. E. Gadda v2.2</string>
+    <string name="iissgadda_23_updateList">-Nuovi contatti di Sviluppatore\n
+    -Nuova grafica di avviamento</string>
     <string name="iissgadda_22_updateList">- Visualizzazione delle communicazioni on line…\n
     - Nuovo menu laterale…\n
     - Notifiche quotidiane delle communicazioni</string>
-    <string name="iissgadda_221">IISS C. E. Gadda v2.2.1</string>
     <string name="iissgadda_221_updateList">- Libreria log\n
     -Nuova visualizzazione di Contatta con Sviluppatore\n
     -Spedizione di Bug/Crash log (Clicca su "Feedback allo Sviluppatore", digita il messaggio,

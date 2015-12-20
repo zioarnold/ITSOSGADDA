@@ -11,6 +11,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/iissgadda_23"
+            android:id="@+id/txtView_2_3"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/iissgadda_23_updateList"
+            android:id="@+id/txtView_2_3list" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/iissgadda_221"
             android:id="@+id/txtView_2_21"
             android:textStyle="bold" />

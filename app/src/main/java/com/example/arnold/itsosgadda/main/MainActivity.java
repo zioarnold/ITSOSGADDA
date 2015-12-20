@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ApplicationErrorReport;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
@@ -13,8 +12,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,12 +20,10 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
+import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.activities.ComActivity;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
-import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
@@ -43,6 +38,7 @@ import org.apache.log4j.Logger;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import static android.view.View.NO_ID;
 import static android.view.View.OnClickListener;
 import static android.view.Window.FEATURE_ACTION_BAR;
 import static com.example.arnold.itsosgadda.R.id.about_app;
@@ -51,9 +47,9 @@ import static com.example.arnold.itsosgadda.R.id.container;
 import static com.example.arnold.itsosgadda.R.id.e_registryId;
 import static com.example.arnold.itsosgadda.R.id.feedback;
 import static com.example.arnold.itsosgadda.R.id.findus;
+import static com.example.arnold.itsosgadda.R.id.photoGallery;
 import static com.example.arnold.itsosgadda.R.id.specSectionButtonId;
 import static com.example.arnold.itsosgadda.R.id.storyButton;
-import static com.example.arnold.itsosgadda.R.id.photoGallery;
 import static com.example.arnold.itsosgadda.R.layout.activity_main;
 import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
 import static com.example.arnold.itsosgadda.R.menu.main_menu;
@@ -95,8 +91,6 @@ public class MainActivity extends Activity implements OnClickListener,
 
             bPhotoGallery = (Button) findViewById(R.id.photoGallery);
             bPhotoGallery.setOnClickListener(this);
-
-            startService(new Intent(getApplicationContext(), NotifyService.class));
 
             mNavigationDrawerFragment = (NavigationDrawerFragment)
                     getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -173,8 +167,8 @@ public class MainActivity extends Activity implements OnClickListener,
          */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
             try {
-                Bundle args = new Bundle();
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
@@ -220,7 +214,6 @@ public class MainActivity extends Activity implements OnClickListener,
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         try {
-
             getMenuInflater().inflate(main_menu, menu);
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MainActivity");
@@ -234,16 +227,10 @@ public class MainActivity extends Activity implements OnClickListener,
         try {
             if (featureId == FEATURE_ACTION_BAR && menu != null) {
                 if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-                    try {
-                        Method m = menu.getClass().getDeclaredMethod(
-                                "setOptionalIconsVisible", TYPE);
-                        m.setAccessible(true);
-                        m.invoke(menu, true);
-                    } catch (NoSuchMethodException e) {
-                        Log.e("MyActivity", "onMenuOpened", e);
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
+                    Method m = menu.getClass().getDeclaredMethod(
+                            "setOptionalIconsVisible", TYPE);
+                    m.setAccessible(true);
+                    m.invoke(menu, true);
                 }
             }
         } catch (Exception ex) {
@@ -335,6 +322,7 @@ public class MainActivity extends Activity implements OnClickListener,
 
     private void communicationButtonClicked() {
         startActivity(new Intent(getApplicationContext(), ComActivity.class));
+        startService(new Intent(getApplicationContext(), NotifyService.class));
     }
 
     @Override

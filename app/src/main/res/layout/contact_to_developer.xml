@@ -35,7 +35,8 @@
         android:background="@drawable/imgphone"
         tools:ignore="ContentDescription"
         android:layout_below="@+id/imgGmail"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,7 +46,8 @@
         android:id="@+id/txtPhone"
         android:layout_alignTop="@+id/imgPhone"
         android:layout_alignLeft="@+id/txtGmail"
-        android:autoLink="phone" />
+        android:autoLink="phone"
+        android:layout_marginTop="5dp" />
 
     <ImageView
         android:layout_width="32dp"
@@ -54,7 +56,8 @@
         android:layout_below="@+id/imgPhone"
         android:background="@drawable/imgvk"
         android:layout_alignParentLeft="true"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,7 +67,8 @@
         android:id="@+id/txtVk"
         android:layout_below="@+id/txtPhone"
         android:layout_alignLeft="@+id/txtPhone"
-        android:autoLink="web" />
+        android:autoLink="web"
+        android:layout_marginTop="5dp" />
 
     <ImageView
         android:layout_width="32dp"
@@ -73,7 +77,8 @@
         android:id="@+id/imgFb"
         android:layout_below="@+id/imgVk"
         android:layout_alignParentLeft="true"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,7 +88,8 @@
         android:id="@+id/txtFb"
         android:layout_alignTop="@+id/imgFb"
         android:layout_alignLeft="@+id/txtVk"
-        android:autoLink="web" />
+        android:autoLink="web"
+        android:layout_marginTop="5dp" />
 
     <ImageView
         android:layout_width="32dp"
@@ -92,7 +98,8 @@
         android:layout_below="@+id/imgFb"
         android:layout_alignParentLeft="true"
         android:background="@drawable/imgtwitter"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -102,6 +109,70 @@
         android:id="@+id/txtTwitter"
         android:layout_below="@+id/txtFb"
         android:layout_toRightOf="@+id/imgGmail"
-        android:autoLink="web" />
+        android:autoLink="web"
+        android:layout_marginTop="5dp" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/imgInstagram"
+        android:layout_below="@+id/imgTwitter"
+        android:background="@drawable/imginstagram"
+        android:layout_alignParentLeft="true"
+        tools:ignore="ContentDescription"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/in_contact_developer"
+        android:id="@+id/txtInstagram"
+        android:layout_below="@+id/txtTwitter"
+        android:layout_toRightOf="@+id/imgGmail"
+        android:autoLink="web"
+        android:layout_marginTop="5dp" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/imgYandex"
+        android:background="@drawable/imgyandex"
+        android:layout_below="@+id/txtInstagram"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/yandex_contact_developer"
+        android:id="@+id/txtYandex"
+        android:layout_below="@+id/txtInstagram"
+        android:layout_toRightOf="@+id/imgGmail"
+        android:autoLink="email"
+        android:layout_marginTop="5dp" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:background="@drawable/imggithub"
+        android:layout_height="32dp"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/imgYandex"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/git_contact_developer"
+        android:id="@+id/txtGithub"
+        android:layout_below="@+id/txtYandex"
+        android:layout_toRightOf="@+id/imgGmail"
+        android:autoLink="web"
+        android:layout_marginTop="5dp" />
 
 </RelativeLayout>
