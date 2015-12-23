@@ -28,17 +28,16 @@ import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
-import com.example.arnold.itsosgadda.handlers.MapsActivity;
+import com.example.arnold.itsosgadda.handlers.MapsLoader;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
-import com.example.arnold.itsosgadda.services.NotifyService;
 import com.example.arnold.itsosgadda.utilities.Log4jHelper;
+import com.pushbots.push.Pushbots;
 
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import static android.view.View.NO_ID;
 import static android.view.View.OnClickListener;
 import static android.view.Window.FEATURE_ACTION_BAR;
 import static com.example.arnold.itsosgadda.R.id.about_app;
@@ -69,6 +68,10 @@ public class MainActivity extends Activity implements OnClickListener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
+            Pushbots.sharedInstance().init(this);
+            Pushbots.sharedInstance().register();
+            Pushbots.sharedInstance().setPushEnabled(true);
+
             setContentView(activity_main);
 
             storyButtonMainBody = (Button) findViewById(storyButton);
@@ -322,7 +325,6 @@ public class MainActivity extends Activity implements OnClickListener,
 
     private void communicationButtonClicked() {
         startActivity(new Intent(getApplicationContext(), ComActivity.class));
-        startService(new Intent(getApplicationContext(), NotifyService.class));
     }
 
     @Override
@@ -353,7 +355,7 @@ public class MainActivity extends Activity implements OnClickListener,
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     startActivity(new Intent(getApplicationContext(),
-                                            MapsActivity.class));
+                                            MapsLoader.class));
                                 }
                             })
                             .show().setCanceledOnTouchOutside(true);

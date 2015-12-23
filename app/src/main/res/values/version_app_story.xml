@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="iissgadda_235" translatable="false">IISS C. E. Gadda v2.3.5</string>
+    <string name="iissgadda_235_updateList">-Daily notification removed they were changed
+    by push notifications from server</string>
+
+    <string name="iissgadda_23" translatable="false">IISS C. E. Gadda v2.3</string>
+    <string name="iissgadda_23_updateList">-New dev contacts\n
+    -Screen launcher added</string>
+        >
+    <string name="iissgadda_221" translatable="false">IISS C. E. Gadda v2.2.1</string>
+    <string name="iissgadda_221_updateList">- Added Log library\n
+    -Changed Contact to Developer visualization\n
+    -Sending Bug/Crash log (click on "Feedback to Developer")</string>
+
+    <string name="iissgadda_22" translatable="false">IISS C. E. Gadda v2.2</string>
+    <string name="iissgadda_22_updateList">- Communication news are working now…\n
+    - Navigation drawer menu changed…\n
+    - Daily notification of news</string>
+
+    <string name="iissgadda_213" translatable="false">IISS C. E. Gadda v2.1.3</string>
+    <string name="iissgadda_213_updateList">
+        - ProgressBar on webpages fixed\n
+        - Release version of app
+    </string>
+
+    <string name="iissgadda_212" translatable="false">IISS C. E. Gadda v2.1.2</string>
+    <string name="iissgadda_212_updateList">
+        - Theme app fixed\n
+        - NavigationDrawerMenu added with different languages
+    </string>
+
+    <string name="iissgadda_2" translatable="false">IISS C. E. Gadda v2</string>
+    <string name="iissgadda_2_updateList">
+        - New AlertDialog windows\n
+        - GoogleMap Integration
+    </string>
+
+    <string name="iissgadda_19" translatable="false">IISS C. E. Gadda v1.9</string>
+    <string name="iissgadda_1_9_updateList">
+        - Graphic aspect now close to logo colors\n
+        - Info app window changed\n
+        - Icon languages added
+    </string>
+
+    <string name="iissgadda_v18" translatable="false">IISS C. E. Gadda v1.8</string>
+    <string name="iissgadda_1_8_list">
+        - Opening E-Registry in app\n
+        - Menu inflater on top right
+    </string>
+    <string name="iissgadda_17" translatable="false">IISS C. E. Gadda v1.7</string>
+    <string name="iissgadda_1_7_list">
+        - ic_launcher replaced
+    </string>
+    <string name="iissgadda_14" translatable="false">IISS C. E. Gadda v1.4</string>
+    <string name="iissgadda_14_list">
+        - E-Registry opening released
+    </string>
+
+    <string name="iissgadda_v10" translatable="false">IISS C. E. Gadda v1.0</string>
+    <string name="iissgadda_v10_list">
+        - Russian localization released\n
+        - English localization released\n
+        - Italian localization released
+    </string>
+</resources>

@@ -258,46 +258,6 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="network_enabled">Please open Wi-Fi connection or Mobile connection</string>
 
 
-    <string name="iissgadda_213" translatable="false">IISS C. E. Gadda v2.1.3</string>
-    <string name="iissgadda_213_updateList">
-        - ProgressBar on webpages fixed\n
-        - Release version of app
-    </string>
-    <string name="iissgadda_212" translatable="false">IISS C. E. Gadda v2.1.2</string>
-    <string name="iissgadda_212_updateList">
-        - Theme app fixed\n
-        - NavigationDrawerMenu added with different languages
-    </string>
-    <string name="iissgadda_2" translatable="false">IISS C. E. Gadda v2</string>
-    <string name="iissgadda_2_updateList">
-        - New AlertDialog windows\n
-        - GoogleMap Integration
-    </string>
-    <string name="iissgadda_19" translatable="false">IISS C. E. Gadda v1.9</string>
-    <string name="iissgadda_1_9_updateList">
-        - Graphic aspect now close to logo colors\n
-        - Info app window changed\n
-        - Icon languages added
-    </string>
-    <string name="iissgadda_v18" translatable="false">IISS C. E. Gadda v1.8</string>
-    <string name="iissgadda_1_8_list">
-        - Opening E-Registry in app\n
-        - Menu inflater on top right
-    </string>
-    <string name="iissgadda_17" translatable="false">IISS C. E. Gadda v1.7</string>
-    <string name="iissgadda_1_7_list">
-        - ic_launcher replaced
-    </string>
-    <string name="iissgadda_14">IISS C. E. Gadda v1.4</string>
-    <string name="iissgadda_14_list">
-        - E-Registry opening released
-    </string>
-    <string name="iissgadda_v10" translatable="false">IISS C. E. Gadda v1.0</string>
-    <string name="iissgadda_v10_list">
-        - Russian localization released\n
-        - English localization released\n
-        - Italian localization released
-    </string>
     <string name="photo_gallery">Photo gallery</string>
     <string name="still_working">On working…</string>
     <string name="head_of_project">ARNOL\'D CHARYYEV - Project leader</string>
@@ -308,17 +268,7 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="id">ID</string>
     <string name="news">news</string>
     <string name="link">link</string>
-    <string name="iissgadda_221" translatable="false">IISS C. E. Gadda v2.2.1</string>
-    <string name="iissgadda_221_updateList">- Added Log library\n
-    -Changed Contact to Developer visualization\n
-    -Sending Bug/Crash log (click on "Feedback to Developer")</string>
-    <string name="iissgadda_22" translatable="false">IISS C. E. Gadda v2.2</string>
-    <string name="iissgadda_22_updateList">- Communication news are working now…\n
-    - Navigation drawer menu changed…\n
-    - Daily notification of news</string>
-    <string name="iissgadda_23" translatable="false">IISS C. E. Gadda v2.3</string>
-    <string name="iissgadda_23_updateList">-New dev contacts\n
-    -Screen launcher added</string>
+
     <string name="notification_something_arrived">Communication</string>
     <string name="notification_communication_arrived">Communications</string>
     <string name="notification_check_for_communication">Please check if you have some new
@@ -331,30 +281,5 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="tw_contact_developer" translatable="false">https://twitter.com/arnold_online</string>
     <string name="in_contact_developer" translatable="false">https://www.instagram.com/zioarnold/</string>
     <string name="git_contact_developer" translatable="false">https://github.com/zioarnold/</string>
-
     <string name="bug_report_crash_report">Feedback to Developer</string>
-
-    <string-array name="nav_drawer_items" tools:ignore="InconsistentArrays">
-        <item>Main</item>
-        <item>Our Story</item>
-        <item>Study addresses</item>
-        <item>E-Registry</item>
-        <item>Feedback to staff</item>
-        <item>Find us</item>
-        <item>Communications</item>
-        <item>Photo gallery</item>
-    </string-array>
-
-    <!-- Nav Drawer List Item Icons -->
-    <!-- Keep them in order as the titles are in -->
-    <array name="nav_drawer_icons">
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-    </array>
 </resources>

@@ -151,7 +151,7 @@ public class NavigationDrawerFragment extends Fragment {
                         break;
                     case 5:
                         startActivity(new Intent(getActivity().getApplicationContext(),
-                                MapsActivity.class));
+                                MapsLoader.class));
                         break;
                     case 6:
                         startActivity(new Intent(getActivity().getApplicationContext(),

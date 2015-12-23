@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="iissgadda_235_updateList">-Rimozione notifiche quotidiane, al loro posto si utilizza
+    notifiche push dal server remoto</string>
+    <string name="iissgadda_23_updateList">-Nuovi contatti di Sviluppatore\n
+    -Nuova grafica di avviamento</string>
+    <string name="iissgadda_22_updateList">- Visualizzazione delle communicazioni on line…\n
+    - Nuovo menu laterale…\n
+    - Notifiche quotidiane delle communicazioni</string>
+    <string name="iissgadda_221_updateList">- Libreria log\n
+    -Nuova visualizzazione di Contatta con Sviluppatore\n
+    -Spedizione di Bug/Crash log (Clicca su "Feedback allo Sviluppatore", digita il messaggio,
+        il file sarà allegato automaticamente)</string>
+    <string name="iissgadda_14_list">- Apertura registro elettronico</string>
+    <string name="iissgadda_1_7_list">- ic_launcher sostituito</string>
+    <string name="iissgadda_1_8_list">- Apertura Registro elettronico in app\n
+        - Menu scalabile</string>
+    <string name="iissgadda_1_9_updateList">- Aspetto grafico corrisponde all\'icona dell\'app\n
+        - Graficamente è stata cambiata la finestra info su app\n
+        - Bandiere di lingue </string>
+    <string name="iissgadda_212_updateList">- Theme app fixato\n
+        - NavigationDrawerMenu con la localizzazione</string>
+    <string name="iissgadda_213_updateList">- ProgressBar sulle pagine web fixato\n
+        - Versione di app è release non più debug</string>
+    <string name="iissgadda_2_updateList">- Nuove finestre AlertDialog\n
+        - Integrazione di Google Maps (GMaps)</string>
+    <string name="iissgadda_v10_list">- Localizzazione russa rilasciata\n
+        - Localizzazione inglese rilasciata\n
+        - Localizzazione italiana rilasciata</string>
+</resources>

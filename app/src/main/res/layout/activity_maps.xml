@@ -4,7 +4,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".handlers.MapsActivity">
+    tools:context=".handlers.MapsLoader">
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/map"
-    tools:context="com.example.arnold.itsosgadda.handlers.MapsActivity"
+    tools:context=".handlers.MapsLoader"
     android:name="com.google.android.gms.maps.SupportMapFragment" />
     </RelativeLayout>
     <fragment

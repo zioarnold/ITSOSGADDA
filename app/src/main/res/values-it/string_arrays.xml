@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string-array name="nav_drawer_items" tools:ignore="InconsistentArrays">
+        <item>Principale</item>
+        <item>La nostra storia</item>
+        <item>Indirizzi di studio</item>
+        <item>Registro elettronico</item>
+        <item>Feedback allo staff</item>
+        <item>Trovaci</item>
+        <item>Comunicazioni</item>
+        <item>Foto</item>
+    </string-array>
+</resources>

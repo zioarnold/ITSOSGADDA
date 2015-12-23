@@ -251,23 +251,7 @@
     <string name="no_network_enabled">Errore di connessione</string>
     <string name="network_enabled">Si prega di attivare la connessione Wi-Fi
         \noppure connessione telefonica</string>
-    <string name="iissgadda_14">IISS C. E. Gadda v1.4</string>
-    <string name="iissgadda_14_list">- Apertura registro elettronico</string>
-    <string name="iissgadda_1_7_list">- ic_launcher sostituito</string>
-    <string name="iissgadda_1_8_list">- Apertura Registro elettronico in app\n
-        - Menu scalabile</string>
-    <string name="iissgadda_1_9_updateList">- Aspetto grafico corrisponde all\'icona dell\'app\n
-        - Graficamente è stata cambiata la finestra info su app\n
-        - Bandiere di lingue </string>
-    <string name="iissgadda_212_updateList">- Theme app fixato\n
-        - NavigationDrawerMenu con la localizzazione</string>
-    <string name="iissgadda_213_updateList">- ProgressBar sulle pagine web fixato\n
-        - Versione di app è release non più debug</string>
-    <string name="iissgadda_2_updateList">- Nuove finestre AlertDialog\n
-        - Integrazione di Google Maps (GMaps)</string>
-    <string name="iissgadda_v10_list">- Localizzazione russa rilasciata\n
-        - Localizzazione inglese rilasciata\n
-        - Localizzazione italiana rilasciata</string>
+
     <string name="photo_gallery">Foto </string>
     <string name="still_working">Nella fase di sviluppo…</string>
     <string name="head_of_project">ARNOL\'D CHARYYEV - Capo progetto</string>
@@ -276,15 +260,7 @@
     <string name="id">ID</string>
     <string name="news">news</string>
     <string name="link">link</string>
-    <string name="iissgadda_23_updateList">-Nuovi contatti di Sviluppatore\n
-    -Nuova grafica di avviamento</string>
-    <string name="iissgadda_22_updateList">- Visualizzazione delle communicazioni on line…\n
-    - Nuovo menu laterale…\n
-    - Notifiche quotidiane delle communicazioni</string>
-    <string name="iissgadda_221_updateList">- Libreria log\n
-    -Nuova visualizzazione di Contatta con Sviluppatore\n
-    -Spedizione di Bug/Crash log (Clicca su "Feedback allo Sviluppatore", digita il messaggio,
-        il file sarà allegato automaticamente)</string>
+
     <string name="notification_something_arrived">Comunicazione</string>
     <string name="notification_communication_arrived">Comunicazioni</string>
     <string name="notification_check_for_communication">Per favore controlla se sono arrivate
@@ -292,14 +268,5 @@
     <string name="bug_report_crash_report">Feedback allo Sviluppatore</string>
 
 
-    <string-array name="nav_drawer_items" tools:ignore="InconsistentArrays">
-        <item>Principale</item>
-        <item>La nostra storia</item>
-        <item>Indirizzi di studio</item>
-        <item>Registro elettronico</item>
-        <item>Feedback allo staff</item>
-        <item>Trovaci</item>
-        <item>Comunicazioni</item>
-        <item>Foto</item>
-    </string-array>
+
 </resources>

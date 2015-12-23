@@ -3,11 +3,7 @@ package com.example.arnold.itsosgadda.main;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 
-import com.example.arnold.itsosgadda.R;
-import com.example.arnold.itsosgadda.services.NotifyService;
 import com.example.arnold.itsosgadda.utilities.Log4jHelper;
 
 import org.apache.log4j.Logger;
@@ -29,11 +25,11 @@ public class MainScreenActivity extends Activity {
             getWindow().setFlags(FLAG_FULLSCREEN,
                     FLAG_FULLSCREEN);
             setContentView(activity_main_screen);
+
             timer = new Timer();
             timer.schedule(new TimerTask() {
                 public void run() {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    startService(new Intent(getApplicationContext(), NotifyService.class));
                 }
             }, 5000);
         } catch (Exception ex) {
