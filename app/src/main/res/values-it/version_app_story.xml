@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="iissgadda_235_updateList">-Rimozione notifiche quotidiane, al loro posto si utilizza
-    notifiche push dal server remoto</string>
+    notifiche push dal server remoto\n
+    - Menù laterale fixato</string>
     <string name="iissgadda_23_updateList">-Nuovi contatti di Sviluppatore\n
     -Nuova grafica di avviamento</string>
     <string name="iissgadda_22_updateList">- Visualizzazione delle communicazioni on line…\n

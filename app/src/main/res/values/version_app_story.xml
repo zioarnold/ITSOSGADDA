@@ -2,7 +2,8 @@
 <resources>
     <string name="iissgadda_235" translatable="false">IISS C. E. Gadda v2.3.5</string>
     <string name="iissgadda_235_updateList">-Daily notification removed they were changed
-    by push notifications from server</string>
+    by push notifications from server\n
+    - Navigation Drawer fixed</string>
 
     <string name="iissgadda_23" translatable="false">IISS C. E. Gadda v2.3</string>
     <string name="iissgadda_23_updateList">-New dev contacts\n
