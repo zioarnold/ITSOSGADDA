@@ -208,8 +208,9 @@ public class MainActivity extends Activity implements OnClickListener,
                 menuKeyField.setAccessible(true);
                 menuKeyField.setBoolean(config, false);
             }
-        } catch (Exception e) {
-            Log.d(null, e.getLocalizedMessage());
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MainActivity");
+            log.error("Error", ex);
         }
     }
 

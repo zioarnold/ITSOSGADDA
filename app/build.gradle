@@ -15,7 +15,7 @@ android {
     compileSdkVersion 22
     buildToolsVersion '22.0.1'
     defaultConfig {
-        applicationId 'com.example.arnold.itsosgadda'
+        applicationId 'app.iissgadda.dev.arnold'
         minSdkVersion 15
         versionCode 1
         versionName '2.3.5-release'
@@ -26,7 +26,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            debuggable true
+            debuggable false
             jniDebuggable false
             signingConfig signingConfigs.iissgadda_release
             renderscriptDebuggable false
