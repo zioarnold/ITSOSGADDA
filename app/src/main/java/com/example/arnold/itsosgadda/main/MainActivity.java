@@ -12,7 +12,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,6 +54,7 @@ import static com.example.arnold.itsosgadda.R.menu.main_menu;
 import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 import static java.lang.Boolean.TYPE;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends Activity implements OnClickListener,
         NavigationDrawerCallbacks {
     private Button storyButtonMainBody, specSectButton, webRegistryButton, feedBackButton,
