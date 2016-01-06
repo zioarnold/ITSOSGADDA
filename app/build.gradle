@@ -5,11 +5,11 @@ android {
         iissgadda_release {
             keyAlias 'iissgaddarelease'
             keyPassword 'arn81096'
-            storeFile file('C:/Users/Arnol\'d/AndroidStudioProjects/ITSOSGADDA/iissgadda.jks')
+            storeFile file('A:/AndroidProjects/ITSOSGADDA/iissgadda.jks')
             storePassword 'arn81096'
         }
         debug {
-            storeFile file('C:/Users/Arnol\'d/.android/debug.keystore')
+            storeFile file('C:/Users/arn81/.android/debug.keystore')
         }
     }
     compileSdkVersion 22
