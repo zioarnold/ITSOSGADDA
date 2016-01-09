@@ -29,8 +29,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/comTextView" />
+            android:text="@string/error_connection"
+            android:id="@+id/comTextView"
+            android:textStyle="bold" />
     </ScrollView>
 </LinearLayout>
     </RelativeLayout>

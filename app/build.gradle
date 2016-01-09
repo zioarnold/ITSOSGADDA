@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    //noinspection GroovyAssignabilityCheck
     signingConfigs {
         iissgadda_release {
             keyAlias 'iissgaddarelease'
@@ -17,8 +18,8 @@ android {
     defaultConfig {
         applicationId 'app.iissgadda.dev.arnold'
         minSdkVersion 15
-        versionCode 235
-        versionName '2.3.5-release'
+        versionCode 2351
+        versionName '2.3.5.1-release'
         signingConfig signingConfigs.iissgadda_release
     }
     //noinspection GroovyAssignabilityCheck

@@ -35,6 +35,7 @@ import java.sql.Statement;
 import static com.example.arnold.itsosgadda.R.id.container;
 import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
 import static com.example.arnold.itsosgadda.R.menu.reload;
+import static com.example.arnold.itsosgadda.R.string.error_connection;
 
 public class ComActivity extends Activity implements NavigationDrawerCallbacks {
     private static final String url = "jdbc:mysql://188.209.81.18:3306/app_db",
@@ -109,6 +110,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
             resultSet = statement.executeQuery("SELECT * FROM app_db.push " +
                     "ORDER BY ID DESC");
             resultSetMetaData = resultSet.getMetaData();
+
             while (resultSet.next()) {
                 result += resultSetMetaData.getColumnName(2) + " : "
                         + resultSet.getString(2) + "\n";

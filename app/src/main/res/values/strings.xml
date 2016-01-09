@@ -282,4 +282,6 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="in_contact_developer" translatable="false">https://www.instagram.com/zioarnold/</string>
     <string name="git_contact_developer" translatable="false">https://github.com/zioarnold/</string>
     <string name="bug_report_crash_report">Feedback to Developer</string>
+    <string name="error_connection">Network connection error: check your Wi-Fi connection
+    or Mobile connection.</string>
 </resources>
