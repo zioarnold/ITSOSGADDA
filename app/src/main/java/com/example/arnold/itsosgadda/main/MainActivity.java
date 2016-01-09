@@ -42,9 +42,11 @@ import static android.view.Window.FEATURE_ACTION_BAR;
 import static com.example.arnold.itsosgadda.R.id.about_app;
 import static com.example.arnold.itsosgadda.R.id.button_show_comunications;
 import static com.example.arnold.itsosgadda.R.id.container;
+import static com.example.arnold.itsosgadda.R.id.drawer_layout;
 import static com.example.arnold.itsosgadda.R.id.e_registryId;
 import static com.example.arnold.itsosgadda.R.id.feedback;
 import static com.example.arnold.itsosgadda.R.id.findus;
+import static com.example.arnold.itsosgadda.R.id.navigation_drawer;
 import static com.example.arnold.itsosgadda.R.id.photoGallery;
 import static com.example.arnold.itsosgadda.R.id.specSectionButtonId;
 import static com.example.arnold.itsosgadda.R.id.storyButton;
@@ -89,20 +91,20 @@ public class MainActivity extends Activity implements OnClickListener,
             findUsButton = (Button) findViewById(findus);
             findUsButton.setOnClickListener(this);
 
-            communicationButton = (Button) findViewById(R.id.button_show_comunications);
+            communicationButton = (Button) findViewById(button_show_comunications);
             communicationButton.setOnClickListener(this);
 
-            bPhotoGallery = (Button) findViewById(R.id.photoGallery);
+            bPhotoGallery = (Button) findViewById(photoGallery);
             bPhotoGallery.setOnClickListener(this);
 
             mNavigationDrawerFragment = (NavigationDrawerFragment)
-                    getFragmentManager().findFragmentById(R.id.navigation_drawer);
+                    getFragmentManager().findFragmentById(navigation_drawer);
             mTitle = getTitle();
 
             // Set up the drawer.
             mNavigationDrawerFragment.setUp(
-                    R.id.navigation_drawer,
-                    (DrawerLayout) findViewById(R.id.drawer_layout));
+                    navigation_drawer,
+                    (DrawerLayout) findViewById(drawer_layout));
 
             ActionBar actionBar = getActionBar();
             assert actionBar != null;
