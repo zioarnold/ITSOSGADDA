@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -26,7 +27,6 @@ import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
 import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
-import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 import com.example.arnold.itsosgadda.utilities.Log4jHelper;
@@ -65,6 +65,7 @@ public class MainActivity extends Activity implements OnClickListener,
     private CharSequence mTitle;
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -318,7 +319,18 @@ public class MainActivity extends Activity implements OnClickListener,
     }
 
     private void webRegistryButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
+        intent = getPackageManager().getLaunchIntentForPackage("eu.spaggiari.classeviva");
+        if (intent != null) {
+            // We found the activity now start the activity
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } else {
+            // Bring user to the market or let them choose an app?
+            intent = new Intent(Intent.ACTION_VIEW);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setData(Uri.parse("market://details?id=" + "eu.spaggiari.classeviva"));
+            startActivity(intent);
+        }
     }
 
 

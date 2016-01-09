@@ -18,8 +18,8 @@ android {
     defaultConfig {
         applicationId 'app.iissgadda.dev.arnold'
         minSdkVersion 15
-        versionCode 2351
-        versionName '2.3.5.1-release'
+        versionCode 2352
+        versionName '2.4-release'
         signingConfig signingConfigs.iissgadda_release
     }
     //noinspection GroovyAssignabilityCheck

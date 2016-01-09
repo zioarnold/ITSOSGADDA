@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_24_updateList">- App di spaggiari \"Classeviva\" integrato,
+    nel caso di mancanza vi propone di scaricarlo.</string>
     <string name="iissgadda_235_updateList">-Rimozione notifiche quotidiane, al loro posto si utilizza
     notifiche push dal server remoto\n
     - Menù laterale fixato\n
