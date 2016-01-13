@@ -12,9 +12,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,8 +19,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
@@ -36,12 +32,16 @@ import java.lang.reflect.Method;
 
 import static android.view.View.OnClickListener;
 import static com.example.arnold.itsosgadda.R.id.about_app;
+import static com.example.arnold.itsosgadda.R.id.imageAFM;
+import static com.example.arnold.itsosgadda.R.id.imageIT;
+import static com.example.arnold.itsosgadda.R.id.imageLSA;
+import static com.example.arnold.itsosgadda.R.id.imageMAT;
 import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 
 
 public class SpecStorySectionActivity extends Activity implements OnClickListener,
         NavigationDrawerCallbacks {
-    private Button lyceumButton, it_tlcButton, economicalButton, matButton;
+    private ImageButton lyceumButton, it_tlcButton, economicalButton, matButton;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
 
@@ -51,16 +51,16 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
         try {
             setContentView(R.layout.spec_study_sections_layout);
 
-            lyceumButton = (Button) findViewById(R.id.lyceum_button);
+            lyceumButton = (ImageButton) findViewById(imageLSA);
             lyceumButton.setOnClickListener(this);
 
-            it_tlcButton = (Button) findViewById(R.id.spec_IT_TLC_Button);
+            it_tlcButton = (ImageButton) findViewById(imageIT);
             it_tlcButton.setOnClickListener(this);
 
-            economicalButton = (Button) findViewById(R.id.spec_economy_button);
+            economicalButton = (ImageButton) findViewById(imageAFM);
             economicalButton.setOnClickListener(this);
 
-            matButton = (Button) findViewById(R.id.elet_mech_id_button);
+            matButton = (ImageButton) findViewById(imageMAT);
             matButton.setOnClickListener(this);
 
             mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -291,16 +291,16 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
     public void onClick(View v) {
         try {
             switch (v.getId()) {
-                case R.id.lyceum_button:
+                case imageLSA:
                     lyceumButtonClicked();
                     break;
-                case R.id.spec_IT_TLC_Button:
+                case imageIT:
                     itTlcButtonClicked();
                     break;
-                case R.id.spec_economy_button:
+                case imageAFM:
                     economicalButtonClicked();
                     break;
-                case R.id.elet_mech_id_button:
+                case imageMAT:
                     matButtonClicked();
                     break;
             }

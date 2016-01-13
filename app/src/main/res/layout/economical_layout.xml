@@ -16,8 +16,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_centerHorizontal="true"
-            android:id="@+id/economical_LinearLayour"
-            android:background="#FF6347">
+            android:id="@+id/economical_LinearLayour">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -25,10 +24,9 @@
                 android:id="@+id/economicTxtView"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/economical_descriptor"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 android:textColor="#000"
                 android:textAllCaps="true"
-                android:background="#FF6347"
                 android:text="@string/economic_sector" />
 
 
@@ -38,7 +36,8 @@
                 android:id="@+id/scrollView"
                 android:layout_gravity="center_horizontal"
                 android:fillViewport="false"
-                android:background="#ffffff">
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"

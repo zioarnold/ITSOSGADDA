@@ -35,7 +35,9 @@
                 android:layout_height="fill_parent"
                 android:fillViewport="false"
                 android:id="@+id/ScrollMainBody"
-                android:nestedScrollingEnabled="false">
+                android:nestedScrollingEnabled="false"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="match_parent"

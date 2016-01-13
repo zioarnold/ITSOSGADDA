@@ -15,8 +15,7 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_centerHorizontal="true"
-            android:background="#4169E1">
+            android:layout_centerHorizontal="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -25,17 +24,18 @@
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/it_tlc_descriptor_img"
                 android:textColor="#000"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 android:textAllCaps="true"
                 android:text="@string/it_tlc_sector" />
 
             <ScrollView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#FFF"
                 android:id="@+id/scrollView"
                 android:layout_gravity="center_horizontal"
-                android:fillViewport="false">
+                android:fillViewport="false"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"

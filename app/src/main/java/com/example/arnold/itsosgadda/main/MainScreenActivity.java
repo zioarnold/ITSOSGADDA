@@ -31,7 +31,7 @@ public class MainScreenActivity extends Activity {
                 public void run() {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 }
-            }, 5000);
+            }, 3000);
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MainScreenActivity");
             log.error("Error", ex);

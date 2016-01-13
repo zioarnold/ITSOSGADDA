@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="action_settings">Impostazioni</string>
     <string name="app_name">I.I.S.S. \"C. E. Gadda\"</string>
     <string name="main_menu_body">Principale</string>
@@ -218,7 +218,7 @@
     <string name="ItalianLanguageSelected">Italiano</string>
     <string name="RussianLanguageSelected">Russo</string>
     <string name="AboutApp">Info su app</string>
-    <string name="i_percorsi">I nostri percorsi</string>
+    <string name="i_percorsi">PERCORSI DI STUDIO</string>
     <string name="loading_progress">Caricamento…</string>
     <string name="reaching_from_fornovo_FS">via Nazionale n. 6 - 43045 Fornovo di Taro - PR - (IT)\n
         Premere OK per visualizzare la mappa.\n\n
@@ -241,9 +241,12 @@
     <string name="mec_elect_sector">Meccanico-Elettrico</string>
     <string name="title_activity_maps">Dove trovarci</string>
     <string name="findus">Dove trovarci</string>
-    <string name="dev_team">Team sviluppatori</string>
+    <string name="dev_team">Partecipanti</string>
     <string name="dev_team_list">
-        - ALBERT CHARYIEV: Assistente principale\n
+        ALBERT CHARYIEV - Assistente principale\n
+        MATTIA BERTOLI - Suggerimento\n
+        TECNICI DELL\'ISTITUTO - Suggerimenti\n
+        BOGDAN VASILENKO - Suggerimento
     </string>
     <string name="enable_position_yes_no">Visualizzare la Sua posizione?</string>
     <string name="yes">Sì</string>
@@ -255,8 +258,6 @@
     <string name="photo_gallery">Foto </string>
     <string name="still_working">Nella fase di sviluppo…</string>
     <string name="head_of_project">ARNOL\'D CHARYYEV - Capo progetto</string>
-    <string name="italian_content">Contenuti italiani</string>
-    <string name="italian_content_list">IISS C. E. Gadda staff</string>
     <string name="id">ID</string>
     <string name="news">news</string>
     <string name="link">link</string>

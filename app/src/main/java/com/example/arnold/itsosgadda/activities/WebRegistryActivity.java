@@ -10,7 +10,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -150,37 +149,6 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
             /*((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.v("WBA", "++ ON START ++");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.v("WBA", "+ ON RESUME +");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.v("WBA", "- ON PAUSE -");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        finish();
-        Log.v("WBA", "-- ON STOP --");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.v("WBA", "- ON DESTROY -");
     }
 }
 

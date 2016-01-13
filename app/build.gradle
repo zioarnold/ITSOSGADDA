@@ -18,8 +18,8 @@ android {
     defaultConfig {
         applicationId 'app.iissgadda.dev.arnold'
         minSdkVersion 15
-        versionCode 2352
-        versionName '2.4-release'
+        versionCode 2354
+        versionName '2.4.2-release'
         signingConfig signingConfigs.iissgadda_release
     }
     //noinspection GroovyAssignabilityCheck
@@ -51,12 +51,12 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:22.1.1'
-    compile 'com.google.android.gms:play-services:8.3.0'
     compile files('libs/android-logging-log4j-1.0.3.jar')
     compile files('libs/json-simple-1.1.1.jar')
     compile files('libs/log4j-1.2.17.jar')
     compile files('libs/mysql-connector-java-3.0.17-ga-bin.jar')
     compile files('libs/pushbots-lib-2.0.13.jar')
     compile files('libs/universal-image-loader-1.9.4.jar')
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.google.android.gms:play-services:8.3.0'
 }

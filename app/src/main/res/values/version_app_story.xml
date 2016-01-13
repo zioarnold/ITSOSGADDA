@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="iissgadda_24" translatable="false">IISS C. E. Gadda v2.4</string>
+    <string name="iissgadda_24" translatable="false">IISS C. E. Gadda v2.4.2</string>
     <string name="iissgadda_24_updateList">-Classeviva app integrated, if you don\'t have
-    classeviva app, Play Store will be opened for downloading.</string>
+    classeviva app, Play Store will be opened for downloading\n
+    -Study addresses list was replaced by image buttons\n
+    -Timer for mainscreen is reduced to 3 seconds\n
+    -Study addresses icon fixed on landscape mode</string>
 
     <string name="iissgadda_235" translatable="false">IISS C. E. Gadda v2.3.5.1</string>
     <string name="iissgadda_235_updateList">-Daily notification removed they were changed

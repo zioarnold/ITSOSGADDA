@@ -15,14 +15,13 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_centerHorizontal="true"
-            android:background="#FFFF33">
+            android:layout_centerHorizontal="true">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/lyceumTxtView"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 android:textAllCaps="true"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/lyceum_descriptor"
@@ -35,7 +34,8 @@
                 android:id="@+id/scrollView"
                 android:layout_gravity="center_horizontal"
                 android:fillViewport="false"
-                android:background="#FFF">
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"

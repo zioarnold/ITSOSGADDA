@@ -9,69 +9,66 @@
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#fff">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#000"
-            android:text="@string/i_percorsi"
-            android:id="@+id/courses_id"
-            android:layout_centerHorizontal="true" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rowCount="4"
+            android:columnCount="2"
+            android:gravity="center_vertical|center|center_horizontal">
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lyceum_button"
-            android:textColor="#000"
-            android:id="@+id/lyceum_button"
-            android:layout_alignWithParentIfMissing="false"
-            android:layout_below="@+id/courses_id"
-            android:layout_centerHorizontal="true"
-            android:background="#78ffff33"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000"
+                android:text="@string/i_percorsi"
+                android:id="@+id/courses_id"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/spec_IT_TLC_button"
-            android:textColor="#000"
-            android:id="@+id/spec_IT_TLC_Button"
-            android:layout_below="@+id/lyceum_button"
-            android:layout_centerHorizontal="true"
-            android:background="#784169e1"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+            <ImageButton
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:background="@drawable/img_lsa"
+                android:id="@+id/imageLSA"
+                tools:ignore="ContentDescription"
+                android:layout_alignTop="@+id/imageMAT"
+                android:layout_alignLeft="@+id/imageAFM" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/spec_Economy_button"
-            android:textColor="#000"
-            android:id="@+id/spec_economy_button"
-            android:layout_below="@+id/spec_IT_TLC_Button"
-            android:layout_centerHorizontal="true"
-            android:background="#78ff6347"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp" />
+            <ImageButton
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:id="@+id/imageIT"
+                android:background="@drawable/img_it"
+                tools:ignore="ContentDescription"
+                android:layout_below="@+id/courses_id"
+                android:layout_toLeftOf="@+id/imageLSA"
+                android:layout_marginRight="40dp" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/op_mech_elet_button"
-            android:textColor="#000"
-            android:id="@+id/elet_mech_id_button"
-            android:layout_below="@+id/spec_economy_button"
-            android:layout_centerHorizontal="true"
-            android:background="#78c0c0c0"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+            <ImageButton
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:id="@+id/imageAFM"
+                android:background="@drawable/img_afm"
+                tools:ignore="ContentDescription"
+                android:layout_alignTop="@+id/imageIT"
+                android:layout_alignLeft="@+id/courses_id"
+                android:layout_marginLeft="117dp" />
+
+            <ImageButton
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:id="@+id/imageMAT"
+                android:background="@drawable/img_mat"
+                android:foregroundGravity="center_vertical|center|center_horizontal"
+                tools:ignore="ContentDescription"
+                android:layout_below="@+id/imageIT"
+                android:layout_alignLeft="@+id/imageIT" />
+
+        </RelativeLayout>
     </RelativeLayout>
 
     <fragment

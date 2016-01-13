@@ -11,7 +11,6 @@ import android.os.StrictMode;
 import android.support.v4.widget.DrawerLayout;
 import android.text.method.ScrollingMovementMethod;
 import android.text.util.Linkify;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -185,34 +184,5 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
         }
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.v("Com", "++ ON START ++");
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.v("Com", "+ ON RESUME +");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.v("Com", "- ON PAUSE -");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        finish();
-        Log.v("Com", "-- ON STOP --");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.v("Com", "- ON DESTROY -");
-    }
 }

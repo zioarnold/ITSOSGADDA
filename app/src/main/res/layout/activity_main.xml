@@ -13,92 +13,104 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
+        <ScrollView
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/La_nostra_storia"
-            android:textColor="#000"
-            android:id="@+id/storyButton"
-            android:layout_centerHorizontal="true"
-            android:background="#78ffff33"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+            android:layout_height="fill_parent"
+            android:id="@+id/scrollview_menubutton">
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/specSectionButtonId"
-            android:id="@+id/specSectionButtonId"
-            android:layout_below="@+id/storyButton"
-            android:textColor="#000"
-            android:background="#784169e1"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/e_registry"
-            android:id="@+id/e_registryId"
-            android:layout_below="@+id/specSectionButtonId"
-            android:layout_centerHorizontal="true"
-            android:textColor="#000"
-            android:background="#78ff6347"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/La_nostra_storia"
+                    android:textColor="#000"
+                    android:id="@+id/storyButton"
+                    android:layout_centerHorizontal="true"
+                    android:background="#78ffff33"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/feedback"
-            android:id="@+id/feedback"
-            android:layout_below="@+id/e_registryId"
-            android:layout_centerHorizontal="true"
-            android:textColor="#000"
-            android:background="#78c0c0c0"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/specSectionButtonId"
+                    android:id="@+id/specSectionButtonId"
+                    android:layout_below="@+id/storyButton"
+                    android:textColor="#000"
+                    android:background="#784169e1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/findus"
-            android:textColor="#000"
-            android:id="@+id/findus"
-            android:layout_below="@id/feedback"
-            android:layout_centerHorizontal="true"
-            android:background="#78ffff33"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp" />
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/e_registry"
+                    android:id="@+id/e_registryId"
+                    android:layout_below="@+id/specSectionButtonId"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#000"
+                    android:background="#78ff6347"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/communications_news"
-            android:id="@+id/button_show_comunications"
-            android:layout_below="@+id/findus"
-            android:layout_centerHorizontal="true"
-            android:background="#784169e1"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/feedback"
+                    android:id="@+id/feedback"
+                    android:layout_below="@+id/e_registryId"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#000"
+                    android:background="#78c0c0c0"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/photo_gallery"
-            android:id="@+id/photoGallery"
-            android:layout_below="@+id/button_show_comunications"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:background="#78ff6347" />
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/findus"
+                    android:textColor="#000"
+                    android:id="@+id/findus"
+                    android:layout_below="@id/feedback"
+                    android:layout_centerHorizontal="true"
+                    android:background="#78ffff33"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/communications_news"
+                    android:id="@+id/button_show_comunications"
+                    android:layout_below="@+id/findus"
+                    android:layout_centerHorizontal="true"
+                    android:background="#784169e1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/photo_gallery"
+                    android:id="@+id/photoGallery"
+                    android:layout_below="@+id/button_show_comunications"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="#78ff6347" />
+            </RelativeLayout>
+        </ScrollView>
+
     </RelativeLayout>
     <!-- The drawer is given a fixed width in dp and extends the full height of
          the container. -->

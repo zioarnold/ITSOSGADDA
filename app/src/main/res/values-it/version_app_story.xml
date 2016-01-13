@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="iissgadda_24_updateList">- App di spaggiari \"Classeviva\" integrato,
-    nel caso di mancanza vi propone di scaricarlo.</string>
+    nel caso di mancanza vi propone di scaricarlo.\n
+    - Icone dell\'indirizzo di studio (AFM, MAT, IT, LSA)\n
+    - Riduzione del tempo dell\'avvio della schermata principale\n
+    - Icone degli indirizzi AFM, MAT, IT e LSA fixate</string>
     <string name="iissgadda_235_updateList">-Rimozione notifiche quotidiane, al loro posto si utilizza
     notifiche push dal server remoto\n
     - Menù laterale fixato\n

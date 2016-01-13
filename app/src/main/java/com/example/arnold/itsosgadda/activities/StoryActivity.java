@@ -12,9 +12,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +19,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.TextView;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
@@ -34,6 +30,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import static com.example.arnold.itsosgadda.R.id.about_app;
+import static com.example.arnold.itsosgadda.R.layout.contact_to_developer;
 import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 
 
@@ -232,7 +229,7 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
                     builder = new AlertDialog.Builder(this);
                     builder.setIcon(R.mipmap.icon_subscribe_contact)
                             .setTitle(R.string.dev_contact)
-                            .setView(getLayoutInflater().inflate(R.layout.contact_to_developer, null))
+                            .setView(getLayoutInflater().inflate(contact_to_developer, null))
                             .setCancelable(false)
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
@@ -252,36 +249,5 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
             log.error("Error", ex);
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.v("Story", "++ ON START ++");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.v("Story", "+ ON RESUME +");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.v("Story", "- ON PAUSE -");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        finish();
-        Log.v("Story", "-- ON STOP --");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.v("Story", "- ON DESTROY -");
     }
 }

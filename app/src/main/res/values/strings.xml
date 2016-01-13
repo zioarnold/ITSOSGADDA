@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">I.I.S.S. \"C. E. Gadda\"</string>
     <string name="EnglishLanguageSelected">English</string>
     <string name="RussianLanguageSelected">Russian</string>
@@ -247,7 +247,10 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="mec_elect_sector">Mechanical Electrical</string>
     <string name="dev_team">Dev Team</string>
     <string name="dev_team_list">
-        - ALBERT CHARYIEV: Main assistance of head\n
+        ALBERT CHARYIEV - Main assistance\n
+        MATTIA BERTOLI - Suggestion\n
+        TECHNICIANS SCHOOL - Suggestions\n
+        BOGDAN VASILENKO - Suggestion
     </string>
 
     <string name="enable_position_yes_no">Would you like to enable your position?</string>
@@ -261,10 +264,6 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="photo_gallery">Photo gallery</string>
     <string name="still_working">On working…</string>
     <string name="head_of_project">ARNOL\'D CHARYYEV - Project leader</string>
-    <string name="italian_content">Italian Content</string>
-    <string name="italian_content_list">
-        IISS C. E. Gadda staff
-    </string>
     <string name="id">ID</string>
     <string name="news">news</string>
     <string name="link">link</string>

@@ -14,35 +14,23 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:text="@string/dev_team"
             android:id="@+id/txtView_DevTeam"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:text="@string/head_of_project"
-            android:id="@+id/txtView_head_of_project" />
+            android:id="@+id/txtView_head_of_project"
+            android:layout_marginLeft="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/dev_team_list"
-            android:id="@+id/txtView_list_of_dev_team_russian_content" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/italian_content"
-            android:id="@+id/txtView_italian_content"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/italian_content_list"
-            android:id="@+id/txtView_list_of_dev_team_italian_content" />
+            android:id="@+id/txtView_list_of_dev_team_russian_content"
+            android:layout_marginLeft="5dp" />
     </LinearLayout>
 </ScrollView>
