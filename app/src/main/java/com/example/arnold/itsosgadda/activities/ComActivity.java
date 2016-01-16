@@ -61,7 +61,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
                     (DrawerLayout) findViewById(R.id.drawer_layout));
             dataBaseConnect();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainActivity");
+            Logger log = Log4jHelper.getLogger("ComActivity");
             log.error("Error", ex);
         }
     }
@@ -71,7 +71,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
         try {
             getMenuInflater().inflate(reload, menu);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainActivity");
+            Logger log = Log4jHelper.getLogger("ComActivity");
             log.error("Error", ex);
         }
         return super.onCreateOptionsMenu(menu);
@@ -87,7 +87,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
                     break;
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainActivity");
+            Logger log = Log4jHelper.getLogger("ComActivity");
             log.error("Error", ex);
         }
         return super.onOptionsItemSelected(item);
@@ -160,7 +160,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("MainActivity");
+                Logger log = Log4jHelper.getLogger("ComActivity");
                 log.error("Error", ex);
             }
             return fragment;
@@ -179,7 +179,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            /*((MainActivity) activity).onSectionAttached(
+            /*((ComActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
