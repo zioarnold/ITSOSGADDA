@@ -102,14 +102,30 @@
                     android:layout_height="wrap_content"
                     android:text="@string/photo_gallery"
                     android:id="@+id/photoGallery"
-                    android:layout_below="@+id/button_show_comunications"
-                    android:layout_centerHorizontal="true"
+                    android:background="#78c0c0c0"
+                    android:textColor="#000"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:background="#78ff6347" />
+                    android:layout_below="@+id/app_blog"
+                    android:layout_centerHorizontal="true" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_blog"
+                    android:textColor="#000"
+                    android:id="@+id/app_blog"
+                    android:layout_centerHorizontal="true"
+                    android:background="#78ff6347"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_below="@+id/button_show_comunications" />
+
             </RelativeLayout>
         </ScrollView>
+
 
     </RelativeLayout>
     <!-- The drawer is given a fixed width in dp and extends the full height of

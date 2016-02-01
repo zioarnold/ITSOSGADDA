@@ -62,7 +62,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
             dataBaseConnect();
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("ComActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 
@@ -72,7 +72,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
             getMenuInflater().inflate(reload, menu);
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("ComActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -88,7 +88,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
             }
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("ComActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -120,7 +120,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
             Linkify.addLinks(textView, Linkify.WEB_URLS);
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("ComActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 
@@ -134,7 +134,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
                     .commit();
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("ComActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 
@@ -161,7 +161,7 @@ public class ComActivity extends Activity implements NavigationDrawerCallbacks {
                 fragment.setArguments(args);
             } catch (Exception ex) {
                 Logger log = Log4jHelper.getLogger("ComActivity");
-                log.error("Error", ex);
+                log.error(ex.getMessage(), ex);
             }
             return fragment;
         }

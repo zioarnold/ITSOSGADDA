@@ -29,6 +29,7 @@ import static android.webkit.WebSettings.ZoomDensity.FAR;
 import static com.example.arnold.itsosgadda.R.id.container;
 import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class WebRegistryActivity extends Activity implements NavigationDrawerCallbacks{
     private final WebRegistryActivity activity = this;
     private NavigationDrawerFragment mNavigationDrawerFragment;
@@ -87,7 +88,7 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
             webView.loadUrl(url);
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("WebRegistryActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 
@@ -101,7 +102,7 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
                     .commit();
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("WebRegistryActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 
@@ -128,7 +129,7 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
                 fragment.setArguments(args);
             } catch (Exception ex) {
                 Logger log = Log4jHelper.getLogger("WebRegistryActivity");
-                log.error("Error", ex);
+                log.error(ex.getMessage(), ex);
             }
             return fragment;
         }
@@ -145,9 +146,6 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
-
-            /*((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
 }

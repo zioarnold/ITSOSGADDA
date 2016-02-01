@@ -18,7 +18,6 @@ import com.example.arnold.itsosgadda.R;
 
 import static android.content.Intent.ACTION_SEND;
 import static android.content.Intent.EXTRA_EMAIL;
-import static android.content.Intent.EXTRA_BUG_REPORT;
 import static android.content.Intent.EXTRA_STREAM;
 import static android.content.Intent.EXTRA_SUBJECT;
 import static android.content.Intent.EXTRA_TEXT;
@@ -28,6 +27,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 import static android.widget.Toast.makeText;
 
 
+@SuppressWarnings("FieldCanBeLocal")
 public class SendBugCrashReport extends Activity {
     private Button buttonSend;
     private EditText txtMessage;
@@ -47,6 +47,7 @@ public class SendBugCrashReport extends Activity {
         buttonSend = (Button) findViewById(R.id.emailSend);
         txtMessage = (EditText) findViewById(R.id.editTextMessage);
         buttonSend.setOnClickListener(new View.OnClickListener() {
+            @SuppressWarnings("ConstantConditions")
             public void onClick(View v) {
                 final String to = "vl80tk@gmail.com";
                 final String subject = "I.I.S.S. C. E. Gadda - App Android";

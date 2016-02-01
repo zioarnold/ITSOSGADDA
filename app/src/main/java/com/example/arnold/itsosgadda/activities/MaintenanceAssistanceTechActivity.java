@@ -12,9 +12,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +19,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.TextView;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
@@ -36,10 +32,10 @@ import java.lang.reflect.Method;
 import static com.example.arnold.itsosgadda.R.id.about_app;
 
 
+@SuppressWarnings("FieldCanBeLocal")
 public class MaintenanceAssistanceTechActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
-    private CharSequence mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +48,6 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
             mNavigationDrawerFragment = (NavigationDrawerFragment)
                     getFragmentManager().findFragmentById(R.id.navigation_drawer);
-            mTitle = getTitle();
 
             // Set up the drawer.
             mNavigationDrawerFragment.setUp(
@@ -61,7 +56,7 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
             makeActionOverflowMenuShown();
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 
@@ -72,29 +67,6 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
         fragmentManager.beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                 .commit();
-    }
-
-    /*public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.en_lang);
-                break;
-            case 2:
-                mTitle = getString(R.string.ru_lang);
-                break;
-            case 3:
-                mTitle = getString(R.string.it_lang);
-                break;
-        }
-    }*/
-
-    public void restoreActionBar() {
-        ActionBar actionBar = getActionBar();
-        assert actionBar != null;
-        //noinspection deprecation
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
     }
 
     /**
@@ -119,7 +91,7 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
                 fragment.setArguments(args);
             } catch (Exception ex) {
                 Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
-                log.error("Error", ex);
+                log.error(ex.getMessage(), ex);
             }
             return fragment;
         }
@@ -151,9 +123,9 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
                 menuKeyField.setAccessible(true);
                 menuKeyField.setBoolean(config, false);
             }
-        } catch (Exception e) {
+        } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
-            log.error("Error", e);
+            log.error(ex.getMessage(), ex);
         }
     }
 
@@ -164,7 +136,7 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
             getMenuInflater().inflate(R.menu.main_menu, menu);
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -182,7 +154,7 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
             }
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -244,7 +216,7 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
             }
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -15,7 +15,6 @@ import android.widget.EditText;
 import com.example.arnold.itsosgadda.R;
 
 import static android.content.Intent.ACTION_SEND;
-import static android.content.Intent.EXTRA_BUG_REPORT;
 import static android.content.Intent.EXTRA_EMAIL;
 import static android.content.Intent.EXTRA_SUBJECT;
 import static android.content.Intent.EXTRA_TEXT;
@@ -40,9 +39,10 @@ public class EmailSendingActivity extends Activity {
         buttonSend = (Button) findViewById(R.id.emailSend);
         txtMessage = (EditText) findViewById(R.id.editTextMessage);
         buttonSend.setOnClickListener(new View.OnClickListener() {
+            @SuppressWarnings("ConstantConditions")
             public void onClick(View v) {
-                final String to = "staff@iissgadda.it ";
-                final String subject = "I.I.S.S. C. E. Gadda - App Android";
+                final String to = "staff@iissgadda.it";
+                final String subject = "IISS Gadda App - Android";
                 String message = txtMessage.getText().toString();
                 if (to.length() == 0) {
                     makeText(getApplicationContext(),

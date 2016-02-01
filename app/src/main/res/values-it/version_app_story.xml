@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_25_updateList">- RSS Feed di Blog dell\'App\n
+    - Errore di Feedback allo sviluppatore fixato\n
+    - Aggiunta della voce \"Blog dell\'App\" e Galleria nel menu leterale</string>
     <string name="iissgadda_24_updateList">- App di spaggiari \"Classeviva\" integrato,
     nel caso di mancanza vi propone di scaricarlo.\n
     - Icone dell\'indirizzo di studio (AFM, MAT, IT, LSA)\n
@@ -12,7 +15,7 @@
     <string name="iissgadda_23_updateList">-Nuovi contatti di Sviluppatore\n
     -Nuova grafica di avviamento</string>
     <string name="iissgadda_22_updateList">- Visualizzazione delle communicazioni on line…\n
-    - Nuovo menu laterale…\n
+    - Nuovo menu laterale\n
     - Notifiche quotidiane delle communicazioni</string>
     <string name="iissgadda_221_updateList">- Libreria log\n
     -Nuova visualizzazione di Contatta con Sviluppatore\n

@@ -34,6 +34,7 @@ import static com.example.arnold.itsosgadda.R.layout.contact_to_developer;
 import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 
 
+@SuppressWarnings("FieldCanBeLocal")
 public class StoryActivity extends Activity implements NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
@@ -58,7 +59,7 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
             makeActionOverflowMenuShown();
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("StoryActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 

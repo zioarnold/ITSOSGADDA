@@ -255,7 +255,7 @@
     <string name="network_enabled">Si prega di attivare la connessione Wi-Fi
         \noppure connessione telefonica</string>
 
-    <string name="photo_gallery">Foto </string>
+    <string name="photo_gallery">Galleria</string>
     <string name="still_working">Nella fase di sviluppo…</string>
     <string name="head_of_project">ARNOL\'D CHARYYEV - Capo progetto</string>
     <string name="id">ID</string>
@@ -268,6 +268,11 @@
     delle nuove communicazioni</string>
     <string name="bug_report_crash_report">Feedback allo Sviluppatore</string>
     <string name="error_connection">Errore nella connessione: controlla la connessione Wi-Fi o Reti mobile.</string>
+    <string name="footer_loading">Tocca per caricare</string>
+    <string name="pull_to_refresh">Trascinare giù per aggiornare</string>
+    <string name="release_to_refresh">Mollare per aggiornare</string>
+    <string name="loading">Caricamento…</string>
+    <string name="app_blog">Blog dell\'App</string>
 
 
 </resources>

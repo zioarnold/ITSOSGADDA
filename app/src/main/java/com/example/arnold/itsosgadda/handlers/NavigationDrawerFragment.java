@@ -22,9 +22,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.activities.ComActivity;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
-import com.example.arnold.itsosgadda.R;
+import com.example.arnold.itsosgadda.activities.RSSReaderActivity;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
@@ -127,6 +128,7 @@ public class NavigationDrawerFragment extends Fragment {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuIcons.getResourceId(7, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[8], navMenuIcons.getResourceId(8, -1)));
 
         adapter = new NavDrawerListAdapter(getActivity().getApplicationContext(),
                 navDrawerItems);
@@ -164,6 +166,10 @@ public class NavigationDrawerFragment extends Fragment {
                                 ComActivity.class));
                         break;
                     case 7:
+                        startActivity(new Intent(getActivity().getApplicationContext(),
+                                RSSReaderActivity.class));
+                        break;
+                    case 8:
                         /*startActivity(new Intent(getActivity().getApplicationContext(),
                                 PhotoGalleryActivity.class));*/
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

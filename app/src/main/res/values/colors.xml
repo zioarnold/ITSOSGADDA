@@ -4,4 +4,6 @@
     <color name="primary_material_light">#ffeb3b</color>
     <color name="yellow">#ffeb3b</color>
     <color name="black">#000000</color>
+    <color name="tabTransparent">#10ffffff</color>
+    <color name="background">#fafafa</color>
 </resources>

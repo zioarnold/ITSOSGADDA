@@ -15,6 +15,7 @@ import static com.example.arnold.itsosgadda.R.id.imageViewStd;
 import static com.example.arnold.itsosgadda.R.mipmap.loading;
 import static com.example.arnold.itsosgadda.R.mipmap.loading_failed;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class PhotoGalleryActivity extends Activity {
 
     private ImageLoader imageLoader;

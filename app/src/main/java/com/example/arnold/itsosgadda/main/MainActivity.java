@@ -24,6 +24,7 @@ import android.widget.Button;
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.activities.ComActivity;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
+import com.example.arnold.itsosgadda.activities.RSSReaderActivity;
 import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
@@ -40,6 +41,7 @@ import java.lang.reflect.Method;
 import static android.view.View.OnClickListener;
 import static android.view.Window.FEATURE_ACTION_BAR;
 import static com.example.arnold.itsosgadda.R.id.about_app;
+import static com.example.arnold.itsosgadda.R.id.app_blog;
 import static com.example.arnold.itsosgadda.R.id.button_show_comunications;
 import static com.example.arnold.itsosgadda.R.id.container;
 import static com.example.arnold.itsosgadda.R.id.drawer_layout;
@@ -60,7 +62,7 @@ import static java.lang.Boolean.TYPE;
 public class MainActivity extends Activity implements OnClickListener,
         NavigationDrawerCallbacks {
     private Button storyButtonMainBody, specSectButton, webRegistryButton, feedBackButton,
-            findUsButton, communicationButton, bPhotoGallery;
+            findUsButton, communicationButton, bPhotoGallery, rssFeedReader;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
     private AlertDialog.Builder builder;
@@ -98,6 +100,9 @@ public class MainActivity extends Activity implements OnClickListener,
             bPhotoGallery = (Button) findViewById(photoGallery);
             bPhotoGallery.setOnClickListener(this);
 
+            rssFeedReader = (Button) findViewById(app_blog);
+            rssFeedReader.setOnClickListener(this);
+
             mNavigationDrawerFragment = (NavigationDrawerFragment)
                     getFragmentManager().findFragmentById(navigation_drawer);
             mTitle = getTitle();
@@ -115,7 +120,7 @@ public class MainActivity extends Activity implements OnClickListener,
             makeActionOverflowMenuShown();
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 
@@ -129,31 +134,8 @@ public class MainActivity extends Activity implements OnClickListener,
                     .commit();
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
-    }
-
-    /*public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.en_lang);
-                break;
-            case 2:
-                mTitle = getString(R.string.ru_lang);
-                break;
-            case 3:
-                mTitle = getString(R.string.it_lang);
-                break;
-        }
-    }*/
-
-    public void restoreActionBar() {
-        ActionBar actionBar = getActionBar();
-        assert actionBar != null;
-        //noinspection deprecation
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
     }
 
     /**
@@ -179,7 +161,7 @@ public class MainActivity extends Activity implements OnClickListener,
                 fragment.setArguments(args);
             } catch (Exception ex) {
                 Logger log = Log4jHelper.getLogger("MainActivity");
-                log.error("Error", ex);
+                log.error(ex.getMessage(), ex);
             }
             return fragment;
         }
@@ -213,7 +195,7 @@ public class MainActivity extends Activity implements OnClickListener,
             }
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 
@@ -224,7 +206,7 @@ public class MainActivity extends Activity implements OnClickListener,
             getMenuInflater().inflate(main_menu, menu);
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -242,7 +224,7 @@ public class MainActivity extends Activity implements OnClickListener,
             }
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -305,7 +287,7 @@ public class MainActivity extends Activity implements OnClickListener,
             return super.onOptionsItemSelected(item);
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
         return false;
     }
@@ -342,6 +324,10 @@ public class MainActivity extends Activity implements OnClickListener,
         startActivity(new Intent(getApplicationContext(), ComActivity.class));
     }
 
+    private void rssNewsButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
+    }
+
     @Override
     public void onClick(View v) {
         try {
@@ -360,6 +346,9 @@ public class MainActivity extends Activity implements OnClickListener,
                     break;
                 case button_show_comunications:
                     communicationButtonClicked();
+                    break;
+                case app_blog:
+                    rssNewsButtonClicked();
                     break;
                 case findus:
                     builder = new AlertDialog.Builder(this);
@@ -394,7 +383,7 @@ public class MainActivity extends Activity implements OnClickListener,
             }
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 

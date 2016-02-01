@@ -15,6 +15,7 @@ import static android.view.Window.FEATURE_NO_TITLE;
 import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
 import static com.example.arnold.itsosgadda.R.layout.activity_main_screen;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class MainScreenActivity extends Activity {
     private Timer timer;
     @Override
@@ -34,7 +35,7 @@ public class MainScreenActivity extends Activity {
             }, 3000);
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MainScreenActivity");
-            log.error("Error", ex);
+            log.error(ex.getMessage(), ex);
         }
     }
 }

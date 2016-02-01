@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="iissgadda_25" translatable="false">IISS C. E. Gadda v2.5.1</string>
+    <string name="iissgadda_25_updateList">-App Blog RSS News\n
+    - Fixing error on Feedback to staff\n
+    - Apps blog and Gallery choices added on navigation menu</string>
+
     <string name="iissgadda_24" translatable="false">IISS C. E. Gadda v2.4.2</string>
     <string name="iissgadda_24_updateList">-Classeviva app integrated, if you don\'t have
     classeviva app, Play Store will be opened for downloading\n
