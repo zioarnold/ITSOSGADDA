@@ -54,6 +54,7 @@ import static com.example.arnold.itsosgadda.R.id.storyButton;
 import static com.example.arnold.itsosgadda.R.layout.activity_main;
 import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
 import static com.example.arnold.itsosgadda.R.menu.main_menu;
+import static com.example.arnold.itsosgadda.R.string.ok;
 import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 import static java.lang.Boolean.TYPE;
 
@@ -242,7 +243,7 @@ public class MainActivity extends Activity implements OnClickListener,
                     builder.setIcon(R.mipmap.icon_dev_team)
                             .setTitle(R.string.dev_team)
                             .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
@@ -254,7 +255,7 @@ public class MainActivity extends Activity implements OnClickListener,
                     builder.setIcon(R.mipmap.icon_about)
                             .setTitle(R.string.created_for)
                             .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
@@ -270,7 +271,7 @@ public class MainActivity extends Activity implements OnClickListener,
                             .setTitle(R.string.dev_contact)
                             .setView(getLayoutInflater().inflate(R.layout.contact_to_developer, null))
                             .setCancelable(false)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
@@ -351,7 +352,7 @@ public class MainActivity extends Activity implements OnClickListener,
                     builder.setIcon(R.mipmap.ic_launcher)
                             .setTitle(R.string.created_for)
                             .setMessage(R.string.reaching_from_fornovo_FS)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     startActivity(new Intent(getApplicationContext(),
@@ -367,7 +368,7 @@ public class MainActivity extends Activity implements OnClickListener,
                     builder.setIcon(R.mipmap.ic_launcher)
                             .setTitle(R.string.created_for)
                             .setMessage(R.string.still_working)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();

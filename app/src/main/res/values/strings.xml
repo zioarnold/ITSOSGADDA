@@ -223,10 +223,7 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="findus">Find us</string>
     <string name="loading_progress">Loading…</string>
     <string name="reaching_from_fornovo_FS">Nazionale n.6 street - 43045 Fornovo di Taro - PR - (IT)\n
-        press OK to show the route on GMaps\n\n
-    Note: to make it work you have to enable to find your
-        device via Wifi and Mobile networks without GPS, otherwise it will be crashed, soon
-    we will fix it ! </string>
+        Press OK to show the route on GMaps.</string>
     <string name="click_ok_to_proceed">Click OK to Proceed</string>
     <string name="locale_lang">App language is English (UK)</string>
     <string name="dev_contact">Contact to Developer</string>
@@ -292,4 +289,6 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="loading">Loading&#8230;</string>
     <string name="footer_loading">Click to load more&#8230;</string>
     <string name="app_blog">App Blog</string>
+    <string name="show_lat_lon">My position</string>
+    <string name="ok" translatable="false">OK</string>
 </resources>

@@ -19,9 +19,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
-import com.example.arnold.itsosgadda.main.MainActivity;
 import com.example.arnold.itsosgadda.R;
+import com.example.arnold.itsosgadda.main.MainActivity;
 import com.example.arnold.itsosgadda.utilities.Log4jHelper;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -35,13 +37,15 @@ import org.apache.log4j.Logger;
 
 import static com.example.arnold.itsosgadda.R.id.container;
 import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
-import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.*;
+import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 
 public class MapsLoader extends FragmentActivity implements OnMyLocationChangeListener,
-        NavigationDrawerCallbacks {
+        NavigationDrawerCallbacks, View.OnClickListener {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private NavigationDrawerFragment mNavigationDrawerFragment;
+    private GPSTracker gpsTracker;
+    private Button showLatLon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,8 @@ public class MapsLoader extends FragmentActivity implements OnMyLocationChangeLi
         assert actionBar != null;
         actionBar.setIcon(R.mipmap.ic_launcher);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
+        showLatLon = (Button) findViewById(R.id.show_current_lat_lon);
+        showLatLon.setOnClickListener(this);
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(
@@ -155,6 +161,15 @@ public class MapsLoader extends FragmentActivity implements OnMyLocationChangeLi
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mMap.setMyLocationEnabled(true);
+                        gpsTracker = new GPSTracker(getApplicationContext());
+                        if (gpsTracker.canGetLocation()) {
+                            double lat = gpsTracker.getLatitude();
+                            double lon = gpsTracker.getLongitude();
+                            Toast.makeText(getApplicationContext(),
+                                    "Lat: " + lat + "\n Lon: " + lon, Toast.LENGTH_SHORT).show();
+                        } else {
+                            gpsTracker.showSettingsAlert();
+                        }
                     }
                 }).show().setCanceledOnTouchOutside(true);
         AlertDialog dialog = builder.create();
@@ -199,6 +214,19 @@ public class MapsLoader extends FragmentActivity implements OnMyLocationChangeLi
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MapsLoader");
             log.error("Error", ex);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        gpsTracker = new GPSTracker(getApplicationContext());
+        if (gpsTracker.canGetLocation()) {
+            double lat = gpsTracker.getLatitude();
+            double lon = gpsTracker.getLongitude();
+            Toast.makeText(getApplicationContext(),
+                    "Lat: " + lat + "\n Lon: " + lon, Toast.LENGTH_SHORT).show();
+        } else {
+            gpsTracker.showSettingsAlert();
         }
     }
 

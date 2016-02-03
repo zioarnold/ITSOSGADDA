@@ -89,6 +89,11 @@
             android:label="@string/app_name" />
         <activity
             android:name=".activities.WebRegistryActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".activities.SendBugCrashReport"
+            android:configChanges="locale"
             android:label="@string/app_name" />
 
         <meta-data

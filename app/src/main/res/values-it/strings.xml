@@ -221,12 +221,7 @@
     <string name="i_percorsi">PERCORSI DI STUDIO</string>
     <string name="loading_progress">Caricamento…</string>
     <string name="reaching_from_fornovo_FS">via Nazionale n. 6 - 43045 Fornovo di Taro - PR - (IT)\n
-        Premere OK per visualizzare la mappa.\n\n
-    Attenzione: per poter catturare la propria posizione e trovare la scuola, Lei deve
-        abilitare la funzionalità di catturare il suo telefono
-        tramite reti wifi e le reti telefoniche
-        senza GPS, altrimenti l\'app verrà chiuso,
-        a breve questo piccolo problema sarà risolto! </string>
+        Premere OK per visualizzare la mappa.</string>
     <string name="click_ok_to_proceed">Clicca OK per procedere</string>
     <string name="locale_lang">Lingua di dell\'app è Italiano (IT/CH)</string>
     <string name="dev_contact">Contatta con Sviluppatore</string>
@@ -273,6 +268,6 @@
     <string name="release_to_refresh">Mollare per aggiornare</string>
     <string name="loading">Caricamento…</string>
     <string name="app_blog">Blog dell\'App</string>
-
+    <string name="show_lat_lon">La mia posizione</string>
 
 </resources>

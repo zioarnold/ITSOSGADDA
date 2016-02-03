@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_252_updateList">- Fix di GPS</string>
     <string name="iissgadda_25_updateList">- RSS Feed di Blog dell\'App\n
     - Errore di Feedback allo sviluppatore fixato\n
     - Aggiunta della voce \"Blog dell\'App\" e Galleria nel menu leterale</string>
