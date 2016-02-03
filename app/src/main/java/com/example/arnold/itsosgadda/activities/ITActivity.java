@@ -30,18 +30,18 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import static com.example.arnold.itsosgadda.R.id.about_app;
+import static java.lang.Boolean.TYPE;
 
 
 @SuppressWarnings("FieldCanBeLocal")
-public class MaintenanceAssistanceTechActivity extends Activity implements
-        NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class ITActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            setContentView(R.layout.mech_elet_assist_tech_layout);
+            setContentView(R.layout.it_tlc_layout);
             ActionBar actionBar = getActionBar();
             assert actionBar != null;
             actionBar.setIcon(R.mipmap.ic_launcher);
@@ -55,18 +55,23 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
                     (DrawerLayout) findViewById(R.id.drawer_layout));
             makeActionOverflowMenuShown();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
+            Logger log = Log4jHelper.getLogger("ITActivity");
             log.error(ex.getMessage(), ex);
         }
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        // update the main content by replacing fragments
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        try {
+            // update the main content by replacing fragments
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                    .commit();
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("ITActivity");
+            log.error(ex.getMessage(), ex);
+        }
     }
 
     /**
@@ -90,7 +95,7 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
+                Logger log = Log4jHelper.getLogger("ITActivity");
                 log.error(ex.getMessage(), ex);
             }
             return fragment;
@@ -109,7 +114,7 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            /*((MaintenanceAssistanceTechActivity) activity).onSectionAttached(
+            /*((ITActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
@@ -124,21 +129,9 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
+            Logger log = Log4jHelper.getLogger("ITActivity");
             log.error(ex.getMessage(), ex);
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        try {
-            getMenuInflater().inflate(R.menu.main_menu, menu);
-        } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
-            log.error(ex.getMessage(), ex);
-        }
-        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -146,17 +139,23 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
         try {
             if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
                 if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-                    Method m = menu.getClass().getDeclaredMethod(
-                            "setOptionalIconsVisible", Boolean.TYPE);
+                    Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", TYPE);
                     m.setAccessible(true);
                     m.invoke(menu, true);
                 }
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
+            Logger log = Log4jHelper.getLogger("ITActivity");
             log.error(ex.getMessage(), ex);
         }
         return super.onMenuOpened(featureId, menu);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @SuppressLint("InflateParams")
@@ -215,7 +214,7 @@ public class MaintenanceAssistanceTechActivity extends Activity implements
                     break;
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MaintenanceAssistanceTechActivity");
+            Logger log = Log4jHelper.getLogger("ITActivity");
             log.error(ex.getMessage(), ex);
         }
         return super.onOptionsItemSelected(item);

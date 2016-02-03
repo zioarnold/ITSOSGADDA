@@ -248,19 +248,19 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
     }
 
     private void lyceumButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), LyceumActivity.class));
+        startActivity(new Intent(getApplicationContext(), LSActivity.class));
     }
 
     private void itTlcButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), IT_TLCActivity.class));
+        startActivity(new Intent(getApplicationContext(), ITActivity.class));
     }
 
     private void economicalButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), EconomicalActivity.class));
+        startActivity(new Intent(getApplicationContext(), AFMActivity.class));
     }
 
     private void matButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), MaintenanceAssistanceTechActivity.class));
+        startActivity(new Intent(getApplicationContext(), MATActivity.class));
     }
     
     @Override

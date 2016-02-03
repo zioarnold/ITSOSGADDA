@@ -34,7 +34,7 @@ import static java.lang.Boolean.TYPE;
 
 
 @SuppressWarnings("FieldCanBeLocal")
-public class LyceumActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class LSActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     @Override
@@ -55,7 +55,7 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
                     (DrawerLayout) findViewById(R.id.drawer_layout));
             makeActionOverflowMenuShown();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            Logger log = Log4jHelper.getLogger("LSActivity");
             log.error(ex.getMessage(), ex);
         }
     }
@@ -69,7 +69,7 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
                     .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            Logger log = Log4jHelper.getLogger("LSActivity");
             log.error(ex.getMessage(), ex);
         }
     }
@@ -95,7 +95,7 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("LyceumActivity");
+                Logger log = Log4jHelper.getLogger("LSActivity");
                 log.error(ex.getMessage(), ex);
             }
             return fragment;
@@ -114,7 +114,7 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            /*((LyceumActivity) activity).onSectionAttached(
+            /*((LSActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
@@ -129,7 +129,7 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            Logger log = Log4jHelper.getLogger("LSActivity");
             log.error(ex.getMessage(), ex);
         }
     }
@@ -140,7 +140,7 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
         try {
             getMenuInflater().inflate(R.menu.main_menu, menu);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            Logger log = Log4jHelper.getLogger("LSActivity");
             log.error(ex.getMessage(), ex);
         }
         return super.onCreateOptionsMenu(menu);
@@ -157,7 +157,7 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
                 }
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            Logger log = Log4jHelper.getLogger("LSActivity");
             log.error(ex.getMessage(), ex);
         }
         return super.onMenuOpened(featureId, menu);
@@ -219,7 +219,7 @@ public class LyceumActivity extends Activity implements NavigationDrawerFragment
                     break;
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LyceumActivity");
+            Logger log = Log4jHelper.getLogger("LSActivity");
             log.error(ex.getMessage(), ex);
         }
         return super.onOptionsItemSelected(item);

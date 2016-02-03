@@ -60,11 +60,11 @@
             android:name=".activities.ComActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".activities.LyceumActivity"
+            android:name=".activities.LSActivity"
             android:configChanges="locale"
             android:label="@string/app_name" />
         <activity
-            android:name=".activities.IT_TLCActivity"
+            android:name=".activities.ITActivity"
             android:configChanges="locale"
             android:label="@string/app_name" />
         <activity
@@ -76,19 +76,15 @@
             android:configChanges="locale"
             android:label="@string/app_name" />
         <activity
-            android:name=".activities.EconomicalActivity"
+            android:name=".activities.AFMActivity"
             android:configChanges="locale"
             android:label="@string/app_name" />
         <activity
-            android:name=".activities.MaintenanceAssistanceTechActivity"
+            android:name=".activities.MATActivity"
             android:configChanges="locale"
             android:label="@string/app_name" />
         <activity
             android:name=".activities.EmailSendingActivity"
-            android:configChanges="locale"
-            android:label="@string/app_name" />
-        <activity
-            android:name=".activities.SendBugCrashReport"
             android:configChanges="locale"
             android:label="@string/app_name" />
         <activity

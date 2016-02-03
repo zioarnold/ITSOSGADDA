@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.Window;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
@@ -28,24 +29,23 @@ import org.apache.log4j.Logger;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import static android.view.Window.FEATURE_ACTION_BAR;
 import static com.example.arnold.itsosgadda.R.id.about_app;
-import static java.lang.Boolean.TYPE;
 
 
 @SuppressWarnings("FieldCanBeLocal")
-public class EconomicalActivity extends Activity implements
+public class MATActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
-    private AlertDialog dialog;
-    private AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            setContentView(R.layout.economical_layout);
-
+            setContentView(R.layout.mech_elet_assist_tech_layout);
+            ActionBar actionBar = getActionBar();
+            assert actionBar != null;
+            actionBar.setIcon(R.mipmap.ic_launcher);
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
             mNavigationDrawerFragment = (NavigationDrawerFragment)
                     getFragmentManager().findFragmentById(R.id.navigation_drawer);
 
@@ -53,14 +53,9 @@ public class EconomicalActivity extends Activity implements
             mNavigationDrawerFragment.setUp(
                     R.id.navigation_drawer,
                     (DrawerLayout) findViewById(R.id.drawer_layout));
-
-            ActionBar actionBar = getActionBar();
-            assert actionBar != null;
-            actionBar.setIcon(R.mipmap.ic_launcher);
-            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
             makeActionOverflowMenuShown();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("EconomicalActivity");
+            Logger log = Log4jHelper.getLogger("MATActivity");
             log.error(ex.getMessage(), ex);
         }
     }
@@ -95,7 +90,7 @@ public class EconomicalActivity extends Activity implements
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("EconomicalActivity");
+                Logger log = Log4jHelper.getLogger("MATActivity");
                 log.error(ex.getMessage(), ex);
             }
             return fragment;
@@ -114,7 +109,7 @@ public class EconomicalActivity extends Activity implements
         public void onAttach(Activity activity) {
             super.onAttach(activity);
 
-            /*((EconomicalActivity) activity).onSectionAttached(
+            /*((MATActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
@@ -129,7 +124,7 @@ public class EconomicalActivity extends Activity implements
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("EconomicalActivity");
+            Logger log = Log4jHelper.getLogger("MATActivity");
             log.error(ex.getMessage(), ex);
         }
     }
@@ -140,7 +135,7 @@ public class EconomicalActivity extends Activity implements
         try {
             getMenuInflater().inflate(R.menu.main_menu, menu);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("EconomicalActivity");
+            Logger log = Log4jHelper.getLogger("MATActivity");
             log.error(ex.getMessage(), ex);
         }
         return super.onCreateOptionsMenu(menu);
@@ -149,16 +144,16 @@ public class EconomicalActivity extends Activity implements
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
         try {
-            if (featureId == FEATURE_ACTION_BAR && menu != null) {
+            if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
                 if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
                     Method m = menu.getClass().getDeclaredMethod(
-                            "setOptionalIconsVisible", TYPE);
+                            "setOptionalIconsVisible", Boolean.TYPE);
                     m.setAccessible(true);
                     m.invoke(menu, true);
                 }
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("EconomicalActivity");
+            Logger log = Log4jHelper.getLogger("MATActivity");
             log.error(ex.getMessage(), ex);
         }
         return super.onMenuOpened(featureId, menu);
@@ -174,7 +169,7 @@ public class EconomicalActivity extends Activity implements
             int id = item.getItemId();
             switch (id) {
                 case R.id.dev_team:
-                    builder = new AlertDialog.Builder(this);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setIcon(R.mipmap.icon_dev_team)
                             .setTitle(R.string.dev_team)
                             .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
@@ -197,7 +192,7 @@ public class EconomicalActivity extends Activity implements
                                 }
                             })
                             .show().setCanceledOnTouchOutside(true);
-                    dialog = builder.create();
+                    AlertDialog dialog = builder.create();
                     dialog.dismiss();
                     break;
                 case R.id.subscribe:
@@ -220,10 +215,9 @@ public class EconomicalActivity extends Activity implements
                     break;
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("EconomicalActivity");
+            Logger log = Log4jHelper.getLogger("MATActivity");
             log.error(ex.getMessage(), ex);
         }
         return super.onOptionsItemSelected(item);
     }
 }
-
