@@ -25,6 +25,7 @@ import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.activities.ComActivity;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
 import com.example.arnold.itsosgadda.activities.RSSReaderActivity;
+import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
@@ -279,6 +280,9 @@ public class MainActivity extends Activity implements OnClickListener,
                             }).show();
                     dialog = builder.create();
                     dialog.dismiss();
+                    break;
+                case R.id.crash_report:
+                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
                     break;
             }
             return super.onOptionsItemSelected(item);

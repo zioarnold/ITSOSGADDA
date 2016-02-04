@@ -289,6 +289,7 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="loading">Loading&#8230;</string>
     <string name="footer_loading">Click to load more&#8230;</string>
     <string name="app_blog">App Blog</string>
-    <string name="show_lat_lon">My position</string>
     <string name="ok" translatable="false">OK</string>
+    <string name="gps_settings">GPS Settings</string>
+    <string name="gps_settings_allow_abort">GPS isn\'t enabled. Do you want to go to settings menu?</string>
 </resources>

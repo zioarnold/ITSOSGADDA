@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_253" translatable="false">IISS C. E. Gadda v2.5.3</string>
+    <string name="iissgadda_253_updateList">- Removed two markers\n
+    - GPS Interaction removed\n
+    - Dropdown menu added on Maps window</string>
+
     <string name="iissgadda_252" translatable="false">IISS C. E. Gadda v2.5.2</string>
     <string name="iissgadda_252_updateList">- GPS Error fixed</string>
 
     <string name="iissgadda_25" translatable="false">IISS C. E. Gadda v2.5.1</string>
-
     <string name="iissgadda_25_updateList">-App Blog RSS News\n
     - Fixing error on Feedback to staff\n
     - Apps blog and Gallery choices added on navigation menu</string>

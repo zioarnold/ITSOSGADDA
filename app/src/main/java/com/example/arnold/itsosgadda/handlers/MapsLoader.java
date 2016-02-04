@@ -1,33 +1,31 @@
 package com.example.arnold.itsosgadda.handlers;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.arnold.itsosgadda.R;
+import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.main.MainActivity;
 import com.example.arnold.itsosgadda.utilities.Log4jHelper;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMap.OnMyLocationChangeListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -35,17 +33,24 @@ import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.apache.log4j.Logger;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import static android.view.Window.FEATURE_ACTION_BAR;
+import static com.example.arnold.itsosgadda.R.id.about_app;
 import static com.example.arnold.itsosgadda.R.id.container;
 import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
+import static com.example.arnold.itsosgadda.R.menu.main_menu;
+import static com.example.arnold.itsosgadda.R.string.ok;
 import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
+import static java.lang.Boolean.TYPE;
 
-public class MapsLoader extends FragmentActivity implements OnMyLocationChangeListener,
-        NavigationDrawerCallbacks, View.OnClickListener {
+@SuppressWarnings("FieldCanBeLocal")
+public class MapsLoader extends FragmentActivity implements
+        NavigationDrawerCallbacks {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private NavigationDrawerFragment mNavigationDrawerFragment;
-    private GPSTracker gpsTracker;
-    private Button showLatLon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,14 +59,121 @@ public class MapsLoader extends FragmentActivity implements OnMyLocationChangeLi
         assert actionBar != null;
         actionBar.setIcon(R.mipmap.ic_launcher);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
-        showLatLon = (Button) findViewById(R.id.show_current_lat_lon);
-        showLatLon.setOnClickListener(this);
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
         setUpMapIfNeeded();
+        makeActionOverflowMenuShown();
+    }
+
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        try {
+            if (featureId == FEATURE_ACTION_BAR && menu != null) {
+                if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
+                    Method m = menu.getClass().getDeclaredMethod(
+                            "setOptionalIconsVisible", TYPE);
+                    m.setAccessible(true);
+                    m.invoke(menu, true);
+                }
+            }
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MainActivity");
+            log.error(ex.getMessage(), ex);
+        }
+        return super.onMenuOpened(featureId, menu);
+    }
+
+    @SuppressLint({"SetTextI18n", "InflateParams"})
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        try {
+            int id = item.getItemId();
+            switch (id) {
+                case R.id.dev_team:
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_dev_team)
+                            .setTitle(R.string.dev_team)
+                            .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
+                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show().setCanceledOnTouchOutside(true);
+                    break;
+                case about_app:
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_about)
+                            .setTitle(R.string.created_for)
+                            .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
+                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show().setCanceledOnTouchOutside(true);
+                    AlertDialog dialog = builder.create();
+                    dialog.dismiss();
+                    break;
+                case R.id.subscribe:
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_subscribe_contact)
+                            .setTitle(R.string.dev_contact)
+                            .setView(getLayoutInflater().inflate(R.layout.contact_to_developer, null))
+                            .setCancelable(false)
+                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show();
+                    dialog = builder.create();
+                    dialog.dismiss();
+                    break;
+                case R.id.crash_report:
+                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
+                    break;
+            }
+            return super.onOptionsItemSelected(item);
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MapsLoader");
+            log.error(ex.getMessage(), ex);
+        }
+        return false;
+    }
+
+    private void makeActionOverflowMenuShown() {
+        //devices with hardware menu button (e.g. Samsung Note) don't show action overflow menu
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            if (menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MapsLoader");
+            log.error(ex.getMessage(), ex);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        try {
+            getMenuInflater().inflate(main_menu, menu);
+        } catch (Exception ex) {
+            Logger log = Log4jHelper.getLogger("MapsLoader");
+            log.error(ex.getMessage(), ex);
+        }
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -119,88 +231,22 @@ public class MapsLoader extends FragmentActivity implements OnMyLocationChangeLi
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Criteria criteria = new Criteria();
-        String provider = locationManager.getBestProvider(criteria, true);
-        Location myLocation = locationManager.getLastKnownLocation(provider);
-        if (myLocation != null) {
-            myLocation.getLatitude();
-            myLocation.getLongitude();
-        } else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setIcon(R.mipmap.ic_launcher)
-                    .setTitle(R.string.no_network_enabled)
-                    .setMessage(R.string.network_enabled)
-                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        }
-                    });
-            AlertDialog dialog = builder.create();
-            dialog.dismiss();
-        }
-        LatLng myLatLng = new LatLng(44.692785, 10.102958);
+        LatLng myLatLng = new LatLng(44.693950, 10.106832);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(myLatLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
         mMap.getUiSettings().setAllGesturesEnabled(true);
-        mMap.getUiSettings().setMyLocationButtonEnabled(true);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setIcon(R.mipmap.ic_launcher)
-                .setTitle(R.string.findus)
-                .setMessage(R.string.enable_position_yes_no)
-                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        mMap.setMyLocationEnabled(false);
-                    }
-                })
-                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        mMap.setMyLocationEnabled(true);
-                        gpsTracker = new GPSTracker(getApplicationContext());
-                        if (gpsTracker.canGetLocation()) {
-                            double lat = gpsTracker.getLatitude();
-                            double lon = gpsTracker.getLongitude();
-                            Toast.makeText(getApplicationContext(),
-                                    "Lat: " + lat + "\n Lon: " + lon, Toast.LENGTH_SHORT).show();
-                        } else {
-                            gpsTracker.showSettingsAlert();
-                        }
-                    }
-                }).show().setCanceledOnTouchOutside(true);
-        AlertDialog dialog = builder.create();
-        dialog.dismiss();
         mMap.getUiSettings().setMapToolbarEnabled(true);
-        mMap.setOnMyLocationChangeListener(this);
 
-
-        mMap.addMarker(new MarkerOptions().position(new LatLng(44.693793, 10.102023))
-                .title("Fornovo di Taro Railway Station"));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(44.692785, 10.102958))
-                .title("You're almost here"));
         mMap.addMarker(new MarkerOptions().position(new LatLng(44.693950, 10.106832))
                 .title("Welcome to I.I.S.S. Carlo Emilio Gadda"));
 
         mMap.addPolyline(new PolylineOptions()
-                .add(new LatLng(44.693793, 10.102023))
-                .add(new LatLng(44.692785, 10.102958))
                 .add(new LatLng(44.693950, 10.106832))
                 .width(5)
                 .color(Color.RED));
 
-    }
-
-    @Override
-    public void onMyLocationChange(Location location) {
-        Criteria criteria = new Criteria();
-        LocationManager locationManagerUpd = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        String provider = locationManagerUpd.getBestProvider(criteria, true);
-        Location myLocationUpd = locationManagerUpd.getLastKnownLocation(provider);
-        myLocationUpd.getProvider();
     }
 
     @Override
@@ -214,19 +260,6 @@ public class MapsLoader extends FragmentActivity implements OnMyLocationChangeLi
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("MapsLoader");
             log.error("Error", ex);
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        gpsTracker = new GPSTracker(getApplicationContext());
-        if (gpsTracker.canGetLocation()) {
-            double lat = gpsTracker.getLatitude();
-            double lon = gpsTracker.getLongitude();
-            Toast.makeText(getApplicationContext(),
-                    "Lat: " + lat + "\n Lon: " + lon, Toast.LENGTH_SHORT).show();
-        } else {
-            gpsTracker.showSettingsAlert();
         }
     }
 

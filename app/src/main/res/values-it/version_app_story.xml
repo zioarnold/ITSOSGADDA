@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_253_updateList">- Rimozione di puntatori\n
+    - Tolta interazione con GPS\n
+    - Menu scorrevole nella cartina</string>
     <string name="iissgadda_252_updateList">- Fix di GPS</string>
     <string name="iissgadda_25_updateList">- RSS Feed di Blog dell\'App\n
     - Errore di Feedback allo sviluppatore fixato\n

@@ -35,6 +35,7 @@ import static com.example.arnold.itsosgadda.R.id.container;
 import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
 import static com.example.arnold.itsosgadda.R.menu.reload;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class ComActivity extends Activity implements NavigationDrawerCallbacks {
     private static final String url = "jdbc:mysql://188.209.81.18:3306/app_db",
             user = "app", pass = "4826159g";
