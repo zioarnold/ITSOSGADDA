@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    //noinspection GroovyAssignabilityCheck
+
     signingConfigs {
         iissgadda_release {
             keyAlias 'iissgaddarelease'
@@ -13,16 +13,16 @@ android {
             storeFile file('C:/Users/arn81/.android/debug.keystore')
         }
     }
-    compileSdkVersion 22
+    compileSdkVersion 23
     buildToolsVersion '22.0.1'
     defaultConfig {
         applicationId 'app.iissgadda.dev.arnold'
         minSdkVersion 15
-        versionCode 2503
-        versionName '2.5.3-release'
+        versionCode 2507
+        versionName '2507-release'
         signingConfig signingConfigs.iissgadda_release
     }
-    //noinspection GroovyAssignabilityCheck
+
     buildTypes {
         release {
             minifyEnabled false
@@ -57,6 +57,7 @@ dependencies {
     compile files('libs/mysql-connector-java-3.0.17-ga-bin.jar')
     compile files('libs/pushbots-lib-2.0.13.jar')
     compile files('libs/universal-image-loader-1.9.4.jar')
-    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.google.android.gms:play-services:8.3.0'
+    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
 }

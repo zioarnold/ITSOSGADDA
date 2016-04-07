@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_2507_updateList">- Fixato errore: URL Communications\n
+    - Cambiata leggermente la schermata di avvio\n
+    - Sotto il logo trovate il msg di Benvenuto</string>
+    <string name="iissgadda_254_updateList">- Rimozione degli immagini dagli indirizzi di studio,
+        sostituite con semplici pulsanti\n
+    - Ogni attività contiene il proprio nome</string>
     <string name="iissgadda_253_updateList">- Rimozione di puntatori\n
     - Tolta interazione con GPS\n
     - Menu scorrevole nella cartina</string>
@@ -23,7 +29,7 @@
     - Notifiche quotidiane delle communicazioni</string>
     <string name="iissgadda_221_updateList">- Libreria log\n
     -Nuova visualizzazione di Contatta con Sviluppatore\n
-    -Spedizione di Bug/Crash log (Clicca su "Feedback allo Sviluppatore", digita il messaggio,
+    -Spedizione di Bug/Crash log (Clicca su \"Feedback allo Sviluppatore\", digita il messaggio,
         il file sarà allegato automaticamente)</string>
     <string name="iissgadda_14_list">- Apertura registro elettronico</string>
     <string name="iissgadda_1_7_list">- ic_launcher sostituito</string>

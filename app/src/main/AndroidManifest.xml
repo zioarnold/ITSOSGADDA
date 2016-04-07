@@ -47,54 +47,54 @@
         </activity>
         <activity
             android:name=".activities.CommunicationsActivity"
-            android:label="@string/app_name" />
+            android:label="@string/communications_news" />
         <activity
             android:name=".activities.StoryActivity"
             android:configChanges="locale"
-            android:label="@string/app_name" />
+            android:label="@string/label_our_story" />
         <activity
             android:name=".activities.SpecStorySectionActivity"
             android:configChanges="locale"
-            android:label="@string/app_name" />
+            android:label="@string/label_study_addresses" />
         <activity
             android:name=".activities.ComActivity"
-            android:label="@string/app_name" />
+            android:label="@string/communications_news" />
         <activity
             android:name=".activities.LSActivity"
             android:configChanges="locale"
-            android:label="@string/app_name" />
+            android:label="@string/label_lsa" />
         <activity
             android:name=".activities.ITActivity"
             android:configChanges="locale"
-            android:label="@string/app_name" />
+            android:label="@string/label_it_tlc" />
         <activity
             android:name=".activities.RSSReaderActivity"
             android:configChanges="locale"
-            android:label="@string/app_name" />
+            android:label="@string/app_blog" />
         <activity
             android:name=".activities.ContentPostActivity"
             android:configChanges="locale"
-            android:label="@string/app_name" />
+            android:label="@string/label_appblog_detailed" />
         <activity
             android:name=".activities.AFMActivity"
             android:configChanges="locale"
-            android:label="@string/app_name" />
+            android:label="@string/label_afm" />
         <activity
             android:name=".activities.MATActivity"
             android:configChanges="locale"
-            android:label="@string/app_name" />
+            android:label="@string/label_mat" />
         <activity
             android:name=".activities.EmailSendingActivity"
             android:configChanges="locale"
-            android:label="@string/app_name" />
+            android:label="@string/label_send_email_to_staff" />
         <activity
             android:name=".activities.WebRegistryActivity"
             android:configChanges="locale"
-            android:label="@string/app_name" />
+            android:label="@string/label_e_registry" />
         <activity
             android:name=".activities.SendBugCrashReport"
             android:configChanges="locale"
-            android:label="@string/app_name" />
+            android:label="@string/label_send_email_to_developer" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -116,7 +116,7 @@
 
         <receiver
             android:name="com.pushbots.google.gcm.GCMBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
 
                 <!-- Receives the actual messages. -->
@@ -130,6 +130,11 @@
         <receiver android:name="com.pushbots.push.DefaultPushHandler" />
 
         <service android:name="com.pushbots.push.GCMIntentService" />
+
+        <activity
+            android:name=".activities.ComWebActivity"
+            android:label="@string/communications_news"
+            android:configChanges="locale" />
     </application>
 
 </manifest>

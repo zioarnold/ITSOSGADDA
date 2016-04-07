@@ -4,10 +4,6 @@
     <string name="app_name">I.I.S.S. \"C. E. Gadda\"</string>
     <string name="main_menu_body">Principale</string>
     <string name="specSectionButtonId">Indirizzi di studio</string>
-    <string name="lyceum_button">Percorso Liceale</string>
-    <string name="spec_IT_TLC_button">Percorso tecnico: informatica e telecom.</string>
-    <string name="spec_Economy_button">Percorso tecnico: Economico</string>
-    <string name="op_mech_elet_button">Percorso prof: Elettronico Meccanico</string>
     <string name="backSpecSectionID">Indietro</string>
     <string name="lyceum_text_story">A partire dall’anno scolastico 2014/2015,
         presso l’Istituto “C.E. Gadda” di Fornovo di Taro,
@@ -203,8 +199,8 @@
     <string name="created_for">I.I.S.S. \"C. E. Gadda\"</string>
     <string name="e_registry">Registro elettronico</string>
     <string name="feedback">Feedback allo staff</string>
-    <string name="Email_to_send">Feedback per lo staff di Gadda…</string>
-    <string name="Email_to_send_developer">Feedback per lo Sviluppatore…</string>
+    <string name="Email_to_send">Feedback allo staff…</string>
+    <string name="Email_to_send_developer">Feedback allo Sviluppatore…</string>
     <string name="Email_body_text">Digita il messaggio…</string>
     <string name="To">A chi</string>
     <string name="send_email">Invia</string>
@@ -229,11 +225,14 @@
     <string name="en_lang">Inglese</string>
     <string name="it_lang">Italiano</string>
     <string name="ru_lang">Russo</string>
-
-    <string name="economic_sector">Economico</string>
-    <string name="it_tlc_sector">IT / TLC</string>
-    <string name="lyceum_sector">Liceo</string>
-    <string name="mec_elect_sector">Meccanico-Elettrico</string>
+    <string name="lyceum_button">Liceo</string>
+    <string name="spec_IT_TLC_button">IT e TLC</string>
+    <string name="spec_Economy_button">Economico</string>
+    <string name="op_mech_elet_button">Elettrico - Meccanico</string>
+    <string name="economic_sector">Amministrazione, Finanza e Marketing</string>
+    <string name="it_tlc_sector">Informatica e Telecomunicazioni</string>
+    <string name="lyceum_sector">Liceo Scientifico Scienze Applicate</string>
+    <string name="mec_elect_sector">Manutenzione e Assistenza Tecnica</string>
     <string name="title_activity_maps">Dove trovarci</string>
     <string name="findus">Dove trovarci</string>
     <string name="dev_team">Partecipanti</string>
@@ -268,5 +267,16 @@
     <string name="release_to_refresh">Mollare per aggiornare</string>
     <string name="loading">Caricamento…</string>
     <string name="app_blog">Blog dell\'App</string>
-
+    <string name="label_send_email_to_staff">Email allo Staff</string>
+    <string name="label_send_email_to_developer">Email allo Sviluppatore</string>
+    <string name="label_communications">Comunicazioni</string>
+    <string name="label_our_story">La nostra storia</string>
+    <string name="label_study_addresses">Indirizzi di studio</string>
+    <string name="label_lsa">Liceo Scienze Applicate</string>
+    <string name="label_it_tlc">Informatica e Telecomunicazioni</string>
+    <string name="label_mat">Manutenzione e Assistenza Tecnica</string>
+    <string name="label_afm">Amministrazione, Finanza e Marketing</string>
+    <string name="label_e_registry">Registro elettronico</string>
+    <string name="label_appblog_detailed">Blog dell\'App - Dettagli</string>
+    <string name="string_iissgadda_welcome_text">Benvenuti all\'IISS Gadda</string>
 </resources>

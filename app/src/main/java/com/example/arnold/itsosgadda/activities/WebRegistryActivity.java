@@ -66,7 +66,7 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
                     activity.setProgress(progress * 100);
 
                     if (progress == 100)
-                        activity.setTitle(R.string.app_name);
+                        activity.setTitle(R.string.e_registry);
                 }
             });
 

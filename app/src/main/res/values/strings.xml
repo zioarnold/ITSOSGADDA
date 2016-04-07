@@ -238,10 +238,10 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
     <string name="action_example" translatable="false">Example action</string>
-    <string name="economic_sector">Economic</string>
-    <string name="lyceum_sector">Lyceum</string>
-    <string name="it_tlc_sector">ICT</string>
-    <string name="mec_elect_sector">Mechanical Electrical</string>
+    <string name="economic_sector">Business Administration, Marketing</string>
+    <string name="lyceum_sector">Application of Science</string>
+    <string name="it_tlc_sector">Information and Telecommunications</string>
+    <string name="mec_elect_sector">Maintenance and Technical Assistance</string>
     <string name="dev_team">Dev Team</string>
     <string name="dev_team_list">
         ALBERT CHARYIEV - Main assistance\n
@@ -282,7 +282,7 @@ A School is able to develop a solid scientific culture through an approach that
     or Mobile connection.</string>
 
 
-    <string name="postviewlabel">Muslim.or.id</string>
+    <string name="postviewlabel" translatable="false">Muslim.or.id</string>
     <string name="head_arrowImage" translatable="false">head_arrowImage</string>
     <string name="pull_to_refresh">Pull down to refresh&#8230;</string>
     <string name="release_to_refresh">Release to refresh&#8230;</string>
@@ -290,6 +290,19 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="footer_loading">Click to load more&#8230;</string>
     <string name="app_blog">App Blog</string>
     <string name="ok" translatable="false">OK</string>
-    <string name="gps_settings">GPS Settings</string>
-    <string name="gps_settings_allow_abort">GPS isn\'t enabled. Do you want to go to settings menu?</string>
+    <string name="gps_settings" translatable="false">GPS Settings</string>
+    <string name="gps_settings_allow_abort" translatable="false">GPS isn\'t enabled. Do you want to go to settings menu?</string>
+    <string name="label_send_email_to_staff">Email to Staff</string>
+    <string name="label_send_email_to_developer">Email to Developer</string>
+    <string name="label_communications">Communications</string>
+    <string name="label_our_story">Our story</string>
+    <string name="label_study_addresses">Study addresses</string>
+    <string name="label_lsa">Application of Scienze</string>
+    <string name="label_it_tlc">Information and Telecommunication technology</string>
+    <string name="label_mat">Maintenance and Technical Assistance</string>
+    <string name="label_afm">Business Administration and Marketing</string>
+    <string name="label_e_registry">Web registry</string>
+    <string name="label_appblog_detailed">App Blog - Details</string>
+    <string name="string_iissgadda_welcome_text">Welcome to IISS Gadda</string>
+
 </resources>

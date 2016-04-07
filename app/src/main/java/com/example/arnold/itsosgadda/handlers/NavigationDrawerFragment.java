@@ -23,7 +23,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.arnold.itsosgadda.R;
-import com.example.arnold.itsosgadda.activities.ComActivity;
+import com.example.arnold.itsosgadda.activities.ComWebActivity;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
 import com.example.arnold.itsosgadda.activities.RSSReaderActivity;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
@@ -163,7 +163,7 @@ public class NavigationDrawerFragment extends Fragment {
                         break;
                     case 6:
                         startActivity(new Intent(getActivity().getApplicationContext(),
-                                ComActivity.class));
+                                ComWebActivity.class));
                         break;
                     case 7:
                         startActivity(new Intent(getActivity().getApplicationContext(),

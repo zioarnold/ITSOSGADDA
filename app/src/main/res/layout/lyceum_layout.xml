@@ -17,17 +17,6 @@
             android:layout_height="fill_parent"
             android:layout_centerHorizontal="true">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/lyceumTxtView"
-                android:textSize="30sp"
-                android:textAllCaps="true"
-                android:layout_gravity="center_horizontal"
-                android:contentDescription="@string/lyceum_descriptor"
-                android:textColor="#000"
-                android:text="@string/lyceum_sector" />
-
             <ScrollView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"

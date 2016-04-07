@@ -22,7 +22,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.arnold.itsosgadda.R;
-import com.example.arnold.itsosgadda.activities.ComActivity;
+import com.example.arnold.itsosgadda.activities.ComWebActivity;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
 import com.example.arnold.itsosgadda.activities.RSSReaderActivity;
 import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
@@ -65,7 +65,6 @@ public class MainActivity extends Activity implements OnClickListener,
     private Button storyButtonMainBody, specSectButton, webRegistryButton, feedBackButton,
             findUsButton, communicationButton, bPhotoGallery, rssFeedReader;
     private NavigationDrawerFragment mNavigationDrawerFragment;
-    private CharSequence mTitle;
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
     private Intent intent;
@@ -77,6 +76,8 @@ public class MainActivity extends Activity implements OnClickListener,
             Pushbots.sharedInstance().init(this);
             Pushbots.sharedInstance().register();
             Pushbots.sharedInstance().setPushEnabled(true);
+            Pushbots.sharedInstance().setRegStatus(false);
+            Pushbots.sharedInstance().unregister();
 
             setContentView(activity_main);
 
@@ -106,7 +107,6 @@ public class MainActivity extends Activity implements OnClickListener,
 
             mNavigationDrawerFragment = (NavigationDrawerFragment)
                     getFragmentManager().findFragmentById(navigation_drawer);
-            mTitle = getTitle();
 
             // Set up the drawer.
             mNavigationDrawerFragment.setUp(
@@ -322,7 +322,7 @@ public class MainActivity extends Activity implements OnClickListener,
     }
 
     private void communicationButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), ComActivity.class));
+        startActivity(new Intent(getApplicationContext(), ComWebActivity.class));
     }
 
     private void rssNewsButtonClicked() {

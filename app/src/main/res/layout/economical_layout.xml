@@ -18,17 +18,6 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/economical_LinearLayour">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/economicTxtView"
-                android:layout_gravity="center_horizontal"
-                android:contentDescription="@string/economical_descriptor"
-                android:textSize="30sp"
-                android:textColor="#000"
-                android:textAllCaps="true"
-                android:text="@string/economic_sector" />
-
 
             <ScrollView
                 android:layout_width="fill_parent"

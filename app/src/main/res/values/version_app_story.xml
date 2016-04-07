@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_2507" translatable="false">IISS C. E. Gadda v2507</string>
+    <string name="iissgadda_2507_updateList">- Communications URL error fixed\n
+    - New theme of main screen\n
+    - New text label under Gadda logo</string>
+
+    <string name="iissgadda_254" translatable="false">IISS C. E. Gadda v2.5.4</string>
+    <string name="iissgadda_254_updateList">- Removed Images from Study Addresses page\n
+    - Label on each activity is changed</string>
+
     <string name="iissgadda_253" translatable="false">IISS C. E. Gadda v2.5.3</string>
     <string name="iissgadda_253_updateList">- Removed two markers\n
     - GPS Interaction removed\n

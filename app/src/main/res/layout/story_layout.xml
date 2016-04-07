@@ -21,15 +21,6 @@
             android:id="@+id/LinearMainBody"
             android:weightSum="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/La_nostra_storia"
-                android:id="@+id/StorySchool"
-                android:textColor="#000"
-                android:layout_gravity="center_horizontal" />
-
             <ScrollView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"

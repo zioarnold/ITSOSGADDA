@@ -11,6 +11,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/iissgadda_2507"
+            android:id="@+id/txtView_2_5_0_7"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/iissgadda_2507_updateList"
+            android:id="@+id/txtView_2_5_0_7list" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/iissgadda_254"
+            android:id="@+id/txtView_2_5_4"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/iissgadda_254_updateList"
+            android:id="@+id/txtView_2_5_4list" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/iissgadda_253"
             android:id="@+id/txtView_2_5_3"
             android:textStyle="bold" />
