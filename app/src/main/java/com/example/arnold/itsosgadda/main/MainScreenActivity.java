@@ -3,7 +3,6 @@ package com.example.arnold.itsosgadda.main;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
 
 import com.example.arnold.itsosgadda.utilities.Log4jHelper;
 
@@ -12,6 +11,7 @@ import org.apache.log4j.Logger;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static android.view.Window.FEATURE_NO_TITLE;
 import static com.example.arnold.itsosgadda.R.layout.activity_main_screen;
 
 @SuppressWarnings("FieldCanBeLocal")
@@ -21,7 +21,7 @@ public class MainScreenActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            requestWindowFeature(Window.FEATURE_NO_TITLE);
+            requestWindowFeature(FEATURE_NO_TITLE);
             setContentView(activity_main_screen);
 
             timer = new Timer();

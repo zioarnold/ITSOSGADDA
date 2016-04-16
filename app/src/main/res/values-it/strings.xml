@@ -251,4 +251,5 @@
     <string name="label_e_registry">Registro elettronico</string>
     <string name="label_appblog_detailed">Blog dell\'App - Dettagli</string>
     <string name="string_iissgadda_welcome_text">Benvenuti all\'IISS Gadda</string>
+    <string name="string_iissgadda_goodbye_text">Arrividerci</string>
 </resources>
