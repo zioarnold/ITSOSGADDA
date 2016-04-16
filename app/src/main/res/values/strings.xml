@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
     <string name="app_name">I.I.S.S. \"C. E. Gadda\"</string>
-    <string name="EnglishLanguageSelected">English</string>
-    <string name="RussianLanguageSelected">Russian</string>
-    <string name="ItalianLanguageSelected">Italian</string>
     <string name="La_nostra_storia">Our story</string>
-    <string name="action_settings">Settings</string>
     <string name="StorySchool">The Institute was founded in 1973/1974 on two main purposes:\n
     - to create in a dislocated area of our territory a
         secondary school offering different education options\n
@@ -67,16 +63,7 @@ Some classes are also engaged in drama modules completely developed in foreign l
 The Institute organizes some full-immersion weeks at school or abroad to improve
         language skills in a real communicative
 context.</string>
-    <string name="main_menu_body">Back to menu</string>
-    <string name="storyButton">Our story</string>
     <string name="specSectionButtonId">Study addresses</string>
-    <string name="lyceum_button"> Lyceum</string>
-    <string name="spec_IT_TLC_button">IT and TLC</string>
-    <string name="spec_Economy_button">Economic</string>
-    <string name="i_percorsi">The courses:</string>
-    <string name="op_mech_elet_button">Electrical Mechanical</string>
-    <string name="backSpecSectionID">Back</string>
-    <string name="lyceum_descriptor" translatable="false">lyceum_description_content</string>
     <string name="lyceum_text_story">Starting from the school year 2014/2015, at the Institute
     “C. E. Gadda” of Fornovo di Taro, the new first class of the high School Applied
     Science option will be characterized by a Plan of Study that is particularly innovative.\n
@@ -141,8 +128,6 @@ A School is able to develop a solid scientific culture through an approach that
         STARTING FROM THE THIRD YEAR IS PROVIDED FOR THE JOINT "COMPUTER science": \n
         “Computer science”, in which it is in-depth analysis, comparison and design of
         devices and tools and the development of computer applications.</string>
-    <string name="it_tlc_descriptor_img">it_tlc_descriptor</string>
-    <string name="economical_descriptor">economical_descriptor</string>
     <string name="economical_story">The Diploma in the “Administration, Finance and Marketing”
         has general competence in the field of macro-phenomena of economic,
         national and international, of the civil law, and fiscal, systems, and
@@ -164,7 +149,6 @@ A School is able to develop a solid scientific culture through an approach that
         - assist in the organization, management and control of business processes;\n
         - use technologies and software applications for the
         integrated management of administration, finance and marketing.</string>
-    <string name="mech_elet_ImageView" translatable="false">mech_elet_assist_descriptor</string>
     <string name="mat_elet_story">The Diploma of vocational education in the
         address “Maintenance and technical assistance” has the skills to manage,
         organize and carry out installation and routine maintenance, diagnostic,
@@ -196,12 +180,9 @@ A School is able to develop a solid scientific culture through an approach that
         in date 13/06/2014, has approved the curvature of the address on
         the "composite Materials" to respond to the demands arising from
         the productive fabric of the territory already accepted in the newborn Mechanic.</string>
-    <string name="aboutButton">About</string>
     <string name="created_for">I.I.S.S. \"C. E. Gadda\"</string>
     <string name="e_registry">E-Registry</string>
     <string name="feedback">Feedback to staff</string>
-    <string name="To">To</string>
-    <string name="email_subject">Subject</string>
     <string name="Email_to_send">Send feedback to Gadda staff…</string>
     <string name="Email_to_send_developer">Send feedback to Developer…</string>
     <string name="Email_body_text">Your message here…</string>
@@ -211,33 +192,18 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="forgot_digit_subject">You forgot to enter the subject</string>
     <string name="emailId_not_valid">Entered email ID is not Valid</string>
     <string name="forgot_email_id_enter">You forgot to enter the email ID</string>
-    <string name="emailTo" translatable="false">vl80tk@gmail.com</string>
     <string name="AboutApp">About app</string>
-    <string name="subject" translatable="false">Your app</string>
-    <string name="en_lang_button" translatable="false" />
-    <string name="ru_lang_button" translatable="false">ru_lang_button</string>
-    <string name="en_lang_button_descriptor" translatable="false">en_lang_button_descriptor</string>
-    <string name="ru_lang_button_descriptor" translatable="false">ru_lang_button_descriptor</string>
-    <string name="it_lang_button_descriptor" translatable="false">it_lang_button_descriptor</string>
     <string name="title_activity_maps">Find us</string>
     <string name="findus">Find us</string>
     <string name="loading_progress">Loading…</string>
     <string name="reaching_from_fornovo_FS">Nazionale n.6 street - 43045 Fornovo di Taro - PR - (IT)\n
         Press OK to show the route on GMaps.</string>
-    <string name="click_ok_to_proceed">Click OK to Proceed</string>
-    <string name="locale_lang">App language is English (UK)</string>
     <string name="dev_contact">Contact to Developer</string>
     <string name="communications_news">Communications</string>
-    <string name="title_activity_main_navitagion_drawer" translatable="false">MainNavitagionDrawer</string>
-
-    <string name="en_lang">English</string>
-    <string name="ru_lang">Russian</string>
-    <string name="it_lang">Italian</string>
 
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
-    <string name="action_example" translatable="false">Example action</string>
     <string name="economic_sector">Business Administration, Marketing</string>
     <string name="lyceum_sector">Application of Science</string>
     <string name="it_tlc_sector">Information and Telecommunications</string>
@@ -250,7 +216,6 @@ A School is able to develop a solid scientific culture through an approach that
         BOGDAN VASILENKO - Suggestion
     </string>
 
-    <string name="enable_position_yes_no">Would you like to enable your position?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
@@ -265,10 +230,6 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="news">news</string>
     <string name="link">link</string>
 
-    <string name="notification_something_arrived">Communication</string>
-    <string name="notification_communication_arrived">Communications</string>
-    <string name="notification_check_for_communication">Please check if you have some new
-    communications</string>
     <string name="email_contact_developer" translatable="false">vl80tk@gmail.com</string>
     <string name="yandex_contact_developer" translatable="false">arn8109@yandex.com</string>
     <string name="mobilephone_contact_developer" translatable="false">+393462133945</string>
@@ -282,7 +243,6 @@ A School is able to develop a solid scientific culture through an approach that
     or Mobile connection.</string>
 
 
-    <string name="postviewlabel" translatable="false">Muslim.or.id</string>
     <string name="head_arrowImage" translatable="false">head_arrowImage</string>
     <string name="pull_to_refresh">Pull down to refresh&#8230;</string>
     <string name="release_to_refresh">Release to refresh&#8230;</string>
@@ -294,7 +254,6 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="gps_settings_allow_abort" translatable="false">GPS isn\'t enabled. Do you want to go to settings menu?</string>
     <string name="label_send_email_to_staff">Email to Staff</string>
     <string name="label_send_email_to_developer">Email to Developer</string>
-    <string name="label_communications">Communications</string>
     <string name="label_our_story">Our story</string>
     <string name="label_study_addresses">Study addresses</string>
     <string name="label_lsa">Application of Scienze</string>

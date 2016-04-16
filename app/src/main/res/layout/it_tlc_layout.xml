@@ -31,8 +31,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/it_tlc_story"
-                    android:id="@+id/it_tlc_text" />
+                    android:text="@string/it_tlc_story" />
             </ScrollView>
         </LinearLayout>
 

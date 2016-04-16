@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/string_iissgadda_welcome_text"
-        android:id="@+id/iissgadda_welcome_text"
         android:textColor="#999999"
         android:layout_below="@+id/imgMainScreen"
         android:layout_centerHorizontal="true" />

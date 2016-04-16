@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <string name="action_settings">Impostazioni</string>
     <string name="app_name">I.I.S.S. \"C. E. Gadda\"</string>
-    <string name="main_menu_body">Principale</string>
     <string name="specSectionButtonId">Indirizzi di studio</string>
-    <string name="backSpecSectionID">Indietro</string>
     <string name="lyceum_text_story">A partire dall’anno scolastico 2014/2015,
         presso l’Istituto “C.E. Gadda” di Fornovo di Taro,
         la nuova classe prima del Liceo Scientifico opzione
@@ -75,8 +72,6 @@
         la comparazione e la progettazione di dispositivi e
         strumenti informatici e lo sviluppo delle applicazioni informatiche.
     </string>
-    <string name="it_tlc_descriptor_img">it_tlc_descriptor</string>
-    <string name="economical_descriptor">economical_descriptor</string>
     <string name="economical_story">Il Diplomato in “Amministrazione, Finanza e Marketing” ha
         competenze generali nel campo dei macrofenomeni economici
         nazionali ed internazionali, della normativa civilistica e fiscale,
@@ -194,41 +189,24 @@
         formativi frutto di relazioni, dialogo, e progettualità comune,
         il più possibile vicini ai reali bisogni del  territorio.</string>
     <string name="La_nostra_storia">La nostra storia</string>
-    <string name="storyButton">La nostra storia</string>
-    <string name="aboutButton">Info App</string>
     <string name="created_for">I.I.S.S. \"C. E. Gadda\"</string>
     <string name="e_registry">Registro elettronico</string>
     <string name="feedback">Feedback allo staff</string>
     <string name="Email_to_send">Feedback allo staff…</string>
     <string name="Email_to_send_developer">Feedback allo Sviluppatore…</string>
     <string name="Email_body_text">Digita il messaggio…</string>
-    <string name="To">A chi</string>
     <string name="send_email">Invia</string>
-    <string name="email_subject">Oggetto</string>
     <string name="choose_email_client">Scegliere programma di invio e-mail:</string>
     <string name="emailId_not_valid">Identificativo E-mail non valido</string>
     <string name="forgot_digit_message">Ha dimenticato di digitare il messaggio</string>
     <string name="forgot_digit_subject">Ha dimenticato di digitare il soggetto</string>
     <string name="forgot_email_id_enter">Ha dimenticato di digitare e-mail</string>
-    <string name="EnglishLanguageSelected">Inglese</string>
-    <string name="ItalianLanguageSelected">Italiano</string>
-    <string name="RussianLanguageSelected">Russo</string>
     <string name="AboutApp">Info su app</string>
-    <string name="i_percorsi">PERCORSI DI STUDIO</string>
     <string name="loading_progress">Caricamento…</string>
     <string name="reaching_from_fornovo_FS">via Nazionale n. 6 - 43045 Fornovo di Taro - PR - (IT)\n
         Premere OK per visualizzare la mappa.</string>
-    <string name="click_ok_to_proceed">Clicca OK per procedere</string>
-    <string name="locale_lang">Lingua di dell\'app è Italiano (IT/CH)</string>
     <string name="dev_contact">Contatta con Sviluppatore</string>
     <string name="communications_news">Comunicazioni</string>
-    <string name="en_lang">Inglese</string>
-    <string name="it_lang">Italiano</string>
-    <string name="ru_lang">Russo</string>
-    <string name="lyceum_button">Liceo</string>
-    <string name="spec_IT_TLC_button">IT e TLC</string>
-    <string name="spec_Economy_button">Economico</string>
-    <string name="op_mech_elet_button">Elettrico - Meccanico</string>
     <string name="economic_sector">Amministrazione, Finanza e Marketing</string>
     <string name="it_tlc_sector">Informatica e Telecomunicazioni</string>
     <string name="lyceum_sector">Liceo Scientifico Scienze Applicate</string>
@@ -242,7 +220,6 @@
         TECNICI DELL\'ISTITUTO - Suggerimenti\n
         BOGDAN VASILENKO - Suggerimento
     </string>
-    <string name="enable_position_yes_no">Visualizzare la Sua posizione?</string>
     <string name="yes">Sì</string>
     <string name="no">No</string>
     <string name="no_network_enabled">Errore di connessione</string>
@@ -256,10 +233,6 @@
     <string name="news">news</string>
     <string name="link">link</string>
 
-    <string name="notification_something_arrived">Comunicazione</string>
-    <string name="notification_communication_arrived">Comunicazioni</string>
-    <string name="notification_check_for_communication">Per favore controlla se sono arrivate
-    delle nuove communicazioni</string>
     <string name="bug_report_crash_report">Feedback allo Sviluppatore</string>
     <string name="error_connection">Errore nella connessione: controlla la connessione Wi-Fi o Reti mobile.</string>
     <string name="footer_loading">Tocca per caricare</string>
@@ -269,7 +242,6 @@
     <string name="app_blog">Blog dell\'App</string>
     <string name="label_send_email_to_staff">Email allo Staff</string>
     <string name="label_send_email_to_developer">Email allo Sviluppatore</string>
-    <string name="label_communications">Comunicazioni</string>
     <string name="label_our_story">La nostra storia</string>
     <string name="label_study_addresses">Indirizzi di studio</string>
     <string name="label_lsa">Liceo Scienze Applicate</string>

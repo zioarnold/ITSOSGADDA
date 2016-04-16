@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_2508_updateList">- Nuove icone\n
+    - Rimozione delle risorse non utilizzabili.</string>
     <string name="iissgadda_2507_updateList">- Fixato errore: URL Communications\n
     - Cambiata leggermente la schermata di avvio\n
     - Sotto il logo trovate il msg di Benvenuto</string>

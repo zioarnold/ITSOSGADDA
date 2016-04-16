@@ -18,14 +18,12 @@
             android:layout_height="fill_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:id="@+id/LinearMainBody"
             android:weightSum="1">
 
             <ScrollView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:fillViewport="false"
-                android:id="@+id/ScrollMainBody"
                 android:nestedScrollingEnabled="false"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp">
@@ -36,7 +34,6 @@
                     android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/StorySchool"
-                    android:id="@+id/StorySchoolBody"
                     android:layout_gravity="center_horizontal" />
             </ScrollView>
 

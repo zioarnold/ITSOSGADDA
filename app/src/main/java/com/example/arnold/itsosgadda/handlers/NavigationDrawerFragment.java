@@ -3,9 +3,7 @@ package com.example.arnold.itsosgadda.handlers;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -128,7 +126,6 @@ public class NavigationDrawerFragment extends Fragment {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuIcons.getResourceId(7, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[8], navMenuIcons.getResourceId(8, -1)));
 
         adapter = new NavDrawerListAdapter(getActivity().getApplicationContext(),
                 navDrawerItems);
@@ -168,22 +165,6 @@ public class NavigationDrawerFragment extends Fragment {
                     case 7:
                         startActivity(new Intent(getActivity().getApplicationContext(),
                                 RSSReaderActivity.class));
-                        break;
-                    case 8:
-                        /*startActivity(new Intent(getActivity().getApplicationContext(),
-                                PhotoGalleryActivity.class));*/
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        builder.setIcon(R.mipmap.ic_launcher)
-                                .setTitle(R.string.created_for)
-                                .setMessage(R.string.still_working)
-                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                    }
-                                }).show().setCanceledOnTouchOutside(true);
-                        AlertDialog dialog = builder.create();
-                        dialog.dismiss();
                         break;
                 }
             }

@@ -86,6 +86,7 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
                 }
             });
             webView.loadUrl(url);
+            webView.canGoBack();
         } catch (Exception ex) {
             Logger log = Log4jHelper.getLogger("WebRegistryActivity");
             log.error(ex.getMessage(), ex);

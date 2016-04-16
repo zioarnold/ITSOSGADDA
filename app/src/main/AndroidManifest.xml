@@ -133,8 +133,8 @@
 
         <activity
             android:name=".activities.ComWebActivity"
-            android:label="@string/communications_news"
-            android:configChanges="locale" />
+            android:configChanges="locale"
+            android:label="@string/communications_news" />
     </application>
 
 </manifest>

@@ -3,13 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:layout_gravity="center_horizontal"
-    android:id="@+id/contact_to_developer"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollview_contact_to_developer">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,7 +18,6 @@
                 android:layout_height="32dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/git_contact_developer"
-                android:id="@+id/txtGithub"
                 android:layout_below="@+id/txtYandex"
                 android:layout_toRightOf="@+id/imgGmail"
                 android:autoLink="web"
@@ -30,7 +27,6 @@
                 android:layout_width="32dp"
                 android:background="@drawable/imggithub"
                 android:layout_height="32dp"
-                android:id="@+id/imgGithub"
                 android:layout_below="@+id/imgYandex"
                 android:layout_alignParentLeft="true"
                 android:layout_marginTop="5dp"
@@ -71,7 +67,6 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:id="@+id/imgInstagram"
                 android:layout_below="@+id/imgTwitter"
                 android:background="@drawable/imginstagram"
                 android:layout_alignParentLeft="true"

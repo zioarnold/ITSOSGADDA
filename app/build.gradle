@@ -14,12 +14,12 @@ android {
         }
     }
     compileSdkVersion 23
-    buildToolsVersion '22.0.1'
+    buildToolsVersion '23.0.3'
     defaultConfig {
         applicationId 'app.iissgadda.dev.arnold'
         minSdkVersion 15
-        versionCode 2507
-        versionName '2507-release'
+        versionCode 2508
+        versionName '2508-release'
         signingConfig signingConfigs.iissgadda_release
     }
 

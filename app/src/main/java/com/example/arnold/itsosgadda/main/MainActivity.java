@@ -49,7 +49,6 @@ import static com.example.arnold.itsosgadda.R.id.e_registryId;
 import static com.example.arnold.itsosgadda.R.id.feedback;
 import static com.example.arnold.itsosgadda.R.id.findus;
 import static com.example.arnold.itsosgadda.R.id.navigation_drawer;
-import static com.example.arnold.itsosgadda.R.id.photoGallery;
 import static com.example.arnold.itsosgadda.R.id.specSectionButtonId;
 import static com.example.arnold.itsosgadda.R.id.storyButton;
 import static com.example.arnold.itsosgadda.R.layout.activity_main;
@@ -63,7 +62,7 @@ import static java.lang.Boolean.TYPE;
 public class MainActivity extends Activity implements OnClickListener,
         NavigationDrawerCallbacks {
     private Button storyButtonMainBody, specSectButton, webRegistryButton, feedBackButton,
-            findUsButton, communicationButton, bPhotoGallery, rssFeedReader;
+            findUsButton, communicationButton, rssFeedReader;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
@@ -98,9 +97,6 @@ public class MainActivity extends Activity implements OnClickListener,
 
             communicationButton = (Button) findViewById(button_show_comunications);
             communicationButton.setOnClickListener(this);
-
-            bPhotoGallery = (Button) findViewById(photoGallery);
-            bPhotoGallery.setOnClickListener(this);
 
             rssFeedReader = (Button) findViewById(app_blog);
             rssFeedReader.setOnClickListener(this);
@@ -176,6 +172,7 @@ public class MainActivity extends Activity implements OnClickListener,
             return inflater.inflate(fragment_main_navitagion_drawer, container, false);
         }
 
+        @SuppressWarnings("deprecation")
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
@@ -364,20 +361,6 @@ public class MainActivity extends Activity implements OnClickListener,
                                 }
                             })
                             .show().setCanceledOnTouchOutside(true);
-                    dialog = builder.create();
-                    dialog.dismiss();
-                    break;
-                case photoGallery:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.ic_launcher)
-                            .setTitle(R.string.created_for)
-                            .setMessage(R.string.still_working)
-                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show().setCanceledOnTouchOutside(true);
                     dialog = builder.create();
                     dialog.dismiss();
                     break;

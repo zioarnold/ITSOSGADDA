@@ -3,14 +3,13 @@
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
     <array name="nav_drawer_icons">
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
-        <item>@mipmap/ic_arrow</item>
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_our_story</item>
+        <item>@drawable/ic_study_addresses</item>
+        <item>@drawable/ic_web_registry</item>
+        <item>@drawable/ic_feedback_to_stuff</item>
+        <item>@drawable/ic_find_us</item>
+        <item>@drawable/ic_communications</item>
+        <item>@drawable/ic_app_blog</item>
     </array>
 </resources>

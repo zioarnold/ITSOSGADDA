@@ -31,8 +31,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/mat_elet_story"
-                    android:id="@+id/lyceum_text" />
+                    android:text="@string/mat_elet_story" />
             </ScrollView>
         </LinearLayout>
 

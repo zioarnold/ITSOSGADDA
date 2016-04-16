@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_2508" translatable="false">IISS C. E. Gadda v2508</string>
+    <string name="iissgadda_2508_updateList">- New Icons\n
+    - Unused resources removed</string>
+
     <string name="iissgadda_2507" translatable="false">IISS C. E. Gadda v2507</string>
     <string name="iissgadda_2507_updateList">- Communications URL error fixed\n
     - New theme of main screen\n
