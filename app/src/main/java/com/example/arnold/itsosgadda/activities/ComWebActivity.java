@@ -12,6 +12,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +25,6 @@ import android.webkit.WebViewClient;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
-import com.example.arnold.itsosgadda.utilities.Log4jHelper;
-
-import org.apache.log4j.Logger;
 
 import static android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED;
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
@@ -35,11 +33,12 @@ import static com.example.arnold.itsosgadda.R.id.container;
 import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
 import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class ComWebActivity extends Activity implements NavigationDrawerCallbacks {
     private final ComWebActivity activity = this;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private final String url = "http://www.iissgadda.it/pvw/app/PRIT0007/pvw_sito.php?sede_codice=PRIT0007&page=1823314";
-
+    private static final String TAG = "ComWebActivity";
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +91,7 @@ public class ComWebActivity extends Activity implements NavigationDrawerCallback
                 @Override
                 public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                     // Handle the error
-                    Logger log = Log4jHelper.getLogger("WebView");
-                    log.warn("WEB_VIEW_SPAGGIARI, some error");
+                    Log.w(TAG, "Some error!");
                     super.onReceivedError(view, errorCode, description, failingUrl);
                 }
 
@@ -105,8 +103,7 @@ public class ComWebActivity extends Activity implements NavigationDrawerCallback
             });
             webView.loadUrl(url);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("ComWebActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -119,8 +116,7 @@ public class ComWebActivity extends Activity implements NavigationDrawerCallback
                     .replace(container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("ComWebActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -146,8 +142,7 @@ public class ComWebActivity extends Activity implements NavigationDrawerCallback
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("ComWebActivity");
-                log.error(ex.getMessage(), ex);
+                Log.d(TAG, ex.getMessage());
             }
             return fragment;
         }

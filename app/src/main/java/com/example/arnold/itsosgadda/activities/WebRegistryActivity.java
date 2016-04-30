@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +22,6 @@ import android.webkit.WebViewClient;
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
-import com.example.arnold.itsosgadda.utilities.Log4jHelper;
-
-import org.apache.log4j.Logger;
 
 import static android.webkit.WebSettings.ZoomDensity.FAR;
 import static com.example.arnold.itsosgadda.R.id.container;
@@ -34,7 +32,7 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
     private final WebRegistryActivity activity = this;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private final String url = "https://web.spaggiari.eu/home/app/default/login.php?custcode=prit0007";
-
+    private static final String TAG = "WebRegistryActivity";
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,8 +72,7 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
                 @Override
                 public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                     // Handle the error
-                    Logger log = Log4jHelper.getLogger("WebView");
-                    log.warn("WEB_VIEW_SPAGGIARI, some error");
+                    Log.d(TAG, "Some error!");
                     super.onReceivedError(view, errorCode, description, failingUrl);
                 }
 
@@ -88,8 +85,7 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
             webView.loadUrl(url);
             webView.canGoBack();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("WebRegistryActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -102,8 +98,7 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
                     .replace(container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("WebRegistryActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -129,8 +124,7 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("WebRegistryActivity");
-                log.error(ex.getMessage(), ex);
+                Log.d(TAG, ex.getMessage());
             }
             return fragment;
         }

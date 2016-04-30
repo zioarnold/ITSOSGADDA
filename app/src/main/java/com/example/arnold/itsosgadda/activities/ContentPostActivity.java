@@ -5,19 +5,16 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewConfiguration;
 import android.webkit.WebView;
 
 import com.example.arnold.itsosgadda.R;
-import com.example.arnold.itsosgadda.utilities.Log4jHelper;
-
-import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -28,6 +25,7 @@ import static java.lang.Boolean.TYPE;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class ContentPostActivity extends Activity {
+    private static final String TAG = "ContentPostActivity";
     private WebView webView;
 
     @Override
@@ -57,8 +55,7 @@ public class ContentPostActivity extends Activity {
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("ContentPostActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -74,8 +71,7 @@ public class ContentPostActivity extends Activity {
                 }
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("ContentPostActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -131,14 +127,10 @@ public class ContentPostActivity extends Activity {
                     dialog = builder.create();
                     dialog.dismiss();
                     break;
-                case R.id.crash_report:
-                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
-                    break;
             }
             return super.onOptionsItemSelected(item);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("ContentPostActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return false;
     }

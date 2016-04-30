@@ -13,6 +13,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,15 +26,11 @@ import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.activities.ComWebActivity;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
 import com.example.arnold.itsosgadda.activities.RSSReaderActivity;
-import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
-import com.example.arnold.itsosgadda.utilities.Log4jHelper;
 import com.pushbots.push.Pushbots;
-
-import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -67,6 +64,7 @@ public class MainActivity extends Activity implements OnClickListener,
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
     private Intent intent;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,8 +114,7 @@ public class MainActivity extends Activity implements OnClickListener,
 
             makeActionOverflowMenuShown();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -130,8 +127,7 @@ public class MainActivity extends Activity implements OnClickListener,
                     .replace(container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -157,8 +153,7 @@ public class MainActivity extends Activity implements OnClickListener,
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("MainActivity");
-                log.error(ex.getMessage(), ex);
+                Log.d(TAG, ex.getMessage());
             }
             return fragment;
         }
@@ -192,8 +187,7 @@ public class MainActivity extends Activity implements OnClickListener,
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -203,8 +197,7 @@ public class MainActivity extends Activity implements OnClickListener,
         try {
             getMenuInflater().inflate(main_menu, menu);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -221,8 +214,7 @@ public class MainActivity extends Activity implements OnClickListener,
                 }
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -278,14 +270,10 @@ public class MainActivity extends Activity implements OnClickListener,
                     dialog = builder.create();
                     dialog.dismiss();
                     break;
-                case R.id.crash_report:
-                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
-                    break;
             }
             return super.onOptionsItemSelected(item);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return false;
     }
@@ -313,7 +301,6 @@ public class MainActivity extends Activity implements OnClickListener,
         }
     }
 
-
     private void feedbackMailToButtonClicked() {
         startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
     }
@@ -325,6 +312,10 @@ public class MainActivity extends Activity implements OnClickListener,
     private void rssNewsButtonClicked() {
         startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
     }
+
+    /*private void videoGalleryButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), YouTubeActivity.class));
+    }*/
 
     @Override
     public void onClick(View v) {
@@ -366,47 +357,7 @@ public class MainActivity extends Activity implements OnClickListener,
                     break;
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
-
-    /*@Override
-    public void onStart() {
-        super.onStart();
-        Logger log = Log4jHelper.getLogger("MainActivity");
-        log.warn("Activity started");
-        Log.v("Main", "++ ON START ++");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.v("Main", "+ ON RESUME +");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Logger log = Log4jHelper.getLogger("MainActivity");
-        log.warn("Activity paused");
-        Log.v("Main", "- ON PAUSE -");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        finish();
-        Logger log = Log4jHelper.getLogger("MainActivity");
-        log.warn("Activity finished");
-        Log.v("Main", "-- ON STOP --");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Logger log = Log4jHelper.getLogger("MainActivity");
-        log.warn("Activity destroyed");
-        Log.v("Main", "- ON DESTROY -");
-    }*/
 }

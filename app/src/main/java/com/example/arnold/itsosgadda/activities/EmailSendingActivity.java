@@ -24,6 +24,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 import static android.widget.Toast.makeText;
 
 
+@SuppressWarnings("FieldCanBeLocal")
 public class EmailSendingActivity extends Activity {
     private Button buttonSend;
     private EditText txtMessage;

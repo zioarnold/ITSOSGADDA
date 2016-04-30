@@ -15,3 +15,14 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+#-keepattributes EnclosingMethod, Exceptions, Signature, InnerClasses
+#-dontwarn org.apache.**
+#-dontnote org.apache.**
+#-dontwarn com.mysql.**
+#-dontnote com.mysql.**
+#-keep class org.apache.http.** { *; }
+#-dontwarn android.net.**
+#-dontnote android.net.**
+
+#-keep class org.apache.** { *; }
+#-dontwarn org.apache.**

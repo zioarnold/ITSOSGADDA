@@ -109,6 +109,19 @@
                     android:layout_marginRight="5dp"
                     android:layout_below="@+id/button_show_comunications" />
 
+                <!--<Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_video_blog"
+                    android:textColor="#000"
+                    android:id="@+id/app_video_blog"
+                    android:layout_centerHorizontal="true"
+                    android:background="#78c0c0c0"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_below="@+id/app_blog" />-->
+
             </RelativeLayout>
         </ScrollView>
 

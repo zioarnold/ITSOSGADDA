@@ -218,7 +218,8 @@
         ALBERT CHARYIEV - Assistente principale\n
         MATTIA BERTOLI - Suggerimento\n
         TECNICI DELL\'ISTITUTO - Suggerimenti\n
-        BOGDAN VASILENKO - Suggerimento
+        BOGDAN VASILENKO - Suggerimento\n
+        DIEGO CARUBETTI - Suggerimento
     </string>
     <string name="yes">Sì</string>
     <string name="no">No</string>
@@ -250,5 +251,10 @@
     <string name="label_afm">Amministrazione, Finanza e Marketing</string>
     <string name="label_e_registry">Registro elettronico</string>
     <string name="label_appblog_detailed">Blog dell\'App - Dettagli</string>
+    <string name="label_youtube">Video dell\'App</string>
     <string name="string_iissgadda_welcome_text">Benvenuti all\'IISS Gadda</string>
+    <string name="title_logo">IISS Gadda App</string>
+    <string name="button_proceed">Continua…</string>
+    <string name="checkbox_skip_intro">Non visualizzarlo più</string>
+    <string name="error_player">Errore nell\'inizializzazione dell\'YouTubePlayer (1%$s)</string>
 </resources>

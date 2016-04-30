@@ -7,11 +7,11 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,9 +22,6 @@ import android.view.Window;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
-import com.example.arnold.itsosgadda.utilities.Log4jHelper;
-
-import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -36,7 +33,7 @@ import static java.lang.Boolean.TYPE;
 @SuppressWarnings("FieldCanBeLocal")
 public class LSActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
-
+    private static final String TAG = "LSActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +52,7 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
                     (DrawerLayout) findViewById(R.id.drawer_layout));
             makeActionOverflowMenuShown();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LSActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -69,8 +65,7 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
                     .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LSActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -95,8 +90,7 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("LSActivity");
-                log.error(ex.getMessage(), ex);
+                Log.d(TAG, ex.getMessage());
             }
             return fragment;
         }
@@ -129,8 +123,7 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LSActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -140,8 +133,7 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
         try {
             getMenuInflater().inflate(R.menu.main_menu, menu);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LSActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -157,8 +149,7 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
                 }
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LSActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -214,13 +205,9 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
                     dialog = builder.create();
                     dialog.dismiss();
                     break;
-                case R.id.crash_report:
-                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
-                    break;
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("LSActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onOptionsItemSelected(item);
     }

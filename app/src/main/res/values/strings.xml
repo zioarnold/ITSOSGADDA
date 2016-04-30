@@ -213,7 +213,8 @@ A School is able to develop a solid scientific culture through an approach that
         ALBERT CHARYIEV - Main assistance\n
         MATTIA BERTOLI - Suggestion\n
         TECHNICIANS SCHOOL - Suggestions\n
-        BOGDAN VASILENKO - Suggestion
+        BOGDAN VASILENKO - Suggestion\n
+        DIEGO CARUBETTI - Suggestion
     </string>
 
     <string name="yes">Yes</string>
@@ -263,4 +264,9 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="label_e_registry">Web registry</string>
     <string name="label_appblog_detailed">App Blog - Details</string>
     <string name="string_iissgadda_welcome_text">Welcome to IISS Gadda</string>
+    <string name="label_youtube">App Video</string>
+    <string name="title_logo">IISS Gadda Application</string>
+    <string name="button_proceed">Proceed…</string>
+    <string name="checkbox_skip_intro">Don\'t show this anymore</string>
+    <string name="error_player">There was an error initializing the YouTubePlayer (1%$s)</string>
 </resources>

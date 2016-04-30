@@ -22,9 +22,7 @@ import com.example.arnold.itsosgadda.adapter.PostAdapter;
 import com.example.arnold.itsosgadda.post.PostData;
 import com.example.arnold.itsosgadda.refresh.Refresher;
 import com.example.arnold.itsosgadda.refresh.RefresherListView;
-import com.example.arnold.itsosgadda.utilities.Log4jHelper;
 
-import org.apache.log4j.Logger;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -47,6 +45,7 @@ public class RSSReaderActivity extends Activity implements Refresher {
         TITLE, DATE, LINK, CONTENT, GUID, IGNORETAG
     }
 
+    private static final String TAG = "RSSReaderActivity";
     private ArrayList<PostData> listData;
     //private String urlString = "http://feeds.feedburner.com/muslimorid";
     //private String urlString = "http://feeds.reuters.com/reuters/technologyNews";
@@ -89,8 +88,7 @@ public class RSSReaderActivity extends Activity implements Refresher {
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("RSSReaderActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -106,8 +104,7 @@ public class RSSReaderActivity extends Activity implements Refresher {
                 }
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("RSSReaderActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -257,8 +254,7 @@ public class RSSReaderActivity extends Activity implements Refresher {
                 }
                 Log.v("tst", String.valueOf((postDataList.size())));
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("RSSReaderActivity");
-                log.error(ex.getMessage(), ex);
+                Log.d(TAG, ex.getMessage());
             }
             return postDataList;
         }
@@ -371,14 +367,10 @@ public class RSSReaderActivity extends Activity implements Refresher {
                     dialog = builder.create();
                     dialog.dismiss();
                     break;
-                case R.id.crash_report:
-                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
-                    break;
             }
             return super.onOptionsItemSelected(item);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("RSSReaderActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return false;
     }

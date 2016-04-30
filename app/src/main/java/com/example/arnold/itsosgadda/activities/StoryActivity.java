@@ -7,11 +7,11 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,9 +22,6 @@ import android.view.Window;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
-import com.example.arnold.itsosgadda.utilities.Log4jHelper;
-
-import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -38,7 +35,7 @@ import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.Na
 public class StoryActivity extends Activity implements NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
-
+    private static final String TAG = "StoryActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +55,7 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
             makeActionOverflowMenuShown();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("StoryActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -72,24 +68,9 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
                     .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("StoryActivity");
-            log.error("Error", ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
-
-    /*public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.en_lang);
-                break;
-            case 2:
-                mTitle = getString(R.string.ru_lang);
-                break;
-            case 3:
-                mTitle = getString(R.string.it_lang);
-                break;
-        }
-    }*/
 
     public void restoreActionBar() {
         ActionBar actionBar = getActionBar();
@@ -121,8 +102,7 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("StoryActivity");
-                log.error("Error", ex);
+                Log.d(TAG, ex.getMessage());
             }
             return fragment;
         }
@@ -154,9 +134,8 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
                 menuKeyField.setAccessible(true);
                 menuKeyField.setBoolean(config, false);
             }
-        } catch (Exception e) {
-                Logger log = Log4jHelper.getLogger("StoryActivity");
-                log.error("Error", e);
+        } catch (Exception ex) {
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -166,8 +145,7 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
         try {
             getMenuInflater().inflate(R.menu.main_menu, menu);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("StoryActivity");
-            log.error("Error", ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -184,8 +162,7 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
                 }
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("StoryActivity");
-            log.error("Error", ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -241,13 +218,9 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
                     dialog = builder.create();
                     dialog.dismiss();
                     break;
-                case R.id.crash_report:
-                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
-                    break;
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("StoryActivity");
-            log.error("Error", ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onOptionsItemSelected(item);
     }

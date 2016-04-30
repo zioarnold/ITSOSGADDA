@@ -3,10 +3,9 @@ package com.example.arnold.itsosgadda.main;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
-import com.example.arnold.itsosgadda.utilities.Log4jHelper;
-
-import org.apache.log4j.Logger;
+import com.example.arnold.itsosgadda.activities.YouTubeActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -16,6 +15,7 @@ import static com.example.arnold.itsosgadda.R.layout.activity_main_screen;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MainScreenActivity extends Activity {
+    private static final String TAG = "MainScreenActivity";
     private Timer timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +27,17 @@ public class MainScreenActivity extends Activity {
             timer = new Timer();
             timer.schedule(new TimerTask() {
                 public void run() {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), YouTubeActivity.class));
                 }
-            }, 3000);
+            }, 2000);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainScreenActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
     }
 }

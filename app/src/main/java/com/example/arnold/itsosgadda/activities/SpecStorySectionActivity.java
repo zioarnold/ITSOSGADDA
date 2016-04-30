@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,9 +24,6 @@ import android.widget.Button;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
-import com.example.arnold.itsosgadda.utilities.Log4jHelper;
-
-import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -42,6 +40,7 @@ import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.Na
 @SuppressWarnings("FieldCanBeLocal")
 public class SpecStorySectionActivity extends Activity implements OnClickListener,
         NavigationDrawerCallbacks {
+    private static final String TAG = "SSSectionActivity";
     private Button lyceumButton, it_tlcButton, economicalButton, matButton;
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
@@ -76,8 +75,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
             makeActionOverflowMenuShown();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("SpecStorySectionActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -87,8 +85,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
         try {
             getMenuInflater().inflate(R.menu.main_menu, menu);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("SpecStorySectionActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -102,8 +99,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                     .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("SpecStorySectionActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -128,8 +124,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("SpecStorySectionActivity");
-                log.error(ex.getMessage(), ex);
+                Log.d(TAG, ex.getMessage());
             }
             return fragment;
         }
@@ -162,8 +157,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("SpecStorySectionActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -179,8 +173,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                 }
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("SpecStorySectionActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -236,13 +229,9 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                     dialog = builder.create();
                     dialog.dismiss();
                     break;
-                case R.id.crash_report:
-                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
-                    break;
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("SpecStorySectionActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onOptionsItemSelected(item);
     }
@@ -281,8 +270,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                     break;
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("SpecStorySectionActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 }

@@ -46,9 +46,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.CommunicationsActivity"
-            android:label="@string/communications_news" />
-        <activity
             android:name=".activities.StoryActivity"
             android:configChanges="locale"
             android:label="@string/label_our_story" />
@@ -56,9 +53,6 @@
             android:name=".activities.SpecStorySectionActivity"
             android:configChanges="locale"
             android:label="@string/label_study_addresses" />
-        <activity
-            android:name=".activities.ComActivity"
-            android:label="@string/communications_news" />
         <activity
             android:name=".activities.LSActivity"
             android:configChanges="locale"
@@ -91,10 +85,6 @@
             android:name=".activities.WebRegistryActivity"
             android:configChanges="locale"
             android:label="@string/label_e_registry" />
-        <activity
-            android:name=".activities.SendBugCrashReport"
-            android:configChanges="locale"
-            android:label="@string/label_send_email_to_developer" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -135,6 +125,10 @@
             android:name=".activities.ComWebActivity"
             android:configChanges="locale"
             android:label="@string/communications_news" />
+        <activity
+            android:name=".activities.YouTubeActivity"
+            android:configChanges="locale"
+            android:label="label_youtube" />
     </application>
 
 </manifest>

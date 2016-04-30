@@ -13,6 +13,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,17 +22,13 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 
 import com.example.arnold.itsosgadda.R;
-import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.main.MainActivity;
-import com.example.arnold.itsosgadda.utilities.Log4jHelper;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
-
-import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -49,6 +46,7 @@ import static java.lang.Boolean.TYPE;
 public class MapsLoader extends FragmentActivity implements
         NavigationDrawerCallbacks {
 
+    private static final String TAG = "MapsLoader";
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private NavigationDrawerFragment mNavigationDrawerFragment;
     @Override
@@ -80,8 +78,7 @@ public class MapsLoader extends FragmentActivity implements
                 }
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MainActivity");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -137,14 +134,10 @@ public class MapsLoader extends FragmentActivity implements
                     dialog = builder.create();
                     dialog.dismiss();
                     break;
-                case R.id.crash_report:
-                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
-                    break;
             }
             return super.onOptionsItemSelected(item);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MapsLoader");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return false;
     }
@@ -159,8 +152,7 @@ public class MapsLoader extends FragmentActivity implements
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MapsLoader");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -170,8 +162,7 @@ public class MapsLoader extends FragmentActivity implements
         try {
             getMenuInflater().inflate(main_menu, menu);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MapsLoader");
-            log.error(ex.getMessage(), ex);
+            Log.d(TAG, ex.getMessage());
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -258,8 +249,7 @@ public class MapsLoader extends FragmentActivity implements
                     .replace(container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("MapsLoader");
-            log.error("Error", ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -285,8 +275,7 @@ public class MapsLoader extends FragmentActivity implements
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Logger log = Log4jHelper.getLogger("MapsLoader");
-                log.error("Error", ex);
+                Log.d(TAG, ex.getMessage());
             }
             return fragment;
         }

@@ -2,14 +2,12 @@ package com.example.arnold.itsosgadda.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
-import com.example.arnold.itsosgadda.utilities.Log4jHelper;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-
-import org.apache.log4j.Logger;
 
 import static com.example.arnold.itsosgadda.R.id.imageViewStd;
 import static com.example.arnold.itsosgadda.R.mipmap.loading;
@@ -17,7 +15,7 @@ import static com.example.arnold.itsosgadda.R.mipmap.loading_failed;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class PhotoGalleryActivity extends Activity {
-
+    private static final String TAG = "PhotoGalleryActivity";
     private ImageLoader imageLoader;
     private String url = "content://media/external/images/media/13";
     private ImageView imageView;
@@ -40,8 +38,7 @@ public class PhotoGalleryActivity extends Activity {
             imageView = (ImageView) findViewById(imageViewStd);
             imageLoader.displayImage(url, imageView, displayImageOptions);
         } catch (Exception ex) {
-            Logger log = Log4jHelper.getLogger("PhotoGalleryActivity");
-            log.error("Error", ex);
+            Log.d(TAG, ex.getMessage());
         }
     }
 }
