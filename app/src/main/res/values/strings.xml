@@ -184,7 +184,6 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="e_registry">E-Registry</string>
     <string name="feedback">Feedback to staff</string>
     <string name="Email_to_send">Send feedback to Gadda staff…</string>
-    <string name="Email_to_send_developer">Send feedback to Developer…</string>
     <string name="Email_body_text">Your message here…</string>
     <string name="send_email">Send e-mail</string>
     <string name="choose_email_client">Choose an Email client:</string>
@@ -224,12 +223,7 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="network_enabled">Please open Wi-Fi connection or Mobile connection</string>
 
 
-    <string name="photo_gallery">Gallery</string>
-    <string name="still_working">On working…</string>
     <string name="head_of_project">ARNOL\'D CHARYYEV - Project leader</string>
-    <string name="id">ID</string>
-    <string name="news">news</string>
-    <string name="link">link</string>
 
     <string name="email_contact_developer" translatable="false">vl80tk@gmail.com</string>
     <string name="yandex_contact_developer" translatable="false">arn8109@yandex.com</string>
@@ -239,9 +233,6 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="tw_contact_developer" translatable="false">https://twitter.com/arnold_online</string>
     <string name="in_contact_developer" translatable="false">https://www.instagram.com/zioarnold/</string>
     <string name="git_contact_developer" translatable="false">https://github.com/zioarnold/</string>
-    <string name="bug_report_crash_report">Feedback to Developer</string>
-    <string name="error_connection">Network connection error: check your Wi-Fi connection
-    or Mobile connection.</string>
 
 
     <string name="head_arrowImage" translatable="false">head_arrowImage</string>
@@ -254,7 +245,6 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="gps_settings" translatable="false">GPS Settings</string>
     <string name="gps_settings_allow_abort" translatable="false">GPS isn\'t enabled. Do you want to go to settings menu?</string>
     <string name="label_send_email_to_staff">Email to Staff</string>
-    <string name="label_send_email_to_developer">Email to Developer</string>
     <string name="label_our_story">Our story</string>
     <string name="label_study_addresses">Study addresses</string>
     <string name="label_lsa">Application of Scienze</string>
@@ -264,8 +254,6 @@ A School is able to develop a solid scientific culture through an approach that
     <string name="label_e_registry">Web registry</string>
     <string name="label_appblog_detailed">App Blog - Details</string>
     <string name="string_iissgadda_welcome_text">Welcome to IISS Gadda</string>
-    <string name="label_youtube">App Video</string>
-    <string name="title_logo">IISS Gadda Application</string>
     <string name="button_proceed">Proceed…</string>
     <string name="checkbox_skip_intro">Don\'t show this anymore</string>
     <string name="error_player">There was an error initializing the YouTubePlayer (1%$s)</string>

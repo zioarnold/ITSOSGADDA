@@ -193,7 +193,6 @@
     <string name="e_registry">Registro elettronico</string>
     <string name="feedback">Feedback allo staff</string>
     <string name="Email_to_send">Feedback allo staff…</string>
-    <string name="Email_to_send_developer">Feedback allo Sviluppatore…</string>
     <string name="Email_body_text">Digita il messaggio…</string>
     <string name="send_email">Invia</string>
     <string name="choose_email_client">Scegliere programma di invio e-mail:</string>
@@ -227,22 +226,14 @@
     <string name="network_enabled">Si prega di attivare la connessione Wi-Fi
         \noppure connessione telefonica</string>
 
-    <string name="photo_gallery">Galleria</string>
-    <string name="still_working">Nella fase di sviluppo…</string>
     <string name="head_of_project">ARNOL\'D CHARYYEV - Capo progetto</string>
-    <string name="id">ID</string>
-    <string name="news">news</string>
-    <string name="link">link</string>
 
-    <string name="bug_report_crash_report">Feedback allo Sviluppatore</string>
-    <string name="error_connection">Errore nella connessione: controlla la connessione Wi-Fi o Reti mobile.</string>
     <string name="footer_loading">Tocca per caricare</string>
     <string name="pull_to_refresh">Trascinare giù per aggiornare</string>
     <string name="release_to_refresh">Mollare per aggiornare</string>
     <string name="loading">Caricamento…</string>
     <string name="app_blog">Blog dell\'App</string>
     <string name="label_send_email_to_staff">Email allo Staff</string>
-    <string name="label_send_email_to_developer">Email allo Sviluppatore</string>
     <string name="label_our_story">La nostra storia</string>
     <string name="label_study_addresses">Indirizzi di studio</string>
     <string name="label_lsa">Liceo Scienze Applicate</string>
@@ -251,9 +242,7 @@
     <string name="label_afm">Amministrazione, Finanza e Marketing</string>
     <string name="label_e_registry">Registro elettronico</string>
     <string name="label_appblog_detailed">Blog dell\'App - Dettagli</string>
-    <string name="label_youtube">Video dell\'App</string>
     <string name="string_iissgadda_welcome_text">Benvenuti all\'IISS Gadda</string>
-    <string name="title_logo">IISS Gadda App</string>
     <string name="button_proceed">Continua…</string>
     <string name="checkbox_skip_intro">Non visualizzarlo più</string>
     <string name="error_player">Errore nell\'inizializzazione dell\'YouTubePlayer (1%$s)</string>
