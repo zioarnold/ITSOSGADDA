@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.webkit.WebView;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
@@ -34,6 +35,9 @@ public class MATActivity extends Activity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private static final String TAG = "MATActivity";
+    private WebView webViewMAT;
+
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,10 @@ public class MATActivity extends Activity implements
                     R.id.navigation_drawer,
                     (DrawerLayout) findViewById(R.id.drawer_layout));
             makeActionOverflowMenuShown();
+
+            webViewMAT = (WebView) findViewById(R.id.webViewMAT);
+            webViewMAT.getSettings().setJavaScriptEnabled(true);
+            webViewMAT.loadUrl("file:///android_asset/mat_html/mat.html");
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
         }

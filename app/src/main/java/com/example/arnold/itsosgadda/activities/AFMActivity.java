@@ -18,9 +18,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
+import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -32,17 +34,20 @@ import static java.lang.Boolean.TYPE;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class AFMActivity extends Activity implements
-        NavigationDrawerFragment.NavigationDrawerCallbacks {
+        NavigationDrawerCallbacks {
     private static final String TAG = "AFMActivity";
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private AlertDialog dialog;
     private AlertDialog.Builder builder;
+    private WebView webViewAFM;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            setContentView(R.layout.economical_layout);
+            setContentView(R.layout.afm_layout);
+
 
             mNavigationDrawerFragment = (NavigationDrawerFragment)
                     getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -57,6 +62,10 @@ public class AFMActivity extends Activity implements
             actionBar.setIcon(R.mipmap.ic_launcher);
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
             makeActionOverflowMenuShown();
+
+            webViewAFM = (WebView) findViewById(R.id.webViewAFM);
+            webViewAFM.getSettings().setJavaScriptEnabled(true);
+            webViewAFM.loadUrl("file:///android_asset/afm_html/afm.html");
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
         }

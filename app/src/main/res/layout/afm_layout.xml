@@ -4,18 +4,17 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.MainActivity">
+    tools:context=".activities.AFMActivity">
 
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activities.StoryActivity">
+        android:layout_height="match_parent">
 
         <WebView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/webViewStory" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/webViewAFM" />
     </RelativeLayout>
 
     <fragment
@@ -25,4 +24,6 @@
         android:layout_gravity="start"
         android:name="com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment"
         tools:layout="@layout/drawer_main_navitagion_drawer" />
+
+
 </android.support.v4.widget.DrawerLayout>

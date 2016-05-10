@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.webkit.WebView;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
@@ -36,6 +37,9 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private CharSequence mTitle;
     private static final String TAG = "StoryActivity";
+    private WebView webViewStory;
+
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,9 @@ public class StoryActivity extends Activity implements NavigationDrawerCallbacks
             actionBar.setIcon(R.mipmap.ic_launcher);
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
             makeActionOverflowMenuShown();
+            webViewStory = (WebView) findViewById(R.id.webViewStory);
+            webViewStory.getSettings().setJavaScriptEnabled(true);
+            webViewStory.loadUrl("file:///android_asset/school_story_html/school_story.html");
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
         }

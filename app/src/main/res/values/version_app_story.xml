@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_2510" translatable="false">IISS C. E. Gadda v2510</string>
+    <string name="iissgadda_2510updateList">- All study addresses activity are replaced by
+    webview instead of resources etc…</string>
+
     <string name="iissgadda_2509" translatable="false">IISS C. E. Gadda v2509</string>
     <string name="iissgadda_2509_updateList">- App video presentation\n
-    - SendBugCrashReport removed</string>
+    - SendBugCrashReport removed\n
+    - Gallery button removed</string>
 
     <string name="iissgadda_2508" translatable="false">IISS C. E. Gadda v2508</string>
     <string name="iissgadda_2508_updateList">- New Icons\n

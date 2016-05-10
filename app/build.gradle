@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-
     signingConfigs {
         iissgadda_release {
             keyAlias 'iissgaddarelease'
@@ -18,12 +17,11 @@ android {
     defaultConfig {
         applicationId 'app.iissgadda.dev.arnold'
         minSdkVersion 15
-        versionCode 2509
-        versionName '2509-release'
+        versionCode 2510
+        versionName '2510-release'
         signingConfig signingConfigs.iissgadda_release
         multiDexEnabled true
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -42,6 +40,8 @@ android {
             renderscriptDebuggable false
             zipAlignEnabled false
         }
+    }
+    productFlavors {
     }
 }
 

@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.webkit.WebView;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
@@ -34,6 +35,9 @@ import static java.lang.Boolean.TYPE;
 public class LSActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private static final String TAG = "LSActivity";
+    private WebView webViewLS;
+
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,10 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
                     R.id.navigation_drawer,
                     (DrawerLayout) findViewById(R.id.drawer_layout));
             makeActionOverflowMenuShown();
+
+            webViewLS = (WebView) findViewById(R.id.webViewLS);
+            webViewLS.getSettings().setJavaScriptEnabled(true);
+            webViewLS.loadUrl("file:///android_asset/ls_html/ls.html");
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
         }

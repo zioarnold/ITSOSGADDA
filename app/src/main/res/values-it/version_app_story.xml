@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_2510updateList">- Tutte le attivita degli indirizzi di studi,
+    sono state modificate utilizzando tecnologia webview anziché usare le risorce ecc…</string>
     <string name="iissgadda_2509_updateList">- Presentazione video dell\'app\n
-    - Rimozione \"Feedback allo sviluppatore\"</string>
+    - Rimozione \"Feedback allo sviluppatore\"\n
+    - Rimozione funzionalità \"Galleria\"</string>
     <string name="iissgadda_2508_updateList">- Nuove icone\n
     - Rimozione delle risorse non utilizzabili.</string>
     <string name="iissgadda_2507_updateList">- Fixato errore: URL Communications\n
