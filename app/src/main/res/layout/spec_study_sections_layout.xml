@@ -12,75 +12,75 @@
         android:layout_height="match_parent">
 
         <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/scrollView">
+            android:layout_height="fill_parent">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/MAT_button"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mec_elect_sector"
-                    android:textColor="#000"
-                    android:id="@+id/MAT_button"
                     android:layout_below="@+id/AFM_button"
                     android:layout_centerHorizontal="true"
-                    android:background="#78c0c0c0"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp" />
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#78c0c0c0"
+                    android:text="@string/mec_elect_sector"
+                    android:textColor="#000" />
 
                 <Button
+                    android:id="@+id/AFM_button"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/economic_sector"
-                    android:textColor="#000"
-                    android:id="@+id/AFM_button"
                     android:layout_below="@+id/IT_TLC_button"
                     android:layout_centerHorizontal="true"
-                    android:background="#78ff6347"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:background="#78ff6347"
+                    android:text="@string/economic_sector"
+                    android:textColor="#000" />
 
                 <Button
+                    android:id="@+id/IT_TLC_button"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/it_tlc_sector"
-                    android:textColor="#000"
-                    android:id="@+id/IT_TLC_button"
                     android:layout_below="@+id/LSA_button"
                     android:layout_centerHorizontal="true"
-                    android:background="#784169e1"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp" />
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#784169e1"
+                    android:text="@string/it_tlc_sector"
+                    android:textColor="#000" />
 
                 <Button
+                    android:id="@+id/LSA_button"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/lyceum_sector"
-                    android:textColor="#000"
-                    android:id="@+id/LSA_button"
                     android:layout_alignWithParentIfMissing="false"
                     android:layout_centerHorizontal="true"
-                    android:background="#78ffff33"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp" />
+                    android:background="#78ffff33"
+                    android:text="@string/lyceum_sector"
+                    android:textColor="#000" />
             </RelativeLayout>
         </ScrollView>
     </RelativeLayout>
 
     <fragment
         android:id="@+id/navigation_drawer"
+        android:name="com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment"
         android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:name="com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment"
         tools:layout="@layout/drawer_main_navitagion_drawer" />
 
 
