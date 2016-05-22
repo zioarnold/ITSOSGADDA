@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="iissgadda_2511updateList">- Добавление русского языка, в пред-идущем он был убран</string>
+    <string name="iissgadda_2510updateList">- Все окна учебных секций реализованы с помощью страниц
+        HTML, для их отображения используются WebView…</string>
+    <string name="iissgadda_2509_updateList">- Добавление видео-презентации ВУЗа\n
+    - Убран отзыв разработчику\n
+    - Убран функционал \"Галлерея\"</string>
+    <string name="iissgadda_2508_updateList">- Новые иконки\n
+    - Убраны не использующиеся ресурсы</string>
+    <string name="iissgadda_2507_updateList">- Исправлена ошибка: URL Communications\n
+    - Изменено окно запуска</string>
+    <string name="iissgadda_254_updateList">- Убраны лого учебных секций, заменены на кнопки\n
+    - Каждое окно имеет свое имя</string>
+    <string name="iissgadda_253_updateList">- Убраны маркеры\n
+    - Убрана GPS-интеграция\n
+    - На Окне карты добавлена всплывающее меню</string>
+    <string name="iissgadda_252_updateList">- Фикс GPS</string>
+    <string name="iissgadda_25_updateList">- Реализация RSS Feed\n
+    - Исправлена ошибка при отправке отзыва разработчику\n
+    - В боковое меню добавлена опции \"Блог приложения\" и \"Галлерея\"</string>
+    <string name="iissgadda_24_updateList">- Интеграция \"Classeviva\",
+    в противном случае вам предлагается скачать\n
+    - Иконки учебных секций\n
+    - Уменьшено время запуска главного окна приложения\n
+    - Фикс иконок учебных секций</string>
+    <string name="iissgadda_235_updateList">-Убраны ежедневные оповещения,
+         теперь используется сервис оповещений\n
+    - Фикс бокового меню\n
+    - Добавлена текст ошибки в объявлениях</string>
+    <string name="iissgadda_23_updateList">-Новые контакты разработчика\n
+    - Новая графика запуска</string>
+    <string name="iissgadda_22_updateList">- Отображение объявлений онлайн…\n
+    - Новое боковое меню\n
+    - Ежедневные оповещения об объявлениях</string>
+    <string name="iissgadda_221_updateList">- Лог-библиотека\n
+    - Новое отображение \"Отзыв разработчику\"\n
+    - Добавление лог-файла к сообщению разработчику</string>
+    <string name="iissgadda_14_list">- Веб-Журнал открывается с браузера вне приложения</string>
+    <string name="iissgadda_1_7_list">- ic_launcher заменен</string>
+    <string name="iissgadda_1_8_list">- Веб-Журнал открывается внутри приложения\n
+        - Всплывающее меню</string>
+    <string name="iissgadda_1_9_updateList">- Изменен графический аспект\n
+        - Изменена графика \"Информации о приложении\"\n
+        - Флаги языков</string>
+    <string name="iissgadda_212_updateList">- Фикс темы приложения\n
+        - NavigationDrawerMenu теперь с локализацией</string>
+    <string name="iissgadda_213_updateList">- Фикс ProgressBar на страницах веб\n
+        - Версия приложения перешла в стадию Релиза</string>
+    <string name="iissgadda_2_updateList">- Новые AlertDialog\n
+        - Интеграция Google Maps (GMaps)</string>
+    <string name="iissgadda_v10_list">- Добавлен русский язык\n
+        - Добавлен английский язык\n
+        - Добавлен итальянский язык</string>
+</resources>

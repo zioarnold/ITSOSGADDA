@@ -64,7 +64,7 @@
         <activity
             android:name=".activities.RSSReaderActivity"
             android:configChanges="locale"
-            android:label="@string/app_blog" />
+            android:label="@string/label_appblog" />
         <activity
             android:name=".activities.ContentPostActivity"
             android:configChanges="locale"
@@ -128,7 +128,7 @@
         <activity
             android:name=".activities.YouTubeActivity"
             android:configChanges="locale"
-            android:label="label_youtube" />
+            android:label="@string/label_youtube" />
     </application>
 
 </manifest>

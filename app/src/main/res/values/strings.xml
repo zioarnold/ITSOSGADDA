@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <string name="app_name">I.I.S.S. \"C. E. Gadda\"</string>
+    <string name="app_name" translatable="false">I.I.S.S. \"C. E. Gadda\"</string>
     <string name="La_nostra_storia">Our story</string>
     <string name="specSectionButtonId">Study addresses</string>
     <string name="created_for">I.I.S.S. \"C. E. Gadda\"</string>
@@ -18,8 +18,7 @@
     <string name="title_activity_maps">Find us</string>
     <string name="findus">Find us</string>
     <string name="loading_progress">Loading…</string>
-    <string name="reaching_from_fornovo_FS">Nazionale n.6 street - 43045 Fornovo di Taro - PR - (IT)\n
-        Press OK to show the route on GMaps.</string>
+    <string name="reaching_from_fornovo_FS">Nazionale n.6 street - 43045 Fornovo di Taro - PR - (IT)</string>
     <string name="dev_contact">Contact to Developer</string>
     <string name="communications_news">Communications</string>
 
@@ -36,7 +35,8 @@
         MATTIA BERTOLI - Suggestion\n
         TECHNICIANS SCHOOL - Suggestions\n
         BOGDAN VASILENKO - Suggestion\n
-        DIEGO CARUBETTI - Suggestion
+        DIEGO CARUBETTI - Suggestion\n
+        KATYA IVANOVA - Assistance on russian localization
     </string>
 
     <string name="yes">Yes</string>
@@ -68,6 +68,7 @@
     <string name="gps_settings" translatable="false">GPS Settings</string>
     <string name="gps_settings_allow_abort" translatable="false">GPS isn\'t enabled. Do you want to go to settings menu?</string>
     <string name="label_send_email_to_staff">Email to Staff</string>
+    <string name="label_appblog">App Blog</string>
     <string name="label_our_story">Our story</string>
     <string name="label_study_addresses">Study addresses</string>
     <string name="label_lsa">Application of Science</string>
@@ -75,6 +76,7 @@
     <string name="label_mat">Maintenance and Technical Assistance</string>
     <string name="label_afm">Business Administration and Marketing</string>
     <string name="label_e_registry">Web registry</string>
+    <string name="label_youtube">YouTubePlayer</string>
     <string name="label_appblog_detailed">App Blog - Details</string>
     <string name="string_iissgadda_welcome_text">Welcome to IISS Gadda</string>
     <string name="button_proceed">Proceed…</string>

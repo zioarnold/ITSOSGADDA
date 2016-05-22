@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="La_nostra_storia">Наша история</string>
+    <string name="specSectionButtonId">Учебные секции</string>
+    <string name="created_for">I.I.S.S. \"C. E. Gadda\"</string>
+    <string name="e_registry">Веб-Журнал</string>
+    <string name="feedback">Отзыв</string>
+    <string name="Email_to_send">Отправьте свой отзыв персоналу ВУЗа…</string>
+    <string name="Email_body_text">Введите свое сообщение…</string>
+    <string name="send_email">Отправить</string>
+    <string name="choose_email_client">Выберите клиент электронной почты:</string>
+    <string name="forgot_digit_message">Вы забыли ввести сообщение</string>
+    <string name="forgot_digit_subject">Вы забыли ввести тему сообщения</string>
+    <string name="emailId_not_valid">Электронная почта не прошла валидацию,
+        введите заново электронную почту</string>
+    <string name="forgot_email_id_enter">Вы забыли ввести электронную почту</string>
+    <string name="AboutApp">О Приложении</string>
+    <string name="title_activity_maps">Где мы</string>
+    <string name="findus">Где мы</string>
+    <string name="loading_progress">Загрузка…</string>
+    <string name="reaching_from_fornovo_FS">ул. Nazionale n.6 – 43045 Форново ди Таро - PR - (IT)</string>
+    <string name="dev_contact">Связаться с разработчиком</string>
+    <string name="communications_news">Объявления</string>
+
+    <string name="economic_sector">Бизнес Администрация, Маркетинг</string>
+    <string name="lyceum_sector">Применение Науки</string>
+    <string name="it_tlc_sector">Информационные и телекомунникационные технологии</string>
+    <string name="mec_elect_sector">Техническая поддержка</string>
+    <string name="dev_team">Команда разработчиков</string>
+    <string name="dev_team_list">
+        АЛЬБЕРТ ЧАРЫЕВ - Главная поддержка\n
+        МАТТИА БЕРТОЛИ - Совет\n
+        ТЕХ-ПЕРСОНАЛ ВУЗа - Советы\n
+        БОГДАН ВАСИЛЕНКО - Совет\n
+        ДИЕГО КАРУБЕТТИ - Совет\n
+        КАТЯ ИВАНОВА - Помощь в русской локализации
+    </string>
+
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+
+    <string name="no_network_enabled">Сетевая ошибка</string>
+    <string name="network_enabled">Пожалуйста включите WiFi или Мобильный интернет</string>
+
+
+    <string name="head_of_project">АРНОЛЬД ЧАРЫЕВ - лидер проекта</string>
+    <string name="pull_to_refresh">Потяните вниз&#8230;</string>
+    <string name="release_to_refresh">Отпустите&#8230;</string>
+    <string name="loading">Загрузка&#8230;</string>
+    <string name="footer_loading">Кликните чтобы загрузить еще&#8230;</string>
+    <string name="app_blog">Блог</string>
+    <string name="label_appblog">Блог</string>
+    <string name="label_send_email_to_staff">Электронная почта тех персоналу учреждения</string>
+    <string name="label_our_story">Наша история</string>
+    <string name="label_study_addresses">Учебные секции</string>
+    <string name="label_lsa">Применение науки</string>
+    <string name="label_it_tlc">Информационные и телекомунникационные технологии</string>
+    <string name="label_mat">Техническая поддержка</string>
+    <string name="label_afm">Бизнес Администрация, Маркетинг</string>
+    <string name="label_e_registry">Веб-Журнал</string>
+    <string name="label_youtube">Плеер YouTube</string>
+    <string name="label_appblog_detailed">Блог - Детали</string>
+    <string name="string_iissgadda_welcome_text">Добро пожаловать в IISS Gadda</string>
+    <string name="button_proceed">Продолжить…</string>
+    <string name="checkbox_skip_intro">Не показывать мне это больше</string>
+    <string name="error_player">Ошибка инициализации YouTubePlayer (1%$s)</string>
+</resources>

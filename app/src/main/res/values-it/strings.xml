@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <string name="app_name">I.I.S.S. \"C. E. Gadda\"</string>
-
     <string name="specSectionButtonId">Indirizzi di studio</string>
     <string name="La_nostra_storia">La nostra storia</string>
     <string name="created_for">I.I.S.S. \"C. E. Gadda\"</string>
@@ -33,7 +31,8 @@
         MATTIA BERTOLI - Suggerimento\n
         TECNICI DELL\'ISTITUTO - Suggerimenti\n
         BOGDAN VASILENKO - Suggerimento\n
-        DIEGO CARUBETTI - Suggerimento
+        DIEGO CARUBETTI - Suggerimento\n
+        KATYA IVANOVA - Aiuto nella localizzazione russa
     </string>
     <string name="yes">Sì</string>
     <string name="no">No</string>
@@ -45,9 +44,10 @@
 
     <string name="footer_loading">Tocca per caricare</string>
     <string name="pull_to_refresh">Trascinare giù per aggiornare</string>
-    <string name="release_to_refresh">Mollare per aggiornare</string>
+    <string name="release_to_refresh">Rilascia per aggiornare</string>
     <string name="loading">Caricamento…</string>
     <string name="app_blog">Blog dell\'App</string>
+    <string name="label_appblog">App Blog</string>
     <string name="label_send_email_to_staff">Email allo Staff</string>
     <string name="label_our_story">La nostra storia</string>
     <string name="label_study_addresses">Indirizzi di studio</string>
@@ -56,6 +56,7 @@
     <string name="label_mat">Manutenzione e Assistenza Tecnica</string>
     <string name="label_afm">Amministrazione, Finanza e Marketing</string>
     <string name="label_e_registry">Registro elettronico</string>
+    <string name="label_youtube">YouTubePlayer</string>
     <string name="label_appblog_detailed">Blog dell\'App - Dettagli</string>
     <string name="string_iissgadda_welcome_text">Benvenuti all\'IISS Gadda</string>
     <string name="button_proceed">Continua…</string>

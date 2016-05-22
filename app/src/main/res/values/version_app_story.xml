@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_2511" translatable="false">IISS C. E. Gadda v2511</string>
+    <string name="iissgadda_2511updateList">- Russian translation added</string>
+
     <string name="iissgadda_2510" translatable="false">IISS C. E. Gadda v2510</string>
     <string name="iissgadda_2510updateList">- All study addresses activity are replaced by
     webview instead of resources etc…</string>
