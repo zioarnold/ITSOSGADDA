@@ -26,6 +26,7 @@ import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.activities.ComWebActivity;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
 import com.example.arnold.itsosgadda.activities.RSSReaderActivity;
+import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
@@ -58,13 +59,13 @@ import static java.lang.Boolean.TYPE;
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends Activity implements OnClickListener,
         NavigationDrawerCallbacks {
+    private static final String TAG = "MainActivity";
     private Button storyButtonMainBody, specSectButton, webRegistryButton, feedBackButton,
             findUsButton, communicationButton, rssFeedReader;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
     private Intent intent;
-    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,52 +129,6 @@ public class MainActivity extends Activity implements OnClickListener,
                     .commit();
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
-        }
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            try {
-                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-                fragment.setArguments(args);
-            } catch (Exception ex) {
-                Log.d(TAG, ex.getMessage());
-            }
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            return inflater.inflate(fragment_main_navitagion_drawer, container, false);
-        }
-
-        @SuppressWarnings("deprecation")
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-
-            /*((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
 
@@ -256,19 +211,7 @@ public class MainActivity extends Activity implements OnClickListener,
                     dialog.dismiss();
                     break;
                 case R.id.subscribe:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_subscribe_contact)
-                            .setTitle(R.string.dev_contact)
-                            .setView(getLayoutInflater().inflate(R.layout.contact_to_developer, null))
-                            .setCancelable(false)
-                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show();
-                    dialog = builder.create();
-                    dialog.dismiss();
+                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
                     break;
             }
             return super.onOptionsItemSelected(item);
@@ -313,10 +256,6 @@ public class MainActivity extends Activity implements OnClickListener,
         startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
     }
 
-    /*private void videoGalleryButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), YouTubeActivity.class));
-    }*/
-
     @Override
     public void onClick(View v) {
         try {
@@ -358,6 +297,56 @@ public class MainActivity extends Activity implements OnClickListener,
             }
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
+        }
+    }
+
+    /*private void videoGalleryButtonClicked() {
+        startActivity(new Intent(getApplicationContext(), YouTubeActivity.class));
+    }*/
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment() {
+        }
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            try {
+                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+                fragment.setArguments(args);
+            } catch (Exception ex) {
+                Log.d(TAG, ex.getMessage());
+            }
+            return fragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            return inflater.inflate(fragment_main_navitagion_drawer, container, false);
+        }
+
+        @SuppressWarnings("deprecation")
+        @Override
+        public void onAttach(Activity activity) {
+            super.onAttach(activity);
+
+            /*((MainActivity) activity).onSectionAttached(
+                    getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
 }

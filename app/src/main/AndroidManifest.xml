@@ -82,6 +82,10 @@
             android:configChanges="locale"
             android:label="@string/label_send_email_to_staff" />
         <activity
+            android:name=".activities.SendBugCrashReport"
+            android:configChanges="locale"
+            android:label="@string/label_send_bug_crash_report" />
+        <activity
             android:name=".activities.WebRegistryActivity"
             android:configChanges="locale"
             android:label="@string/label_e_registry" />

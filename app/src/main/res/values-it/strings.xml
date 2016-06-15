@@ -62,4 +62,6 @@
     <string name="button_proceed">Continua…</string>
     <string name="checkbox_skip_intro">Non visualizzarlo più</string>
     <string name="error_player">Errore nell\'inizializzazione dell\'YouTubePlayer (1%$s)</string>
+    <string name="Email_to_send_developer">Manda il rapporto…</string>
+    <string name="label_send_bug_crash_report">Rapporto allo Sviluppatore</string>
 </resources>

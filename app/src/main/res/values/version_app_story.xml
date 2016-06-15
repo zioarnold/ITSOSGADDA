@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="iissgadda_2512" translatable="false">IISS C. E. Gadda v2512</string>
+    <string name="iissgadda_2512updateList">- Restore Log4j Loggin\n
+    - Restore contact to developer via email with log file</string>
+
     <string name="iissgadda_2511" translatable="false">IISS C. E. Gadda v2511</string>
     <string name="iissgadda_2511updateList">- Russian translation added</string>
 

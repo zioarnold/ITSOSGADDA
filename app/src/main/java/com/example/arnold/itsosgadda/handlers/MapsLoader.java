@@ -22,6 +22,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 
 import com.example.arnold.itsosgadda.R;
+import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.main.MainActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -120,19 +121,7 @@ public class MapsLoader extends FragmentActivity implements
                     dialog.dismiss();
                     break;
                 case R.id.subscribe:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_subscribe_contact)
-                            .setTitle(R.string.dev_contact)
-                            .setView(getLayoutInflater().inflate(R.layout.contact_to_developer, null))
-                            .setCancelable(false)
-                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show();
-                    dialog = builder.create();
-                    dialog.dismiss();
+                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
                     break;
             }
             return super.onOptionsItemSelected(item);
@@ -264,6 +253,9 @@ public class MapsLoader extends FragmentActivity implements
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        public PlaceholderFragment() {
+        }
+
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -278,9 +270,6 @@ public class MapsLoader extends FragmentActivity implements
                 Log.d(TAG, ex.getMessage());
             }
             return fragment;
-        }
-
-        public PlaceholderFragment() {
         }
 
         @Override

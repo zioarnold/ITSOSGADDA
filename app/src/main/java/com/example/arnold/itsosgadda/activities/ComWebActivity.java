@@ -26,6 +26,8 @@ import android.webkit.WebViewClient;
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 
+import org.apache.log4j.Logger;
+
 import static android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED;
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
 import static android.webkit.WebSettings.ZoomDensity.FAR;
@@ -35,10 +37,11 @@ import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.Na
 
 @SuppressWarnings("FieldCanBeLocal")
 public class ComWebActivity extends Activity implements NavigationDrawerCallbacks {
-    private final ComWebActivity activity = this;
-    private NavigationDrawerFragment mNavigationDrawerFragment;
-    private final String url = "http://www.iissgadda.it/pvw/app/PRIT0007/pvw_sito.php?sede_codice=PRIT0007&page=1823314";
     private static final String TAG = "ComWebActivity";
+    private final ComWebActivity activity = this;
+    private final String url = "http://www.iissgadda.it/pvw/app/PRIT0007/pvw_sito.php?sede_codice=PRIT0007&page=1823314";
+    private NavigationDrawerFragment mNavigationDrawerFragment;
+
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +106,8 @@ public class ComWebActivity extends Activity implements NavigationDrawerCallback
             });
             webView.loadUrl(url);
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("ComWebActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -116,7 +120,8 @@ public class ComWebActivity extends Activity implements NavigationDrawerCallback
                     .replace(container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("ComWebActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -131,6 +136,9 @@ public class ComWebActivity extends Activity implements NavigationDrawerCallback
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        public PlaceholderFragment() {
+        }
+
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -142,12 +150,10 @@ public class ComWebActivity extends Activity implements NavigationDrawerCallback
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Log.d(TAG, ex.getMessage());
+                Logger log = Logger.getLogger("ComWebActivity");
+                log.warn(ex.getMessage());
             }
             return fragment;
-        }
-
-        public PlaceholderFragment() {
         }
 
         @Override

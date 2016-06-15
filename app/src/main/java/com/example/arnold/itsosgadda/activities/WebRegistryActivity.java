@@ -23,16 +23,19 @@ import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 
+import org.apache.log4j.Logger;
+
 import static android.webkit.WebSettings.ZoomDensity.FAR;
 import static com.example.arnold.itsosgadda.R.id.container;
 import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class WebRegistryActivity extends Activity implements NavigationDrawerCallbacks{
-    private final WebRegistryActivity activity = this;
-    private NavigationDrawerFragment mNavigationDrawerFragment;
-    private final String url = "https://web.spaggiari.eu/home/app/default/login.php?custcode=prit0007";
     private static final String TAG = "WebRegistryActivity";
+    private final WebRegistryActivity activity = this;
+    private final String url = "https://web.spaggiari.eu/home/app/default/login.php?custcode=prit0007";
+    private NavigationDrawerFragment mNavigationDrawerFragment;
+
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,7 +88,8 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
             webView.loadUrl(url);
             webView.canGoBack();
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("StoryActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -98,7 +102,8 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
                     .replace(container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("StoryActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -113,6 +118,9 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        public PlaceholderFragment() {
+        }
+
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -124,12 +132,10 @@ public class WebRegistryActivity extends Activity implements NavigationDrawerCal
                 args.putInt(ARG_SECTION_NUMBER, sectionNumber);
                 fragment.setArguments(args);
             } catch (Exception ex) {
-                Log.d(TAG, ex.getMessage());
+                Logger log = Logger.getLogger("StoryActivity");
+                log.warn(ex.getMessage());
             }
             return fragment;
-        }
-
-        public PlaceholderFragment() {
         }
 
         @Override

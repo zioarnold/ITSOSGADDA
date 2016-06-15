@@ -23,6 +23,7 @@ import com.example.arnold.itsosgadda.post.PostData;
 import com.example.arnold.itsosgadda.refresh.Refresher;
 import com.example.arnold.itsosgadda.refresh.RefresherListView;
 
+import org.apache.log4j.Logger;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -41,11 +42,6 @@ import static com.example.arnold.itsosgadda.R.id.about_app;
 import static java.lang.Boolean.TYPE;
 
 public class RSSReaderActivity extends Activity implements Refresher {
-    private enum RSSXMLTag {
-        TITLE, DATE, LINK, CONTENT, GUID, IGNORETAG
-    }
-
-    private static final String TAG = "RSSReaderActivity";
     private ArrayList<PostData> listData;
     //private String urlString = "http://feeds.feedburner.com/muslimorid";
     //private String urlString = "http://feeds.reuters.com/reuters/technologyNews";
@@ -57,6 +53,21 @@ public class RSSReaderActivity extends Activity implements Refresher {
     private boolean isRefreshLoading = true;
     private boolean isLoading = false;
     private ArrayList<String> guidList;
+    private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+
+        @Override
+        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                long arg3) {
+            PostData data = listData.get(arg2 - 1);
+
+            Bundle postInfo = new Bundle();
+            postInfo.putString("content", data.postContent);
+
+            Intent postviewIntent = new Intent(getApplicationContext(), ContentPostActivity.class);
+            postviewIntent.putExtras(postInfo);
+            startActivity(postviewIntent);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +99,8 @@ public class RSSReaderActivity extends Activity implements Refresher {
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("MATActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -104,31 +116,90 @@ public class RSSReaderActivity extends Activity implements Refresher {
                 }
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("MATActivity");
+            log.warn(ex.getMessage());
         }
         return super.onMenuOpened(featureId, menu);
     }
-
-    private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
-
-        @Override
-        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-                                long arg3) {
-            PostData data = listData.get(arg2 - 1);
-
-            Bundle postInfo = new Bundle();
-            postInfo.putString("content", data.postContent);
-
-            Intent postviewIntent = new Intent(getApplicationContext(), ContentPostActivity.class);
-            postviewIntent.putExtras(postInfo);
-            startActivity(postviewIntent);
-        }
-    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
+    }
+
+    @Override
+    public void startFresh() {
+        if (!isLoading) {
+            isRefreshLoading = true;
+            isLoading = true;
+            new RssDataController().execute(urlString + 1);
+        } else {
+            postListView.onRefreshComplete();
+        }
+    }
+
+    @Override
+    public void startLoadMore() {
+        if (!isLoading) {
+            isRefreshLoading = false;
+            isLoading = true;
+            new RssDataController().execute(urlString + (++pagnation));
+        } else {
+            postListView.onLoadingMoreComplete();
+        }
+    }
+
+    @SuppressLint({"SetTextI18n", "InflateParams"})
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        try {
+            int id = item.getItemId();
+            switch (id) {
+                case R.id.dev_team:
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_dev_team)
+                            .setTitle(R.string.dev_team)
+                            .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show().setCanceledOnTouchOutside(true);
+                    break;
+                case about_app:
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_about)
+                            .setTitle(R.string.created_for)
+                            .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show().setCanceledOnTouchOutside(true);
+                    AlertDialog dialog = builder.create();
+                    dialog.dismiss();
+                    break;
+                case R.id.subscribe:
+                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
+                    break;
+            }
+            return super.onOptionsItemSelected(item);
+        } catch (Exception ex) {
+            Logger log = Logger.getLogger("MATActivity");
+            log.warn(ex.getMessage());
+        }
+        return false;
+    }
+
+    private enum RSSXMLTag {
+        TITLE, DATE, LINK, CONTENT, GUID, IGNORETAG
     }
 
     private class RssDataController extends
@@ -254,7 +325,8 @@ public class RSSReaderActivity extends Activity implements Refresher {
                 }
                 Log.v("tst", String.valueOf((postDataList.size())));
             } catch (Exception ex) {
-                Log.d(TAG, ex.getMessage());
+                Logger log = Logger.getLogger("MATActivity");
+                log.warn(ex.getMessage());
             }
             return postDataList;
         }
@@ -292,86 +364,5 @@ public class RSSReaderActivity extends Activity implements Refresher {
 
             super.onPostExecute(result);
         }
-    }
-
-    @Override
-    public void startFresh() {
-        if (!isLoading) {
-            isRefreshLoading = true;
-            isLoading = true;
-            new RssDataController().execute(urlString + 1);
-        } else {
-            postListView.onRefreshComplete();
-        }
-    }
-
-    @Override
-    public void startLoadMore() {
-        if (!isLoading) {
-            isRefreshLoading = false;
-            isLoading = true;
-            new RssDataController().execute(urlString + (++pagnation));
-        } else {
-            postListView.onLoadingMoreComplete();
-        }
-    }
-
-    @SuppressLint({"SetTextI18n", "InflateParams"})
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        try {
-            int id = item.getItemId();
-            switch (id) {
-                case R.id.dev_team:
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_dev_team)
-                            .setTitle(R.string.dev_team)
-                            .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show().setCanceledOnTouchOutside(true);
-                    break;
-                case about_app:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_about)
-                            .setTitle(R.string.created_for)
-                            .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .show().setCanceledOnTouchOutside(true);
-                    AlertDialog dialog = builder.create();
-                    dialog.dismiss();
-                    break;
-                case R.id.subscribe:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_subscribe_contact)
-                            .setTitle(R.string.dev_contact)
-                            .setView(getLayoutInflater().inflate(R.layout.contact_to_developer, null))
-                            .setCancelable(false)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show();
-                    dialog = builder.create();
-                    dialog.dismiss();
-                    break;
-            }
-            return super.onOptionsItemSelected(item);
-        } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
-        }
-        return false;
     }
 }

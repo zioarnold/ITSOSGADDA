@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="iissgadda_2512updateList">- Ripristino loggin Log4j\n
+    - Ripristino \"Rapporto allo sviluppatore\"</string>
     <string name="iissgadda_2511updateList">- L\'aggiunta della lingua russa</string>
     <string name="iissgadda_2510updateList">- Tutte le attivita degli indirizzi di studi,
     sono state modificate utilizzando tecnologia webview anziché usare le risorce ecc…</string>

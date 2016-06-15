@@ -7,11 +7,11 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,6 +24,8 @@ import android.webkit.WebView;
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
 
+import org.apache.log4j.Logger;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -34,7 +36,6 @@ import static java.lang.Boolean.TYPE;
 @SuppressWarnings("FieldCanBeLocal")
 public class LSActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
-    private static final String TAG = "LSActivity";
     private WebView webViewLS;
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -60,7 +61,8 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
             webViewLS.getSettings().setJavaScriptEnabled(true);
             webViewLS.loadUrl("file:///android_asset/ls_html/ls.html");
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("LSActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -73,51 +75,8 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
                     .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
-        }
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            try {
-                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-                fragment.setArguments(args);
-            } catch (Exception ex) {
-                Log.d(TAG, ex.getMessage());
-            }
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_main_navitagion_drawer, container, false);
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-
-            /*((LSActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));*/
+            Logger log = Logger.getLogger("LSActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -131,7 +90,8 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("LSActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -141,7 +101,8 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
         try {
             getMenuInflater().inflate(R.menu.main_menu, menu);
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("LSActivity");
+            log.warn(ex.getMessage());
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -157,7 +118,8 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
                 }
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("LSActivity");
+            log.warn(ex.getMessage());
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -199,24 +161,58 @@ public class LSActivity extends Activity implements NavigationDrawerFragment.Nav
                     dialog.dismiss();
                     break;
                 case R.id.subscribe:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_subscribe_contact)
-                            .setTitle(R.string.dev_contact)
-                            .setView(getLayoutInflater().inflate(R.layout.contact_to_developer, null))
-                            .setCancelable(false)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show();
-                    dialog = builder.create();
-                    dialog.dismiss();
+                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
                     break;
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("LSActivity");
+            log.warn(ex.getMessage());
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment() {
+        }
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            try {
+                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+                fragment.setArguments(args);
+            } catch (Exception ex) {
+                Logger log = Logger.getLogger("LSActivity");
+                log.warn(ex.getMessage());
+            }
+            return fragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_main_navitagion_drawer, container, false);
+        }
+
+        @Override
+        public void onAttach(Activity activity) {
+            super.onAttach(activity);
+
+            /*((LSActivity) activity).onSectionAttached(
+                    getArguments().getInt(ARG_SECTION_NUMBER));*/
+        }
     }
 }

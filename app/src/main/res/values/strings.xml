@@ -76,10 +76,12 @@
     <string name="label_mat">Maintenance and Technical Assistance</string>
     <string name="label_afm">Business Administration and Marketing</string>
     <string name="label_e_registry">Web registry</string>
+    <string name="label_send_bug_crash_report">Contact to Developer</string>
     <string name="label_youtube">YouTubePlayer</string>
     <string name="label_appblog_detailed">App Blog - Details</string>
     <string name="string_iissgadda_welcome_text">Welcome to IISS Gadda</string>
     <string name="button_proceed">Proceed…</string>
     <string name="checkbox_skip_intro">Don\'t show this anymore</string>
     <string name="error_player">There was an error initializing the YouTubePlayer (1%$s)</string>
+    <string name="Email_to_send_developer">Send feedback to Developer…</string>
 </resources>

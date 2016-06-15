@@ -12,7 +12,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,6 +23,8 @@ import android.widget.Button;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
+
+import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -40,7 +41,7 @@ import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.Na
 @SuppressWarnings("FieldCanBeLocal")
 public class SpecStorySectionActivity extends Activity implements OnClickListener,
         NavigationDrawerCallbacks {
-    private static final String TAG = "SSSectionActivity";
+
     private Button lyceumButton, it_tlcButton, economicalButton, matButton;
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
@@ -75,7 +76,8 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
             makeActionOverflowMenuShown();
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("SpecStorySectionActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -85,7 +87,8 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
         try {
             getMenuInflater().inflate(R.menu.main_menu, menu);
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("SpecStorySectionActivity");
+            log.warn(ex.getMessage());
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -99,51 +102,8 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                     .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                     .commit();
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
-        }
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            try {
-                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-                fragment.setArguments(args);
-            } catch (Exception ex) {
-                Log.d(TAG, ex.getMessage());
-            }
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_main_navitagion_drawer, container, false);
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-
-            /*((SpecStorySectionActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));*/
+            Logger log = Logger.getLogger("SpecStorySectionActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -157,7 +117,8 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("SpecStorySectionActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -173,7 +134,8 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                 }
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("SpecStorySectionActivity");
+            log.warn(ex.getMessage());
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -215,23 +177,12 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                     dialog.dismiss();
                     break;
                 case R.id.subscribe:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_subscribe_contact)
-                            .setTitle(R.string.dev_contact)
-                            .setView(getLayoutInflater().inflate(R.layout.contact_to_developer, null))
-                            .setCancelable(false)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show();
-                    dialog = builder.create();
-                    dialog.dismiss();
+                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
                     break;
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("SpecStorySectionActivity");
+            log.warn(ex.getMessage());
         }
         return super.onOptionsItemSelected(item);
     }
@@ -251,7 +202,7 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
     private void matButtonClicked() {
         startActivity(new Intent(getApplicationContext(), MATActivity.class));
     }
-    
+
     @Override
     public void onClick(View v) {
         try {
@@ -270,7 +221,53 @@ public class SpecStorySectionActivity extends Activity implements OnClickListene
                     break;
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("SpecStorySectionActivity");
+            log.warn(ex.getMessage());
+        }
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment() {
+        }
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            try {
+                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+                fragment.setArguments(args);
+            } catch (Exception ex) {
+                Logger log = Logger.getLogger("SpecStorySectionActivity");
+                log.warn(ex.getMessage());
+            }
+            return fragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_main_navitagion_drawer, container, false);
+        }
+
+        @Override
+        public void onAttach(Activity activity) {
+            super.onAttach(activity);
+
+            /*((SpecStorySectionActivity) activity).onSectionAttached(
+                    getArguments().getInt(ARG_SECTION_NUMBER));*/
         }
     }
 }

@@ -5,16 +5,18 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewConfiguration;
 import android.webkit.WebView;
 
 import com.example.arnold.itsosgadda.R;
+
+import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -25,7 +27,6 @@ import static java.lang.Boolean.TYPE;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class ContentPostActivity extends Activity {
-    private static final String TAG = "ContentPostActivity";
     private WebView webView;
 
     @Override
@@ -55,7 +56,8 @@ public class ContentPostActivity extends Activity {
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("ContentPostActivity");
+            log.warn(ex.getMessage());
         }
     }
 
@@ -71,7 +73,8 @@ public class ContentPostActivity extends Activity {
                 }
             }
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("ContentPostActivity");
+            log.warn(ex.getMessage());
         }
         return super.onMenuOpened(featureId, menu);
     }
@@ -113,24 +116,13 @@ public class ContentPostActivity extends Activity {
                     dialog.dismiss();
                     break;
                 case R.id.subscribe:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_subscribe_contact)
-                            .setTitle(R.string.dev_contact)
-                            .setView(getLayoutInflater().inflate(R.layout.contact_to_developer, null))
-                            .setCancelable(false)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show();
-                    dialog = builder.create();
-                    dialog.dismiss();
+                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
                     break;
             }
             return super.onOptionsItemSelected(item);
         } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
+            Logger log = Logger.getLogger("ContentPostActivity");
+            log.warn(ex.getMessage());
         }
         return false;
     }

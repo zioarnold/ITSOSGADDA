@@ -63,5 +63,7 @@
     <string name="string_iissgadda_welcome_text">Добро пожаловать в IISS Gadda</string>
     <string name="button_proceed">Продолжить…</string>
     <string name="checkbox_skip_intro">Не показывать мне это больше</string>
+    <string name="Email_to_send_developer">Отправить отзыв Разработчику…</string>
     <string name="error_player">Ошибка инициализации YouTubePlayer (1%$s)</string>
+    <string name="label_send_bug_crash_report">Отзыв Разработчику</string>
 </resources>
