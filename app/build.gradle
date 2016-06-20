@@ -53,6 +53,8 @@ dependencies {
     compile files('libs/YouTubeAndroidPlayerApi.jar')
     //noinspection GradleDependency
     compile 'com.google.android.gms:play-services:8.3.0'
+    //noinspection GradleDependency
+    compile 'com.google.android.gms:play-services-ads:8.3.0'
     compile 'com.android.support:multidex:1.0.1'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
     //noinspection GradleDependency

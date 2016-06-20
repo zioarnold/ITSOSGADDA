@@ -41,21 +41,19 @@ import static com.example.arnold.itsosgadda.R.drawable.drawer_shadow;
  */
 public class NavigationDrawerFragment extends Fragment {
 
-    private String[] navMenuTitles;
-    private ArrayList<NavDrawerItem> navDrawerItems;
-    private NavDrawerListAdapter adapter;
-    private TypedArray navMenuIcons;
     /**
      * Remember the position of the selected item.
      */
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
-
     /**
      * Per the design guidelines, you should show the drawer on launch until the user manually
      * expands it. This shared preference tracks this.
      */
     private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
-
+    private String[] navMenuTitles;
+    private ArrayList<NavDrawerItem> navDrawerItems;
+    private NavDrawerListAdapter adapter;
+    private TypedArray navMenuIcons;
     /**
      * A pointer to the current callbacks instance (the Activity).
      */
@@ -108,6 +106,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerLayout.closeDrawer(Gravity.LEFT);
     }
 
+    @SuppressWarnings("ResourceType")
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

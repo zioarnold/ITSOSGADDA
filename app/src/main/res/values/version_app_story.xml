@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--<string name="iissgadda_2513" translatable="false">IISS C. E. Gadda v2513</string>-->
+    <!--<string name="iissgadda_2513updateList">- AdMob integration</string>-->
+
     <string name="iissgadda_2512" translatable="false">IISS C. E. Gadda v2512</string>
     <string name="iissgadda_2512updateList">- Restore Log4j Loggin\n
     - Restore contact to developer via email with log file</string>

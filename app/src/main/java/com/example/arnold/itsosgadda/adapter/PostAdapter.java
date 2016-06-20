@@ -22,15 +22,8 @@ public class PostAdapter extends ArrayAdapter<PostData> {
     public PostAdapter(Context context, int textViewResourceId,
                        ArrayList<PostData> objects) {
         super(context, textViewResourceId, objects);
-        // TODO Auto-generated constructor stub
         inflater = ((Activity) context).getLayoutInflater();
         datas = objects;
-    }
-
-    static class ViewHolder {
-        TextView postTitleView;
-        TextView postDateView;
-        ImageView postThumbView;
     }
 
     @SuppressLint("InflateParams")
@@ -61,5 +54,11 @@ public class PostAdapter extends ArrayAdapter<PostData> {
         viewHolder.postDateView.setText(datas.get(position).postDate);
 
         return convertView;
+    }
+
+    static class ViewHolder {
+        TextView postTitleView;
+        TextView postDateView;
+        ImageView postThumbView;
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--<string name="iissgadda_2513updateList">- AdMob интеграция</string>-->
     <string name="iissgadda_2512updateList">- Восстановление логирования Log4j\n
     - Восстановление окна \"Отзыв разработчику\"</string>
     <string name="iissgadda_2511updateList">- Добавление русского языка, в пред-идущем он был убран</string>

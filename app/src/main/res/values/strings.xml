@@ -84,4 +84,6 @@
     <string name="checkbox_skip_intro">Don\'t show this anymore</string>
     <string name="error_player">There was an error initializing the YouTubePlayer (1%$s)</string>
     <string name="Email_to_send_developer">Send feedback to Developer…</string>
+
+    <!--<string name="banner_ad_unit_id" translatable="false">ca-app-pub-1278172190039555/4410549827</string>-->
 </resources>

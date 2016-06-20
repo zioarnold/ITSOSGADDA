@@ -103,6 +103,12 @@ public class MainActivity extends Activity implements OnClickListener,
             mNavigationDrawerFragment = (NavigationDrawerFragment)
                     getFragmentManager().findFragmentById(navigation_drawer);
 
+//            MobileAds.initialize(getApplicationContext(), "ca-app-pub-1278172190039555~5733152624");
+//
+//            AdView mAdView = (AdView) findViewById(R.id.adView);
+//            AdRequest adRequest = new AdRequest.Builder().build();
+//            mAdView.loadAd(adRequest);
+
             // Set up the drawer.
             mNavigationDrawerFragment.setUp(
                     navigation_drawer,

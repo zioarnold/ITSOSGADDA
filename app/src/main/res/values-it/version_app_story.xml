@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!--<string name="iissgadda_2513updateList">- integrazione con AdMob</string>-->
     <string name="iissgadda_2512updateList">- Ripristino loggin Log4j\n
     - Ripristino \"Rapporto allo sviluppatore\"</string>
     <string name="iissgadda_2511updateList">- L\'aggiunta della lingua russa</string>
