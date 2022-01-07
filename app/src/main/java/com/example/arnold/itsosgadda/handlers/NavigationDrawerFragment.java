@@ -10,8 +10,8 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.widget.DrawerLayout;
+import androidx.legacy.app.ActionBarDrawerToggle;
+import androidx.drawerlayout.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -31,7 +31,7 @@ import com.example.arnold.itsosgadda.main.MainActivity;
 
 import java.util.ArrayList;
 
-import static android.support.v4.view.GravityCompat.START;
+import static androidx.core.view.GravityCompat.START;
 import static com.example.arnold.itsosgadda.R.drawable.drawer_shadow;
 
 /**

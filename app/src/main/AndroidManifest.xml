@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!--    <uses-permission android:name="android.permission.READ_LOGS" />-->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -39,9 +39,14 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity
             android:name=".main.MainActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="com.example.arnold.itsosgadda.MESSAGE" />
@@ -52,70 +57,76 @@
         <activity
             android:name=".activities.StoryActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_our_story" />
         <activity
             android:name=".activities.SpecStorySectionActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_study_addresses" />
         <activity
             android:name=".activities.LSActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_lsa" />
         <activity
             android:name=".activities.ITActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_it_tlc" />
         <activity
             android:name=".activities.RSSReaderActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_appblog" />
         <activity
             android:name=".activities.ContentPostActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_appblog_detailed" />
         <activity
             android:name=".activities.AFMActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_afm" />
         <activity
             android:name=".activities.MATActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_mat" />
         <activity
             android:name=".activities.EmailSendingActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_send_email_to_staff" />
         <activity
             android:name=".activities.SendBugCrashReport"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_send_bug_crash_report" />
         <activity
             android:name=".activities.WebRegistryActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_e_registry" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="@string/google_maps_key" />
-
         <activity
             android:name=".handlers.MapsLoader"
+            android:exported="true"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".main.MainScreenActivity">
+        <activity
+            android:name=".main.MainScreenActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <receiver
             android:name="com.pushbots.google.gcm.GCMBroadcastReceiver"
+            android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
+            <intent-filter android:exported="true">
 
                 <!-- Receives the actual messages. -->
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -125,18 +136,23 @@
                 <category android:name="com.example.arnold.itsosgadda" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.pushbots.push.DefaultPushHandler" />
+        <receiver
+            android:name="com.pushbots.push.DefaultPushHandler"
+            android:exported="true" />
 
-        <service android:name="com.pushbots.push.GCMIntentService" />
+        <service
+            android:name="com.pushbots.push.GCMIntentService"
+            android:exported="true" />
 
         <activity
             android:name=".activities.ComWebActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/communications_news" />
         <activity
             android:name=".activities.YouTubeActivity"
             android:configChanges="locale"
+            android:exported="true"
             android:label="@string/label_youtube" />
     </application>
-
 </manifest>

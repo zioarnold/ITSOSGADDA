@@ -11,8 +11,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.widget.DrawerLayout;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,6 +29,7 @@ import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.main.MainActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -43,13 +47,12 @@ import static com.example.arnold.itsosgadda.R.string.ok;
 import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
 import static java.lang.Boolean.TYPE;
 
-@SuppressWarnings("FieldCanBeLocal")
-public class MapsLoader extends FragmentActivity implements
-        NavigationDrawerCallbacks {
+public class MapsLoader extends FragmentActivity implements NavigationDrawerCallbacks {
 
     private static final String TAG = "MapsLoader";
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-    private NavigationDrawerFragment mNavigationDrawerFragment;
+    private LatLng myLatLng = new LatLng(44.693950, 10.106832);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +61,7 @@ public class MapsLoader extends FragmentActivity implements
         assert actionBar != null;
         actionBar.setIcon(R.mipmap.ic_launcher);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
+        NavigationDrawerFragment mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
@@ -191,12 +194,7 @@ public class MapsLoader extends FragmentActivity implements
                 builder.setIcon(R.mipmap.ic_launcher)
                         .setTitle(R.string.no_network_enabled)
                         .setMessage(R.string.network_enabled)
-                        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                            }
-                        });
+                        .setPositiveButton(R.string.yes, (dialog, which) -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
                 AlertDialog dialog = builder.create();
 
                 dialog.dismiss();
@@ -211,7 +209,6 @@ public class MapsLoader extends FragmentActivity implements
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        LatLng myLatLng = new LatLng(44.693950, 10.106832);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(myLatLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
         mMap.getUiSettings().setZoomControlsEnabled(true);
