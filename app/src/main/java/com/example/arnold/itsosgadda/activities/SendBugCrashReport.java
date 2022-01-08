@@ -26,23 +26,18 @@ import static android.util.Patterns.EMAIL_ADDRESS;
 import static android.widget.Toast.LENGTH_SHORT;
 import static android.widget.Toast.makeText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 
 @SuppressWarnings("FieldCanBeLocal")
-public class SendBugCrashReport extends Activity {
+public class SendBugCrashReport extends AppCompatActivity {
     private Button buttonSend;
     private EditText txtMessage;
-    private String logFile = Environment.getExternalStorageDirectory() + "/" + "log4j.log";
-    private Uri URI;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.send_bug_crash_report);
-        URI = Uri.parse("file://" + logFile);
-        ActionBar actionBar = getActionBar();
-        assert actionBar != null;
-        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
 
         buttonSend = (Button) findViewById(R.id.emailSend);
         txtMessage = (EditText) findViewById(R.id.editTextMessage);
@@ -74,7 +69,6 @@ public class SendBugCrashReport extends Activity {
                         Intent email = new Intent(ACTION_SEND);
                         email.putExtra(EXTRA_EMAIL, new String[]{to});
                         email.putExtra(EXTRA_SUBJECT, subject);
-                        email.putExtra(EXTRA_STREAM, URI);
                         email.putExtra(EXTRA_TEXT, message);
                         email.setType("message/rfc822");
                         startActivity(createChooser(email,

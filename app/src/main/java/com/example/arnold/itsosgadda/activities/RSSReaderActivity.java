@@ -1,35 +1,30 @@
 package com.example.arnold.itsosgadda.activities;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.widget.AdapterView;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.adapter.PostAdapter;
+import com.example.arnold.itsosgadda.databinding.NewsReaderBinding;
 import com.example.arnold.itsosgadda.post.PostData;
 import com.example.arnold.itsosgadda.refresh.Refresher;
 import com.example.arnold.itsosgadda.refresh.RefresherListView;
+import com.google.android.material.navigation.NavigationView;
 
 import org.apache.log4j.Logger;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -37,11 +32,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-import static android.view.Window.FEATURE_ACTION_BAR;
 import static com.example.arnold.itsosgadda.R.id.about_app;
-import static java.lang.Boolean.TYPE;
 
-public class RSSReaderActivity extends Activity implements Refresher {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+@SuppressWarnings("ALL")
+public class RSSReaderActivity extends AppCompatActivity implements Refresher {
     private ArrayList<PostData> listData;
     //private String urlString = "http://feeds.feedburner.com/muslimorid";
     //private String urlString = "http://feeds.reuters.com/reuters/technologyNews";
@@ -49,11 +50,14 @@ public class RSSReaderActivity extends Activity implements Refresher {
     //private String urlString = "http://feeds.feedburner.com/reuterstech?format=xml";
     private RefresherListView postListView;
     private PostAdapter postAdapter;
-    private int pagnation = 1; //start dari 1
+    private int pagination = 1; //start dari 1
     private boolean isRefreshLoading = true;
     private boolean isLoading = false;
     private ArrayList<String> guidList;
-    private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+    private NewsReaderBinding binding;
+    private AppBarConfiguration mAppBarConfiguration;
+    private final static String TAG = "RSSReaderActivity";
+    private final AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
 
         @Override
         public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -72,54 +76,37 @@ public class RSSReaderActivity extends Activity implements Refresher {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.news_reader);
-
-        ActionBar actionBar = getActionBar();
-        assert actionBar != null;
-        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
-
-        guidList = new ArrayList<>();
-        listData = new ArrayList<>();
-        postListView = (RefresherListView) this.findViewById(R.id.postListView);
-        postAdapter = new PostAdapter(this, R.layout.list_item_article, listData);
-        postListView.setAdapter(postAdapter);
-        postListView.setOnRefresh(this);
-        postListView.onRefreshStart();
-        postListView.setOnItemClickListener(onItemClickListener);
-        makeActionOverflowMenuShown();
-    }
-
-    private void makeActionOverflowMenuShown() {
         try {
-            ViewConfiguration config = ViewConfiguration.get(this);
-            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
-            if (menuKeyField != null) {
-                menuKeyField.setAccessible(true);
-                menuKeyField.setBoolean(config, false);
-            }
-        } catch (Exception ex) {
-            Logger log = Logger.getLogger("MATActivity");
-            log.warn(ex.getMessage());
-        }
-    }
+            binding = NewsReaderBinding.inflate(getLayoutInflater());
+            setContentView(binding.getRoot());
 
-    @Override
-    public boolean onMenuOpened(int featureId, Menu menu) {
-        try {
-            if (featureId == FEATURE_ACTION_BAR && menu != null) {
-                if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-                    Method m = menu.getClass().getDeclaredMethod(
-                            "setOptionalIconsVisible", TYPE);
-                    m.setAccessible(true);
-                    m.invoke(menu, true);
-                }
-            }
-        } catch (Exception ex) {
-            Logger log = Logger.getLogger("MATActivity");
-            log.warn(ex.getMessage());
+            guidList = new ArrayList<>();
+            listData = new ArrayList<>();
+            postListView = (RefresherListView) this.findViewById(R.id.postListView);
+            postAdapter = new PostAdapter(this, R.layout.list_item_article, listData);
+            postListView.setAdapter(postAdapter);
+            postListView.setOnRefresh(this);
+            postListView.onRefreshStart();
+            postListView.setOnItemClickListener(onItemClickListener);
+
+            DrawerLayout drawerLayout = binding.drawerLayout;
+            NavigationView navigationView = binding.navView;
+            mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.nav_home,
+                    R.id.nav_our_story,
+                    R.id.nav_study_addresses,
+                    R.id.nav_e_registry_link,
+                    R.id.nav_feedback_to_staff,
+                    R.id.nav_findus,
+                    R.id.nav_app_blog
+            ).setOpenableLayout(drawerLayout)
+                    .build();
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+            NavigationUI.setupWithNavController(navigationView, navController);
+        } catch (Exception exception) {
+            Log.d(TAG, exception.getMessage());
         }
-        return super.onMenuOpened(featureId, menu);
     }
 
     @Override
@@ -144,7 +131,7 @@ public class RSSReaderActivity extends Activity implements Refresher {
         if (!isLoading) {
             isRefreshLoading = false;
             isLoading = true;
-            new RssDataController().execute(urlString + (++pagnation));
+            new RssDataController().execute(urlString + (++pagination));
         } else {
             postListView.onLoadingMoreComplete();
         }
@@ -192,8 +179,7 @@ public class RSSReaderActivity extends Activity implements Refresher {
             }
             return super.onOptionsItemSelected(item);
         } catch (Exception ex) {
-            Logger log = Logger.getLogger("MATActivity");
-            log.warn(ex.getMessage());
+            Log.d(TAG, ex.getMessage());
         }
         return false;
     }
@@ -249,7 +235,7 @@ public class RSSReaderActivity extends Activity implements Refresher {
                             currentTag = RSSXMLTag.LINK;
                         } else if (xpp.getName().equals("pubDate")) {
                             currentTag = RSSXMLTag.DATE;
-                        } else if (xpp.getName().equals("content:encoded")) {
+                        } else if (xpp.getName().equals("encoded")) {
                             currentTag = RSSXMLTag.CONTENT;
                         } else if (xpp.getName().equals("guid")) {
                             currentTag = RSSXMLTag.GUID;
@@ -325,8 +311,7 @@ public class RSSReaderActivity extends Activity implements Refresher {
                 }
                 Log.v("tst", String.valueOf((postDataList.size())));
             } catch (Exception ex) {
-                Logger log = Logger.getLogger("MATActivity");
-                log.warn(ex.getMessage());
+                Log.d(TAG, ex.getMessage());
             }
             return postDataList;
         }

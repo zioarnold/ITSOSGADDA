@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_our_story"
+            android:icon="@drawable/ic_our_story"
+            android:title="@string/menu_our_story" />
+        <item
+            android:id="@+id/nav_study_addresses"
+            android:icon="@drawable/ic_study_addresses"
+            android:title="@string/menu_study_addresses" />
+        <item
+            android:id="@+id/nav_e_registry_link"
+            android:icon="@drawable/ic_web_registry"
+            android:title="@string/menu_e_registry" />
+        <item
+            android:id="@+id/nav_feedback_to_staff"
+            android:icon="@drawable/ic_feedback_to_stuff"
+            android:title="@string/menu_feedback_to_staff" />
+        <item
+            android:id="@+id/nav_findus"
+            android:icon="@drawable/ic_find_us"
+            android:title="@string/menu_find_us" />
+        <item
+            android:id="@+id/nav_app_blog"
+            android:icon="@drawable/ic_app_blog"
+            android:title="@string/menu_app_blog" />
+    </group>
+</menu>

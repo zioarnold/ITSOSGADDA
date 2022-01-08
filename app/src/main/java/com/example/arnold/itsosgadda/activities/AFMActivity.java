@@ -1,99 +1,69 @@
 package com.example.arnold.itsosgadda.activities;
 
+import static com.example.arnold.itsosgadda.R.id.about_app;
+
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import androidx.drawerlayout.widget.DrawerLayout;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
 import android.webkit.WebView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
 import com.example.arnold.itsosgadda.R;
-import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
-import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
+import com.example.arnold.itsosgadda.databinding.AfmLayoutBinding;
+import com.google.android.material.navigation.NavigationView;
 
 import org.apache.log4j.Logger;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-
-import static android.view.Window.FEATURE_ACTION_BAR;
-import static com.example.arnold.itsosgadda.R.id.about_app;
-import static java.lang.Boolean.TYPE;
-
 
 @SuppressWarnings("FieldCanBeLocal")
-public class AFMActivity extends Activity implements
-        NavigationDrawerCallbacks {
-    private NavigationDrawerFragment mNavigationDrawerFragment;
+public class AFMActivity extends AppCompatActivity {
+    private static final String TAG = "AFMActivity";
     private AlertDialog dialog;
     private AlertDialog.Builder builder;
     private WebView webViewAFM;
+    private AfmLayoutBinding binding;
+    private AppBarConfiguration mAppBarConfiguration;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            setContentView(R.layout.afm_layout);
-
-
-            mNavigationDrawerFragment = (NavigationDrawerFragment)
-                    getFragmentManager().findFragmentById(R.id.navigation_drawer);
-
-            // Set up the drawer.
-            mNavigationDrawerFragment.setUp(
-                    R.id.navigation_drawer,
-                    (DrawerLayout) findViewById(R.id.drawer_layout));
-
-            ActionBar actionBar = getActionBar();
-            assert actionBar != null;
-            actionBar.setIcon(R.mipmap.ic_launcher);
-            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
-            makeActionOverflowMenuShown();
+            binding = AfmLayoutBinding.inflate(getLayoutInflater());
+            setContentView(binding.getRoot());
 
             webViewAFM = (WebView) findViewById(R.id.webViewAFM);
             webViewAFM.getSettings().setJavaScriptEnabled(true);
             webViewAFM.loadUrl("file:///android_asset/afm_html/afm.html");
-        } catch (Exception ex) {
-            Logger log = Logger.getLogger("AFMActivity");
-            log.warn(ex.getMessage());
-        }
-    }
 
-    @Override
-    public void onNavigationDrawerItemSelected(int position) {
-        // update the main content by replacing fragments
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
-    }
-
-    private void makeActionOverflowMenuShown() {
-        //devices with hardware menu button (e.g. Samsung Note) don't show action overflow menu
-        try {
-            ViewConfiguration config = ViewConfiguration.get(this);
-            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
-            if (menuKeyField != null) {
-                menuKeyField.setAccessible(true);
-                menuKeyField.setBoolean(config, false);
-            }
+            DrawerLayout drawerLayout = binding.drawerLayout;
+            NavigationView navigationView = binding.navView;
+            mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.nav_home,
+                    R.id.nav_our_story,
+                    R.id.nav_study_addresses,
+                    R.id.nav_e_registry_link,
+                    R.id.nav_feedback_to_staff,
+                    R.id.nav_findus,
+                    R.id.nav_app_blog
+            ).setOpenableLayout(drawerLayout)
+                    .build();
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+            NavigationUI.setupWithNavController(navigationView, navController);
         } catch (Exception ex) {
-            Logger log = Logger.getLogger("AFMActivity");
-            log.warn(ex.getMessage());
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -103,28 +73,16 @@ public class AFMActivity extends Activity implements
         try {
             getMenuInflater().inflate(R.menu.main_menu, menu);
         } catch (Exception ex) {
-            Logger log = Logger.getLogger("ITActivity");
+            Logger log = Logger.getLogger("AFMActivity");
             log.warn(ex.getMessage());
         }
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    public boolean onMenuOpened(int featureId, Menu menu) {
-        try {
-            if (featureId == FEATURE_ACTION_BAR && menu != null) {
-                if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-                    Method m = menu.getClass().getDeclaredMethod(
-                            "setOptionalIconsVisible", TYPE);
-                    m.setAccessible(true);
-                    m.invoke(menu, true);
-                }
-            }
-        } catch (Exception ex) {
-            Logger log = Logger.getLogger("AFMActivity");
-            log.warn(ex.getMessage());
-        }
-        return super.onMenuOpened(featureId, menu);
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
     }
 
     @SuppressLint("InflateParams")
@@ -168,55 +126,9 @@ public class AFMActivity extends Activity implements
                     break;
             }
         } catch (Exception ex) {
-            Logger log = Logger.getLogger("AFMActivity");
-            log.warn(ex.getMessage());
+            Log.d(TAG, ex.getMessage());
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
-        }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            try {
-                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-                fragment.setArguments(args);
-            } catch (Exception ex) {
-                Logger log = Logger.getLogger("AFMActivity");
-                log.warn(ex.getMessage());
-            }
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_main_navitagion_drawer, container, false);
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-
-            /*((AFMActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));*/
-        }
     }
 }
 

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewConfiguration;
@@ -27,6 +28,7 @@ import static java.lang.Boolean.TYPE;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class ContentPostActivity extends Activity {
+    private static final String TAG = "ContentPostActivity";
     private WebView webView;
 
     @Override
@@ -34,10 +36,6 @@ public class ContentPostActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.postview);
 
-        ActionBar actionBar = getActionBar();
-        assert actionBar != null;
-        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
         makeActionOverflowMenuShown();
 
         Bundle bundle = getIntent().getExtras();
@@ -56,8 +54,7 @@ public class ContentPostActivity extends Activity {
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Logger log = Logger.getLogger("ContentPostActivity");
-            log.warn(ex.getMessage());
+            Log.d(TAG, ex.getMessage());
         }
     }
 
@@ -121,8 +118,7 @@ public class ContentPostActivity extends Activity {
             }
             return super.onOptionsItemSelected(item);
         } catch (Exception ex) {
-            Logger log = Logger.getLogger("ContentPostActivity");
-            log.warn(ex.getMessage());
+            Log.d(TAG, ex.getMessage());
         }
         return false;
     }

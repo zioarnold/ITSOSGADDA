@@ -1,75 +1,62 @@
 package com.example.arnold.itsosgadda.main;
 
+import static com.example.arnold.itsosgadda.R.id.about_app;
+import static com.example.arnold.itsosgadda.R.id.app_blog;
+import static com.example.arnold.itsosgadda.R.id.button_show_comunications;
+import static com.example.arnold.itsosgadda.R.id.e_registryId;
+import static com.example.arnold.itsosgadda.R.id.feedback;
+import static com.example.arnold.itsosgadda.R.id.findus;
+import static com.example.arnold.itsosgadda.R.id.nav_home;
+import static com.example.arnold.itsosgadda.R.id.specSectionButtonId;
+import static com.example.arnold.itsosgadda.R.id.storyButton;
+import static com.example.arnold.itsosgadda.R.menu.main_menu;
+import static com.example.arnold.itsosgadda.R.string.ok;
+
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
 import com.example.arnold.itsosgadda.R;
-import com.example.arnold.itsosgadda.activities.ComWebActivity;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
 import com.example.arnold.itsosgadda.activities.RSSReaderActivity;
 import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
+import com.example.arnold.itsosgadda.databinding.ActivityMainBinding;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
-import com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment;
+import com.google.android.material.navigation.NavigationView;
 import com.pushbots.push.Pushbots;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-
-import static android.view.View.OnClickListener;
-import static android.view.Window.FEATURE_ACTION_BAR;
-import static com.example.arnold.itsosgadda.R.id.about_app;
-import static com.example.arnold.itsosgadda.R.id.app_blog;
-import static com.example.arnold.itsosgadda.R.id.button_show_comunications;
-import static com.example.arnold.itsosgadda.R.id.container;
-import static com.example.arnold.itsosgadda.R.id.drawer_layout;
-import static com.example.arnold.itsosgadda.R.id.e_registryId;
-import static com.example.arnold.itsosgadda.R.id.feedback;
-import static com.example.arnold.itsosgadda.R.id.findus;
-import static com.example.arnold.itsosgadda.R.id.navigation_drawer;
-import static com.example.arnold.itsosgadda.R.id.specSectionButtonId;
-import static com.example.arnold.itsosgadda.R.id.storyButton;
-import static com.example.arnold.itsosgadda.R.layout.activity_main;
-import static com.example.arnold.itsosgadda.R.layout.fragment_main_navitagion_drawer;
-import static com.example.arnold.itsosgadda.R.menu.main_menu;
-import static com.example.arnold.itsosgadda.R.string.ok;
-import static com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment.NavigationDrawerCallbacks;
-import static java.lang.Boolean.TYPE;
-
 @SuppressWarnings("FieldCanBeLocal")
-public class MainActivity extends Activity implements OnClickListener,
-        NavigationDrawerCallbacks {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity";
-    private Button storyButtonMainBody, specSectButton, webRegistryButton, feedBackButton,
+    private Button storyButtonMainBody,
+            specSectButton,
+            webRegistryButton,
+            feedBackButton,
             findUsButton,
             communicationButton,
             rssFeedReader;
-    private NavigationDrawerFragment mNavigationDrawerFragment;
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
     private Intent intent;
+    private ActivityMainBinding binding;
+    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +68,9 @@ public class MainActivity extends Activity implements OnClickListener,
             Pushbots.sharedInstance().setRegStatus(false);
             Pushbots.sharedInstance().unregister();
 
-            setContentView(activity_main);
+
+            binding = ActivityMainBinding.inflate(getLayoutInflater());
+            setContentView(binding.getRoot());
 
             storyButtonMainBody = (Button) findViewById(storyButton);
             storyButtonMainBody.setOnClickListener(this);
@@ -104,56 +93,30 @@ public class MainActivity extends Activity implements OnClickListener,
             rssFeedReader = (Button) findViewById(app_blog);
             rssFeedReader.setOnClickListener(this);
 
-            mNavigationDrawerFragment = (NavigationDrawerFragment)
-                    getFragmentManager().findFragmentById(navigation_drawer);
-
-//            MobileAds.initialize(getApplicationContext(), "ca-app-pub-1278172190039555~5733152624");
-//
-//            AdView mAdView = (AdView) findViewById(R.id.adView);
-//            AdRequest adRequest = new AdRequest.Builder().build();
-//            mAdView.loadAd(adRequest);
-
-            // Set up the drawer.
-            mNavigationDrawerFragment.setUp(
-                    navigation_drawer,
-                    (DrawerLayout) findViewById(drawer_layout));
-
-            ActionBar actionBar = getActionBar();
-            assert actionBar != null;
-            actionBar.setIcon(R.mipmap.ic_launcher);
-            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
-
-            makeActionOverflowMenuShown();
+            DrawerLayout drawerLayout = binding.drawerLayout;
+            NavigationView navigationView = binding.navView;
+            mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.nav_home,
+                    R.id.nav_our_story,
+                    R.id.nav_study_addresses,
+                    R.id.nav_e_registry_link,
+                    R.id.nav_feedback_to_staff,
+                    R.id.nav_findus,
+                    R.id.nav_app_blog
+            ).setOpenableLayout(drawerLayout)
+                    .build();
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+            NavigationUI.setupWithNavController(navigationView, navController);
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
         }
     }
 
     @Override
-    public void onNavigationDrawerItemSelected(int position) {
-        try {
-            // update the main content by replacing fragments
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(container, PlaceholderFragment.newInstance(position + 1))
-                    .commit();
-        } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
-        }
-    }
-
-    private void makeActionOverflowMenuShown() {
-        //devices with hardware menu button (e.g. Samsung Note) don't show action overflow menu
-        try {
-            ViewConfiguration config = ViewConfiguration.get(this);
-            @SuppressLint("PrivateApi") Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
-            if (menuKeyField != null) {
-                menuKeyField.setAccessible(true);
-                menuKeyField.setBoolean(config, false);
-            }
-        } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
-        }
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
     }
 
     @Override
@@ -165,60 +128,6 @@ public class MainActivity extends Activity implements OnClickListener,
             Log.d(TAG, ex.getMessage());
         }
         return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onMenuOpened(int featureId, Menu menu) {
-        try {
-            if (featureId == FEATURE_ACTION_BAR && menu != null) {
-                if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-                    @SuppressLint("PrivateApi") Method m = menu.getClass().getDeclaredMethod(
-                            "setOptionalIconsVisible", TYPE);
-                    m.setAccessible(true);
-                    m.invoke(menu, true);
-                }
-            }
-        } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
-        }
-        return super.onMenuOpened(featureId, menu);
-    }
-
-    @SuppressLint({"SetTextI18n", "InflateParams"})
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        try {
-            int id = item.getItemId();
-            switch (id) {
-                case R.id.dev_team:
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_dev_team)
-                            .setTitle(R.string.dev_team)
-                            .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
-                            .setPositiveButton(ok, (dialog, which) -> dialog.dismiss()).show().setCanceledOnTouchOutside(true);
-                    break;
-                case about_app:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_about)
-                            .setTitle(R.string.created_for)
-                            .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
-                            .setPositiveButton(ok, (dialog, which) -> dialog.dismiss())
-                            .show().setCanceledOnTouchOutside(true);
-                    AlertDialog dialog = builder.create();
-                    dialog.dismiss();
-                    break;
-                case R.id.subscribe:
-                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
-                    break;
-            }
-            return super.onOptionsItemSelected(item);
-        } catch (Exception ex) {
-            Log.d(TAG, ex.getMessage());
-        }
-        return false;
     }
 
     private void storyButtonClicked() {
@@ -255,6 +164,42 @@ public class MainActivity extends Activity implements OnClickListener,
 
     private void rssNewsButtonClicked() {
         startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
+    }
+
+    @SuppressLint("InflateParams")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        try {
+            int id = item.getItemId();
+            switch (id) {
+                case R.id.dev_team:
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_dev_team)
+                            .setTitle(R.string.dev_team)
+                            .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
+                            .setPositiveButton("OK", (dialog, which) -> dialog.dismiss()).show().setCanceledOnTouchOutside(true);
+                    break;
+                case about_app:
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.icon_about)
+                            .setTitle(R.string.created_for)
+                            .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
+                            .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                            .show().setCanceledOnTouchOutside(true);
+                    dialog = builder.create();
+                    dialog.dismiss();
+                    break;
+                case R.id.subscribe:
+                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
+                    break;
+            }
+        } catch (Exception ex) {
+            Log.d(TAG, ex.getMessage());
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -303,53 +248,16 @@ public class MainActivity extends Activity implements OnClickListener,
         }
     }
 
-    /*private void videoGalleryButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), YouTubeActivity.class));
-    }*/
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_our_story:
+                startActivity(new Intent(getApplicationContext(), StoryActivity.class));
+                break;
+            case R.id.nav_study_addresses:
+                startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
+                break;
         }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            try {
-                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-                fragment.setArguments(args);
-            } catch (Exception ex) {
-                Log.d(TAG, ex.getMessage());
-            }
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            return inflater.inflate(fragment_main_navitagion_drawer, container, false);
-        }
-
-        @SuppressWarnings("deprecation")
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-
-            /*((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));*/
-        }
+        return false;
     }
 }

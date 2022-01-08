@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
+    <style name="AppTheme" parent="@style/Theme.AppCompat.DayNight">
         <item name="colorPrimary">@color/yellow</item>
         <item name="titleTextStyle">@color/black</item>
     </style>

@@ -101,8 +101,13 @@ public class YouTubeActivity extends YouTubeBaseActivity implements OnInitialize
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
-        finish();
     }
 }

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SpecStorySectionActivity">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
     <RelativeLayout
         android:id="@+id/container"
@@ -27,8 +29,8 @@
                     android:layout_below="@+id/AFM_button"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="#78c0c0c0"
                     android:text="@string/mec_elect_sector"
                     android:textColor="#000" />
@@ -40,8 +42,8 @@
                     android:layout_below="@+id/IT_TLC_button"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="#78ff6347"
                     android:text="@string/economic_sector"
                     android:textColor="#000" />
@@ -53,8 +55,8 @@
                     android:layout_below="@+id/LSA_button"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="#784169e1"
                     android:text="@string/it_tlc_sector"
                     android:textColor="#000" />
@@ -66,8 +68,8 @@
                     android:layout_alignWithParentIfMissing="false"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="#78ffff33"
                     android:text="@string/lyceum_sector"
                     android:textColor="#000" />
@@ -75,13 +77,12 @@
         </ScrollView>
     </RelativeLayout>
 
-    <fragment
-        android:id="@+id/navigation_drawer"
-        android:name="com.example.arnold.itsosgadda.handlers.NavigationDrawerFragment"
-        android:layout_width="@dimen/navigation_drawer_width"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        tools:layout="@layout/drawer_main_navitagion_drawer" />
-
-
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
 </androidx.drawerlayout.widget.DrawerLayout>

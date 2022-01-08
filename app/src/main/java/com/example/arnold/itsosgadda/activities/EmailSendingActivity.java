@@ -23,9 +23,11 @@ import static android.util.Patterns.EMAIL_ADDRESS;
 import static android.widget.Toast.LENGTH_SHORT;
 import static android.widget.Toast.makeText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 
 @SuppressWarnings("FieldCanBeLocal")
-public class EmailSendingActivity extends Activity {
+public class EmailSendingActivity extends AppCompatActivity {
     private Button buttonSend;
     private EditText txtMessage;
 
@@ -33,10 +35,6 @@ public class EmailSendingActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.email_send_layout);
-        ActionBar actionBar = getActionBar();
-        assert actionBar != null;
-        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffeb3b")));
         buttonSend = (Button) findViewById(R.id.emailSend);
         txtMessage = (EditText) findViewById(R.id.editTextMessage);
         buttonSend.setOnClickListener(new View.OnClickListener() {
