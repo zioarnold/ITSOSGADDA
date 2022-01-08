@@ -1,6 +1,7 @@
 package com.example.arnold.itsosgadda.activities;
 
 import static com.example.arnold.itsosgadda.R.id.about_app;
+import static com.example.arnold.itsosgadda.R.id.nav_home;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -21,13 +23,15 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.databinding.AfmLayoutBinding;
+import com.example.arnold.itsosgadda.handlers.MapsLoader;
+import com.example.arnold.itsosgadda.main.MainActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import org.apache.log4j.Logger;
 
 
 @SuppressWarnings("FieldCanBeLocal")
-public class AFMActivity extends AppCompatActivity {
+public class AFMActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "AFMActivity";
     private AlertDialog dialog;
     private AlertDialog.Builder builder;
@@ -49,6 +53,7 @@ public class AFMActivity extends AppCompatActivity {
 
             DrawerLayout drawerLayout = binding.drawerLayout;
             NavigationView navigationView = binding.navView;
+            navigationView.setNavigationItemSelectedListener(this);
             mAppBarConfiguration = new AppBarConfiguration.Builder(
                     R.id.nav_home,
                     R.id.nav_our_story,
@@ -129,6 +134,34 @@ public class AFMActivity extends AppCompatActivity {
             Log.d(TAG, ex.getMessage());
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case nav_home:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                break;
+            case R.id.nav_our_story:
+                startActivity(new Intent(getApplicationContext(), StoryActivity.class));
+                break;
+            case R.id.nav_study_addresses:
+                startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
+                break;
+            case R.id.nav_e_registry_link:
+                startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
+                break;
+            case R.id.nav_feedback_to_staff:
+                startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
+                break;
+            case R.id.nav_findus:
+                startActivity(new Intent(getApplicationContext(), MapsLoader.class));
+                break;
+            case R.id.nav_app_blog:
+                startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
+                break;
+        }
+        return false;
     }
 }
 

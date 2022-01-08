@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/drawable/ic_app_blog.xml" value="0.34427083333333336" />
+        <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/drawable/ic_communications.xml" value="0.3411458333333333" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/drawable/ic_home.xml" value="0.34427083333333336" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/drawable/ic_menu_camera.xml" value="0.34427083333333336" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.34427083333333336" />
@@ -23,11 +24,15 @@
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/fragment_slideshow.xml" value="0.325" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/handler_dev_team.xml" value="0.328125" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/it_tlc_layout.xml" value="0.21014492753623187" />
+        <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/list_item_activated.xml" value="0.325" />
+        <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/list_item_article.xml" value="0.325" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/lyceum_layout.xml" value="0.325" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/mech_elet_assist_tech_layout.xml" value="0.325" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/nav_header_main.xml" value="0.328125" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/news_reader.xml" value="0.325" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/postview.xml" value="0.328125" />
+        <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/refresh_footer_view.xml" value="0.325" />
+        <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/refresh_header_view.xml" value="0.325" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/send_bug_crash_report.xml" value="0.21014492753623187" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/spec_study_sections_layout.xml" value="0.328125" />
         <entry key="..\:/Users/arn81/StudioProjects/ITSOSGADDA/app/src/main/res/layout/story_layout.xml" value="0.325" />

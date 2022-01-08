@@ -37,13 +37,15 @@ import com.example.arnold.itsosgadda.activities.RSSReaderActivity;
 import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
+import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
 import com.example.arnold.itsosgadda.databinding.ActivityMainBinding;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
 import com.google.android.material.navigation.NavigationView;
 import com.pushbots.push.Pushbots;
 
 @SuppressWarnings("FieldCanBeLocal")
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+        NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity";
     private Button storyButtonMainBody,
             specSectButton,
@@ -95,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             DrawerLayout drawerLayout = binding.drawerLayout;
             NavigationView navigationView = binding.navView;
+            navigationView.setNavigationItemSelectedListener(this);
             mAppBarConfiguration = new AppBarConfiguration.Builder(
                     R.id.nav_home,
                     R.id.nav_our_story,
@@ -251,11 +254,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case nav_home:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                break;
             case R.id.nav_our_story:
                 startActivity(new Intent(getApplicationContext(), StoryActivity.class));
                 break;
             case R.id.nav_study_addresses:
                 startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
+                break;
+            case R.id.nav_e_registry_link:
+                startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
+                break;
+            case R.id.nav_feedback_to_staff:
+                startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
+                break;
+            case R.id.nav_findus:
+                startActivity(new Intent(getApplicationContext(), MapsLoader.class));
+                break;
+            case R.id.nav_app_blog:
+                startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
                 break;
         }
         return false;

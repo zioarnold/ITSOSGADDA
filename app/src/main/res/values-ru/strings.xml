@@ -70,13 +70,14 @@
 
 
 
-    <string name="nav_header_title">IIGadda App</string>
+    <string name="nav_header_title">IISS Gadda App</string>
     <string name="nav_header_subtitle">by ARNI</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Настройки</string>
 
     <string name="menu_home">Домой</string>
     <string name="menu_our_story">История</string>
+    <string name="menu_study_addresses">Учебные классы</string>
     <string name="menu_e_registry">Регистр (сайт)</string>
     <string name="menu_feedback_to_staff">Отзыв персоналу</string>
     <string name="menu_find_us">Где мы</string>

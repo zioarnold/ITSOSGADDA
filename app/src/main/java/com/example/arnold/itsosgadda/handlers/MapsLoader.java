@@ -1,6 +1,7 @@
 package com.example.arnold.itsosgadda.handlers;
 
 import static com.example.arnold.itsosgadda.R.id.about_app;
+import static com.example.arnold.itsosgadda.R.id.nav_home;
 import static com.example.arnold.itsosgadda.R.menu.main_menu;
 
 import android.annotation.SuppressLint;
@@ -22,7 +23,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.arnold.itsosgadda.R;
+import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
+import com.example.arnold.itsosgadda.activities.RSSReaderActivity;
 import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
+import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
+import com.example.arnold.itsosgadda.activities.StoryActivity;
+import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
 import com.example.arnold.itsosgadda.databinding.ActivityMapsBinding;
 import com.example.arnold.itsosgadda.main.MainActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -38,7 +44,8 @@ import org.apache.log4j.Logger;
 import java.util.Objects;
 
 @SuppressWarnings("FieldCanBeLocal")
-public class MapsLoader extends AppCompatActivity implements OnMapReadyCallback {
+public class MapsLoader extends AppCompatActivity implements OnMapReadyCallback,
+        NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "MapsLoader";
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
@@ -59,6 +66,7 @@ public class MapsLoader extends AppCompatActivity implements OnMapReadyCallback 
 
             DrawerLayout drawerLayout = binding.drawerLayout;
             NavigationView navigationView = binding.navView;
+            navigationView.setNavigationItemSelectedListener(this);
             mAppBarConfiguration = new AppBarConfiguration.Builder(
                     R.id.nav_home,
                     R.id.nav_our_story,
@@ -183,5 +191,33 @@ public class MapsLoader extends AppCompatActivity implements OnMapReadyCallback 
             log.warn(ex.getMessage());
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case nav_home:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                break;
+            case R.id.nav_our_story:
+                startActivity(new Intent(getApplicationContext(), StoryActivity.class));
+                break;
+            case R.id.nav_study_addresses:
+                startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
+                break;
+            case R.id.nav_e_registry_link:
+                startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
+                break;
+            case R.id.nav_feedback_to_staff:
+                startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
+                break;
+            case R.id.nav_findus:
+                startActivity(new Intent(getApplicationContext(), MapsLoader.class));
+                break;
+            case R.id.nav_app_blog:
+                startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
+                break;
+        }
+        return false;
     }
 }

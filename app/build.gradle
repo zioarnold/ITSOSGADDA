@@ -15,8 +15,9 @@ android {
     compileSdkVersion 32
     buildToolsVersion '32.0.0'
     defaultConfig {
-        applicationId 'app.iissgadda.dev.arnold'
+        applicationId 'app.iissgadda.dev.new.arnold'
         minSdkVersion 19
+        targetSdkVersion 30
         versionCode 2600
         versionName '2600-release'
         signingConfig signingConfigs.iissgadda_release
@@ -31,7 +32,6 @@ android {
             signingConfig signingConfigs.iissgadda_release
             renderscriptDebuggable false
             zipAlignEnabled true
-
         }
         debug {
             debuggable true
@@ -51,7 +51,7 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
 
-    implementation 'com.google.android.gms:play-services-ads:20.5.0'
+//    implementation 'com.google.android.gms:play-services-ads:20.5.0'
     implementation 'com.google.android.gms:play-services-tagmanager:18.0.1'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
 

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--<string name="iissgadda_2513updateList">- AdMob интеграция</string>-->
+    <string name="iissgadda_2600" translatable="false">IISS C. E. Gadda v2600</string>
+    <string name="iissgadda_2600updateList">- миграция на AppCompat\n
+    - NavigationDrawer улучшен</string>
     <string name="iissgadda_2512updateList">- Восстановление логирования Log4j\n
     - Восстановление окна \"Отзыв разработчику\"</string>
     <string name="iissgadda_2511updateList">- Добавление русского языка, в пред-идущем он был убран</string>

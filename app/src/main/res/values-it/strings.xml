@@ -67,13 +67,14 @@
     <string name="feature_under_work">Funzionalita` e` sotto manutenzione</string>
 
 
-    <string name="nav_header_title">IIGadda App</string>
+    <string name="nav_header_title">IISS Gadda App</string>
     <string name="nav_header_subtitle">by ARNI</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Impostazioni</string>
 
     <string name="menu_home">Principale</string>
     <string name="menu_our_story">Storia</string>
+    <string name="menu_study_addresses">Indirizzi di studio</string>
     <string name="menu_e_registry">Registro (sito)</string>
     <string name="menu_feedback_to_staff">Feedback allo Staff</string>
     <string name="menu_find_us">Trovaci</string>
