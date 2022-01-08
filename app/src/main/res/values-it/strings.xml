@@ -64,4 +64,5 @@
     <string name="error_player">Errore nell\'inizializzazione dell\'YouTubePlayer (1%$s)</string>
     <string name="Email_to_send_developer">Manda il rapporto…</string>
     <string name="label_send_bug_crash_report">Rapporto allo Sviluppatore</string>
+    <string name="feature_under_work">Funzionalita` e` sotto manutenzione</string>
 </resources>

@@ -16,14 +16,14 @@ import com.example.arnold.itsosgadda.post.PostData;
 import java.util.ArrayList;
 
 public class PostAdapter extends ArrayAdapter<PostData> {
-    private LayoutInflater inflater;
-    private ArrayList<PostData> datas;
+    private final LayoutInflater inflater;
+    private final ArrayList<PostData> data;
 
     public PostAdapter(Context context, int textViewResourceId,
                        ArrayList<PostData> objects) {
         super(context, textViewResourceId, objects);
         inflater = ((Activity) context).getLayoutInflater();
-        datas = objects;
+        data = objects;
     }
 
     @SuppressLint("InflateParams")
@@ -45,13 +45,13 @@ public class PostAdapter extends ArrayAdapter<PostData> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        if (datas.get(position).postThumbUrl == null) {
+        if (data.get(position).postThumbUrl == null) {
             viewHolder.postThumbView
                     .setImageResource(R.drawable.muslim_logo_creatorb);
         }
 
-        viewHolder.postTitleView.setText(datas.get(position).postTitle);
-        viewHolder.postDateView.setText(datas.get(position).postDate);
+        viewHolder.postTitleView.setText(data.get(position).postTitle);
+        viewHolder.postDateView.setText(data.get(position).postDate);
 
         return convertView;
     }

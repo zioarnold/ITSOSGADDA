@@ -12,7 +12,9 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.drawerlayout.widget.DrawerLayout;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -61,7 +63,9 @@ public class MainActivity extends Activity implements OnClickListener,
         NavigationDrawerCallbacks {
     private static final String TAG = "MainActivity";
     private Button storyButtonMainBody, specSectButton, webRegistryButton, feedBackButton,
-            findUsButton, communicationButton, rssFeedReader;
+            findUsButton,
+            communicationButton,
+            rssFeedReader;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
@@ -142,7 +146,7 @@ public class MainActivity extends Activity implements OnClickListener,
         //devices with hardware menu button (e.g. Samsung Note) don't show action overflow menu
         try {
             ViewConfiguration config = ViewConfiguration.get(this);
-            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            @SuppressLint("PrivateApi") Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
             if (menuKeyField != null) {
                 menuKeyField.setAccessible(true);
                 menuKeyField.setBoolean(config, false);
@@ -168,7 +172,7 @@ public class MainActivity extends Activity implements OnClickListener,
         try {
             if (featureId == FEATURE_ACTION_BAR && menu != null) {
                 if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-                    Method m = menu.getClass().getDeclaredMethod(
+                    @SuppressLint("PrivateApi") Method m = menu.getClass().getDeclaredMethod(
                             "setOptionalIconsVisible", TYPE);
                     m.setAccessible(true);
                     m.invoke(menu, true);
@@ -194,24 +198,14 @@ public class MainActivity extends Activity implements OnClickListener,
                     builder.setIcon(R.mipmap.icon_dev_team)
                             .setTitle(R.string.dev_team)
                             .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
-                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show().setCanceledOnTouchOutside(true);
+                            .setPositiveButton(ok, (dialog, which) -> dialog.dismiss()).show().setCanceledOnTouchOutside(true);
                     break;
                 case about_app:
                     builder = new AlertDialog.Builder(this);
                     builder.setIcon(R.mipmap.icon_about)
                             .setTitle(R.string.created_for)
                             .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
-                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
+                            .setPositiveButton(ok, (dialog, which) -> dialog.dismiss())
                             .show().setCanceledOnTouchOutside(true);
                     AlertDialog dialog = builder.create();
                     dialog.dismiss();
@@ -255,7 +249,8 @@ public class MainActivity extends Activity implements OnClickListener,
     }
 
     private void communicationButtonClicked() {
-        startActivity(new Intent(getApplicationContext(), ComWebActivity.class));
+//        startActivity(new Intent(getApplicationContext(), ComWebActivity.class));
+
     }
 
     private void rssNewsButtonClicked() {
@@ -279,7 +274,14 @@ public class MainActivity extends Activity implements OnClickListener,
                     feedbackMailToButtonClicked();
                     break;
                 case button_show_comunications:
-                    communicationButtonClicked();
+                    builder = new AlertDialog.Builder(this);
+                    builder.setIcon(R.mipmap.ic_launcher)
+                            .setTitle(R.string.created_for)
+                            .setMessage(R.string.feature_under_work)
+                            .show().setCanceledOnTouchOutside(true);
+                    dialog = builder.create();
+                    dialog.dismiss();
+//                    communicationButtonClicked();
                     break;
                 case app_blog:
                     rssNewsButtonClicked();
@@ -289,13 +291,8 @@ public class MainActivity extends Activity implements OnClickListener,
                     builder.setIcon(R.mipmap.ic_launcher)
                             .setTitle(R.string.created_for)
                             .setMessage(R.string.reaching_from_fornovo_FS)
-                            .setPositiveButton(ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    startActivity(new Intent(getApplicationContext(),
-                                            MapsLoader.class));
-                                }
-                            })
+                            .setPositiveButton(ok, (dialog, which) -> startActivity(new Intent(getApplicationContext(),
+                                    MapsLoader.class)))
                             .show().setCanceledOnTouchOutside(true);
                     dialog = builder.create();
                     dialog.dismiss();

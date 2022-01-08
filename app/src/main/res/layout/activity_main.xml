@@ -26,8 +26,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="#78ffff33"
                     android:text="@string/La_nostra_storia"
                     android:textColor="#000" />
@@ -38,8 +38,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/storyButton"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="#784169e1"
                     android:text="@string/specSectionButtonId"
                     android:textColor="#000" />
@@ -51,8 +51,8 @@
                     android:layout_below="@+id/specSectionButtonId"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="#78ff6347"
                     android:text="@string/e_registry"
                     android:textColor="#000" />
@@ -64,8 +64,8 @@
                     android:layout_below="@+id/e_registryId"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="#78c0c0c0"
                     android:text="@string/feedback"
                     android:textColor="#000" />
@@ -77,8 +77,8 @@
                     android:layout_below="@id/feedback"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="#78ffff33"
                     android:text="@string/findus"
                     android:textColor="#000" />
@@ -90,8 +90,8 @@
                     android:layout_below="@+id/findus"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="#784169e1"
                     android:text="@string/communications_news" />
 
@@ -102,8 +102,8 @@
                     android:layout_below="@+id/button_show_comunications"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="#78ff6347"
                     android:text="@string/app_blog"
                     android:textColor="#000" />
@@ -123,15 +123,15 @@
 
             </RelativeLayout>
         </ScrollView>
-        <!--<com.google.android.gms.ads.AdView-->
-        <!--android:id="@+id/adView"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--ads:adSize="BANNER"-->
-        <!--ads:adUnitId="@string/banner_ad_unit_id">-->
-        <!--</com.google.android.gms.ads.AdView>-->
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"/>
     </RelativeLayout>
     <!-- The drawer is given a fixed width in dp and extends the full height of
          the container. -->

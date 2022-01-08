@@ -85,5 +85,6 @@
     <string name="error_player">There was an error initializing the YouTubePlayer (1%$s)</string>
     <string name="Email_to_send_developer">Send feedback to Developer…</string>
 
-    <!--<string name="banner_ad_unit_id" translatable="false">ca-app-pub-1278172190039555/4410549827</string>-->
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-1278172190039555~6139425027</string>
+    <string name="feature_under_work">Feature under maintenance</string>
 </resources>

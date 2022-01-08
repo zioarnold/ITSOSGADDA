@@ -66,4 +66,5 @@
     <string name="Email_to_send_developer">Отправить отзыв Разработчику…</string>
     <string name="error_player">Ошибка инициализации YouTubePlayer (1%$s)</string>
     <string name="label_send_bug_crash_report">Отзыв Разработчику</string>
+    <string name="feature_under_work">Функция под тех.работами</string>
 </resources>

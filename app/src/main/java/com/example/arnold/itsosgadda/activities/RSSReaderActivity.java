@@ -45,7 +45,7 @@ public class RSSReaderActivity extends Activity implements Refresher {
     private ArrayList<PostData> listData;
     //private String urlString = "http://feeds.feedburner.com/muslimorid";
     //private String urlString = "http://feeds.reuters.com/reuters/technologyNews";
-    private String urlString = "http://feeds.feedburner.com/IissCarloEmilioGadda?format=xml";
+    private final String urlString = "http://feeds.feedburner.com/IissCarloEmilioGadda?fmt=xml";
     //private String urlString = "http://feeds.feedburner.com/reuterstech?format=xml";
     private RefresherListView postListView;
     private PostAdapter postAdapter;
@@ -249,7 +249,7 @@ public class RSSReaderActivity extends Activity implements Refresher {
                             currentTag = RSSXMLTag.LINK;
                         } else if (xpp.getName().equals("pubDate")) {
                             currentTag = RSSXMLTag.DATE;
-                        } else if (xpp.getName().equals("encoded")) {
+                        } else if (xpp.getName().equals("content:encoded")) {
                             currentTag = RSSXMLTag.CONTENT;
                         } else if (xpp.getName().equals("guid")) {
                             currentTag = RSSXMLTag.GUID;

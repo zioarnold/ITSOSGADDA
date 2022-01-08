@@ -41,12 +41,7 @@ public class YouTubeActivity extends YouTubeBaseActivity implements OnInitialize
         setContentView(R.layout.activity_you_tube);
 
         skipVideo = (Button) findViewById(R.id.skip_video);
-        skipVideo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }
-        });
+        skipVideo.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         final SharedPreferences.Editor editor = settings.edit();
 
@@ -56,12 +51,9 @@ public class YouTubeActivity extends YouTubeBaseActivity implements OnInitialize
             return;
         }
         checkBox = (CheckBox) findViewById(R.id.checkbox);
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                editor.putBoolean("skipMessage", isChecked);
-                editor.apply();
-            }
+        checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            editor.putBoolean("skipMessage", isChecked);
+            editor.apply();
         });
 
         youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);

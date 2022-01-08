@@ -1,8 +1,10 @@
 package com.example.arnold.itsosgadda.handlers;
 
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,8 +12,10 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+
 import androidx.legacy.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
+
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -50,10 +54,6 @@ public class NavigationDrawerFragment extends Fragment {
      * expands it. This shared preference tracks this.
      */
     private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
-    private String[] navMenuTitles;
-    private ArrayList<NavDrawerItem> navDrawerItems;
-    private NavDrawerListAdapter adapter;
-    private TypedArray navMenuIcons;
     /**
      * A pointer to the current callbacks instance (the Activity).
      */
@@ -113,59 +113,56 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerListView = (ListView) inflater.inflate(
                 R.layout.drawer_main_navitagion_drawer, container, false);
 
-        navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
-        navMenuIcons = getResources()
+        String[] navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
+        @SuppressLint("Recycle") TypedArray navMenuIcons = getResources()
                 .obtainTypedArray(R.array.nav_drawer_icons);
-        navDrawerItems = new ArrayList<NavDrawerItem>();
+        ArrayList<NavDrawerItem> navDrawerItems = new ArrayList<NavDrawerItem>();
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
+//        navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuIcons.getResourceId(7, -1)));
 
-        adapter = new NavDrawerListAdapter(getActivity().getApplicationContext(),
+        NavDrawerListAdapter adapter = new NavDrawerListAdapter(getActivity().getApplicationContext(),
                 navDrawerItems);
         mDrawerListView.setAdapter(adapter);
-        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        startActivity(new Intent(getActivity().getApplicationContext(),
-                                MainActivity.class));
-                        break;
-                    case 1:
-                        startActivity(new Intent(getActivity().getApplicationContext(),
-                                StoryActivity.class));
-                        break;
-                    case 2:
-                        startActivity(new Intent(getActivity().getApplicationContext(),
-                                SpecStorySectionActivity.class));
-                        break;
-                    case 3:
-                        startActivity(new Intent(getActivity().getApplicationContext(),
-                                WebRegistryActivity.class));
-                        break;
-                    case 4:
-                        startActivity(new Intent(getActivity().getApplicationContext(),
-                                EmailSendingActivity.class));
-                        break;
-                    case 5:
-                        startActivity(new Intent(getActivity().getApplicationContext(),
-                                MapsLoader.class));
-                        break;
-                    case 6:
-                        startActivity(new Intent(getActivity().getApplicationContext(),
-                                ComWebActivity.class));
-                        break;
-                    case 7:
-                        startActivity(new Intent(getActivity().getApplicationContext(),
-                                RSSReaderActivity.class));
-                        break;
-                }
+        mDrawerListView.setOnItemClickListener((parent, view, position, id) -> {
+            switch (position) {
+                case 0:
+                    startActivity(new Intent(getActivity().getApplicationContext(),
+                            MainActivity.class));
+                    break;
+                case 1:
+                    startActivity(new Intent(getActivity().getApplicationContext(),
+                            StoryActivity.class));
+                    break;
+                case 2:
+                    startActivity(new Intent(getActivity().getApplicationContext(),
+                            SpecStorySectionActivity.class));
+                    break;
+                case 3:
+                    startActivity(new Intent(getActivity().getApplicationContext(),
+                            WebRegistryActivity.class));
+                    break;
+                case 4:
+                    startActivity(new Intent(getActivity().getApplicationContext(),
+                            EmailSendingActivity.class));
+                    break;
+                case 5:
+                    startActivity(new Intent(getActivity().getApplicationContext(),
+                            MapsLoader.class));
+                    break;
+//                case 6:
+//                    startActivity(new Intent(getActivity().getApplicationContext(),
+//                            ComWebActivity.class));
+//                    break;
+                case 6:
+                    startActivity(new Intent(getActivity().getApplicationContext(),
+                            RSSReaderActivity.class));
+                    break;
             }
         });
         /*mDrawerListView.setAdapter(new ArrayAdapter<String>(

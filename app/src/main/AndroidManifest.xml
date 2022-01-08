@@ -42,6 +42,11 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1278172190039555~6139425027"/>
+<!--            android:value="ca-app-pub-1278172190039555/9043438892"-->
+
 
         <activity
             android:name=".main.MainActivity"
