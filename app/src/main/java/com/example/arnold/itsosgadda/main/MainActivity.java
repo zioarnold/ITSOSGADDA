@@ -1,19 +1,8 @@
 package com.example.arnold.itsosgadda.main;
 
-import static com.example.arnold.itsosgadda.R.id.about_app;
-import static com.example.arnold.itsosgadda.R.id.app_blog;
-import static com.example.arnold.itsosgadda.R.id.button_show_comunications;
-import static com.example.arnold.itsosgadda.R.id.e_registryId;
-import static com.example.arnold.itsosgadda.R.id.feedback;
-import static com.example.arnold.itsosgadda.R.id.findus;
-import static com.example.arnold.itsosgadda.R.id.nav_home;
-import static com.example.arnold.itsosgadda.R.id.specSectionButtonId;
-import static com.example.arnold.itsosgadda.R.id.storyButton;
-import static com.example.arnold.itsosgadda.R.menu.main_menu;
-import static com.example.arnold.itsosgadda.R.string.ok;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -74,25 +63,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             binding = ActivityMainBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
 
-            storyButtonMainBody = (Button) findViewById(storyButton);
+            storyButtonMainBody = findViewById(R.id.storyButton);
             storyButtonMainBody.setOnClickListener(this);
 
-            specSectButton = (Button) findViewById(specSectionButtonId);
+            specSectButton = findViewById(R.id.specSectionButtonId);
             specSectButton.setOnClickListener(this);
 
-            webRegistryButton = (Button) findViewById(e_registryId);
+            webRegistryButton = findViewById(R.id.e_registryId);
             webRegistryButton.setOnClickListener(this);
 
-            feedBackButton = (Button) findViewById(feedback);
+            feedBackButton = findViewById(R.id.feedback);
             feedBackButton.setOnClickListener(this);
 
-            findUsButton = (Button) findViewById(findus);
+            findUsButton = findViewById(R.id.findus);
             findUsButton.setOnClickListener(this);
 
-            communicationButton = (Button) findViewById(button_show_comunications);
+            communicationButton = findViewById(R.id.button_show_comunications);
             communicationButton.setOnClickListener(this);
 
-            rssFeedReader = (Button) findViewById(app_blog);
+            rssFeedReader = findViewById(R.id.app_blog);
             rssFeedReader.setOnClickListener(this);
 
             DrawerLayout drawerLayout = binding.drawerLayout;
@@ -126,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         try {
-            getMenuInflater().inflate(main_menu, menu);
+            getMenuInflater().inflate(R.menu.main_menu, menu);
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
         }
@@ -146,14 +135,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (intent != null) {
             // We found the activity now start the activity
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
         } else {
             // Bring user to the market or let them choose an app?
             intent = new Intent(Intent.ACTION_VIEW);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setData(Uri.parse("market://details?id=" + "eu.spaggiari.classeviva"));
-            startActivity(intent);
         }
+        startActivity(intent);
     }
 
     private void feedbackMailToButtonClicked() {
@@ -177,27 +165,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // as you specify a parent activity in AndroidManifest.xml.
         try {
             int id = item.getItemId();
-            switch (id) {
-                case R.id.dev_team:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_dev_team)
-                            .setTitle(R.string.dev_team)
-                            .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
-                            .setPositiveButton("OK", (dialog, which) -> dialog.dismiss()).show().setCanceledOnTouchOutside(true);
-                    break;
-                case about_app:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_about)
-                            .setTitle(R.string.created_for)
-                            .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
-                            .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
-                            .show().setCanceledOnTouchOutside(true);
-                    dialog = builder.create();
-                    dialog.dismiss();
-                    break;
-                case R.id.subscribe:
-                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
-                    break;
+            if (id == R.id.dev_team) {
+                builder = new AlertDialog.Builder(this);
+                builder.setIcon(R.mipmap.icon_dev_team)
+                        .setTitle(R.string.dev_team)
+                        .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
+                        .setPositiveButton("OK", (dialog, which) -> dialog.dismiss()).show().setCanceledOnTouchOutside(true);
+            } else if (id == R.id.subscribe) {
+                startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
             }
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
@@ -208,43 +183,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         try {
-            switch (v.getId()) {
-                case storyButton:
-                    storyButtonClicked();
-                    break;
-                case specSectionButtonId:
-                    specSectButtonClicked();
-                    break;
-                case e_registryId:
-                    webRegistryButtonClicked();
-                    break;
-                case feedback:
-                    feedbackMailToButtonClicked();
-                    break;
-                case button_show_comunications:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.ic_launcher)
-                            .setTitle(R.string.created_for)
-                            .setMessage(R.string.feature_under_work)
-                            .show().setCanceledOnTouchOutside(true);
-                    dialog = builder.create();
-                    dialog.dismiss();
+            int id = v.getId();
+            if (id == R.id.storyButton) {
+                storyButtonClicked();
+            } else if (id == R.id.specSectionButtonId) {
+                specSectButtonClicked();
+            } else if (id == R.id.e_registryId) {
+                webRegistryButtonClicked();
+            } else if (id == R.id.feedback) {
+                feedbackMailToButtonClicked();
+            } else if (id == R.id.button_show_comunications) {
+                builder = new AlertDialog.Builder(this);
+                builder.setIcon(R.mipmap.ic_launcher)
+                        .setTitle(R.string.created_for)
+                        .setMessage(R.string.feature_under_work)
+                        .show().setCanceledOnTouchOutside(true);
+                dialog = builder.create();
+                dialog.dismiss();
 //                    communicationButtonClicked();
-                    break;
-                case app_blog:
-                    rssNewsButtonClicked();
-                    break;
-                case findus:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.ic_launcher)
-                            .setTitle(R.string.created_for)
-                            .setMessage(R.string.reaching_from_fornovo_FS)
-                            .setPositiveButton(ok, (dialog, which) -> startActivity(new Intent(getApplicationContext(),
-                                    MapsLoader.class)))
-                            .show().setCanceledOnTouchOutside(true);
-                    dialog = builder.create();
-                    dialog.dismiss();
-                    break;
+            } else if (id == R.id.app_blog) {
+                rssNewsButtonClicked();
+            } else if (id == R.id.findus) {
+                builder = new AlertDialog.Builder(this);
+                builder.setIcon(R.mipmap.ic_launcher)
+                        .setTitle(R.string.created_for)
+                        .setMessage(R.string.reaching_from_fornovo_FS)
+                        .setPositiveButton(R.string.ok, (dialog, which) -> startActivity(new Intent(getApplicationContext(),
+                                MapsLoader.class)))
+                        .show().setCanceledOnTouchOutside(true);
+                dialog = builder.create();
+                dialog.dismiss();
             }
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
@@ -253,29 +221,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case nav_home:
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                break;
-            case R.id.nav_our_story:
-                startActivity(new Intent(getApplicationContext(), StoryActivity.class));
-                break;
-            case R.id.nav_study_addresses:
-                startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
-                break;
-            case R.id.nav_e_registry_link:
-                startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
-                break;
-            case R.id.nav_feedback_to_staff:
-                startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
-                break;
-            case R.id.nav_findus:
-                startActivity(new Intent(getApplicationContext(), MapsLoader.class));
-                break;
-            case R.id.nav_app_blog:
-                startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
-                break;
+        int id = item.getItemId();
+        if (id == R.id.nav_home) {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        } else if (id == R.id.nav_our_story) {
+            startActivity(new Intent(getApplicationContext(), StoryActivity.class));
+        } else if (id == R.id.nav_study_addresses) {
+            startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
+        } else if (id == R.id.nav_e_registry_link) {
+            startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
+        } else if (id == R.id.nav_feedback_to_staff) {
+            startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
+        } else if (id == R.id.nav_findus) {
+            startActivity(new Intent(getApplicationContext(), MapsLoader.class));
+        } else if (id == R.id.nav_app_blog) {
+            startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
         }
-        return false;
+        return true;
     }
 }

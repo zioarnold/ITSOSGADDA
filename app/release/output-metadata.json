@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "app.iissgadda.dev.new.arnold",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 2602,
+      "versionName": "2602-release",
+      "outputFile": "app-release.apk"
+    }
+  ],
+  "elementType": "File"
+}

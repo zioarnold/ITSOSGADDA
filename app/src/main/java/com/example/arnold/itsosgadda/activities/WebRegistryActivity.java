@@ -6,9 +6,12 @@ import static android.webkit.WebSettings.ZoomDensity.FAR;
 import static com.example.arnold.itsosgadda.R.id.nav_home;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.webkit.WebChromeClient;
@@ -25,9 +28,12 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.databinding.ERegistryLayoutBinding;
+import com.example.arnold.itsosgadda.databinding.StoryLayoutBinding;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
 import com.example.arnold.itsosgadda.main.MainActivity;
 import com.google.android.material.navigation.NavigationView;
+
+import org.apache.log4j.Logger;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class WebRegistryActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -35,31 +41,34 @@ public class WebRegistryActivity extends AppCompatActivity implements Navigation
     private final WebRegistryActivity activity = this;
     private ERegistryLayoutBinding binding;
     private AppBarConfiguration mAppBarConfiguration;
-    private final String url = "https://web.spaggiari.eu/home/app/default/login.php?custcode=prit0007";
+    private final static String url = "https://web.spaggiari.eu/home/app/default/login.php?custcode=prit0007";
+    private AlertDialog.Builder builder;
+    private AlertDialog dialog;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
+            binding = ERegistryLayoutBinding.inflate(getLayoutInflater());
+            setContentView(binding.getRoot());
 
-            WebView webView = (WebView) findViewById(R.id.webView_Web_registry);
+            WebView webView = findViewById(R.id.webView_Web_registry);
             //Enables JS
             webView.getSettings().setJavaScriptEnabled(true);
             webView.getSettings().setSupportZoom(true);
             webView.getSettings().setBuiltInZoomControls(true);
             //noinspection deprecation
             webView.getSettings().setDefaultZoom(FAR);
-            webView.setWebChromeClient(new WebChromeClient() {
-                public void onProgressChanged(WebView view, int progress) {
-                    activity.setTitle(R.string.loading_progress);
-                    activity.setProgress(progress * 100);
-
-                    if (progress == 100)
-                        activity.setTitle(R.string.e_registry);
-                }
-            });
+//            webView.setWebChromeClient(new WebChromeClient() {
+//                public void onProgressChanged(WebView view, int progress) {
+//                    activity.setTitle(R.string.loading_progress);
+//                    activity.setProgress(progress * 100);
+//
+//                    if (progress == 100)
+//                        activity.setTitle(R.string.e_registry);
+//                }
+//            });
 
             webView.setWebViewClient(new WebViewClient() {
                 @Override
@@ -100,31 +109,59 @@ public class WebRegistryActivity extends AppCompatActivity implements Navigation
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case nav_home:
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                break;
-            case R.id.nav_our_story:
-                startActivity(new Intent(getApplicationContext(), StoryActivity.class));
-                break;
-            case R.id.nav_study_addresses:
-                startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
-                break;
-            case R.id.nav_e_registry_link:
-                startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
-                break;
-            case R.id.nav_feedback_to_staff:
-                startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
-                break;
-            case R.id.nav_findus:
-                startActivity(new Intent(getApplicationContext(), MapsLoader.class));
-                break;
-            case R.id.nav_app_blog:
-                startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
-                break;
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        try {
+            getMenuInflater().inflate(R.menu.main_menu, menu);
+        } catch (Exception ex) {
+            Log.d(TAG, ex.getMessage());
         }
-        return false;
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @SuppressLint("InflateParams")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        try {
+            int id = item.getItemId();
+            if (id == R.id.dev_team) {
+                builder = new AlertDialog.Builder(this);
+                builder.setIcon(R.mipmap.icon_dev_team)
+                        .setTitle(R.string.dev_team)
+                        .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
+                        .setPositiveButton("OK", (dialog, which) -> dialog.dismiss()).show().setCanceledOnTouchOutside(true);
+            } else if (id == R.id.subscribe) {
+                startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
+            }
+        } catch (Exception ex) {
+            Logger log = Logger.getLogger("AFMActivity");
+            log.warn(ex.getMessage());
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.nav_home) {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        } else if (id == R.id.nav_our_story) {
+            startActivity(new Intent(getApplicationContext(), StoryActivity.class));
+        } else if (id == R.id.nav_study_addresses) {
+            startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
+        } else if (id == R.id.nav_e_registry_link) {
+            startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
+        } else if (id == R.id.nav_feedback_to_staff) {
+            startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
+        } else if (id == R.id.nav_findus) {
+            startActivity(new Intent(getApplicationContext(), MapsLoader.class));
+        } else if (id == R.id.nav_app_blog) {
+            startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
+        }
+        return true;
     }
 }
 

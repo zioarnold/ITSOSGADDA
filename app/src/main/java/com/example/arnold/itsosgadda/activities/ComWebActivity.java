@@ -4,8 +4,6 @@ import static android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMP
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
 import static android.webkit.WebSettings.ZoomDensity.FAR;
 
-import static com.example.arnold.itsosgadda.R.id.nav_home;
-
 import android.annotation.SuppressLint;
 import android.app.DownloadManager;
 import android.app.DownloadManager.Request;
@@ -52,7 +50,7 @@ public class ComWebActivity extends AppCompatActivity implements NavigationView.
             binding = ActivityComWebBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
 
-            WebView webView = (WebView) findViewById(R.id.webView_ComWeb_registry);
+            WebView webView = findViewById(R.id.webView_ComWeb_registry);
             //Enables JS
             webView.getSettings().setJavaScriptEnabled(true);
             webView.getSettings().setSupportZoom(true);
@@ -68,18 +66,14 @@ public class ComWebActivity extends AppCompatActivity implements NavigationView.
                         activity.setTitle(R.string.communications_news);
                 }
             });
-            webView.setDownloadListener(new DownloadListener() {
-                @Override
-                public void onDownloadStart(String url, String userAgent, String contentDisposition,
-                                            String mimetype, long contentLength) {
-                    String filename = URLUtil.guessFileName(url, contentDisposition, mimetype);
-                    Request request = new Request(Uri.parse(url));
-                    request.allowScanningByMediaScanner();
-                    request.setNotificationVisibility(VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    request.setDestinationInExternalPublicDir(DIRECTORY_DOWNLOADS, filename);
-                    DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-                    downloadManager.enqueue(request);
-                }
+            webView.setDownloadListener((url, userAgent, contentDisposition, mimetype, contentLength) -> {
+                String filename = URLUtil.guessFileName(url, contentDisposition, mimetype);
+                Request request = new Request(Uri.parse(url));
+                request.allowScanningByMediaScanner();
+                request.setNotificationVisibility(VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                request.setDestinationInExternalPublicDir(DIRECTORY_DOWNLOADS, filename);
+                DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                downloadManager.enqueue(request);
             });
 
             webView.setWebViewClient(new WebViewClient() {
@@ -121,30 +115,23 @@ public class ComWebActivity extends AppCompatActivity implements NavigationView.
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case nav_home:
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                break;
-            case R.id.nav_our_story:
-                startActivity(new Intent(getApplicationContext(), StoryActivity.class));
-                break;
-            case R.id.nav_study_addresses:
-                startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
-                break;
-            case R.id.nav_e_registry_link:
-                startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
-                break;
-            case R.id.nav_feedback_to_staff:
-                startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
-                break;
-            case R.id.nav_findus:
-                startActivity(new Intent(getApplicationContext(), MapsLoader.class));
-                break;
-            case R.id.nav_app_blog:
-                startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
-                break;
+        int id = item.getItemId();
+        if (id == R.id.nav_home) {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        } else if (id == R.id.nav_our_story) {
+            startActivity(new Intent(getApplicationContext(), StoryActivity.class));
+        } else if (id == R.id.nav_study_addresses) {
+            startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
+        } else if (id == R.id.nav_e_registry_link) {
+            startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
+        } else if (id == R.id.nav_feedback_to_staff) {
+            startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
+        } else if (id == R.id.nav_findus) {
+            startActivity(new Intent(getApplicationContext(), MapsLoader.class));
+        } else if (id == R.id.nav_app_blog) {
+            startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
         }
-        return false;
+        return true;
     }
 }
 

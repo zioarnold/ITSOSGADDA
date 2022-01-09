@@ -18,8 +18,8 @@ android {
         applicationId 'app.iissgadda.dev.new.arnold'
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 2600
-        versionName '2600-release'
+        versionCode 2602
+        versionName '2602-release'
         signingConfig signingConfigs.iissgadda_release
         multiDexEnabled true
     }
@@ -54,6 +54,8 @@ dependencies {
 //    implementation 'com.google.android.gms:play-services-ads:20.5.0'
     implementation 'com.google.android.gms:play-services-tagmanager:18.0.1'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
 
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'

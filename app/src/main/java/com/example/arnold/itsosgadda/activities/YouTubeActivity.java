@@ -3,16 +3,13 @@ package com.example.arnold.itsosgadda.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.example.arnold.itsosgadda.R;
-import com.example.arnold.itsosgadda.configurations.Config;
 import com.example.arnold.itsosgadda.main.MainActivity;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -40,7 +37,7 @@ public class YouTubeActivity extends YouTubeBaseActivity implements OnInitialize
 
         setContentView(R.layout.activity_you_tube);
 
-        skipVideo = (Button) findViewById(R.id.skip_video);
+        skipVideo = findViewById(R.id.skip_video);
         skipVideo.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         final SharedPreferences.Editor editor = settings.edit();
@@ -50,16 +47,16 @@ public class YouTubeActivity extends YouTubeBaseActivity implements OnInitialize
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             return;
         }
-        checkBox = (CheckBox) findViewById(R.id.checkbox);
+        checkBox = findViewById(R.id.checkbox);
         checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             editor.putBoolean("skipMessage", isChecked);
             editor.apply();
         });
 
-        youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
+        youTubeView = findViewById(R.id.youtube_view);
 
         // Initializing video player with developer key
-        youTubeView.initialize(Config.DEVELOPER_KEY, this);
+        youTubeView.initialize(getResources().getString(R.string.youtube_developer_key), this);
 
     }
 
@@ -81,7 +78,7 @@ public class YouTubeActivity extends YouTubeBaseActivity implements OnInitialize
 
             // loadVideo() will auto play video
             // Use cueVideo() method, if you don't want to play it automatically
-            player.loadVideo(Config.YOUTUBE_VIDEO_CODE);
+            player.loadVideo(getResources().getString(R.string.youtube_video_code));
 
             // Hiding player controls
             player.setPlayerStyle(YouTubePlayer.PlayerStyle.CHROMELESS);
@@ -92,12 +89,12 @@ public class YouTubeActivity extends YouTubeBaseActivity implements OnInitialize
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RECOVERY_DIALOG_REQUEST) {
             // Retry initialization if user performed a recovery action
-            getYouTubePlayerProvider().initialize(Config.DEVELOPER_KEY, this);
+            getYouTubePlayerProvider().initialize(getResources().getString(R.string.youtube_developer_key), this);
         }
     }
 
     private YouTubePlayer.Provider getYouTubePlayerProvider() {
-        return (YouTubePlayerView) findViewById(R.id.youtube_view);
+        return findViewById(R.id.youtube_view);
     }
 
     @Override

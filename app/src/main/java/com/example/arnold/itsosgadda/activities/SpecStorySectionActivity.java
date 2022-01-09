@@ -1,12 +1,6 @@
 package com.example.arnold.itsosgadda.activities;
 
 import static android.view.View.OnClickListener;
-import static com.example.arnold.itsosgadda.R.id.AFM_button;
-import static com.example.arnold.itsosgadda.R.id.IT_TLC_button;
-import static com.example.arnold.itsosgadda.R.id.LSA_button;
-import static com.example.arnold.itsosgadda.R.id.MAT_button;
-import static com.example.arnold.itsosgadda.R.id.about_app;
-import static com.example.arnold.itsosgadda.R.id.nav_home;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -43,6 +37,8 @@ public class SpecStorySectionActivity extends AppCompatActivity implements OnCli
     private Button lyceumButton, it_tlcButton, economicalButton, matButton;
     private SpecStudySectionsLayoutBinding binding;
     private AppBarConfiguration mAppBarConfiguration;
+    private AlertDialog.Builder builder;
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +47,16 @@ public class SpecStorySectionActivity extends AppCompatActivity implements OnCli
             binding = SpecStudySectionsLayoutBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
 
-            lyceumButton = (Button) findViewById(LSA_button);
+            lyceumButton = findViewById(R.id.LSA_button);
             lyceumButton.setOnClickListener(this);
 
-            it_tlcButton = (Button) findViewById(IT_TLC_button);
+            it_tlcButton = findViewById(R.id.IT_TLC_button);
             it_tlcButton.setOnClickListener(this);
 
-            economicalButton = (Button) findViewById(AFM_button);
+            economicalButton = findViewById(R.id.AFM_button);
             economicalButton.setOnClickListener(this);
 
-            matButton = (Button) findViewById(MAT_button);
+            matButton = findViewById(R.id.MAT_button);
             matButton.setOnClickListener(this);
 
             DrawerLayout drawerLayout = binding.drawerLayout;
@@ -86,30 +82,23 @@ public class SpecStorySectionActivity extends AppCompatActivity implements OnCli
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case nav_home:
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                break;
-            case R.id.nav_our_story:
-                startActivity(new Intent(getApplicationContext(), StoryActivity.class));
-                break;
-            case R.id.nav_study_addresses:
-                startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
-                break;
-            case R.id.nav_e_registry_link:
-                startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
-                break;
-            case R.id.nav_feedback_to_staff:
-                startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
-                break;
-            case R.id.nav_findus:
-                startActivity(new Intent(getApplicationContext(), MapsLoader.class));
-                break;
-            case R.id.nav_app_blog:
-                startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
-                break;
+        int id = item.getItemId();
+        if (id == R.id.nav_home) {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        } else if (id == R.id.nav_our_story) {
+            startActivity(new Intent(getApplicationContext(), StoryActivity.class));
+        } else if (id == R.id.nav_study_addresses) {
+            startActivity(new Intent(getApplicationContext(), SpecStorySectionActivity.class));
+        } else if (id == R.id.nav_e_registry_link) {
+            startActivity(new Intent(getApplicationContext(), WebRegistryActivity.class));
+        } else if (id == R.id.nav_feedback_to_staff) {
+            startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
+        } else if (id == R.id.nav_findus) {
+            startActivity(new Intent(getApplicationContext(), MapsLoader.class));
+        } else if (id == R.id.nav_app_blog) {
+            startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
         }
-        return false;
+        return true;
     }
 
     @Override
@@ -131,37 +120,14 @@ public class SpecStorySectionActivity extends AppCompatActivity implements OnCli
         // as you specify a parent activity in AndroidManifest.xml.
         try {
             int id = item.getItemId();
-            switch (id) {
-                case R.id.dev_team:
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_dev_team)
-                            .setTitle(R.string.dev_team)
-                            .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show().setCanceledOnTouchOutside(true);
-                    break;
-                case about_app:
-                    builder = new AlertDialog.Builder(this);
-                    builder.setIcon(R.mipmap.icon_about)
-                            .setTitle(R.string.created_for)
-                            .setView(getLayoutInflater().inflate(R.layout.handler_version_app, null))
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .show().setCanceledOnTouchOutside(true);
-                    AlertDialog dialog = builder.create();
-                    dialog.dismiss();
-                    break;
-                case R.id.subscribe:
-                    startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
-                    break;
+            if (id == R.id.dev_team) {
+                builder = new AlertDialog.Builder(this);
+                builder.setIcon(R.mipmap.icon_dev_team)
+                        .setTitle(R.string.dev_team)
+                        .setView(getLayoutInflater().inflate(R.layout.handler_dev_team, null))
+                        .setPositiveButton("OK", (dialog, which) -> dialog.dismiss()).show().setCanceledOnTouchOutside(true);
+            } else if (id == R.id.subscribe) {
+                startActivity(new Intent(getApplicationContext(), SendBugCrashReport.class));
             }
         } catch (Exception ex) {
             Logger log = Logger.getLogger("SpecStorySectionActivity");
@@ -189,19 +155,15 @@ public class SpecStorySectionActivity extends AppCompatActivity implements OnCli
     @Override
     public void onClick(View v) {
         try {
-            switch (v.getId()) {
-                case LSA_button:
-                    lyceumButtonClicked();
-                    break;
-                case IT_TLC_button:
-                    itTlcButtonClicked();
-                    break;
-                case AFM_button:
-                    economicalButtonClicked();
-                    break;
-                case MAT_button:
-                    matButtonClicked();
-                    break;
+            int id = v.getId();
+            if (id == R.id.LSA_button) {
+                lyceumButtonClicked();
+            } else if (id == R.id.IT_TLC_button) {
+                itTlcButtonClicked();
+            } else if (id == R.id.AFM_button) {
+                economicalButtonClicked();
+            } else if (id == R.id.MAT_button) {
+                matButtonClicked();
             }
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
