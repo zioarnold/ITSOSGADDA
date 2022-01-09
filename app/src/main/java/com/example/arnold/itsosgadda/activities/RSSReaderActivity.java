@@ -46,10 +46,7 @@ public class RSSReaderActivity extends AppCompatActivity implements Refresher, N
     private ArrayList<PostData> listData;
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
-    //private String urlString = "http://feeds.feedburner.com/muslimorid";
-    //private String urlString = "http://feeds.reuters.com/reuters/technologyNews";
-    private final String urlString = "http://feeds.feedburner.com/IissCarloEmilioGadda?fmt=xml";
-    //private String urlString = "http://feeds.feedburner.com/reuterstech?format=xml";
+    private final String urlString = "https://feeds.feedburner.com/IissCarloEmilioGadda?fmt=xml";
     private RefresherListView postListView;
     private PostAdapter postAdapter;
     private int pagination = 1; //start dari 1

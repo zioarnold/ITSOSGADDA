@@ -117,13 +117,12 @@ public class MapsLoader extends AppCompatActivity implements OnMapReadyCallback,
             if (mMap != null) {
                 onMapReady(mMap);
             } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder = new AlertDialog.Builder(this);
                 builder.setIcon(R.mipmap.ic_launcher)
                         .setTitle(R.string.no_network_enabled)
                         .setMessage(R.string.network_enabled)
                         .setPositiveButton(R.string.yes, (dialog, which) -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
-                AlertDialog dialog = builder.create();
-
+                dialog = builder.create();
                 dialog.dismiss();
             }
         }
