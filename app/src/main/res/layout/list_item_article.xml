@@ -28,6 +28,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:text="Post Box"
+        android:textColor="@color/black"
         android:textIsSelectable="false"
         android:textSize="16sp" />
 
@@ -37,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/postThumb"
         android:layout_alignParentRight="true"
+        android:textColor="@color/black"
         android:layout_toRightOf="@id/postThumb"
         android:maxLines="1"
         android:text="Nov 10, 2014"

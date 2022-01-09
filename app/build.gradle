@@ -18,8 +18,8 @@ android {
         applicationId 'app.iissgadda.dev.new.arnold'
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 2604
-        versionName '2604-release'
+        versionCode 2605
+        versionName '2605-release'
         signingConfig signingConfigs.iissgadda_release
         multiDexEnabled true
     }
