@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     signingConfigs {
@@ -16,12 +17,18 @@ android {
     buildToolsVersion '32.0.0'
     defaultConfig {
         applicationId 'app.iissgadda.dev.new.arnold'
-        minSdkVersion 19
-        targetSdkVersion 30
-        versionCode 2605
-        versionName '2605-release'
+        minSdkVersion 28
+        targetSdkVersion 32
+        versionCode 2610
+        versionName '2610-release'
         signingConfig signingConfigs.iissgadda_release
         multiDexEnabled true
+        manifestPlaceholders = [
+                manifestApplicationId: "{$applicationId}",
+                pushbots_app_id      : "61e3111729cfc82ec46f3ab4",
+                pushbots_loglevel    : "DEBUG",
+                google_sender_id     : "49102344225"
+        ]
     }
     buildTypes {
         release {
@@ -41,7 +48,7 @@ android {
             zipAlignEnabled false
         }
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 }
@@ -50,18 +57,27 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+    implementation 'com.pushbots:pushbots-lib:3.3.3'
 
-//    implementation 'com.google.android.gms:play-services-ads:20.5.0'
     implementation 'com.google.android.gms:play-services-tagmanager:18.0.1'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'com.google.android.gms:play-services-location:19.0.1'
     implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'com.google.android.gms:play-services-auth:20.0.1'
+    implementation 'com.google.android.gms:play-services-analytics:18.0.1'
 
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.google.firebase:firebase-appindexing:20.0.0'
+    implementation 'com.google.firebase:firebase-core:20.0.0'
+    implementation 'com.google.firebase:firebase-iid:20.0.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.0'
 }

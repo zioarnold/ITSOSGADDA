@@ -2,7 +2,6 @@ package com.example.arnold.itsosgadda.main;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,6 +13,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -29,8 +29,10 @@ import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
 import com.example.arnold.itsosgadda.databinding.ActivityMainBinding;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
-import com.pushbots.push.Pushbots;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
@@ -53,15 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            Pushbots.sharedInstance().init(this);
-            Pushbots.sharedInstance().register();
-            Pushbots.sharedInstance().setPushEnabled(true);
-            Pushbots.sharedInstance().setRegStatus(false);
-            Pushbots.sharedInstance().unregister();
-
-
             binding = ActivityMainBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
+
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
             storyButtonMainBody = findViewById(R.id.storyButton);
             storyButtonMainBody.setOnClickListener(this);

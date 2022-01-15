@@ -1,10 +1,9 @@
 package com.example.arnold.itsosgadda.handlers;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -31,9 +30,9 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.navigation.NavigationView;
 
 import org.apache.log4j.Logger;
@@ -130,10 +129,14 @@ public class MapsLoader extends AppCompatActivity implements OnMapReadyCallback,
 
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.addMarker(new MarkerOptions()
-        .position(myLatLng));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(myLatLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
+        Objects.requireNonNull(mMap.addMarker(new MarkerOptions()
+                .position(myLatLng)
+                .title(getResources().getString(R.string.app_name)))).showInfoWindow();
+        CameraPosition cameraPosition = CameraPosition.builder()
+                .target(myLatLng)
+                .zoom(16)
+                .build();
+        mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
         mMap.getUiSettings().setAllGesturesEnabled(true);

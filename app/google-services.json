@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "49102344225",
+    "project_id": "iissgadda-45d77",
+    "storage_bucket": "iissgadda-45d77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49102344225:android:d82c4f5e4b15006ceb5360",
+        "android_client_info": {
+          "package_name": "app.iissgadda.dev.new.arnold"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49102344225-lhqshn9uani00no49830casvp1lp414n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmK8z3sax_y01gDK53FAUBF4-Ok_4aC4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49102344225-lhqshn9uani00no49830casvp1lp414n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
