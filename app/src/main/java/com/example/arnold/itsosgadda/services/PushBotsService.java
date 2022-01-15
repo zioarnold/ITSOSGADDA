@@ -2,6 +2,7 @@ package com.example.arnold.itsosgadda.services;
 
 import android.app.Application;
 
+import com.example.arnold.itsosgadda.R;
 import com.pushbots.push.Pushbots;
 
 public class PushBotsService extends Application {
@@ -10,12 +11,12 @@ public class PushBotsService extends Application {
         super.onCreate();
         // Initialize Pushbots Library
         new Pushbots.Builder(this)
-                .setFcmAppId("1:49102344225:android:d82c4f5e4b15006ceb5360")
+                .setFcmAppId(getResources().getString(R.string.FcmAppId))
                 .setLogLevel(Pushbots.LOG_LEVEL.DEBUG)
-                .setWebApiKey("AIzaSyA_BRjzHCDXggFpnVOBZotzBeUKVgmzghY")
-                .setPushbotsAppId("61e3111729cfc82ec46f3ab4")
-                .setProjectId("iissgadda-45d77")
-                .setSenderId("49102344225")
+                .setWebApiKey(getResources().getString(R.string.WebApiKey))
+                .setPushbotsAppId(getResources().getString(R.string.PushbotsAppId))
+                .setProjectId(getResources().getString(R.string.ProjectId))
+                .setSenderId(getResources().getString(R.string.SenderId))
                 .build();
     }
 }

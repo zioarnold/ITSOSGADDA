@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="FcmAppId" translatable="false">1:49102344225:android:d82c4f5e4b15006ceb5360</string>
+    <string name="WebApiKey" translatable="false">AIzaSyA_BRjzHCDXggFpnVOBZotzBeUKVgmzghY</string>
+    <string name="PushbotsAppId" translatable="false">61e3111729cfc82ec46f3ab4</string>
+    <string name="ProjectId" translatable="false">iissgadda-45d77</string>
+    <string name="SenderId" translatable="false">49102344225</string>
+</resources>
