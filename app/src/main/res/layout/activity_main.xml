@@ -111,7 +111,6 @@
                     android:background="#78ff6347"
                     android:text="@string/app_blog"
                     android:textColor="#000" />
-
                 <!--<Button
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -127,7 +126,6 @@
 
             </RelativeLayout>
         </ScrollView>
-
 <!--        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"-->
 <!--            android:id="@+id/adView"-->
 <!--            android:layout_width="wrap_content"-->
@@ -136,6 +134,7 @@
 <!--            android:layout_centerHorizontal="true"-->
 <!--            ads:adSize="BANNER"-->
 <!--            ads:adUnitId="@string/banner_ad_unit_id" />-->
+
     </RelativeLayout><!-- The drawer is given a fixed width in dp and extends the full height of
          the container. -->
     <com.google.android.material.navigation.NavigationView

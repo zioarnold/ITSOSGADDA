@@ -101,4 +101,5 @@
     <string name="menu_feedback_to_staff">Feedback to Staff</string>
     <string name="menu_find_us">Find us</string>
     <string name="menu_app_blog">App Blog</string>
+    <string name="please_sign_in">Please sign-in</string>
 </resources>

@@ -82,4 +82,5 @@
     <string name="menu_feedback_to_staff">Отзыв персоналу</string>
     <string name="menu_find_us">Где мы</string>
     <string name="menu_app_blog">Блог приложения</string>
+    <string name="please_sign_in">Please sign-in</string>
 </resources>
