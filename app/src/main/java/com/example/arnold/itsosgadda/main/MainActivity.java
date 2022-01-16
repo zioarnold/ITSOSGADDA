@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-//            GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-//            if (acct != null) {
-//                Pushbots.setEmail(acct.getEmail());
-//                Pushbots.setName(acct.getDisplayName());
-//            }
+            GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+            if (acct != null) {
+                Pushbots.setEmail(acct.getEmail());
+                Pushbots.setName(acct.getDisplayName());
+            }
 
             storyButtonMainBody = findViewById(R.id.storyButton);
             storyButtonMainBody.setOnClickListener(this);
