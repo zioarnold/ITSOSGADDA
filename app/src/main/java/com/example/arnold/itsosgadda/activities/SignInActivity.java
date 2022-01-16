@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 
 import com.example.arnold.itsosgadda.R;
@@ -30,6 +31,7 @@ public class SignInActivity extends AppCompatActivity {
         try {
             com.example.arnold.itsosgadda.databinding.SignInLayoutBinding binding = SignInLayoutBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             ActivityCompat.requestPermissions(this,
                     new String[]{
                             android.Manifest.permission.GET_ACCOUNTS,
