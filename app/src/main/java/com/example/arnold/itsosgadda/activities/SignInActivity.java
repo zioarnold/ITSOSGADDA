@@ -3,7 +3,6 @@ package com.example.arnold.itsosgadda.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -24,6 +23,7 @@ public class SignInActivity extends AppCompatActivity {
     private GoogleSignInClient googleSignInClient;
     private static final int RC_SIGN_IN = 9001;
     private SignInLayoutBinding binding;
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -42,7 +42,9 @@ public class SignInActivity extends AppCompatActivity {
         try {
             binding = SignInLayoutBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
+
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
             ActivityCompat.requestPermissions(this,
                     new String[]{
                             android.Manifest.permission.GET_ACCOUNTS,
@@ -57,16 +59,17 @@ public class SignInActivity extends AppCompatActivity {
                     signIn();
                 }
             });
+
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestEmail()
                     .build();
             googleSignInClient = GoogleSignIn.getClient(this, gso);
             GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+
             if (account != null) {
                 updateUI(account);
             } else {
                 Log.d(TAG, "User didn't signed in!");
-                Toast.makeText(this, "User didn't signed in", Toast.LENGTH_LONG).show();
             }
         } catch (Exception exception) {
             Log.d(TAG, exception.getMessage());
