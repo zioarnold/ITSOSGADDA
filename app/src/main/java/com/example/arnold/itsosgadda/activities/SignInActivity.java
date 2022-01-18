@@ -1,13 +1,10 @@
 package com.example.arnold.itsosgadda.activities;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
@@ -25,14 +22,17 @@ import com.google.android.gms.tasks.Task;
 public class SignInActivity extends AppCompatActivity {
     private static final String TAG = "SignInActivity";
     private GoogleSignInClient googleSignInClient;
-    private static final int RC_SIGN_IN = 0;
-
+    private static final int RC_SIGN_IN = 9001;
+    private SignInLayoutBinding binding;
     @Override
     protected void onStart() {
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         if (account != null) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtra("USER_EMAIL", account.getEmail());
+            intent.putExtra("USER_NAME", account.getDisplayName());
+            startActivity(intent);
         }
     }
 
@@ -40,7 +40,7 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            com.example.arnold.itsosgadda.databinding.SignInLayoutBinding binding = SignInLayoutBinding.inflate(getLayoutInflater());
+            binding = SignInLayoutBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             ActivityCompat.requestPermissions(this,
@@ -49,8 +49,7 @@ public class SignInActivity extends AppCompatActivity {
                             android.Manifest.permission.LOCATION_HARDWARE,
                             android.Manifest.permission.ACCESS_COARSE_LOCATION,
                             android.Manifest.permission.ACCESS_FINE_LOCATION
-                    },
-                    1);
+                    }, 1);
 
             findViewById(R.id.sign_in_button).setOnClickListener(view -> {
                 int id = view.getId();
@@ -63,7 +62,12 @@ public class SignInActivity extends AppCompatActivity {
                     .build();
             googleSignInClient = GoogleSignIn.getClient(this, gso);
             GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-            updateUI(account);
+            if (account != null) {
+                updateUI(account);
+            } else {
+                Log.d(TAG, "User didn't signed in!");
+                Toast.makeText(this, "User didn't signed in", Toast.LENGTH_LONG).show();
+            }
         } catch (Exception exception) {
             Log.d(TAG, exception.getMessage());
         }
@@ -77,15 +81,15 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 if (account != null) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.putExtra("USER_EMAIL", account.getEmail());
+                    intent.putExtra("USER_NAME", account.getDisplayName());
+                    startActivity(intent);
                 }
             } catch (ApiException e) {
                 Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
@@ -94,10 +98,9 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void updateUI(GoogleSignInAccount account) {
-        if (account != null) {
-            startActivity(new Intent(this, MainActivity.class));
-        } else {
-            Log.d(TAG, "You didn't signed in");
-        }
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("USER_EMAIL", account.getEmail());
+        intent.putExtra("USER_NAME", account.getDisplayName());
+        startActivity(intent);
     }
 }

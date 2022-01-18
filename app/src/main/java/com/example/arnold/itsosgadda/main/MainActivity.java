@@ -13,7 +13,6 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -29,8 +28,6 @@ import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
 import com.example.arnold.itsosgadda.databinding.ActivityMainBinding;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.navigation.NavigationView;
 import com.pushbots.push.Pushbots;
 
@@ -58,14 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             binding = ActivityMainBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
-
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
-            GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-            if (acct != null) {
-                Pushbots.setEmail(acct.getEmail());
-                Pushbots.setName(acct.getDisplayName());
-            }
+            Intent intent = getIntent();
+            Pushbots.setEmail(intent.getStringExtra("USER_EMAIL"));
+            Pushbots.setName(intent.getStringExtra("USER_NAME"));
 
             storyButtonMainBody = findViewById(R.id.storyButton);
             storyButtonMainBody.setOnClickListener(this);
