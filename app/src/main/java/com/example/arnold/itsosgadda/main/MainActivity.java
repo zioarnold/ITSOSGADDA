@@ -23,6 +23,7 @@ import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
 import com.example.arnold.itsosgadda.activities.RSSReaderActivity;
 import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
+import com.example.arnold.itsosgadda.activities.SignInActivity;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Intent intent;
     private ActivityMainBinding binding;
     private AppBarConfiguration mAppBarConfiguration;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -234,5 +234,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        builder = new AlertDialog.Builder(this);
+        builder.setIcon(R.mipmap.ic_launcher)
+                .setTitle(R.string.created_for)
+                .setMessage(R.string.confirm_exit)
+                .show().setCanceledOnTouchOutside(true);
+        dialog = builder.create();
+        dialog.dismiss();
     }
 }

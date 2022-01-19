@@ -80,4 +80,5 @@
     <string name="menu_find_us">Trovaci</string>
     <string name="menu_app_blog">Blog dell`App</string>
     <string name="please_sign_in">Accedi</string>
+    <string name="confirm_exit">Per uscire dall`app premere tasto centrale del vostro telefono</string>
 </resources>

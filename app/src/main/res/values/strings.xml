@@ -102,4 +102,5 @@
     <string name="menu_find_us">Find us</string>
     <string name="menu_app_blog">App Blog</string>
     <string name="please_sign_in">Please sign-in</string>
+    <string name="confirm_exit">To exit from app, click on the Home button of your smartphone</string>
 </resources>
