@@ -2,15 +2,22 @@ package com.example.arnold.itsosgadda.main;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -47,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ActivityMainBinding binding;
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +62,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             binding = ActivityMainBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
+//            ActionBar actionBar = getSupportActionBar();
+//            if (actionBar != null) {
+//                actionBar.setDisplayHomeAsUpEnabled(true);
+//                actionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
+//            }
             Intent intent = getIntent();
             Pushbots.setEmail(intent.getStringExtra("USER_EMAIL"));
             Pushbots.setName(intent.getStringExtra("USER_NAME"));
@@ -179,6 +192,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.d(TAG, ex.getMessage());
         }
     }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if (toggle.onOptionsItemSelected(item)) {
+//            return true;
+//        }
+//        if (item.getItemId() == android.R.id.home) {
+//            drawerLayout.openDrawer(GravityCompat.START);
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
