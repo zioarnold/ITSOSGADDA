@@ -35,8 +35,8 @@ public class EmailSendingActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.email_send_layout);
-        buttonSend = (Button) findViewById(R.id.emailSend);
-        txtMessage = (EditText) findViewById(R.id.editTextMessage);
+        buttonSend = findViewById(R.id.emailSend);
+        txtMessage = findViewById(R.id.editTextMessage);
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @SuppressWarnings("ConstantConditions")
             public void onClick(View v) {

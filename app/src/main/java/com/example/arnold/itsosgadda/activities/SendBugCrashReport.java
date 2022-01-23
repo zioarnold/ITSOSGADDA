@@ -39,8 +39,8 @@ public class SendBugCrashReport extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.send_bug_crash_report);
 
-        buttonSend = (Button) findViewById(R.id.emailSend);
-        txtMessage = (EditText) findViewById(R.id.editTextMessage);
+        buttonSend = findViewById(R.id.emailSend);
+        txtMessage = findViewById(R.id.editTextMessage);
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @SuppressWarnings("ConstantConditions")
             public void onClick(View v) {
