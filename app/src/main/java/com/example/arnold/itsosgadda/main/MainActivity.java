@@ -16,7 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -34,6 +36,10 @@ import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
 import com.example.arnold.itsosgadda.handlers.DrawerCloser;
 import com.example.arnold.itsosgadda.databinding.ActivityMainBinding;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.pushbots.push.Pushbots;
 
@@ -54,7 +60,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ActivityMainBinding binding;
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle toggle;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        if (account != null) {
+//            this.recreate();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +81,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                actionBar.setDisplayHomeAsUpEnabled(true);
 //                actionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
 //            }
-            Intent intent = getIntent();
-            Pushbots.setEmail(intent.getStringExtra("USER_EMAIL"));
-            Pushbots.setName(intent.getStringExtra("USER_NAME"));
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{
+                            android.Manifest.permission.GET_ACCOUNTS,
+                            android.Manifest.permission.LOCATION_HARDWARE,
+                            android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                            android.Manifest.permission.ACCESS_FINE_LOCATION
+                    }, 1);
+
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestEmail()
+                    .build();
 
             storyButtonMainBody = findViewById(R.id.storyButton);
             storyButtonMainBody.setOnClickListener(this);
@@ -145,10 +169,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
     }
 
-    private void communicationButtonClicked() {
+//    private void communicationButtonClicked() {
 //        startActivity(new Intent(getApplicationContext(), ComWebActivity.class));
-
-    }
+//    }
 
     private void rssNewsButtonClicked() {
         startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));

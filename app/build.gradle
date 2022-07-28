@@ -19,8 +19,8 @@ android {
         applicationId 'app.iissgadda.dev.new.arnold'
         minSdkVersion 28
         targetSdkVersion 32
-        versionCode 2627
-        versionName '2627-release'
+        versionCode 2628
+        versionName '2628-release'
         signingConfig signingConfigs.iissgadda_release
         multiDexEnabled true
         manifestPlaceholders = [

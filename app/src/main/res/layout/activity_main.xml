@@ -111,19 +111,6 @@
                     android:background="#78ff6347"
                     android:text="@string/app_blog"
                     android:textColor="#000" />
-                <!--<Button
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/app_video_blog"
-                    android:textColor="#000"
-                    android:id="@+id/app_video_blog"
-                    android:layout_centerHorizontal="true"
-                    android:background="#78c0c0c0"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_below="@+id/app_blog" />-->
-
             </RelativeLayout>
         </ScrollView>
 <!--        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"-->
