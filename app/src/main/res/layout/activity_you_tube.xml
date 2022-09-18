@@ -38,13 +38,14 @@
                 tools:ignore="InefficientWeight" />
 
             <CheckBox
+                android:id="@+id/checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/checkbox"
                 android:text="@string/checkbox_skip_intro"
                 android:textColor="@color/title"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
 
