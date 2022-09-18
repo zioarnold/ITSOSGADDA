@@ -29,9 +29,6 @@ import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
 import com.example.arnold.itsosgadda.databinding.ActivityMainBinding;
 import com.example.arnold.itsosgadda.handlers.DrawerCloser;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.navigation.NavigationView;
 
 @SuppressWarnings("FieldCanBeLocal")
@@ -53,15 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DrawerLayout drawerLayout;
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if (account != null) {
-//            this.recreate();
-        }
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
@@ -78,10 +66,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     new String[]{
                             android.Manifest.permission.ACCESS_COARSE_LOCATION
                     }, 1);
-
-            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestEmail()
-                    .build();
 
             storyButtonMainBody = findViewById(R.id.storyButton);
             storyButtonMainBody.setOnClickListener(this);
