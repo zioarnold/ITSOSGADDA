@@ -2,24 +2,17 @@ package com.example.arnold.itsosgadda.main;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -33,15 +26,13 @@ import com.example.arnold.itsosgadda.activities.SendBugCrashReport;
 import com.example.arnold.itsosgadda.activities.SpecStorySectionActivity;
 import com.example.arnold.itsosgadda.activities.StoryActivity;
 import com.example.arnold.itsosgadda.activities.WebRegistryActivity;
-import com.example.arnold.itsosgadda.handlers.DrawerCloser;
 import com.example.arnold.itsosgadda.databinding.ActivityMainBinding;
+import com.example.arnold.itsosgadda.handlers.DrawerCloser;
 import com.example.arnold.itsosgadda.handlers.MapsLoader;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.navigation.NavigationView;
-import com.pushbots.push.Pushbots;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
@@ -85,10 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             ActivityCompat.requestPermissions(this,
                     new String[]{
-                            android.Manifest.permission.GET_ACCOUNTS,
-                            android.Manifest.permission.LOCATION_HARDWARE,
-                            android.Manifest.permission.ACCESS_COARSE_LOCATION,
-                            android.Manifest.permission.ACCESS_FINE_LOCATION
+                            android.Manifest.permission.ACCESS_COARSE_LOCATION
                     }, 1);
 
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

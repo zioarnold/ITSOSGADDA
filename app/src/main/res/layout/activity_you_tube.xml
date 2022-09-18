@@ -43,19 +43,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="@string/checkbox_skip_intro"
-                android:textColor="@color/title"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
 
         <Button
+            android:id="@+id/skip_video"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/rouned_corner_shadow"
-            android:id="@+id/skip_video"
-            android:text="@string/button_proceed" />
+            android:text="@string/button_proceed"
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </RelativeLayout>

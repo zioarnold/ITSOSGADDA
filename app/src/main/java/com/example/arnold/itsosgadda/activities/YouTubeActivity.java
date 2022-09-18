@@ -26,7 +26,7 @@ public class YouTubeActivity extends YouTubeBaseActivity implements OnInitialize
     private YouTubePlayerView youTubeView;
     private Button skipVideo;
     private CheckBox checkBox;
-    public static final String PREFS_NAME = "MyPrefsFile1";
+    public static final String PREFS_NAME = "SkipYouTubePlayer";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
