@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
@@ -55,11 +56,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             binding = ActivityMainBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
-//            ActionBar actionBar = getSupportActionBar();
-//            if (actionBar != null) {
-//                actionBar.setDisplayHomeAsUpEnabled(true);
-//                actionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
-//            }
+            ActionBar actionBar = getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setIcon(R.drawable.ic_home);
+            }
+
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
             ActivityCompat.requestPermissions(this,
@@ -101,9 +102,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     R.id.nav_app_blog
             ).setOpenableLayout(drawerLayout)
                     .build();
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-            NavigationUI.setupWithNavController(navigationView, navController);
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
         }

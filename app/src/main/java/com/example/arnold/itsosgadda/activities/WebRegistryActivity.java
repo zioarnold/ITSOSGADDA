@@ -92,9 +92,6 @@ public class WebRegistryActivity extends AppCompatActivity implements Navigation
                     R.id.nav_app_blog
             ).setOpenableLayout(drawerLayout)
                     .build();
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-            NavigationUI.setupWithNavController(navigationView, navController);
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
         }
