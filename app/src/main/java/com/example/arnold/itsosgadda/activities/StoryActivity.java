@@ -10,6 +10,8 @@ import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -39,6 +41,10 @@ public class StoryActivity extends AppCompatActivity implements NavigationView.O
         try {
             binding = StoryLayoutBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
+
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            toolbar.setNavigationOnClickListener(view -> drawerLayout.openDrawer(GravityCompat.START));
 
             webViewStory = findViewById(R.id.webViewStory);
             webViewStory.getSettings().setJavaScriptEnabled(true);

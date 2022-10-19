@@ -13,10 +13,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:navigationIcon="@drawable/ic_home"
+                app:title="@string/app_name"
+                app:titleTextColor="@color/black" />
+        </com.google.android.material.appbar.AppBarLayout>
+
         <WebView
             android:id="@+id/webViewLS"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_below="@id/app_bar_layout" />
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

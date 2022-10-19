@@ -10,6 +10,8 @@ import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -41,6 +43,10 @@ public class ITActivity extends AppCompatActivity implements NavigationView.OnNa
         try {
             binding = ItTlcLayoutBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
+
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            toolbar.setNavigationOnClickListener(view -> drawerLayout.openDrawer(GravityCompat.START));
 
             webViewIT_TLC = findViewById(R.id.webViewIT_TLC);
             webViewIT_TLC.getSettings().setJavaScriptEnabled(true);

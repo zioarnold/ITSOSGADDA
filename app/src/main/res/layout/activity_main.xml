@@ -7,21 +7,35 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:forceDarkAllowed="false"
-    tools:context=".main.MainActivity"
-    tools:openDrawer="start">
+    tools:context=".main.MainActivity">
     <!-- As the main content view, the view below consumes the entire
          space available using match_parent in both dimensions. -->
 
-<!--    <include layout="@layout/layout_toolbar" />-->
+    <!--    <include layout="@layout/layout_toolbar" />-->
 
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:navigationIcon="@drawable/ic_home"
+                app:title="@string/app_name"
+                app:titleTextColor="@color/black" />
+        </com.google.android.material.appbar.AppBarLayout>
+
         <ScrollView
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:layout_below="@id/app_bar_layout">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -78,7 +92,7 @@
                     android:textColor="#000" />
 
                 <Button
-                    android:id="@+id/findus"
+                    android:id="@+id/find_us"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/feedback"
@@ -91,28 +105,15 @@
                     android:textColor="#000" />
 
                 <Button
-                    android:id="@+id/button_show_comunications"
+                    android:id="@+id/app_blog"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/findus"
+                    android:layout_below="@+id/find_us"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
                     android:background="#784169e1"
-                    android:text="@string/communications_news"
-                    android:textColor="#000" />
-
-                <Button
-                    android:id="@+id/app_blog"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/button_show_comunications"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="5dp"
-                    android:background="#78ff6347"
                     android:text="@string/app_blog"
                     android:textColor="#000" />
             </RelativeLayout>
@@ -131,6 +132,7 @@
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"

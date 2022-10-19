@@ -10,6 +10,8 @@ import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -45,6 +47,10 @@ public class AFMActivity extends AppCompatActivity implements NavigationView.OnN
             webViewAFM = findViewById(R.id.webViewAFM);
             webViewAFM.getSettings().setJavaScriptEnabled(true);
             webViewAFM.loadUrl("file:///android_asset/afm_html/afm.html");
+
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            toolbar.setNavigationOnClickListener(view -> drawerLayout.openDrawer(GravityCompat.START));
 
             drawerLayout = binding.drawerLayout;
             NavigationView navigationView = binding.navView;

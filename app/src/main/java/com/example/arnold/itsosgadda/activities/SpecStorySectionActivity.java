@@ -12,6 +12,8 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -43,6 +45,10 @@ public class SpecStorySectionActivity extends AppCompatActivity implements OnCli
         try {
             binding = SpecStudySectionsLayoutBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
+
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            toolbar.setNavigationOnClickListener(view -> drawerLayout.openDrawer(GravityCompat.START));
 
             lyceumButton = findViewById(R.id.LSA_button);
             lyceumButton.setOnClickListener(this);

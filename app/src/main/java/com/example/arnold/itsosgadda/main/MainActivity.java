@@ -13,7 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -56,12 +58,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             binding = ActivityMainBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
-            ActionBar actionBar = getSupportActionBar();
-            if (actionBar != null) {
-                actionBar.setIcon(R.drawable.ic_home);
-            }
 
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            toolbar.setNavigationOnClickListener(view -> drawerLayout.openDrawer(GravityCompat.START));
 
             ActivityCompat.requestPermissions(this,
                     new String[]{
@@ -80,11 +81,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             feedBackButton = findViewById(R.id.feedback);
             feedBackButton.setOnClickListener(this);
 
-            findUsButton = findViewById(R.id.findus);
+            findUsButton = findViewById(R.id.find_us);
             findUsButton.setOnClickListener(this);
-
-            communicationButton = findViewById(R.id.button_show_comunications);
-            communicationButton.setOnClickListener(this);
 
             rssFeedReader = findViewById(R.id.app_blog);
             rssFeedReader.setOnClickListener(this);
@@ -139,10 +137,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(new Intent(getApplicationContext(), EmailSendingActivity.class));
     }
 
-//    private void communicationButtonClicked() {
-//        startActivity(new Intent(getApplicationContext(), ComWebActivity.class));
-//    }
-
     private void rssNewsButtonClicked() {
         startActivity(new Intent(getApplicationContext(), RSSReaderActivity.class));
     }
@@ -159,18 +153,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 webRegistryButtonClicked();
             } else if (id == R.id.feedback) {
                 feedbackMailToButtonClicked();
-            } else if (id == R.id.button_show_comunications) {
-                builder = new AlertDialog.Builder(this);
-                builder.setIcon(R.mipmap.ic_launcher)
-                        .setTitle(R.string.created_for)
-                        .setMessage(R.string.feature_under_work)
-                        .show().setCanceledOnTouchOutside(true);
-                dialog = builder.create();
-                dialog.dismiss();
-//                    communicationButtonClicked();
             } else if (id == R.id.app_blog) {
                 rssNewsButtonClicked();
-            } else if (id == R.id.findus) {
+            } else if (id == R.id.find_us) {
                 builder = new AlertDialog.Builder(this);
                 builder.setIcon(R.mipmap.ic_launcher)
                         .setTitle(R.string.created_for)
@@ -186,16 +171,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        if (toggle.onOptionsItemSelected(item)) {
-//            return true;
-//        }
-//        if (item.getItemId() == android.R.id.home) {
-//            drawerLayout.openDrawer(GravityCompat.START);
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            drawerLayout.openDrawer(GravityCompat.START);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -21,6 +21,8 @@ import android.webkit.WebViewClient;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -53,6 +55,10 @@ public class ComWebActivity extends AppCompatActivity implements NavigationView.
             this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
             binding = ActivityComWebBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
+
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            toolbar.setNavigationOnClickListener(view -> drawerLayout.openDrawer(GravityCompat.START));
 
             WebView webView = findViewById(R.id.webView_ComWeb_registry);
             //Enables JS

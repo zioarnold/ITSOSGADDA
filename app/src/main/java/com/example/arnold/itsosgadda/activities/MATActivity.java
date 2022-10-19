@@ -10,6 +10,8 @@ import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -40,6 +42,10 @@ public class MATActivity extends AppCompatActivity implements NavigationView.OnN
         try {
             binding = MechEletAssistTechLayoutBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
+
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            toolbar.setNavigationOnClickListener(view -> drawerLayout.openDrawer(GravityCompat.START));
 
             webViewMAT = findViewById(R.id.webViewMAT);
             webViewMAT.getSettings().setJavaScriptEnabled(true);
