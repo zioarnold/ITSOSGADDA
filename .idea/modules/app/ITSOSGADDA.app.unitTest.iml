@@ -50,7 +50,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: C (2)" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: C (3)" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: C (4)" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.databinding:viewbinding:7.3.0@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.databinding:viewbinding:7.3.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.multidex:multidex:2.0.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.android.gms:play-services-tagmanager:18.0.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.android.gms:play-services-ads-identifier:18.0.1@aar" level="project" />
