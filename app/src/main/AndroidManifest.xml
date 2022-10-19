@@ -78,12 +78,12 @@
             android:name=".activities.RSSReaderActivity"
             android:configChanges="locale"
             android:exported="true"
-            android:label="@string/label_appblog" />
+            android:label="@string/label_app_blog" />
         <activity
             android:name=".activities.ContentPostActivity"
             android:configChanges="locale"
             android:exported="true"
-            android:label="@string/label_appblog_detailed" />
+            android:label="@string/label_app_blog_detailed" />
         <activity
             android:name=".activities.AFMActivity"
             android:configChanges="locale"

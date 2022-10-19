@@ -67,22 +67,12 @@ public class MapsLoader extends AppCompatActivity implements OnMapReadyCallback,
                     R.id.nav_findus,
                     R.id.nav_app_blog
             ).setOpenableLayout(drawerLayout).build();
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-            NavigationUI.setupWithNavController(navigationView, navController);
 
             setUpMapIfNeeded();
         } catch (Exception exception) {
             Log.d(TAG, exception.getMessage());
         }
     }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
-    }
-
     @Override
     protected void onResume() {
         super.onResume();

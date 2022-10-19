@@ -4,23 +4,21 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.example.arnold.itsosgadda.R;
 import com.example.arnold.itsosgadda.activities.EmailSendingActivity;
@@ -38,12 +36,11 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity";
-    private Button storyButtonMainBody,
+    private Button storyButton,
             specSectButton,
             webRegistryButton,
             feedBackButton,
             findUsButton,
-            communicationButton,
             rssFeedReader;
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
@@ -60,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setContentView(binding.getRoot());
 
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
             toolbar.setNavigationOnClickListener(view -> drawerLayout.openDrawer(GravityCompat.START));
@@ -69,13 +67,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             android.Manifest.permission.ACCESS_COARSE_LOCATION
                     }, 1);
 
-            storyButtonMainBody = findViewById(R.id.storyButton);
-            storyButtonMainBody.setOnClickListener(this);
+            storyButton = findViewById(R.id.story);
+            storyButton.setOnClickListener(this);
 
-            specSectButton = findViewById(R.id.specSectionButtonId);
+            specSectButton = findViewById(R.id.sections);
             specSectButton.setOnClickListener(this);
 
-            webRegistryButton = findViewById(R.id.e_registryId);
+            webRegistryButton = findViewById(R.id.eRegistry);
             webRegistryButton.setOnClickListener(this);
 
             feedBackButton = findViewById(R.id.feedback);
@@ -103,12 +101,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
         }
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
     }
 
     private void storyButtonClicked() {
@@ -145,11 +137,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         try {
             int id = v.getId();
-            if (id == R.id.storyButton) {
+            if (id == R.id.story) {
                 storyButtonClicked();
-            } else if (id == R.id.specSectionButtonId) {
+            } else if (id == R.id.sections) {
                 specSectButtonClicked();
-            } else if (id == R.id.e_registryId) {
+            } else if (id == R.id.eRegistry) {
                 webRegistryButtonClicked();
             } else if (id == R.id.feedback) {
                 feedbackMailToButtonClicked();
@@ -158,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else if (id == R.id.find_us) {
                 builder = new AlertDialog.Builder(this);
                 builder.setIcon(R.mipmap.ic_launcher)
-                        .setTitle(R.string.created_for)
+                        .setTitle(R.string.app_name)
                         .setMessage(R.string.reaching_from_fornovo_FS)
                         .setPositiveButton(R.string.ok, (dialog, which) -> startActivity(new Intent(getApplicationContext(),
                                 MapsLoader.class)))
@@ -221,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onBackPressed() {
         builder = new AlertDialog.Builder(this);
         builder.setIcon(R.mipmap.ic_launcher)
-                .setTitle(R.string.created_for)
+                .setTitle(R.string.app_name)
                 .setMessage(R.string.confirm_exit)
                 .show().setCanceledOnTouchOutside(true);
         dialog = builder.create();

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
     <string name="specSectionButtonId">Indirizzi di studio</string>
-    <string name="La_nostra_storia">La nostra storia</string>
-    <string name="created_for">I.I.S.S. \"C. E. Gadda\"</string>
     <string name="e_registry">Registro elettronico</string>
     <string name="feedback">Feedback allo staff</string>
     <string name="Email_to_send">Feedback allo staff…</string>
@@ -24,7 +22,7 @@
     <string name="lyceum_sector">Liceo Scientifico Scienze Applicate</string>
     <string name="mec_elect_sector">Manutenzione e Assistenza Tecnica</string>
     <string name="title_activity_maps">Dove trovarci</string>
-    <string name="findus">Dove trovarci</string>
+    <string name="find_us">Dove trovarci</string>
     <string name="dev_team">Partecipanti</string>
     <string name="dev_team_list">
         ALBERT CHARYIEV - Assistente principale\n
@@ -48,7 +46,7 @@
     <string name="release_to_refresh">Rilascia per aggiornare</string>
     <string name="loading">Caricamento…</string>
     <string name="app_blog">Blog dell\'App</string>
-    <string name="label_appblog">App Blog</string>
+    <string name="label_app_blog">App Blog</string>
     <string name="label_send_email_to_staff">Email allo Staff</string>
     <string name="label_our_story">La nostra storia</string>
     <string name="label_study_addresses">Indirizzi di studio</string>
@@ -58,7 +56,7 @@
     <string name="label_afm">Amministrazione, Finanza e Marketing</string>
     <string name="label_e_registry">Registro elettronico</string>
     <string name="label_youtube">YouTubePlayer</string>
-    <string name="label_appblog_detailed">Blog dell\'App - Dettagli</string>
+    <string name="label_app_blog_detailed">Blog dell\'App - Dettagli</string>
     <string name="string_iissgadda_welcome_text">Benvenuti all\'IISS Gadda</string>
     <string name="button_proceed">Continua…</string>
     <string name="checkbox_skip_intro">Non visualizzarlo più</string>

@@ -100,9 +100,9 @@ public class RSSReaderActivity extends AppCompatActivity implements Refresher, N
                     R.id.nav_app_blog
             ).setOpenableLayout(drawerLayout)
                     .build();
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-            NavigationUI.setupWithNavController(navigationView, navController);
+//            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+//            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+//            NavigationUI.setupWithNavController(navigationView, navController);
         } catch (Exception exception) {
             Log.d(TAG, exception.getMessage());
         }

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
     <string name="app_name" translatable="false">I.I.S.S. \"C. E. Gadda\"</string>
-    <string name="La_nostra_storia">Our story</string>
     <string name="specSectionButtonId">Study addresses</string>
-    <string name="created_for">I.I.S.S. \"C. E. Gadda\"</string>
     <string name="e_registry">E-Registry</string>
     <string name="feedback">Feedback to staff</string>
     <string name="Email_to_send">Send feedback to Gadda staff…</string>
@@ -16,7 +14,7 @@
     <string name="forgot_email_id_enter">You forgot to enter the email ID</string>
     <string name="AboutApp">About app</string>
     <string name="title_activity_maps">Find us</string>
-    <string name="findus">Find us</string>
+    <string name="find_us">Find us</string>
     <string name="loading_progress">Loading…</string>
     <string name="reaching_from_fornovo_FS">Nazionale n.6 street - 43045 Fornovo di Taro - PR - (IT)</string>
     <string name="dev_contact">Contact to Developer</string>
@@ -51,7 +49,7 @@
 
     <string name="email_contact_developer" translatable="false">vl80tk@gmail.com</string>
     <string name="yandex_contact_developer" translatable="false">arn8109@yandex.com</string>
-    <string name="mobilephone_contact_developer" translatable="false">+393462133945</string>
+    <string name="mobile_phone_contact_developer" translatable="false">+393462133945</string>
     <string name="vk_contact_developer" translatable="false">https://vk.com/arnold.charyyev</string>
     <string name="fb_contact_developer" translatable="false">https://www.facebook.com/schyzomaniac.mind</string>
     <string name="tw_contact_developer" translatable="false">https://twitter.com/arnold_online</string>
@@ -69,7 +67,7 @@
     <string name="gps_settings" translatable="false">GPS Settings</string>
     <string name="gps_settings_allow_abort" translatable="false">GPS isn\'t enabled. Do you want to go to settings menu?</string>
     <string name="label_send_email_to_staff">Email to Staff</string>
-    <string name="label_appblog">App Blog</string>
+    <string name="label_app_blog">App Blog</string>
     <string name="label_our_story">Our story</string>
     <string name="label_study_addresses">Study addresses</string>
     <string name="label_lsa">Application of Science</string>
@@ -79,7 +77,7 @@
     <string name="label_e_registry">Web registry</string>
     <string name="label_send_bug_crash_report">Contact to Developer</string>
     <string name="label_youtube">YouTubePlayer</string>
-    <string name="label_appblog_detailed">App Blog - Details</string>
+    <string name="label_app_blog_detailed">App Blog - Details</string>
     <string name="string_iissgadda_welcome_text">Welcome to IISS Gadda</string>
     <string name="button_proceed">Proceed…</string>
     <string name="checkbox_skip_intro">Don\'t show this anymore</string>

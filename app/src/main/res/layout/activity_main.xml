@@ -8,10 +8,6 @@
     android:fitsSystemWindows="true"
     android:forceDarkAllowed="false"
     tools:context=".main.MainActivity">
-    <!-- As the main content view, the view below consumes the entire
-         space available using match_parent in both dimensions. -->
-
-    <!--    <include layout="@layout/layout_toolbar" />-->
 
     <RelativeLayout
         android:id="@+id/container"
@@ -42,7 +38,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/storyButton"
+                    android:id="@+id/story"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -50,14 +46,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
                     android:background="#78ffff33"
-                    android:text="@string/La_nostra_storia"
+                    android:text="@string/label_our_story"
                     android:textColor="#000" />
 
                 <Button
-                    android:id="@+id/specSectionButtonId"
+                    android:id="@+id/sections"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/storyButton"
+                    android:layout_below="@id/story"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
@@ -66,10 +62,10 @@
                     android:textColor="#000" />
 
                 <Button
-                    android:id="@+id/e_registryId"
+                    android:id="@+id/eRegistry"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/specSectionButtonId"
+                    android:layout_below="@id/sections"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
@@ -82,7 +78,7 @@
                     android:id="@+id/feedback"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/e_registryId"
+                    android:layout_below="@id/eRegistry"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
@@ -101,14 +97,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
                     android:background="#78ffff33"
-                    android:text="@string/findus"
+                    android:text="@string/find_us"
                     android:textColor="#000" />
 
                 <Button
                     android:id="@+id/app_blog"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/find_us"
+                    android:layout_below="@id/find_us"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
@@ -126,9 +122,7 @@
         <!--            android:layout_centerHorizontal="true"-->
         <!--            ads:adSize="BANNER"-->
         <!--            ads:adUnitId="@string/banner_ad_unit_id" />-->
-
-    </RelativeLayout><!-- The drawer is given a fixed width in dp and extends the full height of
-         the container. -->
+    </RelativeLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"

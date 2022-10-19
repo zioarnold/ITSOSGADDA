@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ITSOSGADDA.iml" filepath="$PROJECT_DIR$/ITSOSGADDA.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ITSOSGADDA.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ITSOSGADDA.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ITSOSGADDA.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ITSOSGADDA.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ITSOSGADDA.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ITSOSGADDA.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ITSOSGADDA.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ITSOSGADDA.app.unitTest.iml" />
     </modules>
