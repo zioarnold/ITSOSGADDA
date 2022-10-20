@@ -3,6 +3,7 @@ package com.example.arnold.itsosgadda.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -56,7 +57,13 @@ public class YouTubeActivity extends YouTubeBaseActivity implements OnInitialize
         youTubeView = findViewById(R.id.youtube_view);
 
         // Initializing video player with developer key
-        youTubeView.initialize(getResources().getString(R.string.youtube_developer_key), this);
+        youTubeView.initialize(
+                new String(
+                        Base64.decode(
+                                getResources().getString(
+                                        R.string.youtube_developer_key),
+                                Base64.DEFAULT)),
+                this);
 
     }
 
@@ -89,7 +96,14 @@ public class YouTubeActivity extends YouTubeBaseActivity implements OnInitialize
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RECOVERY_DIALOG_REQUEST) {
             // Retry initialization if user performed a recovery action
-            getYouTubePlayerProvider().initialize(getResources().getString(R.string.youtube_developer_key), this);
+            getYouTubePlayerProvider().initialize(
+                    new String(
+                            Base64.decode(
+                                    getResources()
+                                            .getString(
+                                                    R.string.youtube_developer_key),
+                                    Base64.DEFAULT)),
+                    this);
         }
     }
 
