@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="youtube_developer_key" templateMergeStrategy="preserve" translatable="false" tools:ignore="Typos">AIzaSyBChFdKr0JpkQsvZgViFPoD7VZIUyu1Ea4</string>
+    <string name="youtube_developer_key" templateMergeStrategy="preserve" translatable="false" tools:ignore="Typos">QUl6YVN5QkNoRmRLcjBKcGtRc3ZaZ1ZpRlBvRDdWWklVeXUxRWE0</string>
     <string name="youtube_video_code" templateMergeStrategy="preserve" translatable="false">cyBNTJdJgE8</string>
 </resources>
